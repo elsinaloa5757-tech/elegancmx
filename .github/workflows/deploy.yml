@@ -1,13 +1,13 @@
 name: Deploy Elegance MX to Cloudflare Pages
 on:
-  push:
-    branches: [main]
   workflow_dispatch:
 permissions:
   contents: read
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
     steps:
       - uses: actions/checkout@v4
       - name: Validate storefront
@@ -15,17 +15,16 @@ jobs:
           test -s index.html
           test -s app.js
           test -s styles.css
-          test -s products.json
           python3 -m json.tool products.json > /dev/null
+      - name: Require secure deployment credentials
+        run: |
+          if [ -z "$CLOUDFLARE_API_TOKEN" ]; then
+            echo "::error::Configure a NEW CLOUDFLARE_API_TOKEN in repository Actions secrets."
+            exit 1
+          fi
       - name: Publish existing Cloudflare Pages project
-        if: ${{ secrets.CLOUDFLARE_API_TOKEN != '' }}
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: bbf56b8cf631cef5812f60d36336b8ac
           command: pages deploy . --project-name=elegancemx --branch=main
-      - name: Require deployment token
-        if: ${{ secrets.CLOUDFLARE_API_TOKEN == '' }}
-        run: |
-          echo "::error::Set CLOUDFLARE_API_TOKEN in repository Actions secrets before deployment."
-          exit 1
