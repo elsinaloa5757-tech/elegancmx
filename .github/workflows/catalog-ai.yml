@@ -68,6 +68,8 @@ jobs:
           git add data/imagekit-media.json data/imagekit-report.json data/potential-duplicates.json data/ai-classifications.json
           if ! git diff --cached --quiet; then
             git commit -m 'data(ai): refresh imagekit image suggestions (review required)'
+            git fetch origin main
+            git rebase origin/main
             git push origin HEAD:main
           else
             echo 'Sin cambios nuevos'
