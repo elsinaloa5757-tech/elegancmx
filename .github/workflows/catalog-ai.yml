@@ -51,6 +51,8 @@ jobs:
         run: node --test tests/ai-utils.test.mjs
       - name: Clasificar imágenes nuevas con CLIP, sin publicar productos
         run: node scripts/classify-imagekit.mjs
+      - name: Organizar automáticamente fotografías en categorías provisionales
+        run: node scripts/build-auto-categories.mjs
       - name: Comprobar que no hay productos ni precios inventados
         run: |
           python3 - <<'PY'
@@ -60,12 +62,16 @@ jobs:
           assert all(x['status']=='pending_review' and x['name'] is None and x['price'] is None and x['stock'] is None and x['brandVerified'] is False for x in rows)
           assert all(x['imageUrl'].startswith('https://ik.imagekit.io/elegancemx/') for x in rows)
           print('AI suggestions validated:',len(rows))
+          routes=json.load(open('data/auto-categories.json'))
+          assert all(x['canPublish'] is False and x['titleConfirmed'] is None and x['price'] is None and x['productId'] is None for x in routes)
+          assert len(routes)==3909 or len(routes)>3909
+          print('Draft category assignments:',sum(bool(x['category']) for x in routes))
           PY
       - name: Actualizar solo medios y sugerencias, sin desplegar la tienda
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add data/imagekit-media.json data/imagekit-report.json data/potential-duplicates.json data/ai-classifications.json
+          git add data/imagekit-media.json data/imagekit-report.json data/potential-duplicates.json data/ai-classifications.json data/auto-categories.json data/auto-categories-summary.json
           if ! git diff --cached --quiet; then
             git commit -m 'data(ai): refresh imagekit image suggestions (review required)'
             git fetch origin main
