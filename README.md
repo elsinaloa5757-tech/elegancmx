@@ -5,7 +5,9 @@ Repositorio de desarrollo para la tienda Elegance MX.
 ## Estado
 - La versión actualmente publicada en Cloudflare se mantiene separada de este repositorio hasta verificar la migración.
 - La publicación mediante GitHub Actions está **solo bajo ejecución manual** (`workflow_dispatch`), no se activa con cada commit.
-- El catálogo `products.json` está vacío a propósito: no se ha podido extraer ni validar el inventario real de Floot.
+- El catálogo comercial `products.json` permanece vacío hasta validar artículos reales. Las 3,929 referencias de medios de ImageKit fueron recuperadas y están en `data/imagekit-media.json`.
+- Ya funciona un clasificador CLIP gratuito en GitHub Actions para generar sugerencias de categorías/marcas y huellas perceptuales; la salida no es un catálogo comercial verificado. Consultar `data/ai-classifications.json` y `IA-CATALOGO.md`.
+- El laboratorio de revisión está en `laboratorio-ia.html` (accesible en el sitio solo después de un despliegue). No tiene autenticación; las aprobaciones se guardan en el navegador y requieren exportación manual.
 - El número oficial de WhatsApp todavía no está confirmado. No se generan pedidos ni se simulan pagos.
 - No modificar GabyCases ni otros proyectos.
 
@@ -13,7 +15,7 @@ Repositorio de desarrollo para la tienda Elegance MX.
 Proyecto original: `fd70ecea-de01-42c7-a4cb-561e864b7aaa` (`elegance.mx`).
 Componente: `components/ElegancePanel.tsx`.
 Hero original: `/_cdn/static/4374c4b9-6708-4d2f-bda4-1aec271ae8b2.png`.
-La imagen original del hero **sí se recuperó y se guardó** en `assets/elegance-panther.png` (imagen binaria original de Floot). Las fotografías de productos y el inventario aún no se han copiado y validado.
+La imagen original del hero **sí se recuperó y se guardó** en `assets/elegance-panther.png` (imagen binaria original de Floot). El índice de fotografías y videos se recuperó de ImageKit sin mover los originales. Faltan nombres, relaciones fotografía-artículo, inventario y marcas verificadas.
 
 ## Antes de publicar
 1. Migrar y verificar los recursos visuales autorizados.
