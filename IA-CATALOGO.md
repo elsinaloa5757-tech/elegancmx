@@ -9,8 +9,8 @@
 - products.json: permanece sin modificaciones hasta validar los artículos y cargar el JSON revisado. Cloudflare no se despliega automáticamente.
 
 ## Automatización
-- GitHub Actions `Elegance MX — Clasificación IA sin API de pago`: ejecución programada diaria. Se puede activar manualmente desde Actions.
-- Procesa primero nuevas fotografías, con un lote limitado por ejecución. Mantiene las clasificaciones anteriores por ID.
+- GitHub Actions `Elegance MX — Clasificación IA sin API de pago`: ejecución programada cada seis horas. Se puede activar manualmente desde Actions.
+- Procesa primero nuevas fotografías, con un lote limitado a 250 imágenes por ejecución programada. Mantiene las clasificaciones anteriores por ID.
 - El primer arranque puede tardar más por la descarga de pesos del modelo. GitHub guarda una caché que reduce descargas.
 - Los vídeos se conservan con su URL pero **no se clasifican aún por fotogramas**.
 - Categorías y marcas son hipótesis del algoritmo. Los porcentajes son puntuaciones relativas entre clases candidatas, no garantías de verdad.
