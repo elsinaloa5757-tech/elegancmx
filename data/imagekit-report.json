@@ -1,0 +1,21 @@
+{
+  "totalUniqueMedia": 3929,
+  "imageCount": 3909,
+  "videoCount": 20,
+  "folders": {
+    "/elegance/products/": 2768,
+    "/elegance/products/migrated/": 1141,
+    "/elegance/products/videos/": 20
+  },
+  "mime": {
+    "image/jpeg": 28,
+    "image/webp": 3881,
+    "video/mp4": 7,
+    "video/webm": 13
+  },
+  "sameSizeAndMimeCandidateGroups": 266,
+  "sameSizeAndMimeCandidateFiles": 567,
+  "verifiedDuplicateFiles": null,
+  "commercialProductsVerified": 0,
+  "notes": "Media metadata only. No product identities, categories, prices, stock or actual content hashes have been recovered."
+}
