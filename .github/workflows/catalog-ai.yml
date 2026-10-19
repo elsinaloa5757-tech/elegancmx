@@ -1,0 +1,74 @@
+name: Elegance MX — Clasificación IA sin API de pago
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/catalog-ai.yml'
+  schedule:
+    - cron: '43 12 * * *'
+  workflow_dispatch:
+    inputs:
+      batch_size:
+        description: 'Máximo de fotografías nuevas a revisar con IA (1 a 250)'
+        required: false
+        default: '40'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: elegance-ai-inventory
+  cancel-in-progress: false
+
+jobs:
+  recognize:
+    if: github.repository == 'elsinaloa5757-tech/elegancmx' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    env:
+      IMAGEKIT_PRIVATE_KEY: ${{ secrets.IMAGEKIT_PRIVATE_KEY }}
+      AI_BATCH_SIZE: ${{ github.event_name == 'push' && '12' || github.event_name == 'schedule' && '80' || inputs.batch_size || '40' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/cache@v4
+        with:
+          path: ~/.cache/huggingface
+          key: elegance-hf-clip-v1
+      - name: Exportar cambios en ImageKit (solo lectura)
+        run: python3 scripts/export_imagekit.py
+      - name: Reconstruir el índice de medios verificado
+        run: python3 scripts/prepare_media_stage.py
+      - name: Instalar modelo libre local
+        run: npm install --no-save --no-package-lock @huggingface/transformers@3.8.1 sharp@0.34.3
+      - name: Probar reglas de clasificación
+        run: node --test tests/ai-utils.test.mjs
+      - name: Clasificar imágenes nuevas con CLIP, sin publicar productos
+        run: node scripts/classify-imagekit.mjs
+      - name: Comprobar que no hay productos ni precios inventados
+        run: |
+          python3 - <<'PY'
+          import json
+          rows=json.load(open('data/ai-classifications.json'))
+          assert len({x['fileId'] for x in rows})==len(rows)
+          assert all(x['status']=='pending_review' and x['name'] is None and x['price'] is None and x['stock'] is None and x['brandVerified'] is False for x in rows)
+          assert all(x['imageUrl'].startswith('https://ik.imagekit.io/elegancemx/') for x in rows)
+          print('AI suggestions validated:',len(rows))
+          PY
+      - name: Actualizar solo medios y sugerencias, sin desplegar la tienda
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/imagekit-media.json data/imagekit-report.json data/potential-duplicates.json data/ai-classifications.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'data(ai): refresh imagekit image suggestions (review required)'
+            git push origin HEAD:main
+          else
+            echo 'Sin cambios nuevos'
+          fi
