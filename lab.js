@@ -1,23 +1,23 @@
 /* Elegance MX: visual AI results are suggestions only; human approvals stay local. */
 const $=id=>document.getElementById(id);
 const safe=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const cats=['Tenis','Bolsas','Playeras','Gorras','Pantalones','Buckets','Relojes','Lentes','Cinturones','Joyería','Accesorios','Fragancias','Memorias','Ropa'];
+const cats=['Tenis','Calzado','Bolsas','Playeras','Vestidos','Lencería','Gorras','Pantalones','Buckets','Relojes','Lentes','Cinturones','Joyería','Accesorios','Fragancias','Memorias','Ropa'];
 const storefrontMap={'Playeras':'Ropa','Buckets':'Accesorios','Relojes':'Accesorios','Lentes':'Accesorios','Cinturones':'Accesorios','Joyería':'Accesorios','Fragancias':'Accesorios'};
 const KEY='elegancemx_ai_review_v1';
 const PAGE_SIZE=24;
-let media=[],predictions=new Map(),reviews={},pageNumber=0,visible=[];
+let media=[],predictions=new Map(),routes=new Map(),reviews={},pageNumber=0,visible=[];
 try{reviews=JSON.parse(localStorage.getItem(KEY)||'{}');}catch{reviews={};}
 function persist(){try{localStorage.setItem(KEY,JSON.stringify(reviews));}catch{$('status').textContent='No se pudieron guardar correcciones: comprueba espacio o privacidad del navegador.';}}
 function validPhoto(m){try{const u=new URL(m.url);return u.protocol==='https:'&&u.hostname==='ik.imagekit.io'&&u.pathname.startsWith('/elegancemx/elegance/products/');}catch{return false}}
 function getFilter(){
   const text=$('q').value.toLowerCase().trim(),category=$('category').value,status=$('state').value;
   return media.filter(m=>{
-    const a=predictions.get(m.fileId),r=reviews[m.fileId];
-    if(status==='analyzed'&&!a)return false;
-    if(status==='unprocessed'&&a)return false;
+    const a=predictions.get(m.fileId),route=routes.get(m.fileId),r=reviews[m.fileId];
+    if(status==='analyzed'&&!a&&!route?.category)return false;
+    if(status==='unprocessed'&&(a||route?.category))return false;
     if(status==='approved'&&!r?.approved)return false;
-    if(category&&(r?.category||a?.categorySuggestion)!==category)return false;
-    return !text||[m.fileId,m.filePath,r?.name,r?.brand,r?.category,a?.categorySuggestion,a?.brandSuggestion].filter(Boolean).join(' ').toLowerCase().includes(text);
+    if(category&&(r?.category||route?.category||a?.categorySuggestion)!==category)return false;
+    return !text||[m.fileId,m.filePath,r?.name,r?.brand,r?.category,route?.category,route?.legacyReference?.historicalName,a?.categorySuggestion,a?.brandSuggestion].filter(Boolean).join(' ').toLowerCase().includes(text);
   });
 }
 function selectCategory(value){return '<option value="">Selecciona una categoría</option>'+cats.map(c=>'<option value="'+safe(c)+'"'+(c===value?' selected':'')+'>'+safe(c)+'</option>').join('')}
@@ -31,14 +31,15 @@ function render(){
   $('approved').textContent=Object.values(reviews).filter(x=>x.approved).length.toLocaleString('es-MX');
   const chunk=visible.slice(pageNumber*PAGE_SIZE,(pageNumber+1)*PAGE_SIZE);
   $('cards').innerHTML=chunk.map(m=>{
-    const p=predictions.get(m.fileId),r=reviews[m.fileId]||{};
-    const label=r.category||p?.categorySuggestion||'Sin analizar';
+    const p=predictions.get(m.fileId),route=routes.get(m.fileId),r=reviews[m.fileId]||{};
+    const label=r.category||route?.category||p?.categorySuggestion||'Sin analizar';
     const score=p?.categoryScore==null?'':(' · prob. relativa '+Math.round(p.categoryScore*100)+'%');
     const dupes=p?.duplicateCandidates?.length||0;
     return '<article class="lab-card" data-id="'+safe(m.fileId)+'">'+
       '<img loading="lazy" decoding="async" src="'+safe(m.url)+'" alt="Imagen real ImageKit '+safe(m.fileId)+'">'+
       '<div><small>'+safe(m.fileId)+'</small><h3>'+safe(label)+'</h3>'+
-      '<p>Sugerencia IA'+safe(score)+' · Marca sugerida: '+safe(p?.brandSuggestion||'sin verificar')+'</p>'+
+      '<p>Clasificación provisional: '+safe(route?.categorySource||'IA')+safe(score)+' · Marca sugerida: '+safe(p?.brandSuggestion||'sin verificar')+'</p>'+ 
+      (route?.legacyReference?'<p class="warning">Archivo histórico: '+safe(route.legacyReference.historicalName)+' (por confirmar)</p>':'')+
       (dupes?'<p class="warning">⚠ '+dupes+' imágenes visualmente similares: revisar antes de publicar</p>':'')+
       '<label>Nombre confirmado<input data-field="name" maxlength="150" value="'+safe(r.name||'')+'" placeholder="Escribe el nombre real"></label>'+
       '<label>Categoría confirmada<select data-field="category">'+selectCategory(r.category||'')+'</select></label>'+
@@ -109,9 +110,11 @@ $('next').addEventListener('click',()=>{pageNumber++;render();window.scrollTo(0,
 $('export').addEventListener('click',exportVerified);
 $('category').innerHTML+=[...cats].map(x=>'<option>'+safe(x)+'</option>').join('');
 Promise.all([fetch('data/imagekit-media.json').then(r=>{if(!r.ok)throw Error('medios '+r.status);return r.json()}),
-fetch('data/ai-classifications.json').then(r=>r.ok?r.json():[])]).then(([list,preds])=>{
-  if(!Array.isArray(list)||!Array.isArray(preds))throw Error('Formato incorrecto');
+fetch('data/ai-classifications.json').then(r=>r.ok?r.json():[]),
+fetch('data/auto-categories.json').then(r=>r.ok?r.json():[])]).then(([list,preds,auto])=>{
+  if(!Array.isArray(list)||!Array.isArray(preds)||!Array.isArray(auto))throw Error('Formato incorrecto');
   media=list.filter(m=>m.mime?.startsWith('image/')&&validPhoto(m)).sort((a,b)=>String(b.createdAt).localeCompare(String(a.createdAt)));
   predictions=new Map(preds.filter(x=>x.fileId).map(x=>[x.fileId,x]));
+  routes=new Map(auto.filter(x=>x.fileId).map(x=>[x.fileId,x]));
   render();
 }).catch(error=>{$('status').textContent='No fue posible cargar datos: '+error.message});
