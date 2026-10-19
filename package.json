@@ -1,0 +1,1 @@
+{"name":"elegancemx-storefront","private":true,"version":"1.0.0","scripts":{"check":"node --check app.js && python3 -m json.tool products.json >/dev/null","test":"playwright test"},"devDependencies":{"@playwright/test":"1.58.2"}}
