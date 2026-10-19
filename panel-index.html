@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#03121f">
+<meta name="description" content="Elegance MX: catálogo fotográfico recuperado de ImageKit, colecciones, categorías y novedades. Consulta referencias antes de comprar.">
+<title>Elegance MX — Estilo · Exclusividad · Actitud</title>
+<link rel="stylesheet" href="panel.css">
+</head>
+<body>
+<header class="site-header">
+  <button class="icon-button menu-button" id="toggle-menu" type="button" aria-label="Abrir menú" aria-expanded="false">☰</button>
+  <a href="#inicio" class="wordmark"><span class="crown">♛</span> elegance</a>
+  <label class="search-wrap"><span aria-hidden="true">⌕</span><input id="site-search" type="search" placeholder="Buscar productos, categorías o referencias…" aria-label="Buscar en el archivo Elegance"></label>
+  <div class="header-actions">
+    <button id="favorites-open" type="button" aria-label="Ver favoritos" class="icon-button">♡<small>Favoritos</small><span id="fav-count" class="counter" hidden>0</span></button>
+    <button id="inquiries-open" type="button" aria-label="Ver lista de consultas" class="icon-button">♧<small>Consultas</small><span id="inquiry-count" class="counter" hidden>0</span></button>
+    <button id="contact-open" type="button" aria-label="Opciones de contacto" class="icon-button">◉<small>WhatsApp</small></button>
+  </div>
+</header>
+<div id="nav-shade" class="nav-shade" hidden></div>
+<aside id="side-nav" class="side-nav" aria-label="Navegación principal">
+  <nav id="nav-links">
+    <button type="button" data-nav="Inicio"><span>⌂</span>Inicio</button>
+    <button type="button" data-nav="Marcas"><span>♢</span>Marcas</button>
+    <button type="button" data-nav="Tenis"><span>♧</span>Tenis</button>
+    <button type="button" data-nav="Ropa"><span>♜</span>Ropa</button>
+    <button type="button" data-nav="Gorras"><span>♧</span>Gorras</button>
+    <button type="button" data-nav="Bolsas"><span>♧</span>Bolsas</button>
+    <button type="button" data-nav="Accesorios"><span>✦</span>Accesorios</button>
+    <button type="button" data-nav="Memorias"><span>▣</span>Memorias</button>
+    <button type="button" data-nav="Combos"><span>♧</span>Combos</button>
+    <button type="button" data-nav="Ediciones limitadas"><span>♛</span>Ediciones limitadas</button>
+    <button type="button" data-nav="Nuevos ingresos"><span>⚡</span>Nuevos ingresos</button>
+    <a href="./archivo.html"><span>▤</span>Archivo completo</a>
+  </nav>
+</aside>
+<main>
+  <section id="inicio" class="hero" aria-label="Elegance MX">
+    <div class="hero-copy">
+      <p class="eyebrow">LUXURY · SNEAKERS · STREETWEAR</p>
+      <h1><span class="hero-crown">♛</span> elegance</h1>
+      <p class="hero-tagline">ESTILO · EXCLUSIVIDAD · ACTITUD</p>
+      <p class="hero-subtitle">Más que moda, es un estilo de vida.</p>
+      <button class="outline-action" data-target="browse" type="button">EXPLORAR COLECCIÓN <span>→</span></button>
+    </div>
+  </section>
+  <section aria-label="Categorías destacadas">
+    <div class="category-rail" id="quick-categories"></div>
+  </section>
+  <section id="marcas" class="section-box">
+    <div class="section-heading"><h2><span class="ornament">♛</span> MARCAS DESTACADAS</h2><button type="button" id="all-brands">Ver todas →</button></div>
+    <p class="section-footnote">Búsqueda por marcas sugeridas por IA; aún no se han verificado los artículos.</p>
+    <div class="brand-rail" id="brand-rail"></div>
+  </section>
+  <section id="novedades" class="section-box">
+    <div class="section-heading"><h2><span class="ornament">⚡</span> NUEVOS INGRESOS</h2><button type="button" id="all-arrivals">Ver todas →</button></div>
+    <div class="section-footnote">Últimas fotografías recuperadas de ImageKit. Disponibilidad por confirmar.</div>
+    <div class="carousel-wrap"><button class="carousel-step previous" id="arrivals-prev" aria-label="Anterior">‹</button><div class="arrivals-rail" id="arrivals-rail"></div><button class="carousel-step next" id="arrivals-next" aria-label="Siguiente">›</button></div>
+  </section>
+  <section class="promo-grid" aria-label="Colecciones promocionales">
+    <button type="button" id="promo-combos" class="promo-tile"><span>COMBOS EXCLUSIVOS</span><small>TENIS + ROPA + ACCESORIOS</small><strong>EXPLORAR ARCHIVO →</strong></button>
+    <button type="button" id="promo-limited" class="promo-tile"><span>EDICIONES LIMITADAS</span><small>COLECCIÓN EN REVISIÓN</small><strong>VER REFERENCIAS →</strong></button>
+  </section>
+  <section id="categorias" class="section-box">
+    <div class="section-heading"><h2><span class="ornament">▦</span> CATEGORÍAS PRINCIPALES</h2><button type="button" id="all-categories">Ver todas →</button></div>
+    <div id="category-grid" class="category-grid"></div>
+  </section>
+  <section id="browse" class="section-box">
+    <div class="section-heading"><h2 id="browse-title"><span class="ornament">◇</span> EXPLORAR CATÁLOGO</h2><span id="browse-count"></span></div>
+    <div class="browse-toolbar">
+      <label>Tipo <select id="filter-category"><option value="">Todas las categorías</option></select></label>
+      <label>Clasificación <select id="filter-confidence"><option value="all">Todas las fotografías</option><option value="classified">Con categoría</option><option value="pending">Por clasificar</option></select></label>
+      <label>Orden <select id="filter-sort"><option value="new">Más recientes</option><option value="old">Más antiguas</option></select></label>
+      <button type="button" id="clear-filters">Limpiar filtros</button>
+    </div>
+    <p class="catalog-disclaimer">Este es un catálogo fotográfico de recuperación. Las marcas y categorías son propuestas; no se han confirmado precios, existencias ni que cada foto corresponda a un artículo diferente.</p>
+    <div class="product-grid" id="product-grid"></div>
+    <p class="empty-state" id="no-results" hidden>No hay fotografías para esos filtros. Prueba otra categoría o búsqueda.</p>
+    <div class="paging"><button id="page-prev" type="button">← Anterior</button><span id="page-label"></span><button id="page-next" type="button">Siguiente →</button></div>
+  </section>
+  <section class="section-box videos-section" id="videos">
+    <div class="section-heading"><h2><span class="ornament">▷</span> VIDEOS DEL ARCHIVO</h2><a href="./archivo.html#recovery-videos">Ver los 20 videos →</a></div>
+    <div class="videos-grid" id="videos-preview"></div>
+  </section>
+  <section class="trust-row"><span>◇ FOTOGRAFÍAS REALES</span><span>♛ IDENTIDAD ELEGANCE</span><span>▤ CONSULTA POR REFERENCIA</span><span>◈ CLASIFICACIÓN AUTOMÁTICA</span></section>
+  <footer>♛ ELEGANCE MX · CATÁLOGO EN RECUPERACIÓN <a href="./archivo.html">Archivo completo de ImageKit</a></footer>
+</main>
+<nav class="mobile-tabbar" aria-label="Navegación móvil">
+ <button type="button" data-mobile="Inicio"><span>⌂</span>Inicio</button>
+ <button type="button" data-mobile="Categorías"><span>▦</span>Categorías</button>
+ <button type="button" data-mobile="Buscar"><span>⌕</span>Buscar</button>
+ <button type="button" data-mobile="Favoritos"><span>♡</span>Favoritos</button>
+ <button type="button" data-mobile="Consultas"><span>♧</span>Consultas</button>
+</nav>
+<dialog id="item-dialog" class="item-dialog"><button class="dialog-close" id="close-item" aria-label="Cerrar">×</button><div id="item-detail"></div></dialog>
+<dialog id="list-dialog" class="list-dialog"><div class="dialog-header"><h2 id="list-title"></h2><button id="close-list" type="button" aria-label="Cerrar">×</button></div><div id="list-content"></div><div id="list-footer"></div></dialog>
+<dialog id="contact-dialog" class="list-dialog"><div class="dialog-header"><h2>Contacto Elegance MX</h2><button id="close-contact" type="button" aria-label="Cerrar">×</button></div><p>El número oficial de atención todavía no está confirmado en el catálogo recuperado. Puedes copiar la referencia o tu lista de consulta para compartirla con la tienda por tu canal habitual.</p><button type="button" id="copy-contact-list" class="outline-action">Copiar mi lista de consultas</button><p id="copy-feedback" role="status"></p></dialog>
+<script src="panel.js" defer></script>
+</body>
+</html>

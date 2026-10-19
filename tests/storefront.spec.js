@@ -1,24 +1,74 @@
 const {test,expect}=require('@playwright/test');
-test('storefront preserves original panther and displays recovered gallery',async({page})=>{
+test('approved Elegance luxury layout loads all interactive shelves',async({page})=>{
  await page.goto('/');
- await expect(page).toHaveTitle(/Elegance MX/i);
+ await expect(page).toHaveTitle(/Elegance MX/);
  await expect(page.locator('.hero')).toBeVisible();
- await expect(page.locator('#recovery-search')).toBeVisible();
- await expect(page.locator('#recovery-grid .recovery-card')).toHaveCount(30);
+ await expect(page.locator('.wordmark')).toContainText('elegance');
+ await expect(page.locator('#quick-categories .quick-category')).toHaveCount(8);
+ await expect(page.locator('#brand-rail .brand-card')).toHaveCount(11);
+ await expect(page.locator('#arrivals-rail .catalog-card')).toHaveCount(22);
+ await expect(page.locator('#category-grid .category-tile')).toHaveCount(8);
+ await expect(page.locator('#product-grid .catalog-card')).toHaveCount(30);
+ await expect(page.locator('#videos-preview video')).toHaveCount(4);
  const panther=await page.evaluate(async()=>{const r=await fetch('/assets/elegance-panther.png');return r.ok&&r.headers.get('content-type')?.includes('image')});
  expect(panther).toBeTruthy();
 });
-test('unverified media never become sellable products',async({page})=>{
+test('category filters, search and product details work and never invent prices',async({page})=>{
  await page.goto('/');
- await expect(page.locator('#products .product')).toHaveCount(0);
- await expect(page.locator('#recovery-grid .recovery-card')).toHaveCount(30);
- await expect(page.locator('#recovery-grid [data-copy]')).toHaveCount(30);
- await expect(page.locator('#checkout')).not.toBeVisible();
+ await expect(page.locator('#product-grid .catalog-card')).toHaveCount(30);
+ await page.locator('#quick-categories [data-category="Tenis"]').click();
+ await expect(page.locator('#browse-title')).toContainText('Tenis');
+ await expect(page.locator('#product-grid .micro-category').first()).toHaveText('Tenis');
+ await page.locator('#product-grid [data-open]').first().click();
+ await expect(page.locator('#item-dialog')).toBeVisible();
+ await expect(page.locator('#item-detail')).toContainText('Código de referencia');
+ await expect(page.locator('#item-detail')).not.toContainText('$');
+ await page.locator('#close-item').click();
+ await page.locator('#site-search').fill('referencia-que-no-existe-123abc');
+ await expect(page.locator('#product-grid .catalog-card')).toHaveCount(0);
+ await expect(page.locator('#no-results')).toBeVisible();
+ await page.locator('#clear-filters').click();
+ await expect(page.locator('#product-grid .catalog-card')).toHaveCount(30);
 });
-test('mobile media search is responsive',async({page})=>{
+test('favorites and consultation list persist across navigation without fake sales',async({page})=>{
+ await page.goto('/');
+ await expect(page.locator('#product-grid .catalog-card')).toHaveCount(30);
+ const id=await page.locator('#product-grid .floating-heart').first().getAttribute('data-fav');
+ await page.locator('#product-grid .floating-heart').first().click();
+ await page.locator('#product-grid .query-add').first().click();
+ await expect(page.locator('#fav-count')).toHaveText('1');
+ await expect(page.locator('#inquiry-count')).toHaveText('1');
+ await page.reload();
+ await expect(page.locator('#product-grid .catalog-card')).toHaveCount(30);
+ await expect(page.locator('#fav-count')).toHaveText('1');
+ await expect(page.locator('#inquiry-count')).toHaveText('1');
+ await page.locator('#favorites-open').click();
+ await expect(page.locator('#list-dialog')).toBeVisible();
+ await expect(page.locator('#list-content')).toContainText('E-');
+ await page.locator('#close-list').click();
+ await page.locator('#inquiries-open').click();
+ await expect(page.locator('#list-content')).toContainText('E-');
+ await expect(page.locator('#copy-inquiry')).toBeVisible();
+ await page.locator('#close-list').click();
+ await page.locator('#contact-open').click();
+ await expect(page.locator('#contact-dialog')).toBeVisible();
+ await expect(page.locator('#contact-dialog')).toContainText('no está confirmado');
+ await page.locator('#close-contact').click();
+ expect(id).toBeTruthy();
+});
+test('mobile responsive menu, category navigation and pagination work',async({page})=>{
  await page.setViewportSize({width:390,height:844});
  await page.goto('/');
- await page.locator('#recovery-search').fill('no-existe-ningún-artículo');
- await expect(page.locator('#recovery-grid .recovery-card')).toHaveCount(0);
- await expect(page.locator('.hero')).toBeVisible();
+ await expect(page.locator('#product-grid .catalog-card')).toHaveCount(30);
+ await expect(page.locator('.mobile-tabbar')).toBeVisible();
+ await page.locator('#toggle-menu').click();
+ await expect(page.locator('#side-nav')).toHaveClass(/open/);
+ await page.locator('#side-nav [data-nav="Tenis"]').click();
+ await expect(page.locator('#browse-title')).toContainText('Tenis');
+ await expect(page.locator('#side-nav')).not.toHaveClass(/open/);
+ await page.locator('#clear-filters').click();
+ await page.locator('#page-next').click();
+ await expect(page.locator('#page-label')).toContainText('Página 2');
+ await page.locator('#page-prev').click();
+ await expect(page.locator('#page-label')).toContainText('Página 1');
 });

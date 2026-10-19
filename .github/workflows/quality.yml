@@ -17,6 +17,7 @@ jobs:
       - run: npm install --no-package-lock
       - run: npm run check
       - run: node --check catalog-recovery.js
+      - run: node --check panel.js
       - run: node scripts/build-public.mjs
       - run: node --test tests/ai-utils.test.mjs tests/category-router.test.mjs
       - run: node scripts/build-auto-categories.mjs

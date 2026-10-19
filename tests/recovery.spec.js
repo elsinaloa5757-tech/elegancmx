@@ -1,6 +1,6 @@
 const {test,expect}=require('@playwright/test');
 test('public archive loads real ImageKit photos and original panther',async({page})=>{
- await page.goto('/');
+ await page.goto('/archivo.html');
  await expect(page).toHaveTitle(/Elegance MX/);
  await expect(page.locator('.hero')).toBeVisible();
  await expect(page.locator('#recovery-count')).toHaveText('3,909');
@@ -13,7 +13,7 @@ test('public archive loads real ImageKit photos and original panther',async({pag
  await expect(page.locator('#recovery-grid .recovery-card').first()).not.toContainText('$');
 });
 test('category, pending and search filters behave without commercial publishing',async({page})=>{
- await page.goto('/');
+ await page.goto('/archivo.html');
  await expect(page.locator('#recovery-grid .recovery-card')).toHaveCount(30);
  await page.locator('#recovery-cat [data-filter="Tenis"]').click();
  await expect(page.locator('#recovery-amount')).toContainText('fotografías del archivo');
@@ -26,7 +26,7 @@ test('category, pending and search filters behave without commercial publishing'
 });
 test('mobile pagination and image gallery stay responsive',async({page})=>{
  await page.setViewportSize({width:390,height:844});
- await page.goto('/');
+ await page.goto('/archivo.html');
  await expect(page.locator('#recovery-grid .recovery-card')).toHaveCount(30);
  await page.locator('#recovery-next').click();
  await expect(page.locator('#recovery-page')).toContainText('Página 2');
