@@ -41,6 +41,12 @@ jobs:
         run: npx playwright install --with-deps chromium
       - name: Test storefront desktop and mobile
         run: npm test
+      - name: Preserve ready-to-publish Cloudflare static package
+        uses: actions/upload-artifact@v4
+        with:
+          name: elegance-mx-cloudflare-dist
+          path: dist/
+          retention-days: 30
       - name: Confirm Cloudflare credentials
         run: |
           if [ -z "$CLOUDFLARE_API_TOKEN" ]; then
