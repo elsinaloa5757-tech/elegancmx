@@ -3,33 +3,36 @@
 const $=id=>document.getElementById(id);
 const esc=value=>String(value??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
 const CATS=['Tenis','Ropa','Gorras','Bolsas','Accesorios','Pantalones','Calzado','Relojes','Lentes','Memorias','Joyería','Fragancias','Vestidos','Lencería','Cinturones','Buckets','Playeras'];
-const PRIMARY=['Tenis','Ropa','Gorras','Bolsas','Accesorios','Memorias','Pantalones','Calzado'];
-const BRANDS=['Nike','Jordan','Adidas','New Balance','Puma','Vans','Louis Vuitton','Gucci','Dior','Prada','Otras marcas'];
+const PRIMARY=['Tenis','Ropa','Accesorios','Bolsas','Gorras','Pantalones','Memorias','Combos','Ediciones limitadas'];
+const ACCESSORY_CATS=new Set(['Accesorios','Relojes','Lentes','Cinturones','Joyería','Fragancias']);
+const BRANDS=['Nike','Jordan','Adidas','New Balance','Puma','Vans','Otras marcas'];
 const LS_FAV='elegance_public_favorites_v3',LS_INQ='elegance_public_inquiries_v3';
 const getSaved=key=>{try{const a=JSON.parse(localStorage.getItem(key)||'[]');return new Set(Array.isArray(a)?a.filter(x=>typeof x==='string'):[]);}catch{return new Set();}};
-const state={media:[],mediaById:new Map(),routes:new Map(),ai:new Map(),favorites:getSaved(LS_FAV),inquiries:getSaved(LS_INQ),filterCat:'',filterConfidence:'all',filterBrand:'',search:'',sort:'new',page:0,pageSize:30};
+const state={media:[],mediaById:new Map(),routes:new Map(),ai:new Map(),favorites:getSaved(LS_FAV),inquiries:getSaved(LS_INQ),filterCat:'',filterConfidence:'all',filterBrand:'',search:'',sort:'new',collection:'',page:0,pageSize:30};
 const normalizeCat=cat=>cat==='Playeras'?'Ropa':cat||null;
 const getRoute=id=>state.routes.get(id)||{};
 const getCat=id=>normalizeCat(getRoute(id).category);
 const suggestionBrand=id=>state.ai.get(id)?.brandSuggestion||null;
 const getLabel=m=>getRoute(m.fileId)?.legacyReference?.historicalName||((getCat(m.fileId)||'Artículo')+' · Referencia');
-const shortRef=id=>'E-'+id.slice(-10).toUpperCase();
+const shortRef=id=>{let h=2166136261;for(const ch of id)h=Math.imul(h^ch.charCodeAt(0),16777619)>>>0;return 'E-'+h.toString(16).padStart(8,'0').toUpperCase()};
 const safeImg=m=>{try{const u=new URL(m.url);return u.protocol==='https:'&&u.hostname==='ik.imagekit.io'&&u.pathname.startsWith('/elegancemx/elegance/products/')}catch{return false}};
 const item=m=>({id:m.fileId,ref:shortRef(m.fileId),name:getLabel(m),url:m.url,category:getCat(m.fileId)||'Por clasificar'});
 function nav(target){
- document.getElementById('side-nav').classList.remove('open');
+ if(window.matchMedia('(max-width:650px)').matches){$('side-nav').classList.remove('collapsed')}else{$('side-nav').classList.remove('open')}
  $('nav-shade').hidden=true;
- $('toggle-menu').setAttribute('aria-expanded','false');
+ $('toggle-menu').setAttribute('aria-expanded','true');
  if(target==='Inicio'){window.scrollTo({top:0,behavior:'smooth'});return}
  if(target==='Marcas'){$('marcas').scrollIntoView({behavior:'smooth'});return}
  if(target==='Categorías'){$('categorias').scrollIntoView({behavior:'smooth'});return}
  if(target==='Nuevos ingresos'){$('novedades').scrollIntoView({behavior:'smooth'});return}
+ if(target==='Combos'){state.collection='combos';state.filterCat='';state.filterBrand='';state.search='';$('site-search').value='';$('filter-category').value='';state.page=0;renderBrowse();$('browse').scrollIntoView({behavior:'smooth'});return}
+ if(target==='Ediciones limitadas'){state.collection='limited';state.filterCat='';state.filterBrand='';state.search='';$('site-search').value='';$('filter-category').value='';state.page=0;renderBrowse();$('browse').scrollIntoView({behavior:'smooth'});return}
  if(target==='Combos'){$('promo-combos').scrollIntoView({behavior:'smooth'});return}
  if(target==='Ediciones limitadas'){$('promo-limited').scrollIntoView({behavior:'smooth'});return}
  if(target==='Buscar'){$('site-search').focus();return}
  if(target==='Favoritos'){showList('fav');return}
  if(target==='Consultas'){showList('inq');return}
- state.filterBrand='';state.search='';$('site-search').value='';
+ state.collection='';state.filterBrand='';state.search='';$('site-search').value='';
  state.filterCat=target==='Accesorios'?'Accesorios':target;
  $('filter-category').value=state.filterCat;
  state.filterConfidence='all';$('filter-confidence').value='all';
@@ -53,17 +56,20 @@ function card(m,type='small'){
    '<p class="card-ref">'+esc(data.ref)+' · Por confirmar</p>'+
    '<button class="query-add" type="button" data-inq="'+esc(m.fileId)+'">'+(inq?'✓ En consultas':'＋ Consultar')+'</button></div></article>';
 }
-function pick(cat){return state.media.find(m=>getCat(m.fileId)===cat)}
+function pick(cat){return state.media.find(m=>cat==='Accesorios'?ACCESSORY_CATS.has(getCat(m.fileId)):getCat(m.fileId)===cat)}
 function makeCategoryCard(cat,type){
- const m=pick(cat),count=state.media.reduce((n,x)=>n+(getCat(x.fileId)===cat?1:0),0);
+ const special=cat==='Combos'||cat==='Ediciones limitadas';
+ const m= special ? state.media.find(x=>getCat(x.fileId)==='Tenis') : pick(cat);
+ const count=special?0:state.media.reduce((n,x)=>n+(cat==='Accesorios'?ACCESSORY_CATS.has(getCat(x.fileId)):getCat(x.fileId)===cat?1:0),0);
  return '<button type="button" class="'+type+'" data-category="'+esc(cat)+'">'+
    (m?mediaPhoto(m,cat):'<span class="category-placeholder">◇</span>')+
    '<span class="category-name">'+esc(cat)+'</span>'+
-   '<small>'+ (count?count.toLocaleString('es-MX')+' fotos':'En preparación')+'</small></button>';
+   '<small>'+ (special?'En preparación':count?count.toLocaleString('es-MX')+' fotos':'En preparación')+'</small></button>';
 }
 function brandCard(brand){
  const n=state.media.filter(m=>suggestionBrand(m.fileId)===brand).length;
- return '<button type="button" class="brand-card" data-brand="'+esc(brand)+'"><span class="brand-symbol">◇</span><strong>'+esc(brand)+'</strong><small>'+ (n?n+' coincidencias sugeridas':'Por identificar')+'</small></button>';
+ const photo=state.media.find(m=>suggestionBrand(m.fileId)===brand);
+ return '<button type="button" class="brand-card" data-brand="'+esc(brand)+'">'+(photo?'<span class="brand-photo">'+mediaPhoto(photo,'Fotografía con marca sugerida')+'</span>':'')+'<span class="brand-symbol">'+esc(brand==='Nike'?'NIKE':brand==='Jordan'?'✦':brand==='Adidas'?'▲':brand==='New Balance'?'NB':brand==='Puma'?'PUMA':brand==='Vans'?'VANS':'♛')+'</span><strong>'+esc(brand)+'</strong><small>'+ (n?n+' sugerencias':'Por identificar')+'</small></button>';
 }
 function renderShelves(){
  $('quick-categories').innerHTML=PRIMARY.map(c=>makeCategoryCard(c,'quick-category')).join('');
@@ -73,8 +79,12 @@ function renderShelves(){
 }
 function matches(m){
  const cat=getCat(m.fileId),r=getRoute(m.fileId),brand=suggestionBrand(m.fileId);
- if(state.filterCat&&cat!==state.filterCat)return false;
- if(state.filterBrand&&brand!==state.filterBrand)return false;
+ if(state.collection==='limited')return false;
+ if(state.collection==='combos'&&!['Tenis','Ropa','Accesorios'].includes(cat))return false;
+ if(state.filterCat==='Accesorios'&&!ACCESSORY_CATS.has(cat))return false;
+ if(state.filterCat&&state.filterCat!=='Accesorios'&&cat!==state.filterCat)return false;
+ if(state.filterBrand==='__sin_marca__'&&brand)return false;
+ if(state.filterBrand&&state.filterBrand!=='__sin_marca__'&&brand!==state.filterBrand)return false;
  if(state.filterConfidence==='classified'&&!cat)return false;
  if(state.filterConfidence==='pending'&&cat)return false;
  if(state.search){
@@ -91,7 +101,8 @@ function renderBrowse(){
  const chunk=list.slice(state.page*state.pageSize,(state.page+1)*state.pageSize);
  $('product-grid').innerHTML=chunk.map(m=>card(m,'large')).join('');
  $('browse-count').textContent=found.length.toLocaleString('es-MX')+' fotografías';
- $('browse-title').innerHTML='<span class="ornament">◇</span> '+esc(state.filterBrand||state.filterCat||'EXPLORAR CATÁLOGO');
+ $('browse-title').innerHTML='<span class="ornament">◇</span> '+esc(state.collection==='combos'?'IDEAS PARA COMBOS (SIN PAQUETES CONFIRMADOS)':state.collection==='limited'?'EDICIONES LIMITADAS · EN VERIFICACIÓN':state.filterBrand==='__sin_marca__'?'Otras marcas / sin identificar':state.filterBrand||state.filterCat||'EXPLORAR CATÁLOGO');
+ $('no-results').textContent=state.collection==='limited'?'Todavía no hay ediciones limitadas verificadas en el catálogo. Consulta el archivo general para explorar artículos.':'No hay fotografías para esos filtros. Prueba otra categoría o búsqueda.';
  $('no-results').hidden=found.length!==0;
  $('page-label').textContent='Página '+(state.page+1)+' de '+pages;
  $('page-prev').disabled=state.page===0;$('page-next').disabled=state.page+1>=pages;
@@ -147,14 +158,15 @@ function refreshMediaActions(){
  });
 }
 function closeMenu(){
- $('side-nav').classList.remove('open');$('nav-shade').hidden=true;
- $('toggle-menu').setAttribute('aria-expanded','false');
+ $('side-nav').classList.remove('open');
+ $('nav-shade').hidden=true;
+ $('toggle-menu').setAttribute('aria-expanded',String(window.matchMedia('(max-width:650px)').matches&&!$('side-nav').classList.contains('collapsed')));
 }
 function bind(){
  $('toggle-menu').addEventListener('click',()=>{
+   if(window.matchMedia('(max-width:650px)').matches){const collapsed=$('side-nav').classList.toggle('collapsed');$('nav-shade').hidden=true;$('toggle-menu').setAttribute('aria-expanded',String(!collapsed));return;}
    const open=$('side-nav').classList.toggle('open');
-   $('nav-shade').hidden=!open;
-   $('toggle-menu').setAttribute('aria-expanded',String(open));
+   $('nav-shade').hidden=!open;$('toggle-menu').setAttribute('aria-expanded',String(open));
  });
  $('nav-shade').addEventListener('click',closeMenu);
  document.addEventListener('click',async e=>{
@@ -163,12 +175,13 @@ function bind(){
    if(b.dataset.mobile){nav(b.dataset.mobile);return}
    if(b.dataset.target){document.getElementById(b.dataset.target)?.scrollIntoView({behavior:'smooth'});return}
    if(b.dataset.category){
-     state.filterCat=b.dataset.category;state.filterBrand='';state.search='';$('site-search').value='';
+     if(['Combos','Ediciones limitadas'].includes(b.dataset.category)){nav(b.dataset.category);return;}
+     state.collection='';state.filterCat=b.dataset.category;state.filterBrand='';state.search='';$('site-search').value='';
      state.page=0;$('filter-category').value=state.filterCat;renderBrowse();
      $('browse').scrollIntoView({behavior:'smooth'});return
    }
    if(b.dataset.brand){
-     state.filterBrand=b.dataset.brand==='Otras marcas'?'':b.dataset.brand;
+     state.collection='';state.filterBrand=b.dataset.brand==='Otras marcas'?'__sin_marca__':b.dataset.brand;
      state.filterCat='';$('filter-category').value='';state.page=0;renderBrowse();
      $('browse').scrollIntoView({behavior:'smooth'});return
    }
@@ -185,10 +198,10 @@ function bind(){
    state.search=e.target.value.toLocaleLowerCase('es-MX').trim();state.page=0;
    renderBrowse();if(state.search)$('browse').scrollIntoView({behavior:'smooth'});
  });
- $('filter-category').addEventListener('change',e=>{state.filterCat=e.target.value;state.filterBrand='';state.page=0;renderBrowse()});
+ $('filter-category').addEventListener('change',e=>{state.filterCat=e.target.value;state.filterBrand='';state.collection='';state.page=0;renderBrowse()});
  $('filter-confidence').addEventListener('change',e=>{state.filterConfidence=e.target.value;state.page=0;renderBrowse()});
  $('filter-sort').addEventListener('change',e=>{state.sort=e.target.value;state.page=0;renderBrowse()});
- $('clear-filters').addEventListener('click',()=>{state.filterCat='';state.filterConfidence='all';state.filterBrand='';state.search='';state.page=0;state.sort='new';$('site-search').value='';$('filter-category').value='';$('filter-confidence').value='all';$('filter-sort').value='new';renderBrowse()});
+ $('clear-filters').addEventListener('click',()=>{state.filterCat='';state.filterConfidence='all';state.filterBrand='';state.collection='';state.search='';state.page=0;state.sort='new';$('site-search').value='';$('filter-category').value='';$('filter-confidence').value='all';$('filter-sort').value='new';renderBrowse()});
  $('page-prev').addEventListener('click',()=>{if(state.page>0){state.page--;renderBrowse();$('browse').scrollIntoView()}});
  $('page-next').addEventListener('click',()=>{state.page++;renderBrowse();$('browse').scrollIntoView()});
  $('arrivals-prev').addEventListener('click',()=>{$('arrivals-rail').scrollBy({left:-560,behavior:'smooth'})});
@@ -196,6 +209,9 @@ function bind(){
  $('favorites-open').addEventListener('click',()=>showList('fav'));
  $('inquiries-open').addEventListener('click',()=>showList('inq'));
  $('contact-open').addEventListener('click',()=>{$('contact-dialog').showModal()});
+ $('profile-open').addEventListener('click',()=>{$('profile-dialog').showModal()});
+ $('close-profile').addEventListener('click',()=>$('profile-dialog').close());
+ $('profile-favorites').addEventListener('click',()=>{$('profile-dialog').close();showList('fav')});
  $('close-item').addEventListener('click',()=>$('item-dialog').close());
  $('close-list').addEventListener('click',()=>$('list-dialog').close());
  $('close-contact').addEventListener('click',()=>$('contact-dialog').close());
@@ -204,8 +220,8 @@ function bind(){
  $('all-brands').addEventListener('click',()=>nav('Marcas'));
  $('all-arrivals').addEventListener('click',()=>nav('Nuevos ingresos'));
  $('all-categories').addEventListener('click',()=>nav('Categorías'));
- $('promo-combos').addEventListener('click',()=>{nav('Tenis')});
- $('promo-limited').addEventListener('click',()=>{nav('Nuevos ingresos')});
+ $('promo-combos').addEventListener('click',()=>nav('Combos'));
+ $('promo-limited').addEventListener('click',()=>nav('Ediciones limitadas'));
  $('side-nav').addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu()});
 }
 async function boot(){

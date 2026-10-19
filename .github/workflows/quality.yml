@@ -24,3 +24,11 @@ jobs:
       - run: python3 -m json.tool data/ai-classifications.json > /dev/null
       - run: npx playwright install --with-deps chromium
       - run: npm test
+      - name: Save verified mobile screenshot
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: elegance-mobile-visual-audit
+          path: test-results/elegance-mobile-reference.png
+          if-no-files-found: ignore
+          retention-days: 7
