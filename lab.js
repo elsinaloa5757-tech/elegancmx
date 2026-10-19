@@ -25,7 +25,7 @@ function render(){
   visible=getFilter();const pageTotal=Math.max(1,Math.ceil(visible.length/PAGE_SIZE));pageNumber=Math.min(pageNumber,pageTotal-1);
   $('page').textContent=(pageNumber+1)+' / '+pageTotal+' · '+visible.length+' fotografías';
   $('prev').disabled=pageNumber===0;$('next').disabled=pageNumber+1>=pageTotal;
-  $('total').textContent=media.length.toLocaleString('es-MX')+' archivos';
+  $('total').textContent=media.length.toLocaleString('es-MX')+' fotografías';
   $('processed').textContent=predictions.size.toLocaleString('es-MX');
   $('pending').textContent=[...predictions.keys()].filter(id=>!reviews[id]?.approved).length.toLocaleString('es-MX');
   $('approved').textContent=Object.values(reviews).filter(x=>x.approved).length.toLocaleString('es-MX');
