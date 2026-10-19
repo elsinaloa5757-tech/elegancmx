@@ -16,5 +16,7 @@ jobs:
           node-version: '22'
       - run: npm install --no-package-lock
       - run: npm run check
+      - run: node --test tests/ai-utils.test.mjs
+      - run: python3 -m json.tool data/ai-classifications.json > /dev/null
       - run: npx playwright install --with-deps chromium
       - run: npm test
