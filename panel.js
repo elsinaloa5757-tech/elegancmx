@@ -4,6 +4,7 @@ const $=id=>document.getElementById(id);
 const esc=value=>String(value??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
 const CATS=['Tenis','Ropa','Gorras','Bolsas','Accesorios','Pantalones','Calzado','Relojes','Lentes','Memorias','Joyería','Fragancias','Vestidos','Lencería','Cinturones','Buckets','Playeras'];
 const PRIMARY=['Tenis','Ropa','Accesorios','Bolsas','Gorras','Pantalones','Memorias','Combos','Ediciones limitadas'];
+const ACCESSORY_CATS=new Set(['Accesorios','Relojes','Lentes','Cinturones','Joyería','Fragancias']);
 const BRANDS=['Nike','Jordan','Adidas','New Balance','Puma','Vans','Otras marcas'];
 const LS_FAV='elegance_public_favorites_v3',LS_INQ='elegance_public_inquiries_v3';
 const getSaved=key=>{try{const a=JSON.parse(localStorage.getItem(key)||'[]');return new Set(Array.isArray(a)?a.filter(x=>typeof x==='string'):[]);}catch{return new Set();}};
@@ -55,11 +56,11 @@ function card(m,type='small'){
    '<p class="card-ref">'+esc(data.ref)+' · Por confirmar</p>'+
    '<button class="query-add" type="button" data-inq="'+esc(m.fileId)+'">'+(inq?'✓ En consultas':'＋ Consultar')+'</button></div></article>';
 }
-function pick(cat){return state.media.find(m=>getCat(m.fileId)===cat)}
+function pick(cat){return state.media.find(m=>cat==='Accesorios'?ACCESSORY_CATS.has(getCat(m.fileId)):getCat(m.fileId)===cat)}
 function makeCategoryCard(cat,type){
  const special=cat==='Combos'||cat==='Ediciones limitadas';
  const m= special ? state.media.find(x=>getCat(x.fileId)==='Tenis') : pick(cat);
- const count=special?0:state.media.reduce((n,x)=>n+(getCat(x.fileId)===cat?1:0),0);
+ const count=special?0:state.media.reduce((n,x)=>n+(cat==='Accesorios'?ACCESSORY_CATS.has(getCat(x.fileId)):getCat(x.fileId)===cat?1:0),0);
  return '<button type="button" class="'+type+'" data-category="'+esc(cat)+'">'+
    (m?mediaPhoto(m,cat):'<span class="category-placeholder">◇</span>')+
    '<span class="category-name">'+esc(cat)+'</span>'+
@@ -80,7 +81,8 @@ function matches(m){
  const cat=getCat(m.fileId),r=getRoute(m.fileId),brand=suggestionBrand(m.fileId);
  if(state.collection==='limited')return false;
  if(state.collection==='combos'&&!['Tenis','Ropa','Accesorios'].includes(cat))return false;
- if(state.filterCat&&cat!==state.filterCat)return false;
+ if(state.filterCat==='Accesorios'&&!ACCESSORY_CATS.has(cat))return false;
+ if(state.filterCat&&state.filterCat!=='Accesorios'&&cat!==state.filterCat)return false;
  if(state.filterBrand==='__sin_marca__'&&brand)return false;
  if(state.filterBrand&&state.filterBrand!=='__sin_marca__'&&brand!==state.filterBrand)return false;
  if(state.filterConfidence==='classified'&&!cat)return false;
