@@ -1,0 +1,22 @@
+name: Export Elegance ImageKit Inventory
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Export read-only media index
+        env:
+          IMAGEKIT_PRIVATE_KEY: ${{ secrets.IMAGEKIT_PRIVATE_KEY }}
+        run: python3 scripts/export_imagekit.py
+      - name: Save export as downloadable artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: elegance-imagekit-inventory
+          path: exports/
+          retention-days: 7
+          if-no-files-found: error
