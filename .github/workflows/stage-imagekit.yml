@@ -1,0 +1,47 @@
+name: Stage Elegance ImageKit Media
+
+on:
+  push:
+    branches:
+      - matrix/elegance-imagekit-restore
+    paths:
+      - .github/workflows/stage-imagekit.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: imagekit-staging-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  stage:
+    if: github.repository == 'elsinaloa5757-tech/elegancmx'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Export read-only ImageKit metadata
+        env:
+          IMAGEKIT_PRIVATE_KEY: ${{ secrets.IMAGEKIT_PRIVATE_KEY }}
+        run: python3 scripts/export_imagekit.py
+      - name: Build validated media index and duplicate candidates
+        run: python3 scripts/prepare_media_stage.py
+      - name: Test that no unverified products are generated
+        run: python3 tests/test_media_stage.py
+      - name: Commit media index to isolated staging branch only
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/imagekit-media.json data/imagekit-report.json data/potential-duplicates.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'data: stage validated ImageKit media references (not products)'
+            git push origin HEAD:matrix/elegance-imagekit-restore
+          else
+            echo 'No media changes to commit'
+          fi
