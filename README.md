@@ -13,7 +13,7 @@ Repositorio de desarrollo para la tienda Elegance MX.
 Proyecto original: `fd70ecea-de01-42c7-a4cb-561e864b7aaa` (`elegance.mx`).
 Componente: `components/ElegancePanel.tsx`.
 Hero original: `/_cdn/static/4374c4b9-6708-4d2f-bda4-1aec271ae8b2.png`.
-La imagen del hero y los productos aún no se han copiado y validado en este repositorio.
+La imagen original del hero **sí se recuperó y se guardó** en `assets/elegance-panther.png` (imagen binaria original de Floot). Las fotografías de productos y el inventario aún no se han copiado y validado.
 
 ## Antes de publicar
 1. Migrar y verificar los recursos visuales autorizados.
