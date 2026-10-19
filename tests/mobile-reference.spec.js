@@ -99,3 +99,27 @@ test('mobile categories favorites cart details search brand, account and WhatsAp
  await page.locator('#site-search').fill('imposible-123x');
  await expect(page.locator('#no-results')).toBeVisible();
 });
+
+
+test('Ver todas expands brands/categories and shows full arrivals catalog; Ver menos reverses',async({page})=>{
+ await page.setViewportSize({width:390,height:844});
+ await page.goto('/');
+ await expect(page.locator('#brand-rail .brand-card')).toHaveCount(7);
+ await page.locator('#all-brands').click();
+ await expect(page.locator('#brand-rail .brand-card')).toHaveCount(11);
+ await expect(page.locator('#all-brands')).toContainText('Ver menos');
+ await page.locator('#all-brands').click();
+ await expect(page.locator('#brand-rail .brand-card')).toHaveCount(7);
+ await expect(page.locator('#category-grid .category-tile')).toHaveCount(9);
+ await page.locator('#all-categories').click();
+ const count=await page.locator('#category-grid .category-tile').count();
+ expect(count).toBeGreaterThan(9);
+ await expect(page.locator('#all-categories')).toContainText('Ver menos');
+ await page.locator('#all-categories').click();
+ await expect(page.locator('#category-grid .category-tile')).toHaveCount(9);
+ await page.locator('#side-nav [data-nav="Tenis"]').click();
+ await expect(page.locator('#browse-title')).toContainText('Tenis');
+ await page.locator('#all-arrivals').click();
+ await expect(page.locator('#browse-title')).toContainText('EXPLORAR CATÁLOGO');
+ await expect(page.locator('#product-grid .catalog-card')).toHaveCount(30);
+});
