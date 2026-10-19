@@ -99,7 +99,7 @@ function renderBrowse(){
  const chunk=list.slice(state.page*state.pageSize,(state.page+1)*state.pageSize);
  $('product-grid').innerHTML=chunk.map(m=>card(m,'large')).join('');
  $('browse-count').textContent=found.length.toLocaleString('es-MX')+' fotografías';
- $('browse-title').innerHTML='<span class="ornament">◇</span> '+esc(state.collection==='combos'?'IDEAS PARA COMBOS (SIN PAQUETES CONFIRMADOS)':state.collection==='limited'?'EDICIONES LIMITADAS · EN VERIFICACIÓN':state.filterBrand||state.filterCat||'EXPLORAR CATÁLOGO');
+ $('browse-title').innerHTML='<span class="ornament">◇</span> '+esc(state.collection==='combos'?'IDEAS PARA COMBOS (SIN PAQUETES CONFIRMADOS)':state.collection==='limited'?'EDICIONES LIMITADAS · EN VERIFICACIÓN':state.filterBrand==='__sin_marca__'?'Otras marcas / sin identificar':state.filterBrand||state.filterCat||'EXPLORAR CATÁLOGO');
  $('no-results').textContent=state.collection==='limited'?'Todavía no hay ediciones limitadas verificadas en el catálogo. Consulta el archivo general para explorar artículos.':'No hay fotografías para esos filtros. Prueba otra categoría o búsqueda.';
  $('no-results').hidden=found.length!==0;
  $('page-label').textContent='Página '+(state.page+1)+' de '+pages;
