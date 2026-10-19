@@ -117,7 +117,7 @@ test('Ver todas expands brands/categories and shows full arrivals catalog; Ver m
  await expect(page.locator('#all-categories')).toContainText('Ver menos');
  await page.locator('#all-categories').click();
  await expect(page.locator('#category-grid .category-tile')).toHaveCount(9);
- await page.locator('#quick-categories [data-category="Tenis"]').first().click({force:true});
+ await page.locator('#side-nav [data-nav="Tenis"]').click();
  await expect(page.locator('#browse-title')).toContainText('Tenis');
  await page.locator('#all-arrivals').click();
  await expect(page.locator('#browse-title')).toContainText('EXPLORAR CATÁLOGO');
