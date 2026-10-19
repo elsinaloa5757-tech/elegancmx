@@ -11,11 +11,11 @@
 <main class="lab-main">
 <section class="lab-hero">
 <h1>Archivo inteligente</h1>
-<p>La IA analiza fotografías reales de ImageKit y propone categorías o marcas. <strong>Ninguna sugerencia se publica como producto sin tu revisión.</strong></p>
+<p>La IA y las referencias históricas organizan automáticamente fotografías reales de ImageKit en categorías provisionales. <strong>Ninguna sugerencia se publica como producto sin tu revisión.</strong></p>
 <p class="lab-note">El análisis se realiza automáticamente en GitHub Actions. Este panel permite revisar las propuestas y descargar los productos aprobados. Tus correcciones se guardan en este navegador, no en el servidor.</p>
 </section>
 <section class="lab-metrics" aria-label="Resumen"><div><strong id="total">—</strong><span>Fotografías en ImageKit</span></div><div><strong id="processed">—</strong><span>Imágenes analizadas con IA</span></div><div><strong id="pending">—</strong><span>Pendientes de revisión</span></div><div><strong id="approved">—</strong><span>Aprobados aquí</span></div></section>
-<div class="lab-controls"><input id="q" type="search" aria-label="Buscar archivos" placeholder="Buscar por categoría, marca o identificador…"><select id="state" aria-label="Filtrar estado"><option value="analyzed">Con sugerencia IA</option><option value="unprocessed">Sin analizar</option><option value="approved">Aprobados</option><option value="all">Todas las imágenes</option></select><select id="category" aria-label="Filtrar categoría"><option value="">Todas las categorías</option></select><button id="export" class="lab-primary">Exportar aprobados JSON ↓</button></div>
+<div class="lab-controls"><input id="q" type="search" aria-label="Buscar archivos" placeholder="Buscar por categoría, marca o identificador…"><select id="state" aria-label="Filtrar estado"><option value="analyzed">Clasificados automáticamente</option><option value="unprocessed">Sin analizar</option><option value="approved">Aprobados</option><option value="all">Todas las imágenes</option></select><select id="category" aria-label="Filtrar categoría"><option value="">Todas las categorías</option></select><button id="export" class="lab-primary">Exportar aprobados JSON ↓</button></div>
 <p id="status" role="status" aria-live="polite">Preparando índices…</p>
 <div id="cards" class="lab-grid"></div>
 <div class="lab-pager"><button id="prev">← Anteriores</button><span id="page"></span><button id="next">Siguientes →</button></div>
