@@ -6,6 +6,8 @@ const CATS=['Tenis','Ropa','Gorras','Bolsas','Accesorios','Pantalones','Calzado'
 const PRIMARY=['Tenis','Ropa','Accesorios','Bolsas','Gorras','Pantalones','Memorias','Combos','Ediciones limitadas'];
 const ACCESSORY_CATS=new Set(['Accesorios','Relojes','Lentes','Cinturones','Joyería','Fragancias']);
 const BRANDS=['Nike','Jordan','Adidas','New Balance','Puma','Vans','Otras marcas'];
+const MORE_BRANDS=['Louis Vuitton','Gucci','Dior','Prada'];
+let expandedBrands=false,expandedCategories=false;
 const LS_FAV='elegance_public_favorites_v3',LS_INQ='elegance_public_inquiries_v3';
 const getSaved=key=>{try{const a=JSON.parse(localStorage.getItem(key)||'[]');return new Set(Array.isArray(a)?a.filter(x=>typeof x==='string'):[]);}catch{return new Set();}};
 const state={media:[],mediaById:new Map(),routes:new Map(),ai:new Map(),favorites:getSaved(LS_FAV),inquiries:getSaved(LS_INQ),filterCat:'',filterConfidence:'all',filterBrand:'',search:'',sort:'new',collection:'',page:0,pageSize:30};
@@ -71,10 +73,21 @@ function brandCard(brand){
  const photo=state.media.find(m=>suggestionBrand(m.fileId)===brand);
  return '<button type="button" class="brand-card" data-brand="'+esc(brand)+'">'+(photo?'<span class="brand-photo">'+mediaPhoto(photo,'Fotografía con marca sugerida')+'</span>':'')+'<span class="brand-symbol">'+esc(brand==='Nike'?'NIKE':brand==='Jordan'?'✦':brand==='Adidas'?'▲':brand==='New Balance'?'NB':brand==='Puma'?'PUMA':brand==='Vans'?'VANS':'♛')+'</span><strong>'+esc(brand)+'</strong><small>'+ (n?n+' sugerencias':'Por identificar')+'</small></button>';
 }
+function renderBrands(){
+ const names=expandedBrands?[...BRANDS,...MORE_BRANDS]:BRANDS;
+ $('brand-rail').innerHTML=names.map(brandCard).join('');
+ $('all-brands').textContent=expandedBrands?'Ver menos ↑':'Ver todas →';
+ $('all-brands').setAttribute('aria-expanded',String(expandedBrands));
+}
+function renderCategories(){
+ const extra=CATS.filter(cat=>!PRIMARY.includes(cat)&&cat!=='Playeras');
+ $('category-grid').innerHTML=(expandedCategories?[...PRIMARY,...extra]:PRIMARY).map(c=>makeCategoryCard(c,'category-tile')).join('');
+ $('all-categories').textContent=expandedCategories?'Ver menos ↑':'Ver todas →';
+ $('all-categories').setAttribute('aria-expanded',String(expandedCategories));
+}
 function renderShelves(){
  $('quick-categories').innerHTML=PRIMARY.map(c=>makeCategoryCard(c,'quick-category')).join('');
- $('category-grid').innerHTML=PRIMARY.map(c=>makeCategoryCard(c,'category-tile')).join('');
- $('brand-rail').innerHTML=BRANDS.map(brandCard).join('');
+ renderCategories();renderBrands();
  $('arrivals-rail').innerHTML=state.media.slice(0,22).map(m=>card(m)).join('');
 }
 function matches(m){
@@ -217,9 +230,13 @@ function bind(){
  $('close-contact').addEventListener('click',()=>$('contact-dialog').close());
  $('list-footer').addEventListener('click',async e=>{if(e.target.id!=='copy-inquiry')return;const ok=await clipboard(queriesText());e.target.textContent=ok?'✓ Lista copiada':'No se pudo copiar'});
  $('copy-contact-list').addEventListener('click',async()=>{$('copy-feedback').textContent=await clipboard(queriesText())?'Lista copiada. Puedes pegarla en tu conversación con la tienda.':'No se pudo copiar automáticamente.'});
- $('all-brands').addEventListener('click',()=>nav('Marcas'));
- $('all-arrivals').addEventListener('click',()=>nav('Nuevos ingresos'));
- $('all-categories').addEventListener('click',()=>nav('Categorías'));
+ $('all-brands').addEventListener('click',()=>{expandedBrands=!expandedBrands;renderBrands()});
+ $('all-arrivals').addEventListener('click',()=>{
+   state.collection='';state.filterCat='';state.filterBrand='';state.filterConfidence='all';state.search='';state.sort='new';state.page=0;
+   $('site-search').value='';$('filter-category').value='';$('filter-confidence').value='all';$('filter-sort').value='new';
+   renderBrowse();$('browse').scrollIntoView({behavior:'smooth'});
+ });
+ $('all-categories').addEventListener('click',()=>{expandedCategories=!expandedCategories;renderCategories()});
  $('promo-combos').addEventListener('click',()=>nav('Combos'));
  $('promo-limited').addEventListener('click',()=>nav('Ediciones limitadas'));
  $('side-nav').addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu()});
