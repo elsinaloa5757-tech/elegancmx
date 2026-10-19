@@ -382,5 +382,3899 @@
     "duplicateCandidates": [],
     "status": "pending_review",
     "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad2fc52ead997d09a2d45c4",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-8303043e-826f-4995-b500-90977453b793_Uq8LClPLl1.webp?updatedAt=1792212051090",
+    "filePath": "/elegance/products/product-8303043e-826f-4995-b500-90977453b793_Uq8LClPLl1.webp",
+    "createdAt": "2026-10-17T04:40:50.924Z",
+    "categorySuggestion": "Tenis",
+    "categoryScore": 0.8397,
+    "otherCategories": [
+      {
+        "category": "Tenis",
+        "score": 0.8397
+      },
+      {
+        "category": "Buckets",
+        "score": 0.0683
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.0551
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.2906,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "8dac6c37a3d87ab3",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad2fc52ead997d09a2d4563",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-8c04769c-cc98-420e-982c-c5c09a3e6fe1_o_B4KP2Q-f.webp?updatedAt=1792212051028",
+    "filePath": "/elegance/products/product-8c04769c-cc98-420e-982c-c5c09a3e6fe1_o_B4KP2Q-f.webp",
+    "createdAt": "2026-10-17T04:40:50.841Z",
+    "categorySuggestion": "Tenis",
+    "categoryScore": 0.8188,
+    "otherCategories": [
+      {
+        "category": "Tenis",
+        "score": 0.8188
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.0762
+      },
+      {
+        "category": "Buckets",
+        "score": 0.0555
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.2505,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "59d8f3c1b4b83936",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad2fc52ead997d09a2d442f",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-d160a85c-9b60-4902-9132-d5bc3e8500f5_GgkyysJSBQ.webp?updatedAt=1792212050724",
+    "filePath": "/elegance/products/product-d160a85c-9b60-4902-9132-d5bc3e8500f5_GgkyysJSBQ.webp",
+    "createdAt": "2026-10-17T04:40:50.524Z",
+    "categorySuggestion": "Tenis",
+    "categoryScore": 0.8927,
+    "otherCategories": [
+      {
+        "category": "Tenis",
+        "score": 0.8927
+      },
+      {
+        "category": "Buckets",
+        "score": 0.0523
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.0249
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.2451,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "73f098f0e6f0fcf8",
+    "duplicateCandidates": [
+      {
+        "fileId": "6ad2fc51ead997d09a2d3fa8",
+        "distance": 0
+      },
+      {
+        "fileId": "6ad2fc51ead997d09a2d3f3d",
+        "distance": 0
+      }
+    ],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad2fc52ead997d09a2d43f0",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-b27fbd92-0e49-4a63-8074-266f232574d7_ufOCvmWMM.webp?updatedAt=1792212050655",
+    "filePath": "/elegance/products/product-b27fbd92-0e49-4a63-8074-266f232574d7_ufOCvmWMM.webp",
+    "createdAt": "2026-10-17T04:40:50.454Z",
+    "categorySuggestion": "Tenis",
+    "categoryScore": 0.7365,
+    "otherCategories": [
+      {
+        "category": "Tenis",
+        "score": 0.7365
+      },
+      {
+        "category": "Buckets",
+        "score": 0.1725
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.0623
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.2595,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "48b970c2e4f0c1c9",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad2fc52ead997d09a2d4341",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-440340ff-402e-4dc2-a1b5-8f9ea57ebe7c_USFrYg7-L.webp?updatedAt=1792212050485",
+    "filePath": "/elegance/products/product-440340ff-402e-4dc2-a1b5-8f9ea57ebe7c_USFrYg7-L.webp",
+    "createdAt": "2026-10-17T04:40:50.274Z",
+    "categorySuggestion": "Tenis",
+    "categoryScore": 0.894,
+    "otherCategories": [
+      {
+        "category": "Tenis",
+        "score": 0.894
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.0606
+      },
+      {
+        "category": "Buckets",
+        "score": 0.0164
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.273,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "3f4fd3d378329367",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad2fc52ead997d09a2d42de",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-b1870527-9185-41dd-aa70-3b4340652488_hjdXEWImE.webp?updatedAt=1792212050375",
+    "filePath": "/elegance/products/product-b1870527-9185-41dd-aa70-3b4340652488_hjdXEWImE.webp",
+    "createdAt": "2026-10-17T04:40:50.149Z",
+    "categorySuggestion": "Tenis",
+    "categoryScore": 0.7562,
+    "otherCategories": [
+      {
+        "category": "Tenis",
+        "score": 0.7562
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.1406
+      },
+      {
+        "category": "Buckets",
+        "score": 0.0536
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.2366,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "35f29afee0b0c0c3",
+    "duplicateCandidates": [
+      {
+        "fileId": "6ad2fc51ead997d09a2d3f61",
+        "distance": 0
+      },
+      {
+        "fileId": "6ad2fc50ead997d09a2d3d75",
+        "distance": 0
+      }
+    ],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad2fc51ead997d09a2d4226",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-23e1372a-317f-476d-8974-bf16ed5db402_c4iGt8cDnZ.webp?updatedAt=1792212050150",
+    "filePath": "/elegance/products/product-23e1372a-317f-476d-8974-bf16ed5db402_c4iGt8cDnZ.webp",
+    "createdAt": "2026-10-17T04:40:49.942Z",
+    "categorySuggestion": "Tenis",
+    "categoryScore": 0.9221,
+    "otherCategories": [
+      {
+        "category": "Tenis",
+        "score": 0.9221
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.0373
+      },
+      {
+        "category": "Buckets",
+        "score": 0.0113
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.3219,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "f867e1d9f87c3e66",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad2fc51ead997d09a2d41fa",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-75b6458b-234f-47b6-84db-07bef8bf74fa_6uHRgSPWW.webp?updatedAt=1792212050075",
+    "filePath": "/elegance/products/product-75b6458b-234f-47b6-84db-07bef8bf74fa_6uHRgSPWW.webp",
+    "createdAt": "2026-10-17T04:40:49.859Z",
+    "categorySuggestion": "Tenis",
+    "categoryScore": 0.8806,
+    "otherCategories": [
+      {
+        "category": "Tenis",
+        "score": 0.8806
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.0475
+      },
+      {
+        "category": "Buckets",
+        "score": 0.0315
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.3119,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "ef3d3e1686637176",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad2fc51ead997d09a2d41b9",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-0435583a-0809-475a-8ead-697e54fc5ebc_mJKr-Q0Qbo.webp?updatedAt=1792212050007",
+    "filePath": "/elegance/products/product-0435583a-0809-475a-8ead-697e54fc5ebc_mJKr-Q0Qbo.webp",
+    "createdAt": "2026-10-17T04:40:49.809Z",
+    "categorySuggestion": "Tenis",
+    "categoryScore": 0.7875,
+    "otherCategories": [
+      {
+        "category": "Tenis",
+        "score": 0.7875
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.1081
+      },
+      {
+        "category": "Buckets",
+        "score": 0.0454
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.4149,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "e18f63798d677166",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad2fc51ead997d09a2d3feb",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-1a14a4b3-2746-4a17-a978-34d1a817d404_7JthX7Q_P.webp?updatedAt=1792212049689",
+    "filePath": "/elegance/products/product-1a14a4b3-2746-4a17-a978-34d1a817d404_7JthX7Q_P.webp",
+    "createdAt": "2026-10-17T04:40:49.472Z",
+    "categorySuggestion": "Tenis",
+    "categoryScore": 0.8321,
+    "otherCategories": [
+      {
+        "category": "Tenis",
+        "score": 0.8321
+      },
+      {
+        "category": "Buckets",
+        "score": 0.065
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.0392
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.5261,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "8ba66939cc74b4db",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad2fc51ead997d09a2d3fa8",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-651fc0c5-583c-4f8f-87fa-5080222aabfa_Lou0OKaxD.webp?updatedAt=1792212049599",
+    "filePath": "/elegance/products/product-651fc0c5-583c-4f8f-87fa-5080222aabfa_Lou0OKaxD.webp",
+    "createdAt": "2026-10-17T04:40:49.393Z",
+    "categorySuggestion": "Tenis",
+    "categoryScore": 0.8672,
+    "otherCategories": [
+      {
+        "category": "Tenis",
+        "score": 0.8672
+      },
+      {
+        "category": "Buckets",
+        "score": 0.0623
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.0331
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.2427,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "73f098f0e6f0fcf8",
+    "duplicateCandidates": [
+      {
+        "fileId": "6ad2fc52ead997d09a2d442f",
+        "distance": 0
+      },
+      {
+        "fileId": "6ad2fc51ead997d09a2d3f3d",
+        "distance": 0
+      }
+    ],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad2fc51ead997d09a2d3f61",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-591c4ac7-84ec-4bf1-9803-3a501ef3c836_TfLJGSQN_.webp?updatedAt=1792212049538",
+    "filePath": "/elegance/products/product-591c4ac7-84ec-4bf1-9803-3a501ef3c836_TfLJGSQN_.webp",
+    "createdAt": "2026-10-17T04:40:49.329Z",
+    "categorySuggestion": "Tenis",
+    "categoryScore": 0.7028,
+    "otherCategories": [
+      {
+        "category": "Tenis",
+        "score": 0.7028
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.1543
+      },
+      {
+        "category": "Buckets",
+        "score": 0.0692
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.2731,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "35f29afee0b0c0c3",
+    "duplicateCandidates": [
+      {
+        "fileId": "6ad2fc52ead997d09a2d42de",
+        "distance": 0
+      },
+      {
+        "fileId": "6ad2fc50ead997d09a2d3d75",
+        "distance": 0
+      }
+    ],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad2fc51ead997d09a2d3f3d",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-e1291383-e83b-4395-b985-61c4f9eef905_sXlAT1XKZ.webp?updatedAt=1792212049454",
+    "filePath": "/elegance/products/product-e1291383-e83b-4395-b985-61c4f9eef905_sXlAT1XKZ.webp",
+    "createdAt": "2026-10-17T04:40:49.289Z",
+    "categorySuggestion": "Tenis",
+    "categoryScore": 0.8694,
+    "otherCategories": [
+      {
+        "category": "Tenis",
+        "score": 0.8694
+      },
+      {
+        "category": "Buckets",
+        "score": 0.0667
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.0288
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.2111,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "73f098f0e6f0fcf8",
+    "duplicateCandidates": [
+      {
+        "fileId": "6ad2fc52ead997d09a2d442f",
+        "distance": 0
+      },
+      {
+        "fileId": "6ad2fc51ead997d09a2d3fa8",
+        "distance": 0
+      }
+    ],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad2fc50ead997d09a2d3d75",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-f3205562-51f7-4f34-bb85-f5c4b6ce6f6b_tpQQXdyqE.webp?updatedAt=1792212049043",
+    "filePath": "/elegance/products/product-f3205562-51f7-4f34-bb85-f5c4b6ce6f6b_tpQQXdyqE.webp",
+    "createdAt": "2026-10-17T04:40:48.833Z",
+    "categorySuggestion": "Tenis",
+    "categoryScore": 0.7837,
+    "otherCategories": [
+      {
+        "category": "Tenis",
+        "score": 0.7837
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.1204
+      },
+      {
+        "category": "Buckets",
+        "score": 0.0492
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.2398,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "35f29afee0b0c0c3",
+    "duplicateCandidates": [
+      {
+        "fileId": "6ad2fc52ead997d09a2d42de",
+        "distance": 0
+      },
+      {
+        "fileId": "6ad2fc51ead997d09a2d3f61",
+        "distance": 0
+      }
+    ],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad2fc50ead997d09a2d3d39",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-f8c78f3c-5b99-4962-bcfc-05b9ba596bb2_ts82RBqnpF.webp?updatedAt=1792212048962",
+    "filePath": "/elegance/products/product-f8c78f3c-5b99-4962-bcfc-05b9ba596bb2_ts82RBqnpF.webp",
+    "createdAt": "2026-10-17T04:40:48.783Z",
+    "categorySuggestion": "Tenis",
+    "categoryScore": 0.9307,
+    "otherCategories": [
+      {
+        "category": "Tenis",
+        "score": 0.9307
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.0303
+      },
+      {
+        "category": "Cinturones",
+        "score": 0.0123
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.261,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "4c3830913b71b1c3",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad2fc50ead997d09a2d3ca5",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-5049aaf9-1476-4838-838d-b575c8a046e4_Pw40wxUGw.webp?updatedAt=1792212048783",
+    "filePath": "/elegance/products/product-5049aaf9-1476-4838-838d-b575c8a046e4_Pw40wxUGw.webp",
+    "createdAt": "2026-10-17T04:40:48.584Z",
+    "categorySuggestion": "Tenis",
+    "categoryScore": 0.945,
+    "otherCategories": [
+      {
+        "category": "Tenis",
+        "score": 0.945
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.0228
+      },
+      {
+        "category": "Buckets",
+        "score": 0.015
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.3643,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "39d187cbb8b2e341",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad2fc50ead997d09a2d3c92",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-09787dad-a419-44b6-8c9e-3b620aec0bf6_zdT8F2q_XP.webp?updatedAt=1792212048756",
+    "filePath": "/elegance/products/product-09787dad-a419-44b6-8c9e-3b620aec0bf6_zdT8F2q_XP.webp",
+    "createdAt": "2026-10-17T04:40:48.567Z",
+    "categorySuggestion": "Tenis",
+    "categoryScore": 0.9339,
+    "otherCategories": [
+      {
+        "category": "Tenis",
+        "score": 0.9339
+      },
+      {
+        "category": "Buckets",
+        "score": 0.0208
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.0178
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.3943,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "8cdc7943b87871f1",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad2fc50ead997d09a2d3af2",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-33480990-9b4a-44d5-8599-f373cc589206_aOtl9W9Tj.webp?updatedAt=1792212048354",
+    "filePath": "/elegance/products/product-33480990-9b4a-44d5-8599-f373cc589206_aOtl9W9Tj.webp",
+    "createdAt": "2026-10-17T04:40:48.139Z",
+    "categorySuggestion": "Tenis",
+    "categoryScore": 0.942,
+    "otherCategories": [
+      {
+        "category": "Tenis",
+        "score": 0.942
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.0286
+      },
+      {
+        "category": "Buckets",
+        "score": 0.0095
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.3492,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "2a1bdb9f3f38e263",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad2fc50ead997d09a2d3ae7",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-cb7d7034-196f-4c6c-a88b-7aeca0b45f71_G4FHGP7dt.webp?updatedAt=1792212048335",
+    "filePath": "/elegance/products/product-cb7d7034-196f-4c6c-a88b-7aeca0b45f71_G4FHGP7dt.webp",
+    "createdAt": "2026-10-17T04:40:48.134Z",
+    "categorySuggestion": "Tenis",
+    "categoryScore": 0.9485,
+    "otherCategories": [
+      {
+        "category": "Tenis",
+        "score": 0.9485
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.0274
+      },
+      {
+        "category": "Cinturones",
+        "score": 0.0086
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.5486,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "48383a9a3bf9e0c3",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad2fc4fead997d09a2d39e4",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-a94f0bfa-5ea1-412e-9848-952a1106151b_CjUG0DQhs.webp?updatedAt=1792212048094",
+    "filePath": "/elegance/products/product-a94f0bfa-5ea1-412e-9848-952a1106151b_CjUG0DQhs.webp",
+    "createdAt": "2026-10-17T04:40:47.888Z",
+    "categorySuggestion": "Tenis",
+    "categoryScore": 0.9393,
+    "otherCategories": [
+      {
+        "category": "Tenis",
+        "score": 0.9393
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.0193
+      },
+      {
+        "category": "Buckets",
+        "score": 0.0191
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.3323,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "33b1f286a666e7c5",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad2fc4fead997d09a2d39c8",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-63898c7f-38bc-48f5-bd78-95fff52c3599_t8nHghHSR.webp?updatedAt=1792212048085",
+    "filePath": "/elegance/products/product-63898c7f-38bc-48f5-bd78-95fff52c3599_t8nHghHSR.webp",
+    "createdAt": "2026-10-17T04:40:47.861Z",
+    "categorySuggestion": "Tenis",
+    "categoryScore": 0.9067,
+    "otherCategories": [
+      {
+        "category": "Tenis",
+        "score": 0.9067
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.0376
+      },
+      {
+        "category": "Buckets",
+        "score": 0.0133
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.4839,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "2b39b0e506f7e58b",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad2fc4fead997d09a2d3855",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-373755bd-e945-42e4-b344-6fded53be58a_Byz_QctJb.webp?updatedAt=1792212047672",
+    "filePath": "/elegance/products/product-373755bd-e945-42e4-b344-6fded53be58a_Byz_QctJb.webp",
+    "createdAt": "2026-10-17T04:40:47.450Z",
+    "categorySuggestion": "Tenis",
+    "categoryScore": 0.8602,
+    "otherCategories": [
+      {
+        "category": "Tenis",
+        "score": 0.8602
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.0506
+      },
+      {
+        "category": "Buckets",
+        "score": 0.0407
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.6457,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "4dd64b959ec72d3c",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad2fc4fead997d09a2d381d",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-5f28bf7b-12d7-4431-80b0-561424d2c3c5_ntCjo_5Tt.webp?updatedAt=1792212047676",
+    "filePath": "/elegance/products/product-5f28bf7b-12d7-4431-80b0-561424d2c3c5_ntCjo_5Tt.webp",
+    "createdAt": "2026-10-17T04:40:47.398Z",
+    "categorySuggestion": "Tenis",
+    "categoryScore": 0.8262,
+    "otherCategories": [
+      {
+        "category": "Tenis",
+        "score": 0.8262
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.0762
+      },
+      {
+        "category": "Buckets",
+        "score": 0.0319
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.3663,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "d3d35899173f732b",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad2fc4fead997d09a2d3797",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-d3872202-8e49-4e90-8f4e-ae8893e4e75f_Tw1GH9d7_.webp?updatedAt=1792212047456",
+    "filePath": "/elegance/products/product-d3872202-8e49-4e90-8f4e-ae8893e4e75f_Tw1GH9d7_.webp",
+    "createdAt": "2026-10-17T04:40:47.263Z",
+    "categorySuggestion": "Tenis",
+    "categoryScore": 0.9188,
+    "otherCategories": [
+      {
+        "category": "Tenis",
+        "score": 0.9188
+      },
+      {
+        "category": "Buckets",
+        "score": 0.0335
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.0245
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.5046,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "ecf620f84c6c149a",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad2fc4fead997d09a2d375f",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-832fd45f-8105-4b89-9101-9ea8af2a9565_zLQqMZZhq.webp?updatedAt=1792212047410",
+    "filePath": "/elegance/products/product-832fd45f-8105-4b89-9101-9ea8af2a9565_zLQqMZZhq.webp",
+    "createdAt": "2026-10-17T04:40:47.222Z",
+    "categorySuggestion": "Tenis",
+    "categoryScore": 0.9497,
+    "otherCategories": [
+      {
+        "category": "Tenis",
+        "score": 0.9497
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.0217
+      },
+      {
+        "category": "Buckets",
+        "score": 0.0196
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.216,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "2d0d4586c3d34d1d",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad2fc4eead997d09a2d3633",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-12167590-5a1a-45e5-b1ed-e536fbe65863_foOJObIrB.webp?updatedAt=1792212047028",
+    "filePath": "/elegance/products/product-12167590-5a1a-45e5-b1ed-e536fbe65863_foOJObIrB.webp",
+    "createdAt": "2026-10-17T04:40:46.832Z",
+    "categorySuggestion": "Tenis",
+    "categoryScore": 0.9156,
+    "otherCategories": [
+      {
+        "category": "Tenis",
+        "score": 0.9156
+      },
+      {
+        "category": "Buckets",
+        "score": 0.0354
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.0298
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.279,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "244fc9e0f89e0c4f",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad2fc4eead997d09a2d3625",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-6d572eba-d388-4e24-9fb7-f6b7714cd54c_dmM1wb7kv8.webp?updatedAt=1792212047007",
+    "filePath": "/elegance/products/product-6d572eba-d388-4e24-9fb7-f6b7714cd54c_dmM1wb7kv8.webp",
+    "createdAt": "2026-10-17T04:40:46.824Z",
+    "categorySuggestion": "Tenis",
+    "categoryScore": 0.9081,
+    "otherCategories": [
+      {
+        "category": "Tenis",
+        "score": 0.9081
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.053
+      },
+      {
+        "category": "Buckets",
+        "score": 0.0208
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.4843,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "ddfc8db8f63a86c6",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad2fc4eead997d09a2d359e",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-1fb22fdd-8f5d-43bc-beaa-b71ebb39dfa4_78bS_gwSF.webp?updatedAt=1792212046840",
+    "filePath": "/elegance/products/product-1fb22fdd-8f5d-43bc-beaa-b71ebb39dfa4_78bS_gwSF.webp",
+    "createdAt": "2026-10-17T04:40:46.648Z",
+    "categorySuggestion": "Tenis",
+    "categoryScore": 0.8988,
+    "otherCategories": [
+      {
+        "category": "Tenis",
+        "score": 0.8988
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.0468
+      },
+      {
+        "category": "Buckets",
+        "score": 0.0338
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.4291,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "000c261594cb45d4",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad2fc4eead997d09a2d355f",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-43795696-d02b-41e5-be9a-32596dae533e_ihljJSReEw.webp?updatedAt=1792212046773",
+    "filePath": "/elegance/products/product-43795696-d02b-41e5-be9a-32596dae533e_ihljJSReEw.webp",
+    "createdAt": "2026-10-17T04:40:46.581Z",
+    "categorySuggestion": "Tenis",
+    "categoryScore": 0.8801,
+    "otherCategories": [
+      {
+        "category": "Tenis",
+        "score": 0.8801
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.0656
+      },
+      {
+        "category": "Buckets",
+        "score": 0.0295
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.2636,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "b575a5a0e09ece4e",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad2fc4eead997d09a2d3432",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-23c9bff1-f73e-4117-a743-e9592c7e7eb3_8RuKRpXlU.webp?updatedAt=1792212046382",
+    "filePath": "/elegance/products/product-23c9bff1-f73e-4117-a743-e9592c7e7eb3_8RuKRpXlU.webp",
+    "createdAt": "2026-10-17T04:40:46.181Z",
+    "categorySuggestion": "Tenis",
+    "categoryScore": 0.9203,
+    "otherCategories": [
+      {
+        "category": "Tenis",
+        "score": 0.9203
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.0325
+      },
+      {
+        "category": "Buckets",
+        "score": 0.0214
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.5442,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "4b3b995f031fce4e",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad2fc4eead997d09a2d341d",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-167b85aa-264e-47c1-b543-a18a7ea10072_Vv5vJ0_tc.webp?updatedAt=1792212046394",
+    "filePath": "/elegance/products/product-167b85aa-264e-47c1-b543-a18a7ea10072_Vv5vJ0_tc.webp",
+    "createdAt": "2026-10-17T04:40:46.173Z",
+    "categorySuggestion": "Tenis",
+    "categoryScore": 0.8024,
+    "otherCategories": [
+      {
+        "category": "Tenis",
+        "score": 0.8024
+      },
+      {
+        "category": "Buckets",
+        "score": 0.0903
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.0548
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.2239,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "b56deb684e0f8393",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad2fc4eead997d09a2d33da",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-c0d1ed1b-79a8-40ea-8b86-023213520efd_4ejLXUGq4U.webp?updatedAt=1792212046257",
+    "filePath": "/elegance/products/product-c0d1ed1b-79a8-40ea-8b86-023213520efd_4ejLXUGq4U.webp",
+    "createdAt": "2026-10-17T04:40:46.067Z",
+    "categorySuggestion": "Tenis",
+    "categoryScore": 0.7322,
+    "otherCategories": [
+      {
+        "category": "Tenis",
+        "score": 0.7322
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.1318
+      },
+      {
+        "category": "Buckets",
+        "score": 0.0315
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.3109,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "490bf91eb2cae627",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad2fc4dead997d09a2d3302",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-3d24f6cf-a9fc-4cb4-9774-7988cdbe4b2a_ta1fV3gZb.webp?updatedAt=1792212046058",
+    "filePath": "/elegance/products/product-3d24f6cf-a9fc-4cb4-9774-7988cdbe4b2a_ta1fV3gZb.webp",
+    "createdAt": "2026-10-17T04:40:45.828Z",
+    "categorySuggestion": "Tenis",
+    "categoryScore": 0.9104,
+    "otherCategories": [
+      {
+        "category": "Tenis",
+        "score": 0.9104
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.0567
+      },
+      {
+        "category": "Buckets",
+        "score": 0.0184
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.2917,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "90b56565878dc6ce",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad2fc4dead997d09a2d323a",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-0ac30c48-ad5e-493b-9a5c-fb32e8aa5e05_oaNldYuYwA.webp?updatedAt=1792212045791",
+    "filePath": "/elegance/products/product-0ac30c48-ad5e-493b-9a5c-fb32e8aa5e05_oaNldYuYwA.webp",
+    "createdAt": "2026-10-17T04:40:45.576Z",
+    "categorySuggestion": "Tenis",
+    "categoryScore": 0.8645,
+    "otherCategories": [
+      {
+        "category": "Tenis",
+        "score": 0.8645
+      },
+      {
+        "category": "Buckets",
+        "score": 0.0529
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.043
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.3618,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "2d7c66c71919c363",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad2fc4dead997d09a2d31d8",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-b6dffc90-6da3-4ec3-b551-bd6c6f0c8e27_QTwUpiJ6s.webp?updatedAt=1792212045674",
+    "filePath": "/elegance/products/product-b6dffc90-6da3-4ec3-b551-bd6c6f0c8e27_QTwUpiJ6s.webp",
+    "createdAt": "2026-10-17T04:40:45.465Z",
+    "categorySuggestion": "Tenis",
+    "categoryScore": 0.9343,
+    "otherCategories": [
+      {
+        "category": "Tenis",
+        "score": 0.9343
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.0343
+      },
+      {
+        "category": "Buckets",
+        "score": 0.0142
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.521,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "cdb9992e078bcc8c",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad2fc4dead997d09a2d316f",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-8d044307-38e7-4df9-8ed9-3b2ce056ef21_bGWRV8cOg.webp?updatedAt=1792212045514",
+    "filePath": "/elegance/products/product-8d044307-38e7-4df9-8ed9-3b2ce056ef21_bGWRV8cOg.webp",
+    "createdAt": "2026-10-17T04:40:45.313Z",
+    "categorySuggestion": "Tenis",
+    "categoryScore": 0.9763,
+    "otherCategories": [
+      {
+        "category": "Tenis",
+        "score": 0.9763
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.0126
+      },
+      {
+        "category": "Buckets",
+        "score": 0.0065
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.3326,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "2b67470a0b4b2333",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad2fc4dead997d09a2d30bd",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-81e6b1ba-08db-4993-8735-6d32abe2b7b1_FjoM0JC-g.webp?updatedAt=1792212045321",
+    "filePath": "/elegance/products/product-81e6b1ba-08db-4993-8735-6d32abe2b7b1_FjoM0JC-g.webp",
+    "createdAt": "2026-10-17T04:40:45.105Z",
+    "categorySuggestion": "Tenis",
+    "categoryScore": 0.956,
+    "otherCategories": [
+      {
+        "category": "Tenis",
+        "score": 0.956
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.0279
+      },
+      {
+        "category": "Buckets",
+        "score": 0.0062
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.2459,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "e7090e338b838b38",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad2fc4cead997d09a2d3056",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-cd88f043-5fdb-4c2b-b64d-809da757a3b9_-xwobhb24.webp?updatedAt=1792212045225",
+    "filePath": "/elegance/products/product-cd88f043-5fdb-4c2b-b64d-809da757a3b9_-xwobhb24.webp",
+    "createdAt": "2026-10-17T04:40:44.973Z",
+    "categorySuggestion": "Tenis",
+    "categoryScore": 0.7732,
+    "otherCategories": [
+      {
+        "category": "Tenis",
+        "score": 0.7732
+      },
+      {
+        "category": "Buckets",
+        "score": 0.0901
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.0774
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.3836,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "16e7d729193b2573",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad2fc4cead997d09a2d2fd4",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-142faa73-5e81-42a7-bf58-1a4aa267f56c_g6bwuB04vw.webp?updatedAt=1792212044974",
+    "filePath": "/elegance/products/product-142faa73-5e81-42a7-bf58-1a4aa267f56c_g6bwuB04vw.webp",
+    "createdAt": "2026-10-17T04:40:44.753Z",
+    "categorySuggestion": "Tenis",
+    "categoryScore": 0.7745,
+    "otherCategories": [
+      {
+        "category": "Tenis",
+        "score": 0.7745
+      },
+      {
+        "category": "Buckets",
+        "score": 0.0782
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.0626
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.399,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "e7e7c567341c6661",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad2fc4cead997d09a2d2f6b",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-0ee9e3b2-abf4-436e-91a9-3f7994ff9cd8_3WsjD1n5U.webp?updatedAt=1792212044816",
+    "filePath": "/elegance/products/product-0ee9e3b2-abf4-436e-91a9-3f7994ff9cd8_3WsjD1n5U.webp",
+    "createdAt": "2026-10-17T04:40:44.593Z",
+    "categorySuggestion": "Tenis",
+    "categoryScore": 0.8593,
+    "otherCategories": [
+      {
+        "category": "Tenis",
+        "score": 0.8593
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.0693
+      },
+      {
+        "category": "Cinturones",
+        "score": 0.0205
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.4229,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "613c3d4d09039974",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad2fc4cead997d09a2d2f0b",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-496ca337-88c3-42d8-8895-f595f814fdcf_ULkbSlhHk.webp?updatedAt=1792212044626",
+    "filePath": "/elegance/products/product-496ca337-88c3-42d8-8895-f595f814fdcf_ULkbSlhHk.webp",
+    "createdAt": "2026-10-17T04:40:44.434Z",
+    "categorySuggestion": "Tenis",
+    "categoryScore": 0.8445,
+    "otherCategories": [
+      {
+        "category": "Tenis",
+        "score": 0.8445
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.0638
+      },
+      {
+        "category": "Buckets",
+        "score": 0.0391
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.5632,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "0d77252661b11973",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad2fc4cead997d09a2d2ee4",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-11f8cc23-baf0-4ccc-8852-131de27bc973_MMMWHW8NI.webp?updatedAt=1792212044595",
+    "filePath": "/elegance/products/product-11f8cc23-baf0-4ccc-8852-131de27bc973_MMMWHW8NI.webp",
+    "createdAt": "2026-10-17T04:40:44.386Z",
+    "categorySuggestion": "Tenis",
+    "categoryScore": 0.8672,
+    "otherCategories": [
+      {
+        "category": "Tenis",
+        "score": 0.8672
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.0428
+      },
+      {
+        "category": "Buckets",
+        "score": 0.0424
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.3055,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "48433d272613993d",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad2fc4cead997d09a2d2db4",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-070798c4-a529-4ca2-8bf4-c89439d04e0b_STsZm2q8gW.webp?updatedAt=1792212044231",
+    "filePath": "/elegance/products/product-070798c4-a529-4ca2-8bf4-c89439d04e0b_STsZm2q8gW.webp",
+    "createdAt": "2026-10-17T04:40:44.007Z",
+    "categorySuggestion": "Tenis",
+    "categoryScore": 0.9291,
+    "otherCategories": [
+      {
+        "category": "Tenis",
+        "score": 0.9291
+      },
+      {
+        "category": "Buckets",
+        "score": 0.0306
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.0217
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.6755,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "415731c160309b74",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad2fc4bead997d09a2d2d0a",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-2e1dc97d-6e3f-465e-b30c-6a69925887ad_4zt2xslwt.webp?updatedAt=1792212044021",
+    "filePath": "/elegance/products/product-2e1dc97d-6e3f-465e-b30c-6a69925887ad_4zt2xslwt.webp",
+    "createdAt": "2026-10-17T04:40:43.827Z",
+    "categorySuggestion": "Tenis",
+    "categoryScore": 0.8727,
+    "otherCategories": [
+      {
+        "category": "Tenis",
+        "score": 0.8727
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.0518
+      },
+      {
+        "category": "Buckets",
+        "score": 0.0314
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.4384,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "214b297969349c76",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad2fc4bead997d09a2d2c6c",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-ad031da1-98ea-4084-8f6d-c5f6f660db16_48k7c-uyy.webp?updatedAt=1792212043834",
+    "filePath": "/elegance/products/product-ad031da1-98ea-4084-8f6d-c5f6f660db16_48k7c-uyy.webp",
+    "createdAt": "2026-10-17T04:40:43.630Z",
+    "categorySuggestion": "Tenis",
+    "categoryScore": 0.9735,
+    "otherCategories": [
+      {
+        "category": "Tenis",
+        "score": 0.9735
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.0117
+      },
+      {
+        "category": "Buckets",
+        "score": 0.0041
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.6121,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "0010586c2f49095a",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad2fc4bead997d09a2d2c32",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-0c2e527f-9690-49b0-a878-5487210158af_fMo_m3EU1.webp?updatedAt=1792212043811",
+    "filePath": "/elegance/products/product-0c2e527f-9690-49b0-a878-5487210158af_fMo_m3EU1.webp",
+    "createdAt": "2026-10-17T04:40:43.581Z",
+    "categorySuggestion": "Tenis",
+    "categoryScore": 0.9768,
+    "otherCategories": [
+      {
+        "category": "Tenis",
+        "score": 0.9768
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.0106
+      },
+      {
+        "category": "Buckets",
+        "score": 0.006
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.4015,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "10485c0e0741a171",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad2fc4bead997d09a2d2a4d",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-15842fb9-34cf-424e-961b-a259d17f4258_h-YFb9Zcq.webp?updatedAt=1792212043415",
+    "filePath": "/elegance/products/product-15842fb9-34cf-424e-961b-a259d17f4258_h-YFb9Zcq.webp",
+    "createdAt": "2026-10-17T04:40:43.208Z",
+    "categorySuggestion": "Tenis",
+    "categoryScore": 0.9068,
+    "otherCategories": [
+      {
+        "category": "Tenis",
+        "score": 0.9068
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.0419
+      },
+      {
+        "category": "Buckets",
+        "score": 0.0251
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.3211,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "e31f37260623313d",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad2fc4aead997d09a2d273b",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-9ccb5bfd-f53d-4c69-86e7-7dc9fe1d04f1_-CMHxILQi.webp?updatedAt=1792212043129",
+    "filePath": "/elegance/products/product-9ccb5bfd-f53d-4c69-86e7-7dc9fe1d04f1_-CMHxILQi.webp",
+    "createdAt": "2026-10-17T04:40:42.942Z",
+    "categorySuggestion": "Tenis",
+    "categoryScore": 0.9019,
+    "otherCategories": [
+      {
+        "category": "Tenis",
+        "score": 0.9019
+      },
+      {
+        "category": "Buckets",
+        "score": 0.0363
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.0329
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.3205,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "0058580e47017170",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad2fc4aead997d09a2d2701",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-c08fa060-2b12-43f4-9519-56ffa5fe0950_74hx1DYM4j.webp?updatedAt=1792212043077",
+    "filePath": "/elegance/products/product-c08fa060-2b12-43f4-9519-56ffa5fe0950_74hx1DYM4j.webp",
+    "createdAt": "2026-10-17T04:40:42.878Z",
+    "categorySuggestion": "Tenis",
+    "categoryScore": 0.9432,
+    "otherCategories": [
+      {
+        "category": "Tenis",
+        "score": 0.9432
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.0354
+      },
+      {
+        "category": "Gorras",
+        "score": 0.0072
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.2723,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "0009cc5731512333",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad2fc4aead997d09a2d252f",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-b7675ba6-750b-4ced-8dfd-f03cbfd29a49_pLeFQCRoc.webp?updatedAt=1792212042577",
+    "filePath": "/elegance/products/product-b7675ba6-750b-4ced-8dfd-f03cbfd29a49_pLeFQCRoc.webp",
+    "createdAt": "2026-10-17T04:40:42.356Z",
+    "categorySuggestion": "Tenis",
+    "categoryScore": 0.9509,
+    "otherCategories": [
+      {
+        "category": "Tenis",
+        "score": 0.9509
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.0246
+      },
+      {
+        "category": "Buckets",
+        "score": 0.0108
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.6648,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "00484c6e47613121",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad2fc4aead997d09a2d2490",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-e1e08d5d-903e-4755-a733-1438bc5f902f_IC5JM74lF.webp?updatedAt=1792212042403",
+    "filePath": "/elegance/products/product-e1e08d5d-903e-4755-a733-1438bc5f902f_IC5JM74lF.webp",
+    "createdAt": "2026-10-17T04:40:42.198Z",
+    "categorySuggestion": "Tenis",
+    "categoryScore": 0.9237,
+    "otherCategories": [
+      {
+        "category": "Tenis",
+        "score": 0.9237
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.0331
+      },
+      {
+        "category": "Buckets",
+        "score": 0.0198
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.4921,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "b22c2d4646233177",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad2fc4aead997d09a2d23bf",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-9694830c-7b11-48d1-a8b3-32b522e061d3_urTNe2F-9.webp?updatedAt=1792212042227",
+    "filePath": "/elegance/products/product-9694830c-7b11-48d1-a8b3-32b522e061d3_urTNe2F-9.webp",
+    "createdAt": "2026-10-17T04:40:41.998Z",
+    "categorySuggestion": "Tenis",
+    "categoryScore": 0.9676,
+    "otherCategories": [
+      {
+        "category": "Tenis",
+        "score": 0.9676
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.019
+      },
+      {
+        "category": "Buckets",
+        "score": 0.0033
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.601,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "105c4f2719011b31",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad21821ead997d09ac91e3e",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-84896916-8e55-4f70-8eff-a86c1d355c9c_vZACAF3a7.jpg?updatedAt=1792153633679",
+    "filePath": "/elegance/products/product-84896916-8e55-4f70-8eff-a86c1d355c9c_vZACAF3a7.jpg",
+    "createdAt": "2026-10-16T12:27:13.586Z",
+    "categorySuggestion": "Tenis",
+    "categoryScore": 0.4046,
+    "otherCategories": [
+      {
+        "category": "Tenis",
+        "score": 0.4046
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.2607
+      },
+      {
+        "category": "Otro",
+        "score": 0.0592
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.2132,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "c8dce8e8e4f0f8e8",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad21807ead997d09ac82785",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-54a42866-3fbd-4d10-9a0b-76adba94cf1d_SEzhRVN-B.webp?updatedAt=1792153607571",
+    "filePath": "/elegance/products/product-54a42866-3fbd-4d10-9a0b-76adba94cf1d_SEzhRVN-B.webp",
+    "createdAt": "2026-10-16T12:26:47.289Z",
+    "categorySuggestion": "Tenis",
+    "categoryScore": 0.8792,
+    "otherCategories": [
+      {
+        "category": "Tenis",
+        "score": 0.8792
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.0765
+      },
+      {
+        "category": "Buckets",
+        "score": 0.0255
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.2902,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "47c19b34cfc7399b",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad21806ead997d09ac82053",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-fb1c4ee5-59a3-4d11-a347-1dc60e7cd4a0_az_HLX1RFZ.webp?updatedAt=1792153607008",
+    "filePath": "/elegance/products/product-fb1c4ee5-59a3-4d11-a347-1dc60e7cd4a0_az_HLX1RFZ.webp",
+    "createdAt": "2026-10-16T12:26:46.804Z",
+    "categorySuggestion": "Tenis",
+    "categoryScore": 0.834,
+    "otherCategories": [
+      {
+        "category": "Tenis",
+        "score": 0.834
+      },
+      {
+        "category": "Buckets",
+        "score": 0.0901
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.0402
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.2375,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "73e3305958b03226",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad21806ead997d09ac8198b",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-1a2bdbe5-e1e1-404e-9edf-9094ceb7fe24_-v1t1PRne.webp?updatedAt=1792153606494",
+    "filePath": "/elegance/products/product-1a2bdbe5-e1e1-404e-9edf-9094ceb7fe24_-v1t1PRne.webp",
+    "createdAt": "2026-10-16T12:26:46.191Z",
+    "categorySuggestion": "Tenis",
+    "categoryScore": 0.8727,
+    "otherCategories": [
+      {
+        "category": "Tenis",
+        "score": 0.8727
+      },
+      {
+        "category": "Buckets",
+        "score": 0.0732
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.0355
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.2836,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "d786e168789cb763",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad21805ead997d09ac81380",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-474d4a87-bd30-42c9-8332-2e555aa3cfeb_zigq3zDr0.webp?updatedAt=1792153606028",
+    "filePath": "/elegance/products/product-474d4a87-bd30-42c9-8332-2e555aa3cfeb_zigq3zDr0.webp",
+    "createdAt": "2026-10-16T12:26:45.794Z",
+    "categorySuggestion": "Tenis",
+    "categoryScore": 0.8342,
+    "otherCategories": [
+      {
+        "category": "Tenis",
+        "score": 0.8342
+      },
+      {
+        "category": "Buckets",
+        "score": 0.0807
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.0562
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.248,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "1b33381c1e4b63e7",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad21805ead997d09ac80cbb",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-e3149fde-e76e-486c-97b6-61816d1d26d5_RzBSIVfeK.webp?updatedAt=1792153605576",
+    "filePath": "/elegance/products/product-e3149fde-e76e-486c-97b6-61816d1d26d5_RzBSIVfeK.webp",
+    "createdAt": "2026-10-16T12:26:45.351Z",
+    "categorySuggestion": "Tenis",
+    "categoryScore": 0.8956,
+    "otherCategories": [
+      {
+        "category": "Tenis",
+        "score": 0.8956
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.0471
+      },
+      {
+        "category": "Buckets",
+        "score": 0.0347
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.2139,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "67e3a96d5da766ce",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad21804ead997d09ac80142",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-9950350c-748b-444a-aea6-5bc8cd5aa375_fUPjylQdG.webp?updatedAt=1792153604985",
+    "filePath": "/elegance/products/product-9950350c-748b-444a-aea6-5bc8cd5aa375_fUPjylQdG.webp",
+    "createdAt": "2026-10-16T12:26:44.776Z",
+    "categorySuggestion": "Playeras",
+    "categoryScore": 0.3187,
+    "otherCategories": [
+      {
+        "category": "Playeras",
+        "score": 0.3187
+      },
+      {
+        "category": "Pantalones",
+        "score": 0.274
+      },
+      {
+        "category": "Otro",
+        "score": 0.1884
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.6528,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "049c2c5c59191270",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad21804ead997d09ac7fac5",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-2cb25a5c-51fb-44d4-b565-271815ba4e99_lfg6or4TA.webp?updatedAt=1792153604734",
+    "filePath": "/elegance/products/product-2cb25a5c-51fb-44d4-b565-271815ba4e99_lfg6or4TA.webp",
+    "createdAt": "2026-10-16T12:26:44.351Z",
+    "categorySuggestion": "Tenis",
+    "categoryScore": 0.8548,
+    "otherCategories": [
+      {
+        "category": "Tenis",
+        "score": 0.8548
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.062
+      },
+      {
+        "category": "Buckets",
+        "score": 0.0571
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.2318,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "cec313579f2e664e",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad21803ead997d09ac7f444",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-b0213adc-a8d9-4177-b28e-188d82c2e38b_lOsBfmvUq.webp?updatedAt=1792153603858",
+    "filePath": "/elegance/products/product-b0213adc-a8d9-4177-b28e-188d82c2e38b_lOsBfmvUq.webp",
+    "createdAt": "2026-10-16T12:26:43.621Z",
+    "categorySuggestion": "Playeras",
+    "categoryScore": 0.5118,
+    "otherCategories": [
+      {
+        "category": "Playeras",
+        "score": 0.5118
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.1437
+      },
+      {
+        "category": "Pantalones",
+        "score": 0.1389
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.328,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "9e0a545c1a383920",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad21802ead997d09ac7ee4a",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-ae179e0c-5202-442e-8b8b-f10f362ff7aa_UgDfAqQwa.webp?updatedAt=1792153602786",
+    "filePath": "/elegance/products/product-ae179e0c-5202-442e-8b8b-f10f362ff7aa_UgDfAqQwa.webp",
+    "createdAt": "2026-10-16T12:26:42.506Z",
+    "categorySuggestion": "Pantalones",
+    "categoryScore": 0.3611,
+    "otherCategories": [
+      {
+        "category": "Pantalones",
+        "score": 0.3611
+      },
+      {
+        "category": "Playeras",
+        "score": 0.2681
+      },
+      {
+        "category": "Buckets",
+        "score": 0.1032
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.308,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "64e0ac9ad8d8d9c3",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad21800ead997d09ac7e533",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-f0483c14-b387-4a26-a82a-8ffbc56ef131_LBBMUXoV4.webp?updatedAt=1792153601233",
+    "filePath": "/elegance/products/product-f0483c14-b387-4a26-a82a-8ffbc56ef131_LBBMUXoV4.webp",
+    "createdAt": "2026-10-16T12:26:40.949Z",
+    "categorySuggestion": "Playeras",
+    "categoryScore": 0.5542,
+    "otherCategories": [
+      {
+        "category": "Playeras",
+        "score": 0.5542
+      },
+      {
+        "category": "Pantalones",
+        "score": 0.2013
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.0659
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.6336,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "2ae66264e1f130f1",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad217ffead997d09ac7dca0",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-24ba2780-c633-4090-9b0e-be2d37bf769b_n4Zz-v6b1.webp?updatedAt=1792153599920",
+    "filePath": "/elegance/products/product-24ba2780-c633-4090-9b0e-be2d37bf769b_n4Zz-v6b1.webp",
+    "createdAt": "2026-10-16T12:26:39.675Z",
+    "categorySuggestion": "Playeras",
+    "categoryScore": 0.3922,
+    "otherCategories": [
+      {
+        "category": "Playeras",
+        "score": 0.3922
+      },
+      {
+        "category": "Pantalones",
+        "score": 0.3434
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.0974
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.3385,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "66e18c8edad8d8c9",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad217fdead997d09ac7c2ae",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-7f4b016d-cbb1-4042-8bb4-9f07694037df_6uHG9vgRk.webp?updatedAt=1792153597869",
+    "filePath": "/elegance/products/product-7f4b016d-cbb1-4042-8bb4-9f07694037df_6uHG9vgRk.webp",
+    "createdAt": "2026-10-16T12:26:37.645Z",
+    "categorySuggestion": "Playeras",
+    "categoryScore": 0.5938,
+    "otherCategories": [
+      {
+        "category": "Playeras",
+        "score": 0.5938
+      },
+      {
+        "category": "Pantalones",
+        "score": 0.1396
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.1225
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.5303,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "60e188b2d8d4d9c9",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad217fcead997d09ac7acc8",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-6a2f647e-b8c7-4fc8-b221-6caee067c3bb_s13Z5aq1o.webp?updatedAt=1792153596454",
+    "filePath": "/elegance/products/product-6a2f647e-b8c7-4fc8-b221-6caee067c3bb_s13Z5aq1o.webp",
+    "createdAt": "2026-10-16T12:26:36.134Z",
+    "categorySuggestion": "Playeras",
+    "categoryScore": 0.7556,
+    "otherCategories": [
+      {
+        "category": "Playeras",
+        "score": 0.7556
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.0813
+      },
+      {
+        "category": "Pantalones",
+        "score": 0.043
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.2346,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "66e5c8aad2d4c142",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad217fcead997d09ac7ac8f",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-baa1c56d-ef27-449b-b327-e852d8554e1d_bAV4jamot.webp?updatedAt=1792153596370",
+    "filePath": "/elegance/products/product-baa1c56d-ef27-449b-b327-e852d8554e1d_bAV4jamot.webp",
+    "createdAt": "2026-10-16T12:26:36.105Z",
+    "categorySuggestion": "Playeras",
+    "categoryScore": 0.7614,
+    "otherCategories": [
+      {
+        "category": "Playeras",
+        "score": 0.7614
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.0808
+      },
+      {
+        "category": "Buckets",
+        "score": 0.0516
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.3315,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "e6e19894d4c0d90a",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad217fbead997d09ac7aa5b",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-c4a45186-7d32-49e8-9349-9d29db40b9da_xswd5a9nfh.webp?updatedAt=1792153596012",
+    "filePath": "/elegance/products/product-c4a45186-7d32-49e8-9349-9d29db40b9da_xswd5a9nfh.webp",
+    "createdAt": "2026-10-16T12:26:35.799Z",
+    "categorySuggestion": "Playeras",
+    "categoryScore": 0.5545,
+    "otherCategories": [
+      {
+        "category": "Playeras",
+        "score": 0.5545
+      },
+      {
+        "category": "Pantalones",
+        "score": 0.1542
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.1169
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.1668,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "66e1d8cab2d0d983",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad217fbead997d09ac7aa54",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-0b830594-668a-4f75-bd65-4680802fee91_7wvbf9cWd.webp?updatedAt=1792153596069",
+    "filePath": "/elegance/products/product-0b830594-668a-4f75-bd65-4680802fee91_7wvbf9cWd.webp",
+    "createdAt": "2026-10-16T12:26:35.791Z",
+    "categorySuggestion": "Playeras",
+    "categoryScore": 0.3652,
+    "otherCategories": [
+      {
+        "category": "Playeras",
+        "score": 0.3652
+      },
+      {
+        "category": "Pantalones",
+        "score": 0.2651
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.1035
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.453,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "63645c5e5c1859c2",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad217f7ead997d09ac78b7b",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-669abe13-00ca-4771-8aa9-561f3803591c_gF3oD-ox-V.webp?updatedAt=1792153591883",
+    "filePath": "/elegance/products/product-669abe13-00ca-4771-8aa9-561f3803591c_gF3oD-ox-V.webp",
+    "createdAt": "2026-10-16T12:26:31.621Z",
+    "categorySuggestion": "Pantalones",
+    "categoryScore": 0.8565,
+    "otherCategories": [
+      {
+        "category": "Pantalones",
+        "score": 0.8565
+      },
+      {
+        "category": "Playeras",
+        "score": 0.0474
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.0254
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.4454,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "24e4d8f4e9f95a52",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad217f6ead997d09ac78778",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-6a5b1c46-e7ab-4e6e-9ab5-3cf7f7858233_AN1O9p856W.webp?updatedAt=1792153591090",
+    "filePath": "/elegance/products/product-6a5b1c46-e7ab-4e6e-9ab5-3cf7f7858233_AN1O9p856W.webp",
+    "createdAt": "2026-10-16T12:26:30.856Z",
+    "categorySuggestion": "Playeras",
+    "categoryScore": 0.4234,
+    "otherCategories": [
+      {
+        "category": "Playeras",
+        "score": 0.4234
+      },
+      {
+        "category": "Otro",
+        "score": 0.2029
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.194
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.5849,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "23e4ccbad2d0d934",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad217f6ead997d09ac78729",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-2224f3c6-cb95-4e5c-82f8-3048284036a0_0Q8BC8Knm.webp?updatedAt=1792153591042",
+    "filePath": "/elegance/products/product-2224f3c6-cb95-4e5c-82f8-3048284036a0_0Q8BC8Knm.webp",
+    "createdAt": "2026-10-16T12:26:30.795Z",
+    "categorySuggestion": "Playeras",
+    "categoryScore": 0.5675,
+    "otherCategories": [
+      {
+        "category": "Playeras",
+        "score": 0.5675
+      },
+      {
+        "category": "Pantalones",
+        "score": 0.3387
+      },
+      {
+        "category": "Cinturones",
+        "score": 0.0231
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.2636,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "27e1ec7ef2c0c1c0",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad217f5ead997d09ac778d6",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-3b3b9d71-dc51-4ad5-b10b-e2cae3c90c69_IGXSmyUZz.webp?updatedAt=1792153589564",
+    "filePath": "/elegance/products/product-3b3b9d71-dc51-4ad5-b10b-e2cae3c90c69_IGXSmyUZz.webp",
+    "createdAt": "2026-10-16T12:26:29.270Z",
+    "categorySuggestion": "Playeras",
+    "categoryScore": 0.6589,
+    "otherCategories": [
+      {
+        "category": "Playeras",
+        "score": 0.6589
+      },
+      {
+        "category": "Pantalones",
+        "score": 0.1693
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.06
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.2056,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "2ce4c8a4e9f95232",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad217f1ead997d09ac7538a",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-fa6dbebd-7c52-4860-bc8b-2b8898109632_f8Zu01JN0.webp?updatedAt=1792153585313",
+    "filePath": "/elegance/products/product-fa6dbebd-7c52-4860-bc8b-2b8898109632_f8Zu01JN0.webp",
+    "createdAt": "2026-10-16T12:26:25.117Z",
+    "categorySuggestion": "Playeras",
+    "categoryScore": 0.746,
+    "otherCategories": [
+      {
+        "category": "Playeras",
+        "score": 0.746
+      },
+      {
+        "category": "Pantalones",
+        "score": 0.0956
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.0665
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.2625,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "66e1ac9cfaf0d0d9",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad217f0ead997d09ac75224",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-c519af5f-c272-4d4e-baa9-5642c0a18529_7dfb_Gwij.webp?updatedAt=1792153585109",
+    "filePath": "/elegance/products/product-c519af5f-c272-4d4e-baa9-5642c0a18529_7dfb_Gwij.webp",
+    "createdAt": "2026-10-16T12:26:24.918Z",
+    "categorySuggestion": "Playeras",
+    "categoryScore": 0.8144,
+    "otherCategories": [
+      {
+        "category": "Playeras",
+        "score": 0.8144
+      },
+      {
+        "category": "Pantalones",
+        "score": 0.0482
+      },
+      {
+        "category": "Buckets",
+        "score": 0.0432
+      }
+    ],
+    "brandSuggestion": "Adidas",
+    "brandScore": 0.7996,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "27e4aceaf2b4c142",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad217f0ead997d09ac75112",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-528c11b1-cbe1-440e-8ca3-5267d194eeb4_Imgx2PqrM.webp?updatedAt=1792153584944",
+    "filePath": "/elegance/products/product-528c11b1-cbe1-440e-8ca3-5267d194eeb4_Imgx2PqrM.webp",
+    "createdAt": "2026-10-16T12:26:24.738Z",
+    "categorySuggestion": "Playeras",
+    "categoryScore": 0.7115,
+    "otherCategories": [
+      {
+        "category": "Playeras",
+        "score": 0.7115
+      },
+      {
+        "category": "Buckets",
+        "score": 0.1123
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.0688
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.5296,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "26e3c8aeb6c4c192",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad217efead997d09ac744d5",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-6a83cb9d-13bc-4bcb-a471-1b87e42de0ba_QlenEhael.webp?updatedAt=1792153583403",
+    "filePath": "/elegance/products/product-6a83cb9d-13bc-4bcb-a471-1b87e42de0ba_QlenEhael.webp",
+    "createdAt": "2026-10-16T12:26:23.181Z",
+    "categorySuggestion": "Tenis",
+    "categoryScore": 0.9328,
+    "otherCategories": [
+      {
+        "category": "Tenis",
+        "score": 0.9328
+      },
+      {
+        "category": "Buckets",
+        "score": 0.0232
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.0228
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.6389,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "132578d8ccec9830",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad217ecead997d09ac723ab",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-8ecc1b49-e1e3-4b6c-b71d-9f2585f679cf_C7Bms_08Ft.webp?updatedAt=1792153581134",
+    "filePath": "/elegance/products/product-8ecc1b49-e1e3-4b6c-b71d-9f2585f679cf_C7Bms_08Ft.webp",
+    "createdAt": "2026-10-16T12:26:20.818Z",
+    "categorySuggestion": "Tenis",
+    "categoryScore": 0.8845,
+    "otherCategories": [
+      {
+        "category": "Tenis",
+        "score": 0.8845
+      },
+      {
+        "category": "Buckets",
+        "score": 0.0505
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.0339
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.316,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "0323dede3652a91e",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad217ecead997d09ac7187c",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-fd99952f-0819-475e-941b-62190a755967_lO4Gl0wV0g.webp?updatedAt=1792153580334",
+    "filePath": "/elegance/products/product-fd99952f-0819-475e-941b-62190a755967_lO4Gl0wV0g.webp",
+    "createdAt": "2026-10-16T12:26:20.132Z",
+    "categorySuggestion": "Tenis",
+    "categoryScore": 0.8243,
+    "otherCategories": [
+      {
+        "category": "Tenis",
+        "score": 0.8243
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.0694
+      },
+      {
+        "category": "Buckets",
+        "score": 0.0552
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.5197,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "1373311b0763e30b",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad217ebead997d09ac71044",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-87f4007c-79a5-46f8-897d-5719c0885058_-OKGcyJmmO.webp?updatedAt=1792153579884",
+    "filePath": "/elegance/products/product-87f4007c-79a5-46f8-897d-5719c0885058_-OKGcyJmmO.webp",
+    "createdAt": "2026-10-16T12:26:19.658Z",
+    "categorySuggestion": "Tenis",
+    "categoryScore": 0.9315,
+    "otherCategories": [
+      {
+        "category": "Tenis",
+        "score": 0.9315
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.0288
+      },
+      {
+        "category": "Buckets",
+        "score": 0.0188
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.4306,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "11910627a363629c",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad217ebead997d09ac7094f",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-d534fe06-490f-42cc-90fb-ed302236b170_S4N8Pm6Jz.webp?updatedAt=1792153579373",
+    "filePath": "/elegance/products/product-d534fe06-490f-42cc-90fb-ed302236b170_S4N8Pm6Jz.webp",
+    "createdAt": "2026-10-16T12:26:19.205Z",
+    "categorySuggestion": "Tenis",
+    "categoryScore": 0.8253,
+    "otherCategories": [
+      {
+        "category": "Tenis",
+        "score": 0.8253
+      },
+      {
+        "category": "Buckets",
+        "score": 0.0861
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.0508
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.5407,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "02386376b0c8dc25",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad217eaead997d09ac705a3",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-6c32c52c-008d-4d42-81a6-1c7727d8379c_bph1XMqvt.webp?updatedAt=1792153579034",
+    "filePath": "/elegance/products/product-6c32c52c-008d-4d42-81a6-1c7727d8379c_bph1XMqvt.webp",
+    "createdAt": "2026-10-16T12:26:18.741Z",
+    "categorySuggestion": "Tenis",
+    "categoryScore": 0.5869,
+    "otherCategories": [
+      {
+        "category": "Tenis",
+        "score": 0.5869
+      },
+      {
+        "category": "Buckets",
+        "score": 0.2478
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.0796
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.2204,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "2365b1a1898cd825",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad217eaead997d09ac70135",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-88b188c8-ecff-46bc-8389-10667fdd4e68_Iobond29M.webp?updatedAt=1792153578454",
+    "filePath": "/elegance/products/product-88b188c8-ecff-46bc-8389-10667fdd4e68_Iobond29M.webp",
+    "createdAt": "2026-10-16T12:26:18.244Z",
+    "categorySuggestion": "Tenis",
+    "categoryScore": 0.4586,
+    "otherCategories": [
+      {
+        "category": "Tenis",
+        "score": 0.4586
+      },
+      {
+        "category": "Buckets",
+        "score": 0.2618
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.214
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.3272,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "1c38d0c18c8c8acc",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad217daead997d09ac6474c",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-223e43e8-f572-4af6-8363-81696c2e53e1_BD2V9ePU_O.webp?updatedAt=1792153563218",
+    "filePath": "/elegance/products/product-223e43e8-f572-4af6-8363-81696c2e53e1_BD2V9ePU_O.webp",
+    "createdAt": "2026-10-16T12:26:02.913Z",
+    "categorySuggestion": "Tenis",
+    "categoryScore": 0.6915,
+    "otherCategories": [
+      {
+        "category": "Tenis",
+        "score": 0.6915
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.1657
+      },
+      {
+        "category": "Buckets",
+        "score": 0.0726
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.2458,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "4c3cf0cc8c94b298",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad217daead997d09ac6410e",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-1751c548-2b31-46ed-b8f8-095cbadd0eb3_T0d_NtGYe.webp?updatedAt=1792153562793",
+    "filePath": "/elegance/products/product-1751c548-2b31-46ed-b8f8-095cbadd0eb3_T0d_NtGYe.webp",
+    "createdAt": "2026-10-16T12:26:02.606Z",
+    "categorySuggestion": "Tenis",
+    "categoryScore": 0.8888,
+    "otherCategories": [
+      {
+        "category": "Tenis",
+        "score": 0.8888
+      },
+      {
+        "category": "Buckets",
+        "score": 0.0592
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.0377
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.3304,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "1470f08692d0e6d4",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad217daead997d09ac63c65",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-9660ab37-9d59-4ab9-b753-1903684fd97b_U0qZ4YER3.webp?updatedAt=1792153562612",
+    "filePath": "/elegance/products/product-9660ab37-9d59-4ab9-b753-1903684fd97b_U0qZ4YER3.webp",
+    "createdAt": "2026-10-16T12:26:02.345Z",
+    "categorySuggestion": "Tenis",
+    "categoryScore": 0.8507,
+    "otherCategories": [
+      {
+        "category": "Tenis",
+        "score": 0.8507
+      },
+      {
+        "category": "Buckets",
+        "score": 0.0407
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.0383
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.2177,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "1a388c9c9b83ca9a",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad217d9ead997d09ac635ec",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-ad5e26db-8651-4720-bb45-4e2c25da9c70_Ot5626lBrA.webp?updatedAt=1792153562151",
+    "filePath": "/elegance/products/product-ad5e26db-8651-4720-bb45-4e2c25da9c70_Ot5626lBrA.webp",
+    "createdAt": "2026-10-16T12:26:01.925Z",
+    "categorySuggestion": "Tenis",
+    "categoryScore": 0.8419,
+    "otherCategories": [
+      {
+        "category": "Tenis",
+        "score": 0.8419
+      },
+      {
+        "category": "Buckets",
+        "score": 0.0748
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.0552
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.3315,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "30f0cc9ee686ceec",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad217d9ead997d09ac62f62",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-501c8649-8e64-4bd8-9e37-b6c5d3f73993_3QEEtl2yH.webp?updatedAt=1792153561610",
+    "filePath": "/elegance/products/product-501c8649-8e64-4bd8-9e37-b6c5d3f73993_3QEEtl2yH.webp",
+    "createdAt": "2026-10-16T12:26:01.391Z",
+    "categorySuggestion": "Tenis",
+    "categoryScore": 0.9099,
+    "otherCategories": [
+      {
+        "category": "Tenis",
+        "score": 0.9099
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.0368
+      },
+      {
+        "category": "Buckets",
+        "score": 0.024
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.2814,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "13f89c9a9863a892",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad217d9ead997d09ac62ce4",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-b613a2f1-14ee-42fd-8a36-4a289ef255a7_0dvgTh62cR.webp?updatedAt=1792153561266",
+    "filePath": "/elegance/products/product-b613a2f1-14ee-42fd-8a36-4a289ef255a7_0dvgTh62cR.webp",
+    "createdAt": "2026-10-16T12:26:01.001Z",
+    "categorySuggestion": "Tenis",
+    "categoryScore": 0.7832,
+    "otherCategories": [
+      {
+        "category": "Tenis",
+        "score": 0.7832
+      },
+      {
+        "category": "Buckets",
+        "score": 0.0937
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.0686
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.3534,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "18f8dc9ee486cacc",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad217d8ead997d09ac62a7f",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-08d4cc6e-c9c4-4459-9064-ffd621fd41ab_QCzBL26Pkm.webp?updatedAt=1792153560924",
+    "filePath": "/elegance/products/product-08d4cc6e-c9c4-4459-9064-ffd621fd41ab_QCzBL26Pkm.webp",
+    "createdAt": "2026-10-16T12:26:00.693Z",
+    "categorySuggestion": "Tenis",
+    "categoryScore": 0.9434,
+    "otherCategories": [
+      {
+        "category": "Tenis",
+        "score": 0.9434
+      },
+      {
+        "category": "Buckets",
+        "score": 0.0238
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.0179
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.3309,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "101a9d9f1a938fb2",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad217d8ead997d09ac62a3a",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-5b3119e4-8636-436f-98b1-591907a302b4_JsyaFVBtnJ.webp?updatedAt=1792153560912",
+    "filePath": "/elegance/products/product-5b3119e4-8636-436f-98b1-591907a302b4_JsyaFVBtnJ.webp",
+    "createdAt": "2026-10-16T12:26:00.674Z",
+    "categorySuggestion": "Tenis",
+    "categoryScore": 0.906,
+    "otherCategories": [
+      {
+        "category": "Tenis",
+        "score": 0.906
+      },
+      {
+        "category": "Buckets",
+        "score": 0.0309
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.0298
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.3411,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "1020260787cf1c9e",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad217d7ead997d09ac6234b",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-0e50bc6c-e5d7-4fe2-ab1f-0312e6d99e9a_d4p9veT_y.webp?updatedAt=1792153559916",
+    "filePath": "/elegance/products/product-0e50bc6c-e5d7-4fe2-ab1f-0312e6d99e9a_d4p9veT_y.webp",
+    "createdAt": "2026-10-16T12:25:59.688Z",
+    "categorySuggestion": "Tenis",
+    "categoryScore": 0.9171,
+    "otherCategories": [
+      {
+        "category": "Tenis",
+        "score": 0.9171
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.0397
+      },
+      {
+        "category": "Buckets",
+        "score": 0.0226
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.272,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "b0040e5b0f9fba1c",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad217d7ead997d09ac6232e",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-d3b6e438-6553-4e0d-8160-befd5dd78587_ia_8m-HS_.webp?updatedAt=1792153559946",
+    "filePath": "/elegance/products/product-d3b6e438-6553-4e0d-8160-befd5dd78587_ia_8m-HS_.webp",
+    "createdAt": "2026-10-16T12:25:59.673Z",
+    "categorySuggestion": "Tenis",
+    "categoryScore": 0.6545,
+    "otherCategories": [
+      {
+        "category": "Tenis",
+        "score": 0.6545
+      },
+      {
+        "category": "Buckets",
+        "score": 0.2482
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.0326
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.1907,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "5f066e190983a338",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad217d6ead997d09ac61b09",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-3b056bd5-aa30-4d6c-84b8-59c16612c9eb_4nbJ2BOwFs.webp?updatedAt=1792153559062",
+    "filePath": "/elegance/products/product-3b056bd5-aa30-4d6c-84b8-59c16612c9eb_4nbJ2BOwFs.webp",
+    "createdAt": "2026-10-16T12:25:58.814Z",
+    "categorySuggestion": "Tenis",
+    "categoryScore": 0.79,
+    "otherCategories": [
+      {
+        "category": "Tenis",
+        "score": 0.79
+      },
+      {
+        "category": "Buckets",
+        "score": 0.1239
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.0455
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.4238,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "d3c34d2d2f27aa18",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad217d6ead997d09ac6169b",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-4011c5cd-91e6-441e-9cf9-25e0c5dfe2d1_VEtK6oeVZr.webp?updatedAt=1792153558639",
+    "filePath": "/elegance/products/product-4011c5cd-91e6-441e-9cf9-25e0c5dfe2d1_VEtK6oeVZr.webp",
+    "createdAt": "2026-10-16T12:25:58.339Z",
+    "categorySuggestion": "Tenis",
+    "categoryScore": 0.917,
+    "otherCategories": [
+      {
+        "category": "Tenis",
+        "score": 0.917
+      },
+      {
+        "category": "Buckets",
+        "score": 0.0482
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.0166
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.51,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "96c70f2c75cbe436",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad217d5ead997d09ac60fee",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-73bb352e-0bf3-4a95-808a-26a10fa0ba5c_dHcWQJ3RWK.webp?updatedAt=1792153557995",
+    "filePath": "/elegance/products/product-73bb352e-0bf3-4a95-808a-26a10fa0ba5c_dHcWQJ3RWK.webp",
+    "createdAt": "2026-10-16T12:25:57.803Z",
+    "categorySuggestion": "Tenis",
+    "categoryScore": 0.853,
+    "otherCategories": [
+      {
+        "category": "Tenis",
+        "score": 0.853
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.0803
+      },
+      {
+        "category": "Buckets",
+        "score": 0.037
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.3157,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "b9072e3d1783311c",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad217d5ead997d09ac60e58",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-3fd40d9e-5075-47f8-9ff3-f399130528a3_ujTYAuZmI.webp?updatedAt=1792153558056",
+    "filePath": "/elegance/products/product-3fd40d9e-5075-47f8-9ff3-f399130528a3_ujTYAuZmI.webp",
+    "createdAt": "2026-10-16T12:25:57.632Z",
+    "categorySuggestion": "Tenis",
+    "categoryScore": 0.9078,
+    "otherCategories": [
+      {
+        "category": "Tenis",
+        "score": 0.9078
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.0378
+      },
+      {
+        "category": "Otro",
+        "score": 0.0207
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.3429,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "6dc6b4b4b0e5e698",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad217d5ead997d09ac60b0a",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-baad9204-4864-4862-abfd-f67c66cdf7a2_j0DHRW7_W.webp?updatedAt=1792153557434",
+    "filePath": "/elegance/products/product-baad9204-4864-4862-abfd-f67c66cdf7a2_j0DHRW7_W.webp",
+    "createdAt": "2026-10-16T12:25:57.186Z",
+    "categorySuggestion": "Tenis",
+    "categoryScore": 0.955,
+    "otherCategories": [
+      {
+        "category": "Tenis",
+        "score": 0.955
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.0226
+      },
+      {
+        "category": "Buckets",
+        "score": 0.0082
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.3271,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "c00eac38b0e5e70c",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad217d4ead997d09ac60721",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-e0ddc035-df5b-4a6a-884a-b7f961d146e3_jn2odMAy3z.webp?updatedAt=1792153557084",
+    "filePath": "/elegance/products/product-e0ddc035-df5b-4a6a-884a-b7f961d146e3_jn2odMAy3z.webp",
+    "createdAt": "2026-10-16T12:25:56.782Z",
+    "categorySuggestion": "Tenis",
+    "categoryScore": 0.8984,
+    "otherCategories": [
+      {
+        "category": "Tenis",
+        "score": 0.8984
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.0444
+      },
+      {
+        "category": "Buckets",
+        "score": 0.0292
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.2561,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "461829e3c293911a",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad217d4ead997d09ac60105",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-dd61b4ee-0351-4b74-9131-fef38423b28f_KSRq1VWeM.webp?updatedAt=1792153556706",
+    "filePath": "/elegance/products/product-dd61b4ee-0351-4b74-9131-fef38423b28f_KSRq1VWeM.webp",
+    "createdAt": "2026-10-16T12:25:56.429Z",
+    "categorySuggestion": "Tenis",
+    "categoryScore": 0.9068,
+    "otherCategories": [
+      {
+        "category": "Tenis",
+        "score": 0.9068
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.042
+      },
+      {
+        "category": "Buckets",
+        "score": 0.0291
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.3341,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "23ac1acbcf1b9a8d",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad217d3ead997d09ac5f0d0",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-dd5707b3-cbad-475e-bc83-137d22f4175e_qljEfEdKn.webp?updatedAt=1792153555456",
+    "filePath": "/elegance/products/product-dd5707b3-cbad-475e-bc83-137d22f4175e_qljEfEdKn.webp",
+    "createdAt": "2026-10-16T12:25:55.214Z",
+    "categorySuggestion": "Tenis",
+    "categoryScore": 0.9707,
+    "otherCategories": [
+      {
+        "category": "Tenis",
+        "score": 0.9707
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.0123
+      },
+      {
+        "category": "Buckets",
+        "score": 0.0091
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.3497,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "843a1f8d499e8e98",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad217d1ead997d09ac5dceb",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-38a05727-bb64-44d9-b326-6800b728e9ae_Um4_T62I5l.webp?updatedAt=1792153554104",
+    "filePath": "/elegance/products/product-38a05727-bb64-44d9-b326-6800b728e9ae_Um4_T62I5l.webp",
+    "createdAt": "2026-10-16T12:25:53.897Z",
+    "categorySuggestion": "Tenis",
+    "categoryScore": 0.6653,
+    "otherCategories": [
+      {
+        "category": "Tenis",
+        "score": 0.6653
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.1051
+      },
+      {
+        "category": "Otro",
+        "score": 0.0797
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.2706,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "274bc3d1f1b93c6b",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad217d1ead997d09ac5d9aa",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-600e1aaf-6356-4659-a596-42483f87d358_aAJVtUz6_.webp?updatedAt=1792153553660",
+    "filePath": "/elegance/products/product-600e1aaf-6356-4659-a596-42483f87d358_aAJVtUz6_.webp",
+    "createdAt": "2026-10-16T12:25:53.465Z",
+    "categorySuggestion": "Tenis",
+    "categoryScore": 0.6345,
+    "otherCategories": [
+      {
+        "category": "Tenis",
+        "score": 0.6345
+      },
+      {
+        "category": "Cinturones",
+        "score": 0.1493
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.1038
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.3823,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "5363f2d273392c6f",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad217d1ead997d09ac5d511",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-1eef542d-9b63-49ef-ab44-75a001a03fd2_fiKa-nycK.webp?updatedAt=1792153553264",
+    "filePath": "/elegance/products/product-1eef542d-9b63-49ef-ab44-75a001a03fd2_fiKa-nycK.webp",
+    "createdAt": "2026-10-16T12:25:53.003Z",
+    "categorySuggestion": "Tenis",
+    "categoryScore": 0.9472,
+    "otherCategories": [
+      {
+        "category": "Tenis",
+        "score": 0.9472
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.0305
+      },
+      {
+        "category": "Buckets",
+        "score": 0.0085
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.3213,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "2ee6e2f1b09eb53b",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad217d0ead997d09ac5c8bf",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-46b4cdd3-2970-4ffd-871f-3e2a634a5320_W6ZdQbAqy.webp?updatedAt=1792153552568",
+    "filePath": "/elegance/products/product-46b4cdd3-2970-4ffd-871f-3e2a634a5320_W6ZdQbAqy.webp",
+    "createdAt": "2026-10-16T12:25:52.202Z",
+    "categorySuggestion": "Tenis",
+    "categoryScore": 0.7944,
+    "otherCategories": [
+      {
+        "category": "Tenis",
+        "score": 0.7944
+      },
+      {
+        "category": "Buckets",
+        "score": 0.0658
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.0647
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.2745,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "3743d3e1e1b15d5d",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad217cfead997d09ac5c27a",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-d57454e7-d9d7-4269-89b8-d2cdf54a88cc_96wX4HPm3.webp?updatedAt=1792153551857",
+    "filePath": "/elegance/products/product-d57454e7-d9d7-4269-89b8-d2cdf54a88cc_96wX4HPm3.webp",
+    "createdAt": "2026-10-16T12:25:51.672Z",
+    "categorySuggestion": "Tenis",
+    "categoryScore": 0.8198,
+    "otherCategories": [
+      {
+        "category": "Tenis",
+        "score": 0.8198
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.059
+      },
+      {
+        "category": "Relojes",
+        "score": 0.0506
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.327,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "a707d3da69b9bc68",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad217cfead997d09ac5c03f",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-c9b40b98-66d0-4dfc-a94a-31cc4c865757_tot3H_iXxa.webp?updatedAt=1792153551784",
+    "filePath": "/elegance/products/product-c9b40b98-66d0-4dfc-a94a-31cc4c865757_tot3H_iXxa.webp",
+    "createdAt": "2026-10-16T12:25:51.530Z",
+    "categorySuggestion": "Tenis",
+    "categoryScore": 0.8256,
+    "otherCategories": [
+      {
+        "category": "Tenis",
+        "score": 0.8256
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.0629
+      },
+      {
+        "category": "Otro",
+        "score": 0.0451
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.3311,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "2763e3e0b1bc3c65",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad217cfead997d09ac5bd1c",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-db87e992-847f-4039-a706-4f354c94a372_RPiW4VjtG.webp?updatedAt=1792153551450",
+    "filePath": "/elegance/products/product-db87e992-847f-4039-a706-4f354c94a372_RPiW4VjtG.webp",
+    "createdAt": "2026-10-16T12:25:51.210Z",
+    "categorySuggestion": "Tenis",
+    "categoryScore": 0.9508,
+    "otherCategories": [
+      {
+        "category": "Tenis",
+        "score": 0.9508
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.0243
+      },
+      {
+        "category": "Buckets",
+        "score": 0.0119
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.2534,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "34341d27879ba927",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad217ceead997d09ac5b2c6",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-4e472010-48e9-422d-ae90-95939743c753_rP9tz3Ni8.webp?updatedAt=1792153550490",
+    "filePath": "/elegance/products/product-4e472010-48e9-422d-ae90-95939743c753_rP9tz3Ni8.webp",
+    "createdAt": "2026-10-16T12:25:50.250Z",
+    "categorySuggestion": "Tenis",
+    "categoryScore": 0.8067,
+    "otherCategories": [
+      {
+        "category": "Tenis",
+        "score": 0.8067
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.0856
+      },
+      {
+        "category": "Otro",
+        "score": 0.048
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.4501,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "43970c678e933371",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad217cdead997d09ac5ad73",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-9191eb19-32ce-475b-88a8-e1a115e1ccbb_SFtZ21b68.webp?updatedAt=1792153550103",
+    "filePath": "/elegance/products/product-9191eb19-32ce-475b-88a8-e1a115e1ccbb_SFtZ21b68.webp",
+    "createdAt": "2026-10-16T12:25:49.835Z",
+    "categorySuggestion": "Tenis",
+    "categoryScore": 0.4764,
+    "otherCategories": [
+      {
+        "category": "Tenis",
+        "score": 0.4764
+      },
+      {
+        "category": "Cinturones",
+        "score": 0.1377
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.1341
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.2639,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "164ee2d1e971bc6d",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad217cdead997d09ac5aa98",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-3d8dc725-aa6c-4051-b84c-de269e6dbbfc_LoCZv7E71.webp?updatedAt=1792153549882",
+    "filePath": "/elegance/products/product-3d8dc725-aa6c-4051-b84c-de269e6dbbfc_LoCZv7E71.webp",
+    "createdAt": "2026-10-16T12:25:49.597Z",
+    "categorySuggestion": "Tenis",
+    "categoryScore": 0.973,
+    "otherCategories": [
+      {
+        "category": "Tenis",
+        "score": 0.973
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.0106
+      },
+      {
+        "category": "Buckets",
+        "score": 0.0086
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.2881,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "321a09d1c70b9737",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad217cdead997d09ac5a8c0",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-8f98fe33-b19e-4ece-b6fc-6fb0c7460615_6C8iqF20m.webp?updatedAt=1792153549701",
+    "filePath": "/elegance/products/product-8f98fe33-b19e-4ece-b6fc-6fb0c7460615_6C8iqF20m.webp",
+    "createdAt": "2026-10-16T12:25:49.455Z",
+    "categorySuggestion": "Tenis",
+    "categoryScore": 0.9126,
+    "otherCategories": [
+      {
+        "category": "Tenis",
+        "score": 0.9126
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.0347
+      },
+      {
+        "category": "Otro",
+        "score": 0.0143
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.3669,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "2327cad26b30386d",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad217ccead997d09ac5a1d6",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-1dd2b65d-efb6-45e3-82f1-28dfc542249a_mkPJQ3cpg.webp?updatedAt=1792153549164",
+    "filePath": "/elegance/products/product-1dd2b65d-efb6-45e3-82f1-28dfc542249a_mkPJQ3cpg.webp",
+    "createdAt": "2026-10-16T12:25:48.965Z",
+    "categorySuggestion": "Tenis",
+    "categoryScore": 0.9634,
+    "otherCategories": [
+      {
+        "category": "Tenis",
+        "score": 0.9634
+      },
+      {
+        "category": "Buckets",
+        "score": 0.0168
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.0118
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.362,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "0c21d12507133733",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad217ccead997d09ac5972e",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-b2baf967-2370-472f-b190-bd9467bd8d82_rGDeqGjeD.webp?updatedAt=1792153548607",
+    "filePath": "/elegance/products/product-b2baf967-2370-472f-b190-bd9467bd8d82_rGDeqGjeD.webp",
+    "createdAt": "2026-10-16T12:25:48.378Z",
+    "categorySuggestion": "Tenis",
+    "categoryScore": 0.8949,
+    "otherCategories": [
+      {
+        "category": "Tenis",
+        "score": 0.8949
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.0513
+      },
+      {
+        "category": "Otro",
+        "score": 0.0178
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.2962,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "2f03cf370466336c",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad217cbead997d09ac58537",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-abd4da42-8113-48ff-bd67-248a8004a234_396P8RZEi.webp?updatedAt=1792153547691",
+    "filePath": "/elegance/products/product-abd4da42-8113-48ff-bd67-248a8004a234_396P8RZEi.webp",
+    "createdAt": "2026-10-16T12:25:47.499Z",
+    "categorySuggestion": "Tenis",
+    "categoryScore": 0.9033,
+    "otherCategories": [
+      {
+        "category": "Tenis",
+        "score": 0.9033
+      },
+      {
+        "category": "Otro",
+        "score": 0.0372
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.031
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.4569,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "232719f2b0b83c75",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad0031dead997d09a8030be",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-05e3e37d-40c2-429d-86ff-96e2a411902a_12u6BpOtI.webp?updatedAt=1792017181479",
+    "filePath": "/elegance/products/product-05e3e37d-40c2-429d-86ff-96e2a411902a_12u6BpOtI.webp",
+    "createdAt": "2026-10-14T22:33:01.275Z",
+    "categorySuggestion": "Tenis",
+    "categoryScore": 0.9244,
+    "otherCategories": [
+      {
+        "category": "Tenis",
+        "score": 0.9244
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.0392
+      },
+      {
+        "category": "Buckets",
+        "score": 0.0191
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.3152,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "8001878d8d8bc861",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad00316ead997d09a80235b",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-c35e3996-62ba-43c0-9b6c-0ca2d5dc3607_qT9az4m_C.webp?updatedAt=1792017175002",
+    "filePath": "/elegance/products/product-c35e3996-62ba-43c0-9b6c-0ca2d5dc3607_qT9az4m_C.webp",
+    "createdAt": "2026-10-14T22:32:54.790Z",
+    "categorySuggestion": "Tenis",
+    "categoryScore": 0.8271,
+    "otherCategories": [
+      {
+        "category": "Tenis",
+        "score": 0.8271
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.0851
+      },
+      {
+        "category": "Otro",
+        "score": 0.0414
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.2809,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "01010c38080e2a84",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad00315ead997d09a8021d3",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-0655bc19-f785-4b3a-9721-bcae72aa9c2f_TMXdIbad1.webp?updatedAt=1792017174134",
+    "filePath": "/elegance/products/product-0655bc19-f785-4b3a-9721-bcae72aa9c2f_TMXdIbad1.webp",
+    "createdAt": "2026-10-14T22:32:53.901Z",
+    "categorySuggestion": "Tenis",
+    "categoryScore": 0.9126,
+    "otherCategories": [
+      {
+        "category": "Tenis",
+        "score": 0.9126
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.0356
+      },
+      {
+        "category": "Otro",
+        "score": 0.0218
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.2789,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "011a0c0808e280c0",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad00315ead997d09a8021ae",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-db5a330f-14d8-42c0-b1f4-d33e5ab6164c_DFhehsTq_.webp?updatedAt=1792017174084",
+    "filePath": "/elegance/products/product-db5a330f-14d8-42c0-b1f4-d33e5ab6164c_DFhehsTq_.webp",
+    "createdAt": "2026-10-14T22:32:53.835Z",
+    "categorySuggestion": "Tenis",
+    "categoryScore": 0.861,
+    "otherCategories": [
+      {
+        "category": "Tenis",
+        "score": 0.861
+      },
+      {
+        "category": "Otro",
+        "score": 0.063
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.0499
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.2923,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "0707848485b0e0e3",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad00315ead997d09a80206d",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-3590bde7-a363-4dd6-9a8c-5fbb1bb21de5_tJSRMxCCo.webp?updatedAt=1792017173306",
+    "filePath": "/elegance/products/product-3590bde7-a363-4dd6-9a8c-5fbb1bb21de5_tJSRMxCCo.webp",
+    "createdAt": "2026-10-14T22:32:53.097Z",
+    "categorySuggestion": "Tenis",
+    "categoryScore": 0.9491,
+    "otherCategories": [
+      {
+        "category": "Tenis",
+        "score": 0.9491
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.0242
+      },
+      {
+        "category": "Otro",
+        "score": 0.0103
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.4124,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "0c1474c60487c264",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
   }
 ]
