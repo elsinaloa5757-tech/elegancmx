@@ -1,3 +1,4 @@
+(()=>{
 /**
  * Elegance MX — public recovery gallery.
  * Displays real ImageKit PHOTO REFERENCES, not fabricated products.
@@ -103,3 +104,5 @@ $('recovery-grid').addEventListener('click',async event=>{
  catch {btn.textContent='Referencia: '+btn.dataset.copy;}
 });
 start();
+
+})();
