@@ -4,6 +4,9 @@ on:
     branches: [main]
     paths:
       - 'index.html'
+      - 'panel.js'
+      - 'panel.css'
+      - 'archivo.html'
       - 'styles.css'
       - 'app.js'
       - 'catalog-recovery.js'
@@ -36,6 +39,7 @@ jobs:
         run: |
           npm run check
           node --check catalog-recovery.js
+          node --check panel.js
           node scripts/build-public.mjs
       - name: Install Chromium
         run: npx playwright install --with-deps chromium
