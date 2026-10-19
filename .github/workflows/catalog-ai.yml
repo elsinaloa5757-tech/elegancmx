@@ -6,7 +6,7 @@ on:
     paths:
       - '.github/workflows/catalog-ai.yml'
   schedule:
-    - cron: '43 12 * * *'
+    - cron: '43 */6 * * *'
   workflow_dispatch:
     inputs:
       batch_size:
@@ -28,7 +28,7 @@ jobs:
     timeout-minutes: 90
     env:
       IMAGEKIT_PRIVATE_KEY: ${{ secrets.IMAGEKIT_PRIVATE_KEY }}
-      AI_BATCH_SIZE: ${{ github.event_name == 'push' && '12' || github.event_name == 'schedule' && '80' || inputs.batch_size || '40' }}
+      AI_BATCH_SIZE: ${{ github.event_name == 'push' && '120' || github.event_name == 'schedule' && '250' || inputs.batch_size || '120' }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
