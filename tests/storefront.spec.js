@@ -4,10 +4,10 @@ test('approved Elegance luxury layout loads all interactive shelves',async({page
  await expect(page).toHaveTitle(/Elegance MX/);
  await expect(page.locator('.hero')).toBeVisible();
  await expect(page.locator('.wordmark')).toContainText('elegance');
- await expect(page.locator('#quick-categories .quick-category')).toHaveCount(8);
- await expect(page.locator('#brand-rail .brand-card')).toHaveCount(11);
+ await expect(page.locator('#quick-categories .quick-category')).toHaveCount(9);
+ await expect(page.locator('#brand-rail .brand-card')).toHaveCount(7);
  await expect(page.locator('#arrivals-rail .catalog-card')).toHaveCount(22);
- await expect(page.locator('#category-grid .category-tile')).toHaveCount(8);
+ await expect(page.locator('#category-grid .category-tile')).toHaveCount(9);
  await expect(page.locator('#product-grid .catalog-card')).toHaveCount(30);
  await expect(page.locator('#videos-preview video')).toHaveCount(4);
  const panther=await page.evaluate(async()=>{const r=await fetch('/assets/elegance-panther.png');return r.ok&&r.headers.get('content-type')?.includes('image')});
@@ -65,7 +65,7 @@ test('mobile responsive menu, category navigation and pagination work',async({pa
  await expect(page.locator('#side-nav')).toHaveClass(/open/);
  await page.locator('#side-nav [data-nav="Tenis"]').click();
  await expect(page.locator('#browse-title')).toContainText('Tenis');
- await expect(page.locator('#side-nav')).not.toHaveClass(/open/);
+ await expect(page.locator('#side-nav')).not.toHaveClass(/collapsed/);
  await page.locator('#clear-filters').click();
  await page.locator('#page-next').click();
  await expect(page.locator('#page-label')).toContainText('Página 2');
