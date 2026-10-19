@@ -39,11 +39,9 @@ async function main(){
       const bytes=Buffer.from(await response.arrayBuffer());
       if(bytes.length > 15*1024*1024) throw new Error('large image');
       const blob=new Blob([bytes],{type:item.mime});
-      const [catResults,brandResults,greyscale]=await Promise.all([
-        classifier(blob,catPrompts),
-        classifier(blob,brandPrompts),
-        sharp(bytes,{failOn:'error'}).resize(9,8,{fit:'fill'}).greyscale().raw().toBuffer()
-      ]);
+      const catResults=await classifier(blob,catPrompts);
+      const brandResults=await classifier(blob,brandPrompts);
+      const greyscale=await sharp(bytes,{failOn:'error'}).resize(9,8,{fit:'fill'}).greyscale().raw().toBuffer();
       const cat=chooseCategory(catResults);
       const brand=chooseBrand(brandResults);
       const record={
