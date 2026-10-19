@@ -1,27 +1,27 @@
 {
   "photoCount": 3909,
   "historicalPhotos": 80,
-  "classifiedImages": 252,
-  "autoAssignedPhotos": 313,
-  "pendingPhotos": 3596,
+  "classifiedImages": 502,
+  "autoAssignedPhotos": 547,
+  "pendingPhotos": 3362,
   "sources": {
     "legacy_name": 77,
-    "clip": 236
+    "clip": 470
   },
   "categories": {
     "Vestidos": 2,
     "Ropa": 4,
     "Gorras": 4,
     "Pantalones": 4,
-    "Relojes": 8,
-    "Tenis": 237,
+    "Relojes": 29,
+    "Tenis": 435,
+    "Playeras": 26,
     "Lentes": 7,
     "Bolsas": 15,
     "Joyería": 2,
     "Calzado": 8,
     "Lencería": 2,
     "Cinturones": 6,
-    "Playeras": 11,
     "Fragancias": 3
   },
   "noSellableProductsCreated": true,
