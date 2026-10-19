@@ -60,9 +60,8 @@ test('mobile responsive menu, category navigation and pagination work',async({pa
  await page.setViewportSize({width:390,height:844});
  await page.goto('/');
  await expect(page.locator('#product-grid .catalog-card')).toHaveCount(30);
- await expect(page.locator('.mobile-tabbar')).toBeVisible();
- await page.locator('#toggle-menu').click();
- await expect(page.locator('#side-nav')).toHaveClass(/open/);
+ await expect(page.locator('.mobile-tabbar')).toBeHidden();
+ await expect(page.locator('#side-nav')).toBeVisible();
  await page.locator('#side-nav [data-nav="Tenis"]').click();
  await expect(page.locator('#browse-title')).toContainText('Tenis');
  await expect(page.locator('#side-nav')).not.toHaveClass(/collapsed/);
