@@ -10,3 +10,41 @@
 .hero{background:linear-gradient(90deg,rgba(2,8,18,.88) 0%,rgba(2,8,18,.54) 45%,rgba(2,8,18,.06) 100%),url('assets/elegance-panther.png') center 43%/cover no-repeat;}
 .hero:after{display:none}.heroOrnament,.heroSignature{display:none}
 @media(max-width:600px){.hero{background-position:58% center;background-image:linear-gradient(90deg,rgba(2,8,18,.87),rgba(2,8,18,.38)),url('assets/elegance-panther.png')}}
+
+
+/* Matrix Elegance: public, truthful ImageKit archive mode */
+.recovery-mode .marketing-deferred,.recovery-mode aside,.recovery-mode #menu,
+.recovery-mode #fav,.recovery-mode #cart,.recovery-mode #wa,.recovery-mode header input{display:none!important}
+.recovery-mode main{margin-left:auto;margin-right:auto}
+.recovery-mode .hero a.cta{display:inline-block;text-decoration:none}
+.recovery-mode .recovery-archive,.recovery-mode .recovery-videos{margin-top:28px}
+.recovery-mode .recovery-archive .heading{align-items:baseline;flex-wrap:wrap}
+.recovery-mode .recovery-disclaimer{color:#c7ddeb;max-width:920px;line-height:1.7}
+.recovery-mode .recovery-stats{display:flex;gap:14px;flex-wrap:wrap;margin:16px 0}
+.recovery-mode .recovery-stats span{padding:12px 16px;border:1px solid #315575;border-radius:10px;background:#0b2030}
+.recovery-mode .recovery-stats strong{color:#c4e8ff;font-size:19px}
+.recovery-mode .recovery-search-label{display:block;margin:18px 0 8px;color:#c3d8e8}
+.recovery-mode #recovery-search{width:100%;max-width:750px;background:#081725;color:#f0f8ff;border:1px solid #47708d;padding:15px;border-radius:12px}
+.recovery-mode .recovery-categories{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0}
+.recovery-mode .recovery-categories button{border:1px solid #466c87;border-radius:100px;padding:10px 14px;font-size:13px}
+.recovery-mode .recovery-categories button.current{background:#235879;border-color:#acdfff;color:#fff}
+.recovery-mode .recovery-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+.recovery-mode .recovery-card{background:#081824;border:1px solid #305777;overflow:hidden;border-radius:12px;min-width:0}
+.recovery-mode .recovery-card img{display:block;aspect-ratio:1/1;object-fit:cover;width:100%;background:#10263a}
+.recovery-mode .recovery-content{padding:11px}
+.recovery-mode .recovery-pill{font-size:11px;color:#c7eaff;background:#21405a;border:1px solid #3b6583;border-radius:40px;padding:3px 8px;display:inline-block}
+.recovery-mode .recovery-card h3{font-size:13px;line-height:1.4;min-height:2.8em;margin:9px 0}
+.recovery-mode .recovery-card p{color:#abc6d9;font-size:11px;min-height:2.5em}
+.recovery-mode .recovery-actions{display:flex;flex-direction:column;gap:8px}
+.recovery-mode .recovery-actions small{font-size:11px;color:#bfd9ea;overflow-wrap:anywhere}
+.recovery-mode .recovery-actions button{border:1px solid #466c87;border-radius:9px;padding:9px 8px;font-size:12px}
+.recovery-mode .recovery-pagination{display:flex;align-items:center;justify-content:center;gap:15px;margin:24px 0}
+.recovery-mode .recovery-pagination button{border:1px solid #486f8a;padding:12px;border-radius:9px}
+.recovery-mode .recovery-pagination button:disabled{opacity:.35;cursor:not-allowed}
+.recovery-mode .recovery-video-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.recovery-mode .recovery-video{background:#091b2b;border:1px solid #355e7e;border-radius:12px;padding:8px}
+.recovery-mode .recovery-video video{width:100%;aspect-ratio:9/12;object-fit:contain;background:black;border-radius:8px}
+.recovery-mode .recovery-video p{color:#b7d1e0;font-size:12px}
+.recovery-mode #recovery-status{font-size:13px;color:#bdd9e7}
+@media(max-width:1100px){.recovery-mode .recovery-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.recovery-mode .recovery-video-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:600px){.recovery-mode .recovery-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.recovery-mode .recovery-video-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.recovery-mode .hero a.cta{font-size:11px;padding:10px}.recovery-mode main{margin-left:0}.recovery-mode .recovery-card h3{min-height:0}.recovery-mode .recovery-video video{aspect-ratio:1/1}}

@@ -1,27 +1,24 @@
 const {test,expect}=require('@playwright/test');
-test('storefront loads with original panther and navigation',async({page})=>{
+test('storefront preserves original panther and displays recovered gallery',async({page})=>{
  await page.goto('/');
  await expect(page).toHaveTitle(/Elegance MX/i);
  await expect(page.locator('.hero')).toBeVisible();
- await expect(page.locator('#nav button')).toHaveCount(12);
- await expect(page.locator('#search')).toBeVisible();
- await expect(page.locator('#cart')).toBeVisible();
- await expect(page.locator('#fav')).toBeVisible();
- await expect(page.locator('#wa')).toBeVisible();
- const image=await page.evaluate(async()=>{const r=await fetch('/assets/elegance-panther.png');return r.ok&&r.headers.get('content-type')?.includes('image')});
- expect(image).toBeTruthy();
+ await expect(page.locator('#recovery-search')).toBeVisible();
+ await expect(page.locator('#recovery-grid .recovery-card')).toHaveCount(30);
+ const panther=await page.evaluate(async()=>{const r=await fetch('/assets/elegance-panther.png');return r.ok&&r.headers.get('content-type')?.includes('image')});
+ expect(panther).toBeTruthy();
 });
-test('empty catalog does not fabricate sellable products',async({page})=>{
+test('unverified media never become sellable products',async({page})=>{
  await page.goto('/');
  await expect(page.locator('#products .product')).toHaveCount(0);
- await expect(page.locator('#empty')).toBeVisible();
- await page.locator('#cart').click();
- await expect(page.locator('#drawerItems')).toContainText('Todavía no hay artículos');
+ await expect(page.locator('#recovery-grid .recovery-card')).toHaveCount(30);
+ await expect(page.locator('#recovery-grid [data-copy]')).toHaveCount(30);
+ await expect(page.locator('#checkout')).not.toBeVisible();
 });
-test('responsive mobile menu and search work',async({page})=>{
+test('mobile media search is responsive',async({page})=>{
  await page.setViewportSize({width:390,height:844});
  await page.goto('/');
- await page.locator('#menu').click();
- await page.locator('#search').fill('Nike');
- await expect(page.locator('#products .product')).toHaveCount(0);
+ await page.locator('#recovery-search').fill('no-existe-ningún-artículo');
+ await expect(page.locator('#recovery-grid .recovery-card')).toHaveCount(0);
+ await expect(page.locator('.hero')).toBeVisible();
 });
