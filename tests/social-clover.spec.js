@@ -22,9 +22,9 @@ test('exact user gold-and-ice blue 4-leaf artwork, tap leaves, drag without redi
   await expect(link).toHaveAttribute('href',new RegExp('^https://(www\\.)?'+expected[id].replace('.','\\.')+'/'));
  }
  const before=await host.boundingBox();expect(before).not.toBeNull();
- // 390px phone: old responsive clover was 144.3px; a third is 48.1px.
- expect(before.width).toBeGreaterThan(47);
- expect(before.width).toBeLessThan(50);
+ // 390px phone: previously 48.1px; now 25% larger, about 60.1px.
+ expect(before.width).toBeGreaterThan(59);
+ expect(before.width).toBeLessThan(62);
  expect(Math.abs(before.height-before.width)).toBeLessThan(1);
  const fb=await page.locator('[data-social="facebook"]').boundingBox();
  expect(fb).not.toBeNull();
@@ -62,7 +62,7 @@ test('clover can travel to every screen corner, remains bounded and supports tou
   const rect=nav.getBoundingClientRect();
   const id=404;
   const events=(name,x,y)=>nav.dispatchEvent(new PointerEvent(name,{
-   bubbles:true,cancelable:true,pointerId:id,pointerType:'touch',button:0,clientX:x,clientY:y
+   bubbles:true,cancelable:true,pointerId:id,pointerType:'touch',isPrimary:true,button:0,clientX:x,clientY:y
   }));
   events('pointerdown',rect.x+45,rect.y+30);
   events('pointermove',5,5);
@@ -98,21 +98,49 @@ test('same gemstone clover is shown on archive and does not point to GabyCases',
 });
 
 
-test('one-third size applies on wide desktops and remains within viewport',async({page})=>{
+test('25 percent larger clover works on desktops and remains within viewport',async({page})=>{
  await page.setViewportSize({width:1280,height:900});
  await page.goto('/');
  const desktop=await page.locator('#elegance-social-clover').boundingBox();
  expect(desktop).not.toBeNull();
- // Previous max size 166px -> 55.333px after one-third reduction.
- expect(desktop.width).toBeGreaterThan(54);
- expect(desktop.width).toBeLessThan(57);
+ // Previous compact max was 55.333px; enlarge by 25% -> 69.166px.
+ expect(desktop.width).toBeGreaterThan(68);
+ expect(desktop.width).toBeLessThan(71);
  expect(Math.abs(desktop.width-desktop.height)).toBeLessThan(1);
  await page.setViewportSize({width:310,height:630});
  const phone=await page.locator('#elegance-social-clover').boundingBox();
  expect(phone).not.toBeNull();
- // Previous minimum mobile size 118px -> 39.333px.
- expect(phone.width).toBeGreaterThan(38);
- expect(phone.width).toBeLessThan(41);
+ // Previous compact minimum was 39.333px; enlarge by 25% -> 49.166px.
+ expect(phone.width).toBeGreaterThan(48);
+ expect(phone.width).toBeLessThan(51);
  expect(phone.x+phone.width).toBeLessThanOrEqual(310);
  expect(phone.y+phone.height).toBeLessThanOrEqual(630);
+});
+
+
+test('smooth drag moves without layout-jank and does not open a social link',async({page})=>{
+ await page.setViewportSize({width:390,height:844});
+ await page.goto('/');
+ const clover=page.locator('#elegance-social-clover');
+ const first=await clover.boundingBox();
+ const wa=await page.locator('[data-social="whatsapp"]').boundingBox();
+ const popups=[];
+ page.on('popup',p=>popups.push(p));
+ await page.mouse.move(wa.x+wa.width/2,wa.y+wa.height/2);
+ await page.mouse.down();
+ await page.mouse.move(wa.x+wa.width/2-65,wa.y+wa.height/2-95,{steps:12});
+ await expect.poll(()=>clover.evaluate(el=>getComputedStyle(el).transform))
+  .not.toBe('none');
+ const moving=await clover.boundingBox();
+ expect(moving.x).toBeLessThan(first.x-40);
+ expect(moving.y).toBeLessThan(first.y-70);
+ await page.mouse.up();
+ const landed=await clover.boundingBox();
+ expect(Math.abs(landed.x-moving.x)).toBeLessThan(4);
+ expect(Math.abs(landed.y-moving.y)).toBeLessThan(4);
+ expect(popups.length).toBe(0);
+ await page.reload();
+ const restored=await clover.boundingBox();
+ expect(Math.abs(restored.x-landed.x)).toBeLessThan(4);
+ expect(Math.abs(restored.y-landed.y)).toBeLessThan(4);
 });

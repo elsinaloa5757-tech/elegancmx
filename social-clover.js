@@ -37,96 +37,120 @@ const clamp=(value,min,max)=>Math.max(min,Math.min(value,max));
 const viewport=()=>({w:document.documentElement.clientWidth||window.innerWidth,
  h:window.innerHeight});
 const dimensions=()=>({width:host.getBoundingClientRect().width,height:host.getBoundingClientRect().height});
+// Permanent coordinates are stored as viewport fractions. During a drag, update
+// only the transform, not layout-based top/left or DOM measurements on every event.
 let placement=null;
-function applyPosition(x,y){
+function applyPosition(x,y) {
  const v=viewport(),d=dimensions();
  const left=clamp(x,4,Math.max(4,v.w-d.width-4));
  const top=clamp(y,4,Math.max(4,v.h-d.height-4));
+ host.style.transform='';
  host.style.left=left+'px';
  host.style.top=top+'px';
  host.style.right='auto';
  host.style.bottom='auto';
  placement={x:left,y:top};
 }
-function savePosition(){
+function savePosition() {
  try{
-  const v=viewport(),d=dimensions(),rect=host.getBoundingClientRect();
-  const fx=rect.left/Math.max(1,v.w-d.width);
-  const fy=rect.top/Math.max(1,v.h-d.height);
+  const v=viewport(),d=dimensions();
+  const p=placement||{x:0,y:0};
   localStorage.setItem(STORAGE_KEY,JSON.stringify({
-    fx:clamp(fx,0,1),fy:clamp(fy,0,1)
+   fx:clamp(p.x/Math.max(1,v.w-d.width),0,1),
+   fy:clamp(p.y/Math.max(1,v.h-d.height),0,1)
   }));
- }catch{/* Privacy mode may disallow local storage. Drag still works. */}
+ }catch{/* Local storage disabled: the clover remains movable. */}
 }
-function loadPosition(){
+function loadPosition() {
  const v=viewport(),d=dimensions();
  let coords=null;
- try{
+ try {
   const saved=JSON.parse(localStorage.getItem(STORAGE_KEY)||'null');
-  if(saved && Number.isFinite(saved.fx)&&Number.isFinite(saved.fy)){
+  if(saved&&Number.isFinite(saved.fx)&&Number.isFinite(saved.fy)){
    coords={x:clamp(saved.fx,0,1)*Math.max(0,v.w-d.width),
-     y:clamp(saved.fy,0,1)*Math.max(0,v.h-d.height)};
+    y:clamp(saved.fy,0,1)*Math.max(0,v.h-d.height)};
   }
- }catch{/* No saved position. */}
+ }catch{/* No valid saved position. */}
  if(!coords)coords={x:v.w-d.width-14,y:v.h-d.height-16};
  applyPosition(coords.x,coords.y);
 }
 loadPosition();
-let pointer=null,blockClick=false;
+let pointer=null;
+let frame=0;
+let blockClick=false;
+function movePreview() {
+ frame=0;
+ if(!pointer||!pointer.dragging)return;
+ host.style.transform='translate3d('+pointer.dx+'px,'+pointer.dy+'px,0)';
+}
+function cancelPreview() {
+ if(frame){cancelAnimationFrame(frame);frame=0;}
+ host.style.transform='';
+}
 host.addEventListener('pointerdown',event=>{
- if(event.button!==0||pointer)return;
+ if(event.button!==0||pointer||!event.isPrimary)return;
  const rect=host.getBoundingClientRect();
- pointer={id:event.pointerId,startX:event.clientX,startY:event.clientY,
-   initialX:rect.left,initialY:rect.top,dragging:false};
+ const v=viewport();
+ pointer={
+  id:event.pointerId,
+  startX:event.clientX,startY:event.clientY,
+  initialX:rect.left,initialY:rect.top,
+  width:rect.width,height:rect.height,viewport:v,
+  x:rect.left,y:rect.top,dx:0,dy:0,dragging:false
+ };
+ // No pointer capture for ordinary taps: a real leaf click must still navigate.
 });
 document.addEventListener('pointermove',event=>{
  if(!pointer||event.pointerId!==pointer.id)return;
  const dx=event.clientX-pointer.startX,dy=event.clientY-pointer.startY;
- if(!pointer.dragging&&Math.hypot(dx,dy)>7){
+ if(!pointer.dragging&&Math.hypot(dx,dy)>5){
   pointer.dragging=true;
   host.classList.add('is-dragging');
-  try{host.setPointerCapture(event.pointerId)}catch{/* May be unsupported. */}
  }
  if(!pointer.dragging)return;
- event.preventDefault();
- applyPosition(pointer.initialX+dx,pointer.initialY+dy);
-});
-function endPointer(event){
+ if(event.cancelable)event.preventDefault();
+ const p=pointer,v=p.viewport;
+ p.x=clamp(p.initialX+dx,4,Math.max(4,v.w-p.width-4));
+ p.y=clamp(p.initialY+dy,4,Math.max(4,v.h-p.height-4));
+ p.dx=p.x-p.initialX;
+ p.dy=p.y-p.initialY;
+ if(!frame)frame=requestAnimationFrame(movePreview);
+},{passive:false});
+function endPointer(event) {
  if(!pointer||event.pointerId!==pointer.id)return;
- if(pointer.dragging){
+ const p=pointer;
+ pointer=null;
+ cancelPreview();
+ host.classList.remove('is-dragging');
+ if(p.dragging){
+  applyPosition(p.x,p.y);
   savePosition();
   blockClick=true;
-  host.classList.remove('is-dragging');
  }
- pointer=null;
 }
 document.addEventListener('pointerup',endPointer);
 document.addEventListener('pointercancel',endPointer);
-host.addEventListener('lostpointercapture',event=>{
- if(pointer?.id===event.pointerId)endPointer(event);
-});
 host.addEventListener('click',event=>{
  if(!blockClick)return;
  event.preventDefault();
  event.stopImmediatePropagation();
  blockClick=false;
 },true);
-// Some mobile browsers dispatch no post-drag click; discard stale suppression on next down.
-host.addEventListener('pointerdown',()=>{if(!pointer?.dragging)blockClick=false},true);
+// Do not suppress the NEXT intentional tap when a browser omits the post-drag click.
+host.addEventListener('pointerdown',()=>{blockClick=false;},true);
 host.addEventListener('keydown',event=>{
  if(!event.altKey||!['ArrowLeft','ArrowRight','ArrowUp','ArrowDown'].includes(event.key))return;
  event.preventDefault();
- const rect=host.getBoundingClientRect(),step=event.shiftKey?32:12;
+ const p=placement||{x:host.getBoundingClientRect().left,y:host.getBoundingClientRect().top};
+ const step=event.shiftKey?32:12;
  const dx=event.key==='ArrowRight'?step:event.key==='ArrowLeft'?-step:0;
  const dy=event.key==='ArrowDown'?step:event.key==='ArrowUp'?-step:0;
- applyPosition(rect.left+dx,rect.top+dy);
+ applyPosition(p.x+dx,p.y+dy);
  savePosition();
 });
 window.addEventListener('resize',()=>{
  if(!placement)return;
- const v=viewport(),d=dimensions();
- applyPosition(clamp(placement.x,4,Math.max(4,v.w-d.width-4)),
-  clamp(placement.y,4,Math.max(4,v.h-d.height-4)));
+ applyPosition(placement.x,placement.y);
  savePosition();
 });
 function allowedUrl(value,channel){
