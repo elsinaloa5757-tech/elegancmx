@@ -10,10 +10,10 @@ const MORE_BRANDS=['Louis Vuitton','Gucci','Dior','Prada'];
 let expandedBrands=false,expandedCategories=false;
 const LS_FAV='elegance_public_favorites_v3',LS_INQ='elegance_public_inquiries_v3';
 const getSaved=key=>{try{const a=JSON.parse(localStorage.getItem(key)||'[]');return new Set(Array.isArray(a)?a.filter(x=>typeof x==='string'):[]);}catch{return new Set();}};
-const state={media:[],allMedia:[],groups:new Map(),curation:new Map(),mediaById:new Map(),routes:new Map(),ai:new Map(),favorites:getSaved(LS_FAV),inquiries:getSaved(LS_INQ),filterCat:'',filterConfidence:'all',filterBrand:'',search:'',sort:'new',collection:'',page:0,pageSize:30};
+const state={media:[],allMedia:[],groups:new Map(),curation:new Map(),adminOverrides:new Map(),mediaById:new Map(),routes:new Map(),ai:new Map(),favorites:getSaved(LS_FAV),inquiries:getSaved(LS_INQ),filterCat:'',filterConfidence:'all',filterBrand:'',search:'',sort:'new',collection:'',page:0,pageSize:30};
 const normalizeCat=cat=>cat==='Playeras'?'Ropa':cat||null;
 const getRoute=id=>state.routes.get(id)||{};
-const override=id=>state.curation.get(id)||{};
+const override=id=>({...state.curation.get(id),...state.adminOverrides.get(id)});
 const getCat=id=>{const edit=override(id);return edit.category===null?null:normalizeCat(edit.category||getRoute(id).category)};
 const suggestionBrand=id=>override(id).brand||state.ai.get(id)?.brandSuggestion||null;
 const getLabel=m=>override(m.fileId).name||getRoute(m.fileId)?.legacyReference?.historicalName||((getCat(m.fileId)||'Artículo')+' · Referencia');
@@ -248,6 +248,14 @@ function bind(){
 async function boot(){
  bind();
  try{
+ const dynamicPromise=Promise.allSettled([
+   fetch('https://czekazhacqaamwecjthp.supabase.co/rest/v1/elegance_admin_media?select=imagekit_file_id,url,filename,mime,title,description,brand,category,price,stock,visible,ai_status,created_at&visible=eq.true&order=created_at.desc&limit=1000',{
+     headers:{apikey:'sb_publishable_Z51W6iueiL_dmRdmZe6_JQ_WoSirGA3'},signal:AbortSignal.timeout(2500)
+   }).then(r=>r.ok?r.json():[]),
+   fetch('https://czekazhacqaamwecjthp.supabase.co/functions/v1/elegance-admin',{
+     method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({action:'visibility'}),signal:AbortSignal.timeout(2500)
+   }).then(r=>r.ok?r.json():{hiddenIds:[]})
+ ]);
  const [fm,fr,fa,fc]=await Promise.all([
    fetch('data/imagekit-media.json'),fetch('data/auto-categories.json'),
    fetch('data/ai-classifications.json'),fetch('data/catalog-curation.json')
@@ -258,8 +266,22 @@ async function boot(){
  state.routes=new Map(routes.filter(x=>x.fileId).map(x=>[x.fileId,x]));
  state.ai=new Map(ai.filter(x=>x.fileId).map(x=>[x.fileId,x]));
  state.curation=new Map(Object.entries(curation.entries||{}));
- state.allMedia=media.filter(m=>m.mime?.startsWith('image/')&&safeImg(m))
-   .sort((a,b)=>String(b.createdAt).localeCompare(String(a.createdAt)));
+ const liveResult=await dynamicPromise;
+ const publicRecords=liveResult[0]?.status==='fulfilled'&&Array.isArray(liveResult[0].value)?liveResult[0].value:[];
+ const hiddenIds=new Set(liveResult[1]?.status==='fulfilled'&&Array.isArray(liveResult[1].value?.hiddenIds)?liveResult[1].value.hiddenIds:[]);
+ const liveMedia=publicRecords.map(row=>({
+  fileId:row.imagekit_file_id,url:row.url,mime:row.mime,createdAt:row.created_at
+ })).filter(safeImg);
+ state.adminOverrides=new Map(publicRecords.map(row=>[row.imagekit_file_id,{
+  ...(row.title?{name:row.title}:{}),
+  ...(row.category?{category:row.category}:{}),
+  ...(row.brand?{brand:row.brand}:{}),
+  ...(row.price!==null?{price:row.price}:{}),
+  ...(row.stock!==null?{stock:row.stock}:{}),
+  hidden:false
+ }]));
+ const unique=new Map([...liveMedia,...media].filter(m=>m.mime?.startsWith('image/')&&safeImg(m)&&!hiddenIds.has(m.fileId)).map(m=>[m.fileId,m]));
+ state.allMedia=[...unique.values()].sort((a,b)=>String(b.createdAt).localeCompare(String(a.createdAt)));
  state.mediaById=new Map(state.allMedia.map(m=>[m.fileId,m]));
  state.groups=new Map();
  for(const m of state.allMedia){
@@ -274,7 +296,7 @@ async function boot(){
  options.map(c=>'<option value="'+esc(c)+'">'+esc(c)+'</option>').join('');
  for(const set of [state.favorites,state.inquiries]){for(const id of set)if(!state.mediaById.has(id))set.delete(id);}
  save();renderShelves();renderBrowse();
- const videos=media.filter(m=>m.mime?.startsWith('video/')&&safeImg(m));
+ const videos=[...publicRecords.map(row=>({fileId:row.imagekit_file_id,url:row.url,mime:row.mime,createdAt:row.created_at})),...media].filter(m=>m.mime?.startsWith('video/')&&safeImg(m)&&!hiddenIds.has(m.fileId));
  $('videos-preview').innerHTML=videos.slice(0,4).map(m=>'<article><video controls preload="none" playsinline src="'+esc(m.url)+'" aria-label="Video de Elegance"></video></article>').join('');
  }catch(err){
    $('product-grid').innerHTML='';
@@ -282,5 +304,13 @@ async function boot(){
    $('no-results').textContent='No fue posible cargar el catálogo: '+err.message;
  }
 }
+let pendingRefresh=false;
+window.addEventListener('elegance:catalog-refresh',()=>{
+ if(pendingRefresh)return;
+ pendingRefresh=true;
+ const dlg=document.getElementById('admin-dialog');
+ if(dlg?.open)dlg.addEventListener('close',()=>window.location.reload(),{once:true});
+ else window.location.reload();
+});
 boot();
 })();

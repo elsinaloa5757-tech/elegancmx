@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "scripts": {
-    "check": "node --check app.js && node --check catalog-recovery.js && node --check panel.js && node --check studio.js && python3 -m json.tool products.json >/dev/null",
+    "check": "node --check app.js && node --check catalog-recovery.js && node --check panel.js && node --check admin.js && node --check studio.js && python3 -m json.tool products.json >/dev/null",
     "test": "playwright test"
   },
   "devDependencies": {

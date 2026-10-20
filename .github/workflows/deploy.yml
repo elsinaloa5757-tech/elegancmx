@@ -5,6 +5,8 @@ on:
     paths:
       - 'index.html'
       - 'panel.js'
+      - 'admin.js'
+      - 'admin.css'
       - 'studio.html'
       - 'studio.js'
       - 'studio.css'
@@ -48,6 +50,7 @@ jobs:
           npm run check
           node --check catalog-recovery.js
           node --check panel.js
+          node --check admin.js
           node --check studio.js
           node --test tests/curation.test.mjs
           node --check social-clover.js
