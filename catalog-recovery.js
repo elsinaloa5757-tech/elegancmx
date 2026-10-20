@@ -9,7 +9,8 @@ const ESC = value=>String(value??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&
 const KNOWN=['Tenis','Calzado','Bolsas','Playeras','Ropa','Vestidos','Lencería','Gorras',
   'Pantalones','Buckets','Relojes','Lentes','Cinturones','Joyería','Fragancias','Accesorios','Memorias'];
 const PAGE_SIZE=30;
-const view={media:[],categories:new Map(),videos:[],filter:'Todas',q:'',page:0};
+const view={media:[],categories:new Map(),curation:new Map(),videos:[],filter:'Todas',q:'',page:0};
+const getCat=id=>view.curation.get(id)?.category||view.categories.get(id)?.category||null;
 function isImage(m) {
   if(!m||!m.mime?.startsWith('image/'))return false;
   try {const u=new URL(m.url);return u.protocol==='https:'&&u.hostname==='ik.imagekit.io'
@@ -22,18 +23,19 @@ function isVideo(m) {
 }
 function filterMedia(){
   return view.media.filter(m=>{
-    const route=view.categories.get(m.fileId),cat=route?.category||null;
+    const route=view.categories.get(m.fileId),cat=getCat(m.fileId);
     if(view.filter==='Pendientes'&&cat)return false;
     if(view.filter!=='Todas'&&view.filter!=='Pendientes'&&cat!==view.filter)return false;
-    const fields=[route?.category,route?.legacyReference?.historicalName,m.fileId,m.name,m.filePath];
+    const fields=[cat,view.curation.get(m.fileId)?.name,view.curation.get(m.fileId)?.brand,route?.legacyReference?.historicalName,m.fileId,m.name,m.filePath];
     return !view.q||fields.filter(Boolean).join(' ').toLocaleLowerCase('es-MX').includes(view.q);
   });
 }
 function fileCard(m){
  const route=view.categories.get(m.fileId);
- const cat=route?.category||'Por identificar', historical=route?.legacyReference?.historicalName;
- const label=historical||('Fotografía de '+cat.toLocaleLowerCase('es-MX'));
- const confidence=route?.category?'Categoría propuesta':'Clasificación pendiente';
+ const edit=view.curation.get(m.fileId)||{};
+ const cat=getCat(m.fileId)||'Por identificar', historical=route?.legacyReference?.historicalName;
+ const label=edit.name||historical||('Fotografía de '+cat.toLocaleLowerCase('es-MX'));
+ const confidence=edit.reviewed?'Categoría revisada':getCat(m.fileId)?'Categoría propuesta':'Clasificación pendiente';
  const id='IK-'+m.fileId;
  return '<article class="recovery-card" data-id="'+ESC(m.fileId)+'">'+
     '<img loading="lazy" decoding="async" src="'+ESC(m.url)+'" alt="'+ESC(label)+'">'+
@@ -69,21 +71,24 @@ function showVideos(){
 async function start(){
  try{
  const responses=await Promise.all([
-    fetch('data/imagekit-media.json'),fetch('data/auto-categories.json')
+    fetch('data/imagekit-media.json'),fetch('data/auto-categories.json'),fetch('data/catalog-curation.json')
  ]);
  if(!responses[0].ok)throw Error('Inventario ImageKit inaccesible');
  const media=await responses[0].json(), routes=responses[1].ok?await responses[1].json():[];
+ const curated=responses[2].ok?await responses[2].json():{version:1,entries:{}};
+ if(curated?.version!==1)throw Error('Revisión administrativa inválida');
+ view.curation=new Map(Object.entries(curated.entries||{}));
  if(!Array.isArray(media)||!Array.isArray(routes))throw Error('Datos de catálogo inválidos');
- view.media=media.filter(isImage).sort((a,b)=>String(b.createdAt).localeCompare(String(a.createdAt)));
+ view.media=media.filter(isImage).filter(m=>!view.curation.get(m.fileId)?.hidden).sort((a,b)=>String(b.createdAt).localeCompare(String(a.createdAt)));
  view.categories=new Map(routes.filter(x=>x?.fileId).map(x=>[x.fileId,x]));
  view.videos=media.filter(isVideo);
- const types=new Set(view.media.map(x=>view.categories.get(x.fileId)?.category).filter(Boolean));
+ const types=new Set(view.media.map(x=>getCat(x.fileId)).filter(Boolean));
  const choices=['Todas',...KNOWN.filter(cat=>types.has(cat)),'Pendientes'];
  $('recovery-cat').innerHTML=choices.map(cat=>
    '<button type="button" data-filter="'+ESC(cat)+'" aria-pressed="'+(cat==='Todas')+'">'+
    ESC(cat)+'</button>').join('');
  $('recovery-count').textContent=view.media.length.toLocaleString('es-MX');
- $('recovery-known').textContent=view.media.filter(x=>view.categories.get(x.fileId)?.category).length.toLocaleString('es-MX');
+ $('recovery-known').textContent=view.media.filter(x=>getCat(x.fileId)).length.toLocaleString('es-MX');
  showVideos();render();
  }catch(error){
    $('recovery-status').textContent='No se pudo cargar el archivo: '+error.message;
