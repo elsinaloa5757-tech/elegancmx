@@ -161,6 +161,7 @@ async function uploadBatch(){
  $('admin-upload').disabled=true;$('admin-clear-files').disabled=true;$('admin-cancel-upload').hidden=false;
  $('admin-upload-progress').hidden=false;$('admin-upload-progress').value=0;
  let index=0,finished=0,ok=0,dup=0,bytes=0;const fails=[];
+ let completionMessage='',completionError=false;
  async function worker(){
   while(!S.cancelled&&index<batch.length){
    const file=batch[index++];
@@ -174,12 +175,14 @@ async function uploadBatch(){
  }
  try{
   await Promise.all(Array.from({length:Math.min(3,batch.length)},worker));
-  notice(ok+' subidos · '+dup+' duplicados · '+fails.length+' errores · '+(bytes/1048576).toFixed(1)+' MB guardados.',!!fails.length);
+  completionMessage=ok+' subidos · '+dup+' duplicados · '+fails.length+' errores · '+(bytes/1048576).toFixed(1)+' MB guardados.';
+  completionError=!!fails.length;
   S.files=fails.map(x=>x.file);$('admin-files').value='';
   if(ok){await load();window.dispatchEvent(new Event('elegance:catalog-refresh'))}
- }catch(e){notice(e.message,true)}
+ }catch(e){completionMessage=e.message;completionError=true}
  finally{
   S.uploading=false;$('admin-cancel-upload').hidden=true;$('admin-clear-files').disabled=false;queue([]);
+  if(completionMessage)notice(completionMessage,completionError);
  }
 }
 function norm(x){return {id:x.id||null,fileId:x.imagekit_file_id||x.fileId,
@@ -261,4 +264,8 @@ function bind(){
 }
 try{S.session=JSON.parse(sessionStorage.getItem('elegance_admin_auth_v1')||'null')}catch{S.session=null}
 bind();
+if(new URLSearchParams(location.search).has('administrador')){
+ history.replaceState(null,'',location.pathname+location.hash);
+ open();
+}
 })();
