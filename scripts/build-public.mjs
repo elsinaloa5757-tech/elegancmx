@@ -39,6 +39,10 @@ for(const name of ['index.html','panel.js','panel.css','archivo.html',
  await fs.copyFile(name,path.join(dir,name));
 }
 await fs.copyFile('assets/elegance-panther.png',path.join(dir,'assets/elegance-panther.png'));
+const cloverAsset=await fs.readFile('assets/elegance-social-clover.webp');
+if(cloverAsset.byteLength<6000||cloverAsset.toString('ascii',0,4)!=='RIFF'||cloverAsset.toString('ascii',8,12)!=='WEBP')
+  throw Error('Approved gemstone clover image missing or invalid');
+await fs.copyFile('assets/elegance-social-clover.webp',path.join(dir,'assets/elegance-social-clover.webp'));
 for(const name of ['imagekit-media.json','auto-categories.json','auto-categories-summary.json','ai-classifications.json','social-links.json']){
  await fs.copyFile(path.join('data',name),path.join(dir,'data',name));
 }
