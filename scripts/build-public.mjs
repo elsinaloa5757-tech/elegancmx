@@ -20,6 +20,11 @@ if(route.length!==imgs.length||route.some(x=>x.canPublish!==false||x.price!==nul
 if(products.length)throw Error('Unreviewed products.json cannot be deployed as sellable products');
 const homepage=await fs.readFile('index.html','utf8');
 if(!homepage.includes('panel.js')||!homepage.includes('id="quick-categories"')||!homepage.includes('id="product-grid"'))throw Error('Approved functional Elegance storefront missing');
+const social=await read('data/social-links.json');
+for(const channel of ['whatsapp','facebook','instagram','tiktok']){
+ if(!social?.[channel]?.url?.startsWith('https://'))throw Error('Social channel missing safe redirect '+channel);
+}
+if(!homepage.includes('social-clover.js')||!homepage.includes('social-clover.css'))throw Error('Floating social clover missing');
 const archivePage=await fs.readFile('archivo.html','utf8');
 if(!archivePage.includes('catalog-recovery.js'))throw Error('Original recovered photo archive missing');
 for(const filename of ['panel.js','panel.css'])if(!(await fs.stat(filename)).size)throw Error('Missing '+filename);
@@ -29,12 +34,12 @@ await fs.rm(dir,{recursive:true,force:true});
 await fs.mkdir(path.join(dir,'assets'),{recursive:true});
 await fs.mkdir(path.join(dir,'data'),{recursive:true});
 for(const name of ['index.html','panel.js','panel.css','archivo.html',
- 'styles.css','app.js','catalog-recovery.js','products.json',
+ 'styles.css','app.js','catalog-recovery.js','social-clover.js','social-clover.css','products.json',
  'laboratorio-ia.html','lab.js','lab.css']){
  await fs.copyFile(name,path.join(dir,name));
 }
 await fs.copyFile('assets/elegance-panther.png',path.join(dir,'assets/elegance-panther.png'));
-for(const name of ['imagekit-media.json','auto-categories.json','auto-categories-summary.json','ai-classifications.json']){
+for(const name of ['imagekit-media.json','auto-categories.json','auto-categories-summary.json','ai-classifications.json','social-links.json']){
  await fs.copyFile(path.join('data',name),path.join(dir,'data',name));
 }
 await fs.writeFile(path.join(dir,'_headers'),
