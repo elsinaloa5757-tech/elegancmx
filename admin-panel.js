@@ -51,6 +51,7 @@ async function loadAdmin(){
  if(!ready)status('Cuenta autorizada. Falta configurar IMAGEKIT_PUBLIC_KEY e IMAGEKIT_PRIVATE_KEY como secretos de la función en Supabase para activar las subidas reales.',true);
  else status('Acceso correcto. Las fotografías se comprimirán y subirán directamente a ImageKit.');
  await listRecords();
+ await loadArchive();
 }
 async function login(email,password){
  const result=await api(BASE+'/auth/v1/token?grant_type=password',{method:'POST',body:{email,password}});
@@ -189,6 +190,78 @@ async function saveRecord(form){
  });
  status('Cambios guardados; el catálogo público se actualizará cuando se recargue.');
 }
+
+const archive={items:[],routes:new Map(),overrides:new Map(),visible:20,loaded:false};
+async function loadArchive(){
+ try{
+  if(!archive.loaded){
+   const [mediaResponse,routeResponse]=await Promise.all([
+    fetch('data/imagekit-media.json'),fetch('data/auto-categories.json')]);
+   if(!mediaResponse.ok||!routeResponse.ok)throw Error('Archivo histórico no disponible');
+   const [media,route]=await Promise.all([mediaResponse.json(),routeResponse.json()]);
+   archive.items=media.filter(m=>m.mime?.startsWith('image/')||m.mime?.startsWith('video/'))
+      .sort((a,b)=>String(b.createdAt).localeCompare(String(a.createdAt)));
+   archive.routes=new Map(route.map(x=>[x.fileId,x]));
+   archive.loaded=true;
+  }
+  const overrides=await db('elegance_existing_overrides?select=file_id,title,brand,category,hidden,reviewed&limit=5000');
+  archive.overrides=new Map(overrides.map(o=>[o.file_id,o]));
+  renderArchive();
+ }catch(e){$('admin-archive-list').textContent='No se pudo cargar el archivo: '+e.message}
+}
+function archiveMatches(m,search){
+ if(!search)return true;
+ const suggest=archive.routes.get(m.fileId)||{};
+ const approved=archive.overrides.get(m.fileId)||{};
+ return [m.fileId,m.name,m.filePath,m.url,suggest.category,approved.category,approved.title].filter(Boolean)
+   .join(' ').toLocaleLowerCase('es-MX').includes(search);
+}
+function renderArchive(){
+ const q=$('admin-archive-search').value.trim().toLocaleLowerCase('es-MX');
+ const matches=archive.items.filter(m=>archiveMatches(m,q));
+ const rows=matches.slice(0,archive.visible);
+ const container=$('admin-archive-list');
+ container.innerHTML=rows.length?rows.map(m=>{
+  const route=archive.routes.get(m.fileId)||{},approved=archive.overrides.get(m.fileId)||{};
+  const category=approved.category||route.category||'';
+  const mime=m.mime||'';
+  return '<form class="admin-media-row admin-historic-row" data-archive-id="'+esc(m.fileId)+'">'+
+    (mime.startsWith('video/')?'<video preload="none" controls src="'+esc(m.url)+'"></video>':
+      '<img loading="lazy" src="'+esc(m.url)+'" alt="'+esc(m.name||m.fileId)+'">')+
+    '<div class="admin-media-fields"><strong>'+esc(m.name||m.fileId)+'</strong>'+
+    '<input name="title" placeholder="Nombre confirmado" maxlength="160" value="'+esc(approved.title||'')+'">'+
+    '<input name="brand" placeholder="Marca confirmada" maxlength="100" value="'+esc(approved.brand||'')+'">'+
+    '<select name="category">'+opts+'</select>'+
+    '<div class="admin-flags"><label><input type="checkbox" name="reviewed" '+(approved.reviewed!==false?'checked':'')+'> Revisión aprobada</label>'+
+    '<label><input type="checkbox" name="hidden" '+(approved.hidden?'checked':'')+'> Ocultar del catálogo</label></div>'+
+    '<button type="submit" class="admin-primary">Guardar corrección</button></div></form>';
+ }).join(''):'<p>No encontré referencias con ese filtro.</p>';
+ rows.forEach((m,i)=>{
+  const o=archive.overrides.get(m.fileId)||{};
+  const route=archive.routes.get(m.fileId)||{};
+  const category=o.category||route.category||'';
+  const sel=container.querySelectorAll('select[name="category"]')[i];
+  if(sel)sel.value=category;
+ });
+ $('admin-archive-more').hidden=matches.length<=archive.visible;
+}
+async function saveArchive(form){
+ const id=form.dataset.archiveId;
+ if(!archive.items.some(m=>m.fileId===id))throw Error('Referencia desconocida');
+ const data=new FormData(form);
+ if(data.has('hidden')&&!data.has('reviewed'))throw Error('Confirma la revisión para ocultar una fotografía');
+ const record={file_id:id,title:String(data.get('title')||'').trim(),
+  category:String(data.get('category')||''),brand:String(data.get('brand')||'').trim(),
+  reviewed:data.has('reviewed'),hidden:data.has('hidden'),updated_by:user.id,
+  updated_at:new Date().toISOString()};
+ await db('elegance_existing_overrides?on_conflict=file_id',{
+   method:'POST',prefer:'resolution=merge-duplicates,return=minimal',body:record
+ });
+ archive.overrides.set(id,record);
+ status('Corrección aprobada y guardada. Los clientes verán el resultado al recargar Elegance MX.');
+ window.dispatchEvent(new Event('elegance-catalog-updated'));
+}
+
 async function init(){
  try{
  const response=await fetch('admin-panel.html',{cache:'no-store'});
@@ -214,6 +287,13 @@ async function init(){
  $('admin-start-upload').addEventListener('click',start);
  $('admin-cancel-upload').addEventListener('click',()=>{stopped=true;status('Deteniendo cuando terminen los archivos en curso…')});
  $('admin-refresh').addEventListener('click',listRecords);
+ $('admin-archive-search').addEventListener('input',()=>{archive.visible=20;renderArchive()});
+ $('admin-archive-more').addEventListener('click',()=>{archive.visible+=20;renderArchive()});
+ $('admin-archive-list').addEventListener('submit',async ev=>{
+   if(!ev.target.matches('form.admin-historic-row'))return;
+   ev.preventDefault();const button=ev.target.querySelector('button[type=submit]');button.disabled=true;
+   try{await saveArchive(ev.target)}catch(e){status(e.message,true)}finally{button.disabled=false}
+ });
  $('admin-media-list').addEventListener('submit',async ev=>{
   if(!ev.target.matches('.admin-media-row'))return;
   ev.preventDefault();const button=ev.target.querySelector('button[type=submit]');button.disabled=true;
