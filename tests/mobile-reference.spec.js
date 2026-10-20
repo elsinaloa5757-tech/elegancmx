@@ -1,12 +1,16 @@
 const {test,expect}=require('@playwright/test');
-test('reference-like compact mobile: fixed sidebar, 7 brands, 4+5 photo categories, panther and promos',async({page})=>{
+test('reference-like compact mobile: fixed sidebar, 7 brands, 3+3 photo categories, panther and promos',async({page})=>{
  await page.setViewportSize({width:390,height:844});
  await page.goto('/');
  await expect(page.locator('#product-grid .catalog-card')).toHaveCount(30);
  await expect(page.locator('#side-nav')).toBeVisible();
  await expect(page.locator('.mobile-tabbar')).toBeHidden();
  await expect(page.locator('#brand-rail .brand-card')).toHaveCount(7);
- await expect(page.locator('#category-grid .category-tile')).toHaveCount(8);
+ await expect(page.locator('#category-grid .category-tile')).toHaveCount(6);
+ await expect(page.locator('#category-grid [data-category="Combos"]')).toHaveCount(0);
+ await expect(page.locator('#category-grid [data-category="Ediciones limitadas"]')).toHaveCount(0);
+ await expect(page.locator('#quick-categories [data-category="Combos"]')).toHaveCount(0);
+ await expect(page.locator('#quick-categories [data-category="Ediciones limitadas"]')).toHaveCount(0);
  await expect(page.locator('#arrivals-rail .catalog-card')).toHaveCount(22);
  await expect(page.locator('#promo-combos')).toBeVisible();
  await expect(page.locator('#promo-limited')).toBeVisible();
@@ -22,8 +26,8 @@ test('reference-like compact mobile: fixed sidebar, 7 brands, 4+5 photo categori
    const nav=rect('side-nav'),main=document.querySelector('main').getBoundingClientRect(),hero=rect('inicio');
    return {navX:nav.x,navW:nav.width,mainX:main.x,heroH:hero.height,
      brandRows:new Set(brands.map(x=>Math.round(x.y))).size,
-     firstCategoryRow:cat.slice(0,4).map(x=>Math.round(x.y)),
-     secondCategoryRow:cat.slice(4).map(x=>Math.round(x.y)),
+     firstCategoryRow:cat.slice(0,3).map(x=>Math.round(x.y)),
+     secondCategoryRow:cat.slice(3).map(x=>Math.round(x.y)),
      order:[...['marcas','categorias','novedades','browse'].map(id=>document.getElementById(id).getBoundingClientRect().top)]};
  });
  expect(layout.navX).toBe(0);
@@ -111,13 +115,13 @@ test('Ver todas expands brands/categories and shows full arrivals catalog; Ver m
  await expect(page.locator('#all-brands')).toContainText('Ver menos');
  await page.locator('#all-brands').click();
  await expect(page.locator('#brand-rail .brand-card')).toHaveCount(7);
- await expect(page.locator('#category-grid .category-tile')).toHaveCount(8);
+ await expect(page.locator('#category-grid .category-tile')).toHaveCount(6);
  await page.locator('#all-categories').click();
  const count=await page.locator('#category-grid .category-tile').count();
- expect(count).toBeGreaterThan(8);
+ expect(count).toBeGreaterThan(6);
  await expect(page.locator('#all-categories')).toContainText('Ver menos');
  await page.locator('#all-categories').click();
- await expect(page.locator('#category-grid .category-tile')).toHaveCount(8);
+ await expect(page.locator('#category-grid .category-tile')).toHaveCount(6);
  await page.locator('#side-nav [data-nav="Tenis"]').click();
  await expect(page.locator('#browse-title')).toContainText('Tenis');
  await page.locator('#all-arrivals').click();
