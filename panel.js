@@ -3,7 +3,7 @@
 const $=id=>document.getElementById(id);
 const esc=value=>String(value??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
 const CATS=['Tenis','Ropa','Gorras','Bolsas','Accesorios','Pantalones','Calzado','Relojes','Lentes','Joyería','Fragancias','Vestidos','Lencería','Cinturones','Buckets','Playeras'];
-const PRIMARY=['Tenis','Ropa','Accesorios','Bolsas','Gorras','Pantalones','Combos','Ediciones limitadas'];
+const PRIMARY=['Tenis','Ropa','Accesorios','Bolsas','Gorras','Pantalones'];
 const ACCESSORY_CATS=new Set(['Accesorios','Relojes','Lentes','Cinturones','Joyería','Fragancias']);
 const BRANDS=['Nike','Jordan','Adidas','New Balance','Puma','Vans','Otras marcas'];
 const MORE_BRANDS=['Louis Vuitton','Gucci','Dior','Prada'];
