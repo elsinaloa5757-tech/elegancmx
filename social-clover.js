@@ -25,12 +25,13 @@ host.innerHTML='<img class="social-clover-art" src="assets/elegance-social-clove
  order.map(({id,position})=>{
    const c=byId.get(id);
    return '<a class="social-clover-leaf social-clover-'+id+' social-clover-'+position+'" data-social="'+id+'"'+
-     ' href="'+c.fallback+'" target="_blank" rel="noopener noreferrer external"'+
+     ' href="'+c.fallback+'" draggable="false" target="_blank" rel="noopener noreferrer external"'+
      ' aria-label="Abrir '+c.name+'; perfil oficial por configurar" title="'+c.name+' · Elegance MX">'+
      '<span class="sr-only">'+c.name+'</span></a>';
  }).join('')+
  '<span class="social-clover-stem" aria-hidden="true"></span>';
 document.body.append(host);
+host.addEventListener('dragstart',event=>event.preventDefault());
 const STORAGE_KEY='elegance_social_clover_position_v2';
 const clamp=(value,min,max)=>Math.max(min,Math.min(value,max));
 const viewport=()=>({w:document.documentElement.clientWidth||window.innerWidth,
@@ -78,7 +79,7 @@ host.addEventListener('pointerdown',event=>{
  pointer={id:event.pointerId,startX:event.clientX,startY:event.clientY,
    initialX:rect.left,initialY:rect.top,dragging:false};
 });
-host.addEventListener('pointermove',event=>{
+document.addEventListener('pointermove',event=>{
  if(!pointer||event.pointerId!==pointer.id)return;
  const dx=event.clientX-pointer.startX,dy=event.clientY-pointer.startY;
  if(!pointer.dragging&&Math.hypot(dx,dy)>7){
@@ -99,8 +100,8 @@ function endPointer(event){
  }
  pointer=null;
 }
-host.addEventListener('pointerup',endPointer);
-host.addEventListener('pointercancel',endPointer);
+document.addEventListener('pointerup',endPointer);
+document.addEventListener('pointercancel',endPointer);
 host.addEventListener('lostpointercapture',event=>{
  if(pointer?.id===event.pointerId)endPointer(event);
 });
