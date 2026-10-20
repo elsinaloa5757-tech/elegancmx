@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 /** Safe application of OWNER-ONLY GitHub Issue updates from Elegance Studio. */
 import fs from 'node:fs/promises';
+import {pathToFileURL} from 'node:url';
 const CATEGORIES = new Set(['Tenis','Ropa','Gorras','Bolsas','Accesorios','Pantalones','Calzado',
  'Relojes','Lentes','Joyería','Fragancias','Vestidos','Lencería','Cinturones','Buckets','Playeras']);
 const FIELDS = new Set(['category','name','brand','groupId','hidden','reviewed']);
@@ -73,4 +74,5 @@ async function main(){
  await fs.writeFile(fileName,JSON.stringify(merged,null,2)+'\n','utf8');
  console.log('Verified owner issue #'+issue.number+'; saved '+edits.length+' curated photo updates; '+Object.keys(merged.entries).length+' total overrides');
 }
-if(process.env.GITHUB_EVENT_PATH)main().catch(e=>{console.error(e.message);process.exitCode=1});
+if(process.argv[1]&&import.meta.url===pathToFileURL(process.argv[1]).href)
+ main().catch(e=>{console.error(e.message);process.exitCode=1});
