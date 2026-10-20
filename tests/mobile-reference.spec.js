@@ -6,7 +6,7 @@ test('reference-like compact mobile: fixed sidebar, 7 brands, 4+5 photo categori
  await expect(page.locator('#side-nav')).toBeVisible();
  await expect(page.locator('.mobile-tabbar')).toBeHidden();
  await expect(page.locator('#brand-rail .brand-card')).toHaveCount(7);
- await expect(page.locator('#category-grid .category-tile')).toHaveCount(9);
+ await expect(page.locator('#category-grid .category-tile')).toHaveCount(8);
  await expect(page.locator('#arrivals-rail .catalog-card')).toHaveCount(22);
  await expect(page.locator('#promo-combos')).toBeVisible();
  await expect(page.locator('#promo-limited')).toBeVisible();
@@ -47,8 +47,9 @@ test('all visible mobile nav links respond without fabricated inventory',async({
  await expect(page.locator('#browse-title')).toContainText('Tenis');
  await page.locator('#side-nav [data-nav="Bolsas"]').click();
  await expect(page.locator('#browse-title')).toContainText('Bolsas');
- await page.locator('#side-nav [data-nav="Memorias"]').click();
- await expect(page.locator('#browse-title')).toContainText('Memorias');
+ await expect(page.locator('#side-nav [data-nav="Memorias"]')).toHaveCount(0);
+ await expect(page.locator('#category-grid [data-category="Memorias"]')).toHaveCount(0);
+ await expect(page.locator('#filter-category option[value="Memorias"]')).toHaveCount(0);
  await page.locator('#side-nav [data-nav="Combos"]').click();
  await expect(page.locator('#browse-title')).toContainText('IDEAS PARA COMBOS');
  await expect(page.locator('#product-grid .catalog-card').first()).toBeVisible();
@@ -110,13 +111,13 @@ test('Ver todas expands brands/categories and shows full arrivals catalog; Ver m
  await expect(page.locator('#all-brands')).toContainText('Ver menos');
  await page.locator('#all-brands').click();
  await expect(page.locator('#brand-rail .brand-card')).toHaveCount(7);
- await expect(page.locator('#category-grid .category-tile')).toHaveCount(9);
+ await expect(page.locator('#category-grid .category-tile')).toHaveCount(8);
  await page.locator('#all-categories').click();
  const count=await page.locator('#category-grid .category-tile').count();
- expect(count).toBeGreaterThan(9);
+ expect(count).toBeGreaterThan(8);
  await expect(page.locator('#all-categories')).toContainText('Ver menos');
  await page.locator('#all-categories').click();
- await expect(page.locator('#category-grid .category-tile')).toHaveCount(9);
+ await expect(page.locator('#category-grid .category-tile')).toHaveCount(8);
  await page.locator('#side-nav [data-nav="Tenis"]').click();
  await expect(page.locator('#browse-title')).toContainText('Tenis');
  await page.locator('#all-arrivals').click();
