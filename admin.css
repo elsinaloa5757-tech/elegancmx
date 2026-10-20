@@ -1,0 +1,82 @@
+/* Elegance MX · administration belongs to the existing storefront, not a second shop. */
+.admin-nav-link,.admin-footer-link{color:#aee6ff!important}
+.admin-dialog{border:1px solid #638baa;border-radius:15px;background:#04121f;color:#e2f6ff;box-shadow:0 28px 80px #000d;width:min(1000px,96vw);max-width:min(1000px,96vw);max-height:94dvh;padding:0;overscroll-behavior:contain}
+.admin-dialog::backdrop{background:#000d;backdrop-filter:blur(3px)}
+.admin-dialog[open]{display:block}
+.admin-dialog *{box-sizing:border-box}
+.admin-dialog-head{position:sticky;top:0;z-index:4;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:15px 20px;background:#051a2bcf;border-bottom:1px solid #417495;backdrop-filter:blur(12px)}
+.admin-dialog-head span{font:italic 25px Georgia,serif}
+.admin-dialog-head small{font:9px system-ui,sans-serif;color:#8bcaf0;letter-spacing:2px;margin-left:12px}
+.admin-dialog-head h2{font-size:18px;font-weight:600;margin:3px 0 0;letter-spacing:1.3px}
+#admin-close{font-size:28px;width:42px;height:42px;border-radius:50%;border:1px solid #5482a5;background:#091f31}
+.admin-auth-screen{max-width:440px;margin:0 auto;padding:22px 22px 32px}
+.admin-auth-screen>p,.admin-note{color:#a9cce3;font-size:12px;line-height:1.7}
+.admin-auth-screen form,.admin-edit-form{display:grid;gap:14px}
+.admin-auth-screen label,.admin-edit-form label,.admin-search-label{display:grid;gap:6px;font-size:12px;color:#c7e7fb}
+.admin-auth-screen input,.admin-edit-form input,.admin-edit-form textarea,.admin-edit-form select,.admin-search-label input{
+ width:100%;padding:11px 12px;border-radius:9px;border:1px solid #487da3;color:#f3fbff;background:#081f31;min-height:41px
+}
+.admin-auth-screen input:focus,.admin-edit-form input:focus,.admin-search-label input:focus{outline:2px solid #75c8ff}
+.admin-dialog button:disabled{opacity:.46;cursor:not-allowed}
+.admin-primary{background:linear-gradient(120deg,#276ba0,#113b65);border:1px solid #82ceff;border-radius:9px;padding:11px 15px;color:#e8f7ff;font-size:12px;font-weight:650;min-height:40px}
+.admin-primary:not(:disabled):hover{box-shadow:0 0 16px #59b6fc6b}
+.admin-secondary{background:#10283c;border:1px solid #4e83a7;border-radius:9px;padding:10px 13px;font-size:12px;color:#c7e8fc;min-height:40px}
+.admin-message{padding:0 20px;margin:9px 0 16px;font-size:12px;color:#adddff;line-height:1.5}
+.admin-message[data-error="true"]{color:#ffd4c9}
+#admin-workspace{padding:13px 20px 35px}
+.admin-session-bar,.admin-manage-header{display:flex;justify-content:space-between;gap:16px;align-items:center}
+.admin-session-bar strong{display:block;font-size:13px;overflow-wrap:anywhere}
+.admin-session-bar small{color:#a8cce0;font-size:11px}
+.admin-session-bar button{border:1px solid #4c829e;border-radius:8px;padding:8px 10px;font-size:11px}
+.admin-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:20px 0}
+.admin-stats>div{border:1px solid #345b79;border-radius:10px;background:#0a2438;padding:12px 9px;text-align:center;min-width:0}
+.admin-stats strong{display:block;font-size:22px;color:#d7f0ff}
+.admin-stats small{display:block;font-size:10px;color:#a8c9e1}
+.admin-upload-panel{border:1px solid #457da3;border-radius:14px;padding:16px;background:linear-gradient(135deg,#092539,#051a2d)}
+.admin-upload-panel h3,.admin-media-area h3{font-size:16px;margin:0 0 8px;letter-spacing:.6px}
+.admin-upload-panel>p{font-size:11px;line-height:1.65;color:#b7d4e8;margin:0 0 15px}
+.admin-dropzone{border:2px dashed #74c0f4;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:6px;padding:22px;border-radius:12px;cursor:pointer;background:#061a2a;min-height:146px;text-align:center;transition:background .2s,border .2s}
+.admin-dropzone:hover,.admin-dropzone.drag-over{border-color:#ddf5ff;background:#124065}
+.admin-dropzone>span{font-size:40px;line-height:1;color:#a4ddff}
+.admin-dropzone strong{font-size:13px}.admin-dropzone small{font-size:11px;color:#a8c9df}
+.admin-file-input{position:absolute;width:1px;height:1px;clip-path:inset(100%);opacity:0}
+.admin-upload-stats{display:flex;justify-content:space-between;gap:14px;font-size:11px;color:#a8d4f0;min-height:27px;margin-top:9px;align-items:center}
+.admin-upload-actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:10px}
+#admin-upload-progress{width:100%;height:8px;accent-color:#75bbfb}
+.admin-queue{max-height:170px;overflow:auto;margin-top:10px;font-size:10px;color:#bcd8ea;line-height:1.55;word-break:break-word}
+.admin-queue p{margin:3px 0;border-bottom:1px solid #ffffff12;padding:3px 0}
+.admin-media-area{margin-top:27px}
+.admin-search-label{margin:10px 0 13px}
+.admin-media-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
+.admin-media-card{display:grid;grid-template-columns:100px 1fr;gap:10px;padding:10px;border:1px solid #315f7e;border-radius:10px;background:#071c2e;min-width:0}
+.admin-media-card img,.admin-media-card video{width:100px;height:110px;object-fit:cover;border-radius:7px;background:#07101a}
+.admin-media-card .admin-media-copy{min-width:0;display:flex;flex-direction:column;gap:6px}
+.admin-media-card strong{font-size:12px;overflow-wrap:anywhere}
+.admin-media-card small{font-size:10px;color:#9cbed4;overflow-wrap:anywhere}
+.admin-media-card button{margin-top:auto;font-size:11px;padding:8px;border:1px solid #4e7b9b;border-radius:7px}
+.admin-media-card .is-hidden{color:#f6c2af}
+#admin-more{display:block;margin:15px auto}
+.admin-edit-form{border-top:1px solid #315d7b;margin-top:10px;padding-top:10px;gap:9px;grid-column:1/-1}
+.admin-edit-fields{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.admin-edit-fields .wide{grid-column:1/-1}
+.admin-edit-fields textarea{resize:vertical;min-height:66px}
+.admin-edit-form label.checkbox-field{display:flex;flex-direction:row;align-items:center;gap:8px}
+.admin-edit-form .checkbox-field input{width:17px;height:17px;min-height:auto}
+.admin-media-card:has(.admin-edit-form){grid-column:1/-1}
+@media(max-width:650px){
+ .admin-dialog{max-width:99vw;width:99vw;max-height:95dvh;border-radius:12px}
+ .admin-dialog-head{padding:10px 11px}
+ .admin-dialog-head h2{font-size:15px}
+ .admin-dialog-head span{font-size:22px}
+ #admin-workspace{padding:10px}
+ .admin-auth-screen{padding:13px}
+ .admin-media-grid{grid-template-columns:1fr}
+ .admin-media-card{grid-template-columns:82px 1fr}
+ .admin-media-card img,.admin-media-card video{width:82px;height:96px}
+ .admin-upload-panel{padding:10px}
+ .admin-dropzone{min-height:125px;padding:16px 8px}
+ .admin-upload-actions button{flex:1}
+ .admin-stats strong{font-size:18px}
+ .admin-stats small{font-size:9px}
+ .admin-edit-fields{grid-template-columns:1fr 1fr}
+}
