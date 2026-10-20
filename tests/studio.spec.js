@@ -17,7 +17,8 @@ test('Studio loads real ImageKit archive, free AI suggestions and mobile filteri
  await page.selectOption('#studio-status','pending');
  await expect(page.locator('#studio-grid .photo-card').first()).toBeVisible();
  await page.selectOption('#studio-status','reviewed');
- await expect(page.locator('#studio-empty')).toBeVisible();
+ await expect(page.locator('#studio-grid .photo-card').first()).toBeVisible();
+ await expect(page.locator('#studio-grid .photo-card .ai-tag').first()).toContainText('Revisada');
  await page.selectOption('#studio-status','ai');
  await expect(page.locator('#studio-grid .photo-card').first()).toBeVisible();
  await page.locator('#studio-reset').click();
