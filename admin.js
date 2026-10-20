@@ -264,4 +264,8 @@ function bind(){
 }
 try{S.session=JSON.parse(sessionStorage.getItem('elegance_admin_auth_v1')||'null')}catch{S.session=null}
 bind();
+if(new URLSearchParams(location.search).has('administrador')){
+ history.replaceState(null,'',location.pathname+location.hash);
+ open();
+}
 })();
