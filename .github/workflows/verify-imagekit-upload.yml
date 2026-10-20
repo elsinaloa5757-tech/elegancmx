@@ -7,75 +7,41 @@ on:
 
 permissions:
   contents: read
+  id-token: write
 
 jobs:
   smoke_test:
     if: github.repository == 'elsinaloa5757-tech/elegancmx'
     runs-on: ubuntu-latest
     timeout-minutes: 7
-    env:
-      PRIVATE_IMAGEKIT: ${{ secrets.IMAGEKIT_PRIVATE_KEY }}
-      PUBLIC_IMAGEKIT: 'public_QNnLTJ0r+C9SvJxa+9jL/lr3z6E='
     steps:
-      - name: Signed browser-style ImageKit upload followed by immediate deletion
+      - name: Test signed upload directly from the encrypted Supabase Vault
         shell: bash
         run: |
           python3 - <<'PY'
-          import os,sys,uuid,time,json,base64,hmac,hashlib,urllib.request,urllib.error,urllib.parse,struct,zlib
-          private=os.getenv('PRIVATE_IMAGEKIT') or ''
-          public=os.getenv('PUBLIC_IMAGEKIT') or ''
-          if not private.startswith('private_') or not public.startswith('public_'):
-              print('::error::ImageKit keys not configured correctly')
-              sys.exit(1)
-          def chunk(tag,data):
-              return struct.pack('!I',len(data))+tag+data+struct.pack('!I',zlib.crc32(tag+data)&0xffffffff)
-          png=b'\x89PNG\r\n\x1a\n'+chunk(b'IHDR',struct.pack('!IIBBBBB',2,2,8,2,0,0,0))+chunk(b'IDAT',zlib.compress((b'\x00'+b'\x24\x77\xaa'*2)*2,9))+chunk(b'IEND',b'')
-          token=str(uuid.uuid4())
-          expire=int(time.time())+180
-          signature=hmac.new(private.encode(),(token+str(expire)).encode(),hashlib.sha1).hexdigest()
-          name='elegance-credential-test-'+uuid.uuid4().hex+'.png'
-          fields={'fileName':name,'publicKey':public,'token':token,'expire':str(expire),
-            'signature':signature,'folder':'/elegance/verification-temp',
-            'useUniqueFileName':'true','isPrivateFile':'true'}
-          boundary='----EleganceSecureTest'+uuid.uuid4().hex
-          parts=[]
-          for k,v in fields.items():
-              parts.extend([('--'+boundary+'\r\nContent-Disposition: form-data; name="'+k+'"\r\n\r\n'+v+'\r\n').encode()])
-          parts.append(('--'+boundary+'\r\nContent-Disposition: form-data; name="file"; filename="'+name+'"\r\nContent-Type: image/png\r\n\r\n').encode()+png+b'\r\n')
-          parts.append(('--'+boundary+'--\r\n').encode())
-          body=b''.join(parts)
-          req=urllib.request.Request('https://upload.imagekit.io/api/v1/files/upload',data=body,
-              headers={'Content-Type':'multipart/form-data; boundary='+boundary},method='POST')
+          import os,json,sys,urllib.request,urllib.parse,urllib.error
+          endpoint=os.environ['ACTIONS_ID_TOKEN_REQUEST_URL']
+          glue='&' if '?' in endpoint else '?'
+          query=endpoint+glue+'audience='+urllib.parse.quote('elegance-imagekit-upload-test')
+          req=urllib.request.Request(query,headers={
+           'Authorization':'Bearer '+os.environ['ACTIONS_ID_TOKEN_REQUEST_TOKEN']})
+          with urllib.request.urlopen(req,timeout=30) as response:
+              token=json.load(response)['value']
+          req=urllib.request.Request(
+            'https://czekazhacqaamwecjthp.supabase.co/functions/v1/elegance-admin',
+            data=json.dumps({'action':'github-upload-test'}).encode(),
+            headers={'Authorization':'Bearer '+token,'Content-Type':'application/json'},
+            method='POST')
           try:
-              with urllib.request.urlopen(req,timeout=45) as response:
-                  created=json.load(response)
-          except urllib.error.HTTPError as e:
-              try:
-                  error=json.loads(e.read(2500).decode())
-                  reason=str(error.get("message") or error.get("error") or "unspecified")[:350]
-                  # imagekit messages never need or show credentials; mask them defensively.
-                  for credential in (private,public):
-                      if credential: reason=reason.replace(credential,"[redacted]")
-                  print("ImageKit diagnostic:",reason)
-              except Exception: pass
-              print('::error::ImageKit signed file upload rejected (HTTP '+str(e.code)+'). Check signature/key pair and request schema.')
+              with urllib.request.urlopen(req,timeout=60) as response:
+                  result=json.load(response)
+          except urllib.error.HTTPError as error:
+              details=json.load(error)
+              message=str(details.get('error','unknown'))[:300]
+              print('::error::ImageKit upload verification:',message)
               sys.exit(1)
-          except Exception:
-              print('::error::ImageKit upload failed due to network or API error')
+          if result.get('uploaded') is not True or result.get('deleted') is not True:
+              print('::error::ImageKit test not confirmed')
               sys.exit(1)
-          file_id=created.get('fileId','')
-          if not file_id:
-              print('::error::ImageKit did not return a valid file ID')
-              sys.exit(1)
-          delete=urllib.request.Request('https://api.imagekit.io/v1/files/'+urllib.parse.quote(file_id),
-            headers={'Authorization':'Basic '+base64.b64encode((private+':').encode()).decode()},method='DELETE')
-          try:
-              with urllib.request.urlopen(delete,timeout=30) as response:
-                  if response.status not in (200,204):
-                      print('::warning::Upload succeeded; cleanup returned unexpected status '+str(response.status))
-                      sys.exit(1)
-          except urllib.error.HTTPError as e:
-              print('::error::ImageKit upload succeeded, but test-file cleanup failed (HTTP '+str(e.code)+'). Review /elegance/verification-temp in ImageKit.')
-              sys.exit(1)
-          print('ImageKit verified: signed upload authorized and test image immediately deleted. Existing catalog remains unchanged.')
+          print('ImageKit verified: signed upload accepted with original credentials; test asset deleted.')
           PY
