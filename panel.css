@@ -157,3 +157,53 @@ section[id]{scroll-margin-top:90px}
   }
   .hero-copy{text-shadow:0 1px 5px #001}
 }
+
+
+/* Elegance MX — brand lettering is genuine calligraphy, not an image.
+   No crown in either header or hero logotypes; keep ice-blue luxury identity. */
+.wordmark,
+.hero h1.brand-script{
+  font-family:"Great Vibes","Snell Roundhand","URW Chancery L","Brush Script MT",cursive;
+  font-style:normal;
+  font-weight:400;
+  font-synthesis:none;
+  letter-spacing:0;
+  color:#ebf8ff;
+  text-shadow:0 0 9px #82c9ff88,0 0 22px #6bbaff55;
+}
+.wordmark{
+  display:inline-block;
+  font-size:clamp(40px,3.4vw,53px);
+  line-height:1.2;
+  padding:0 5px 0 2px;
+}
+.hero h1.brand-script{
+  font-size:clamp(77px,9vw,142px);
+  line-height:1.18;
+  margin:8px 0 5px;
+  white-space:nowrap;
+}
+@media(max-width:850px){
+ .wordmark{font-size:38px}
+ .hero h1.brand-script{font-size:clamp(60px,9vw,95px)}
+}
+@media(max-width:650px){
+ .wordmark{
+  font-size:clamp(28px,7.9vw,34px)!important;
+  line-height:1.1;
+  letter-spacing:0;
+  padding:2px 4px 0 0;
+  white-space:nowrap;
+ }
+ .hero h1.brand-script{
+  font-size:clamp(32px,9.5vw,47px)!important;
+  letter-spacing:0!important;
+  line-height:1.14;
+  margin:9px 0 6px!important;
+  max-width:100%;
+ }
+}
+@media(max-width:350px){
+ .wordmark{font-size:26px!important}
+ .hero h1.brand-script{font-size:32px!important}
+}
