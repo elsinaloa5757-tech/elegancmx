@@ -1,0 +1,70 @@
+/* ELEGANCE — four leaf social clover. Each leaf is a real external link. */
+.social-clover{
+  position:fixed;right:19px;bottom:max(23px, env(safe-area-inset-bottom));
+  z-index:70;width:118px;height:135px;
+  pointer-events:none;filter:drop-shadow(0 5px 14px #010713bb);
+  isolation:isolate;
+}
+.social-clover a,.social-clover button{box-sizing:border-box;pointer-events:auto}
+.social-clover-leaf{
+  position:absolute;width:53px;height:53px;
+  display:grid;place-items:center;
+  color:white;text-decoration:none;
+  border:1px solid #ffffff6e;
+  box-shadow:inset 0 1px 14px #ffffff2e,0 1px 10px #0008;
+  transition:transform .17s ease,box-shadow .17s ease,opacity .15s ease;
+  -webkit-tap-highlight-color:transparent;
+}
+.social-clover-top-left{left:3px;top:1px;border-radius:80% 70% 14% 76%;transform-origin:bottom right}
+.social-clover-top-right{right:3px;top:1px;border-radius:70% 80% 76% 14%;transform-origin:bottom left}
+.social-clover-bottom-left{left:3px;top:56px;border-radius:76% 14% 70% 80%;transform-origin:top right}
+.social-clover-bottom-right{right:3px;top:56px;border-radius:14% 76% 80% 70%;transform-origin:top left}
+.social-clover-whatsapp{background:linear-gradient(145deg,#33e97d,#0e8e57);color:#fff}
+.social-clover-facebook{background:linear-gradient(145deg,#3a9fff,#1252ad);color:#fff}
+.social-clover-instagram{background:linear-gradient(135deg,#664afa 7%,#bc36a9 42%,#ff4774 67%,#ffbd4d 100%);color:#fff}
+.social-clover-tiktok{background:linear-gradient(120deg,#0c2534,#12111c 50%,#45213a);color:white;text-shadow:2px 0 #00eff0,-2px -1px #ff305c}
+.social-clover-leaf svg{width:26px;height:26px;display:block;filter:drop-shadow(0 1px 3px #0006)}
+.social-clover-facebook .clover-facebook{
+  color:white;font:900 33px Arial,Helvetica,sans-serif;line-height:1;
+  transform:translateY(4px);
+  text-shadow:0 1px 4px #0006;
+}
+.social-clover-leaf:hover,.social-clover-leaf:focus-visible{
+  transform:scale(1.12);
+  box-shadow:0 0 18px #a6dbffae,inset 0 1px 10px #ffffff52;
+  z-index:3;
+}
+.social-clover-center{
+  position:absolute;left:50%;top:55px;transform:translate(-50%,-50%);
+  width:33px;height:33px;border-radius:50%;
+  display:grid;place-items:center;
+  background:radial-gradient(circle at 40% 35%,#c2f3ff,#5a9ccc 40%,#09273b 78%);
+  color:#061827;font-size:18px;font-weight:bold;
+  border:1.5px solid #e3f9ff;
+  box-shadow:0 0 10px #91d8ffb0;
+  z-index:5;
+}
+.social-clover-center:hover,.social-clover-center:focus-visible{box-shadow:0 0 20px #b7edff}
+.social-clover-caption{
+  position:absolute;bottom:2px;left:2px;right:2px;
+  text-align:center;font-size:10px;letter-spacing:1.9px;
+  font-weight:750;color:#c6eaff;text-shadow:0 1px 5px #000;
+  pointer-events:none;
+}
+.social-clover.is-folded .social-clover-leaf{
+  opacity:0;pointer-events:none;visibility:hidden;transform:scale(.15);
+}
+.social-clover.is-folded{width:48px;height:55px}
+.social-clover.is-folded .social-clover-center{left:50%;top:24px}
+.social-clover.is-folded .social-clover-caption{display:none}
+.social-clover:focus-within{filter:drop-shadow(0 5px 14px #010713bb)}
+@media(max-width:650px){
+  .social-clover{
+    right:8px;bottom:max(10px, env(safe-area-inset-bottom));
+    transform:scale(.77);transform-origin:bottom right;
+  }
+  .social-clover.is-folded{transform:scale(.9)}
+}
+@media(prefers-reduced-motion:reduce){
+  .social-clover-leaf{transition:none}
+}
