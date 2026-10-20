@@ -54,7 +54,7 @@ test('signed admin can select and upload compressed photos to ImageKit in one bo
  await page.locator('#admin-signin button[type=submit]').click();
  await expect(page.locator('#admin-private')).toBeVisible();
  await expect(page.locator('#admin-dropzone')).toBeVisible();
- const tiny='iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+/PioAAAAASUVORK5CYII=';
+ const tiny=await page.evaluate(()=>{const canvas=document.createElement('canvas');canvas.width=40;canvas.height=40;const ctx=canvas.getContext('2d');ctx.fillStyle='#2563eb';ctx.fillRect(0,0,40,40);return canvas.toDataURL('image/png').split(',')[1]});
  await page.locator('#admin-file-input').setInputFiles([
  {name:'photo-1.png',mimeType:'image/png',buffer:Buffer.from(tiny,'base64')},
  {name:'photo-2.png',mimeType:'image/png',buffer:Buffer.from(tiny,'base64')}
