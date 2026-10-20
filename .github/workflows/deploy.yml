@@ -5,6 +5,10 @@ on:
     paths:
       - 'index.html'
       - 'panel.js'
+      - 'studio.html'
+      - 'studio.js'
+      - 'studio.css'
+      - 'data/catalog-curation.json'
       - 'panel.css'
       - 'social-clover.js'
       - 'social-clover.css'
@@ -44,6 +48,8 @@ jobs:
           npm run check
           node --check catalog-recovery.js
           node --check panel.js
+          node --check studio.js
+          node --test tests/curation.test.mjs
           node --check social-clover.js
           node scripts/build-public.mjs
       - name: Install Chromium
