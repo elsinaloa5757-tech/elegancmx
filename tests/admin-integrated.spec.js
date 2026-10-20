@@ -40,7 +40,7 @@ test('Guarded administrator accepts one batch up to 250 files and refuses 251st'
  await page.locator('#admin-password').fill('example-password');
  await page.locator('#admin-signin').click();
  await expect(page.locator('#admin-workspace')).toBeVisible();
- await expect(page.locator('#admin-count-files')).toContainText('3,909');
+ await expect(page.locator('#admin-count-files')).toContainText('3,929');
  const files=Array.from({length:250},(_,i)=>({name:'elegance-'+i+'.jpg',mimeType:'image/jpeg',buffer:Buffer.from([255,216,255,217])}));
  await page.locator('#admin-files').setInputFiles(files);
  await expect(page.locator('#admin-count-batch')).toHaveText('250/250');
