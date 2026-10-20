@@ -10,12 +10,13 @@ const MORE_BRANDS=['Louis Vuitton','Gucci','Dior','Prada'];
 let expandedBrands=false,expandedCategories=false;
 const LS_FAV='elegance_public_favorites_v3',LS_INQ='elegance_public_inquiries_v3';
 const getSaved=key=>{try{const a=JSON.parse(localStorage.getItem(key)||'[]');return new Set(Array.isArray(a)?a.filter(x=>typeof x==='string'):[]);}catch{return new Set();}};
-const state={media:[],mediaById:new Map(),routes:new Map(),ai:new Map(),favorites:getSaved(LS_FAV),inquiries:getSaved(LS_INQ),filterCat:'',filterConfidence:'all',filterBrand:'',search:'',sort:'new',collection:'',page:0,pageSize:30};
+const state={media:[],allMedia:[],groups:new Map(),curation:new Map(),mediaById:new Map(),routes:new Map(),ai:new Map(),favorites:getSaved(LS_FAV),inquiries:getSaved(LS_INQ),filterCat:'',filterConfidence:'all',filterBrand:'',search:'',sort:'new',collection:'',page:0,pageSize:30};
 const normalizeCat=cat=>cat==='Playeras'?'Ropa':cat||null;
 const getRoute=id=>state.routes.get(id)||{};
-const getCat=id=>normalizeCat(getRoute(id).category);
-const suggestionBrand=id=>state.ai.get(id)?.brandSuggestion||null;
-const getLabel=m=>getRoute(m.fileId)?.legacyReference?.historicalName||((getCat(m.fileId)||'Artículo')+' · Referencia');
+const override=id=>state.curation.get(id)||{};
+const getCat=id=>{const edit=override(id);return edit.category===null?null:normalizeCat(edit.category||getRoute(id).category)};
+const suggestionBrand=id=>override(id).brand||state.ai.get(id)?.brandSuggestion||null;
+const getLabel=m=>override(m.fileId).name||getRoute(m.fileId)?.legacyReference?.historicalName||((getCat(m.fileId)||'Artículo')+' · Referencia');
 const shortRef=id=>{let h=2166136261;for(const ch of id)h=Math.imul(h^ch.charCodeAt(0),16777619)>>>0;return 'E-'+h.toString(16).padStart(8,'0').toUpperCase()};
 const safeImg=m=>{try{const u=new URL(m.url);return u.protocol==='https:'&&u.hostname==='ik.imagekit.io'&&u.pathname.startsWith('/elegancemx/elegance/products/')}catch{return false}};
 const item=m=>({id:m.fileId,ref:shortRef(m.fileId),name:getLabel(m),url:m.url,category:getCat(m.fileId)||'Por clasificar'});
@@ -123,8 +124,10 @@ function renderBrowse(){
 function showItem(id){
  const m=state.mediaById.get(id);if(!m)return;
  const p=item(m),r=getRoute(id),b=suggestionBrand(id),isFav=state.favorites.has(id),isInq=state.inquiries.has(id);
+ const group=state.groups.get(override(id).groupId||id)||[m];
  $('item-detail').innerHTML=
-  '<div class="detail-image">'+mediaPhoto(m,p.name)+'</div>'+
+  '<div class="detail-image">'+mediaPhoto(m,p.name)+
+  (group.length>1?'<div class="detail-gallery" aria-label="Más fotos del artículo">'+group.map(g=>'<button type="button" data-gallery="'+esc(g.fileId)+'" aria-label="Ver otra fotografía">'+mediaPhoto(g,'Otra vista')+'</button>').join('')+'</div>':'')+'</div>'+
   '<div class="detail-text"><span class="micro-category">'+esc(p.category)+'</span>'+
   '<h2>'+esc(p.name)+'</h2><p class="detail-code">Código de referencia: '+esc(p.ref)+'</p>'+
   (b?'<p>Marca sugerida por IA: '+esc(b)+' (sin verificar)</p>':'')+
@@ -199,6 +202,7 @@ function bind(){
      $('browse').scrollIntoView({behavior:'smooth'});return
    }
    if(b.dataset.open){showItem(b.dataset.open);return}
+   if(b.dataset.gallery){const photo=state.mediaById.get(b.dataset.gallery);if(photo){const shown=document.querySelector('#item-detail .detail-image>img');if(shown){shown.src=photo.url;shown.alt=getLabel(photo)}}return}
    if(b.dataset.fav){const id=b.dataset.fav;state.favorites.has(id)?state.favorites.delete(id):state.favorites.add(id);save();refreshMediaActions();return}
    if(b.dataset.inq){const id=b.dataset.inq;state.inquiries.has(id)?state.inquiries.delete(id):state.inquiries.add(id);save();refreshMediaActions();return}
    if(b.dataset.remove){
@@ -244,17 +248,27 @@ function bind(){
 async function boot(){
  bind();
  try{
- const [fm,fr,fa]=await Promise.all([
-   fetch('data/imagekit-media.json'),fetch('data/auto-categories.json'),fetch('data/ai-classifications.json')
+ const [fm,fr,fa,fc]=await Promise.all([
+   fetch('data/imagekit-media.json'),fetch('data/auto-categories.json'),
+   fetch('data/ai-classifications.json'),fetch('data/catalog-curation.json')
  ]);
- if(!fm.ok||!fr.ok)throw Error('El archivo multimedia no está disponible');
- const [media,routes,ai]=await Promise.all([fm.json(),fr.json(),fa.ok?fa.json():[]]);
- if(!Array.isArray(media)||!Array.isArray(routes)||!Array.isArray(ai))throw Error('Formatos no válidos');
+ if(!fm.ok||!fr.ok||!fc.ok)throw Error('El archivo multimedia no está disponible');
+ const [media,routes,ai,curation]=await Promise.all([fm.json(),fr.json(),fa.ok?fa.json():[],fc.json()]);
+ if(!Array.isArray(media)||!Array.isArray(routes)||!Array.isArray(ai)||curation?.version!==1)throw Error('Formatos no válidos');
  state.routes=new Map(routes.filter(x=>x.fileId).map(x=>[x.fileId,x]));
  state.ai=new Map(ai.filter(x=>x.fileId).map(x=>[x.fileId,x]));
- state.media=media.filter(m=>m.mime?.startsWith('image/')&&safeImg(m))
+ state.curation=new Map(Object.entries(curation.entries||{}));
+ state.allMedia=media.filter(m=>m.mime?.startsWith('image/')&&safeImg(m))
    .sort((a,b)=>String(b.createdAt).localeCompare(String(a.createdAt)));
- state.mediaById=new Map(state.media.map(m=>[m.fileId,m]));
+ state.mediaById=new Map(state.allMedia.map(m=>[m.fileId,m]));
+ state.groups=new Map();
+ for(const m of state.allMedia){
+  if(override(m.fileId).hidden)continue;
+  const key=override(m.fileId).groupId||m.fileId;
+  if(!state.groups.has(key))state.groups.set(key,[]);
+  state.groups.get(key).push(m);
+ }
+ state.media=[...state.groups.entries()].map(([key,photos])=>photos.find(x=>x.fileId===key)||photos[0]);
  const options=[...new Set(CATS.map(normalizeCat))];
  $('filter-category').innerHTML='<option value="">Todas las categorías</option>'+
  options.map(c=>'<option value="'+esc(c)+'">'+esc(c)+'</option>').join('');
