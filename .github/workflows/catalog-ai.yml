@@ -6,13 +6,13 @@ on:
     paths:
       - '.github/workflows/catalog-ai.yml'
   schedule:
-    - cron: '43 * * * *'
+    - cron: '13,43 * * * *'
   workflow_dispatch:
     inputs:
       batch_size:
-        description: 'Máximo de fotografías nuevas a revisar con IA (1 a 250)'
+        description: 'Máximo de fotografías nuevas que clasificará la IA (1 a 1000)'
         required: false
-        default: '40'
+        default: '1000'
 
 permissions:
   contents: write
@@ -28,7 +28,7 @@ jobs:
     timeout-minutes: 90
     env:
       IMAGEKIT_PRIVATE_KEY: ${{ secrets.IMAGEKIT_PRIVATE_KEY }}
-      AI_BATCH_SIZE: ${{ github.event_name == 'push' && '250' || github.event_name == 'schedule' && '250' || inputs.batch_size || '120' }}
+      AI_BATCH_SIZE: ${{ github.event_name == 'push' && '1000' || github.event_name == 'schedule' && '1000' || inputs.batch_size || '1000' }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -73,7 +73,7 @@ jobs:
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add data/imagekit-media.json data/imagekit-report.json data/potential-duplicates.json data/ai-classifications.json data/auto-categories.json data/auto-categories-summary.json
           if ! git diff --cached --quiet; then
-            git commit -m 'data(ai): refresh imagekit image suggestions (review required)'
+            git commit -m 'data(ai): automatic ImageKit classification and category routing'
             git fetch origin main
             git rebase origin/main
             git push origin HEAD:main
