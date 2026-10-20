@@ -1,0 +1,71 @@
+name: Elegance MX — Proteger claves ImageKit en Supabase Vault
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/provision-imagekit.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write
+
+concurrency:
+  group: elegance-imagekit-secret-provision
+  cancel-in-progress: false
+
+jobs:
+  transfer:
+    if: github.repository == 'elsinaloa5757-tech/elegancmx'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      IMAGEKIT_PRIVATE_KEY: ${{ secrets.IMAGEKIT_PRIVATE_KEY }}
+      IMAGEKIT_PUBLIC_KEY: ${{ secrets.IMAGEKIT_PUBLIC_KEY || vars.IMAGEKIT_PUBLIC_KEY }}
+      EDGE_ENDPOINT: https://czekazhacqaamwecjthp.supabase.co/functions/v1/elegance-admin
+    steps:
+      - name: Verify keys exist without printing them
+        shell: bash
+        run: |
+          if [ -z "$IMAGEKIT_PRIVATE_KEY" ]; then
+            echo "::error::IMAGEKIT_PRIVATE_KEY is missing in GitHub Actions secrets."
+            exit 1
+          fi
+          if [ -z "$IMAGEKIT_PUBLIC_KEY" ]; then
+            echo "::error::IMAGEKIT_PUBLIC_KEY is missing. Add it as a GitHub Actions repository variable (not private) or secret."
+            exit 1
+          fi
+          if [[ "$IMAGEKIT_PRIVATE_KEY" != private_* ]] || [[ "$IMAGEKIT_PUBLIC_KEY" != public_* ]]; then
+            echo "::error::ImageKit key values have an unexpected format. Check the configured credentials."
+            exit 1
+          fi
+      - name: Transfer encrypted credentials using GitHub OIDC, no plaintext in logs or files
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json, os, sys, urllib.request, urllib.parse, urllib.error
+          id_url=os.environ["ACTIONS_ID_TOKEN_REQUEST_URL"]
+          glue="&" if "?" in id_url else "?"
+          endpoint=id_url+glue+"audience="+urllib.parse.quote("elegance-imagekit-supabase-vault")
+          req=urllib.request.Request(endpoint,headers={"Authorization":"Bearer "+os.environ["ACTIONS_ID_TOKEN_REQUEST_TOKEN"]})
+          with urllib.request.urlopen(req,timeout=25) as response:
+              token=json.load(response)["value"]
+          body=json.dumps({
+            "action":"github-provision",
+            "privateKey":os.environ["IMAGEKIT_PRIVATE_KEY"],
+            "publicKey":os.environ["IMAGEKIT_PUBLIC_KEY"]
+          }).encode()
+          req=urllib.request.Request(os.environ["EDGE_ENDPOINT"],data=body,
+            headers={"Authorization":"Bearer "+token,"Content-Type":"application/json"},method="POST")
+          try:
+              with urllib.request.urlopen(req,timeout=45) as response:
+                  result=json.load(response)
+          except urllib.error.HTTPError as e:
+              print("::error::Supabase Vault rejected authenticated transfer (HTTP "+str(e.code)+").")
+              sys.exit(1)
+          if result.get("ok") is not True or result.get("credentialsStored") is not True:
+              print("::error::Supabase Vault did not confirm storage.")
+              sys.exit(1)
+          print("Successfully secured ImageKit upload credentials in Supabase Vault.")
+          PY
