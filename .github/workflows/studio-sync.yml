@@ -1,0 +1,52 @@
+name: Elegance Studio — Guardar categorías y grupos
+on:
+  issues:
+    types: [opened]
+permissions:
+  contents: write
+  issues: write
+  actions: write
+concurrency:
+  group: elegance-studio-curation
+  cancel-in-progress: false
+jobs:
+  sync:
+    if: github.repository == 'elsinaloa5757-tech/elegancmx' && github.event.issue.user.login == 'elsinaloa5757-tech' && github.event.issue.title == 'Elegance Studio | Guardar cambios'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate owner and save curated photo edits (never prices or stock)
+        run: node scripts/apply-curation-issue.mjs
+      - name: Commit reviewed categories and groupings
+        id: commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/catalog-curation.json
+          if git diff --cached --quiet; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            git commit -m "data(studio): apply owner-reviewed photo edits from issue #${{ github.event.issue.number }}"
+            git fetch origin main
+            git rebase origin/main
+            git push origin HEAD:main
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Publish curated storefront on Cloudflare
+        if: steps.commit.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run deploy.yml --ref main
+      - name: Confirm update on owner issue
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+        run: |
+          gh issue comment "$ISSUE_NUMBER" --body "✅ Cambios de Elegance Studio guardados en GitHub. Si hubo diferencias se inició la actualización en Cloudflare Pages. Consulta el estado en Actions."
+          gh issue close "$ISSUE_NUMBER" --reason completed
