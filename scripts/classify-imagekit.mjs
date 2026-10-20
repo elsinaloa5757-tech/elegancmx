@@ -2,7 +2,8 @@
 /**
  * Free, locally executed classification of ImageKit media metadata.
  * Uses an open ONNX CLIP model via Transformers.js on GitHub Actions CPU.
- * Never makes or publishes sellable products. No paid inference API.
+ * Performs automatic categorization in unattended batches. No paid inference API.
+ * It does not invent brands, commercial products, prices, stock or availability.
  */
 import fs from 'node:fs/promises';
 import {pipeline} from '@huggingface/transformers';
@@ -12,7 +13,7 @@ import {
   duplicateCandidates
 } from './ai-utils.mjs';
 
-const MAX = Math.min(250, Math.max(1, Number.parseInt(process.env.AI_BATCH_SIZE || '15', 10) || 15));
+const MAX = Math.min(1000, Math.max(1, Number.parseInt(process.env.AI_BATCH_SIZE || '1000', 10) || 1000));
 const dest='data/ai-classifications.json';
 const source='data/imagekit-media.json';
 

@@ -161,15 +161,23 @@ async function boot(){
  try{
   const response=await Promise.all([
    fetch('data/imagekit-media.json'),fetch('data/auto-categories.json'),
-   fetch('data/ai-classifications.json'),fetch('data/catalog-curation.json')
+   fetch('data/ai-classifications.json'),fetch('data/catalog-curation.json'),
+   fetch('data/auto-categories-summary.json')
   ]);
   if(response.some(r=>!r.ok))throw Error('No se pudieron recuperar los datos del catálogo');
-  const [media,routes,predictions,curation]=await Promise.all(response.map(r=>r.json()));
+  const [media,routes,predictions,curation,summary]=await Promise.all(response.map(r=>r.json()));
   if(!Array.isArray(media)||!Array.isArray(routes)||!Array.isArray(predictions)||curation?.version!==1)throw Error('Formato inesperado');
   state.media=media.filter(validPhoto).sort((a,b)=>String(b.createdAt).localeCompare(String(a.createdAt)));
   state.routes=new Map(routes.filter(x=>x.fileId).map(x=>[x.fileId,x]));
   state.ai=new Map(predictions.filter(x=>x.fileId).map(x=>[x.fileId,x]));
   state.saved=curation.entries||{};
+  const total=state.media.length,analyzed=state.ai.size;
+  const percentage=total?Math.round(analyzed/total*100):0;
+  const automatic=Number(summary?.autoAssignedPhotos)||state.media.filter(m=>Boolean(route(m.fileId).category)).length;
+  $('ai-progress-title').textContent=compact(analyzed)+' de '+compact(total)+' fotografías analizadas por IA ('+percentage+' %)';
+  $('ai-progress-detail').textContent=compact(automatic)+' fotografías ubicadas automáticamente en categorías · '+compact(total-analyzed)+' pendientes de análisis';
+  $('ai-progress-bar').setAttribute('aria-valuenow',String(percentage));
+  $('ai-progress-fill').style.width=percentage+'%';
   const opts='<option value="">Todas</option>'+CATS.map(c=>'<option value="'+esc(c)+'">'+esc(c)+'</option>').join('');
   $('studio-category').innerHTML=opts;
   $('edit-category').innerHTML='<option value="">Sin categoría confirmada</option>'+CATS.map(c=>'<option value="'+esc(c)+'">'+esc(c)+'</option>').join('');

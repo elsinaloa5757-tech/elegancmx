@@ -16,3 +16,14 @@ test('huella perceptual solo emite candidatos, sin borrar multimedia',()=>{
     [{fileId:'b',distance:0}]);
   assert.equal(hashDistance(null,hash),null);
 });
+
+
+test('automatic engine can identify clothing footwear dresses and lingerie',()=>{
+ for(const category of ['Tenis','Calzado','Ropa','Vestidos','Lencería','Bolsas','Gorras']){
+  const label=CATEGORY_LABELS.find(row=>row[0]===category)?.[1];
+  assert.ok(label,'missing CLIP prompt for '+category);
+  assert.equal(chooseCategory([{label,score:.92}]).category,category);
+ }
+ const labels=new Set(CATEGORY_LABELS.map(x=>x[0]));
+ assert.equal(labels.size,CATEGORY_LABELS.length,'duplicate prompts must not bias classification');
+});

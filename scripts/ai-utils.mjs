@@ -2,6 +2,10 @@
 export const MODEL = 'Xenova/clip-vit-base-patch32';
 export const CATEGORY_LABELS = [
   ['Tenis', 'a commercial product photograph of sneakers or athletic shoes'],
+  ['Calzado', 'a fashion product photograph of high heels, sandals, boots, or formal shoes, not sneakers'],
+  ['Ropa', 'a fashion product photograph of a jacket, hoodie, sweatshirt, sweater, or coat'],
+  ['Vestidos', 'a fashion product photograph of a dress or evening gown'],
+  ['Lencería', 'a fashion product photograph of lingerie, lingerie set, or intimate underwear'],
   ['Bolsas', 'a commercial product photograph of a purse, luxury handbag, or backpack'],
   ['Playeras', 'a commercial product photograph of a t-shirt or polo shirt'],
   ['Gorras', 'a commercial product photograph of a cap or baseball hat'],
