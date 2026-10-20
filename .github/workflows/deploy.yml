@@ -10,6 +10,9 @@ on:
       - 'studio.css'
       - 'data/catalog-curation.json'
       - 'panel.css'
+      - 'admin-panel.js'
+      - 'admin-panel.css'
+      - 'admin-panel.html'
       - 'social-clover.js'
       - 'social-clover.css'
       - 'assets/elegance-social-clover.webp'
@@ -48,6 +51,7 @@ jobs:
           npm run check
           node --check catalog-recovery.js
           node --check panel.js
+          node --check admin-panel.js
           node --check studio.js
           node --test tests/curation.test.mjs
           node --check social-clover.js

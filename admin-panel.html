@@ -1,0 +1,31 @@
+<dialog id="elegance-admin-modal" class="elegance-admin-modal" aria-label="Administración Elegance MX">
+  <div class="admin-head"><div><span class="admin-mini">ELEGANCE · ADMINISTRACIÓN PRIVADA</span><h2>Administrar mercancía</h2></div><button type="button" id="admin-close" aria-label="Cerrar">×</button></div>
+  <form id="admin-signin" class="admin-login">
+   <p>Acceso exclusivo para la persona administradora. Entra con tu correo y contraseña de Elegance.</p>
+   <label>Correo electrónico<input id="admin-email" type="email" autocomplete="username" required placeholder="correo@ejemplo.com"></label>
+   <label>Contraseña<input id="admin-password" type="password" autocomplete="current-password" required></label>
+   <button type="submit" class="admin-primary">Iniciar sesión</button>
+   <p>La cuenta debe estar previamente autorizada. Nunca compartas tu contraseña en el chat.</p>
+  </form>
+  <section id="admin-private" hidden>
+    <div class="admin-actions"><p id="admin-session-label">Sesión de administración</p><button id="admin-signout" type="button">Cerrar sesión</button></div>
+    <div class="admin-instructions"><strong>Subir mercancía · hasta 250 archivos por lote</strong><p>Un solo recuadro para fotografías y videos. Las fotos se comprimen a WebP antes de enviarse directamente a ImageKit. Los videos conservan su formato original (máximo 25 MB). La IA los organiza después en segundo plano.</p></div>
+    <label id="admin-dropzone" class="admin-dropzone" tabindex="0">
+     <span class="admin-upload-icon" aria-hidden="true">⇧</span>
+     <strong>Toca o arrastra aquí las fotos y videos</strong><span>Máximo 250 archivos · selección múltiple</span>
+     <input id="admin-file-input" type="file" accept="image/*,video/mp4,video/webm,video/quicktime" multiple>
+    </label>
+    <div class="admin-upload-controls"><span id="admin-selected">0 archivos seleccionados</span><button id="admin-start-upload" class="admin-primary" type="button" disabled>Subir a ImageKit</button><button id="admin-cancel-upload" type="button" disabled>Detener pendientes</button></div>
+    <progress id="admin-upload-progress" value="0" max="100" aria-label="Progreso de carga"></progress>
+    <p id="admin-upload-detail" aria-live="polite">Las nuevas fotos se guardan como borradores hasta que decidas publicarlas.</p>
+    <div class="admin-toolbar"><h3>Mercancía registrada</h3><button id="admin-refresh" type="button">Actualizar lista</button></div>
+    <div id="admin-media-list" class="admin-media-list"></div>
+    <div class="admin-toolbar"><h3>Archivo recuperado de ImageKit</h3><span>Corregir las referencias históricas</span></div>
+    <label class="admin-archive-search-label">Buscar fotografía o video por nombre, referencia o categoría
+      <input id="admin-archive-search" type="search" placeholder="Buscar en el archivo histórico">
+    </label>
+    <div id="admin-archive-list" class="admin-media-list"><p>Las fotografías históricas se cargarán cuando abras el administrador.</p></div>
+    <button type="button" id="admin-archive-more">Ver 20 referencias más</button>
+  </section>
+  <p id="admin-status" role="status" aria-live="polite"></p>
+</dialog>
