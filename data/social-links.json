@@ -1,0 +1,19 @@
+{
+  "note": "Los enlaces exactos a las cuentas oficiales de Elegance MX no están verificados. Cada hoja abre la plataforma correspondiente hasta que el propietario facilite los enlaces oficiales. No usar GabyCases ni el antiguo número de Floot sin validar.",
+  "whatsapp": {
+    "url": "https://www.whatsapp.com/",
+    "official": false
+  },
+  "facebook": {
+    "url": "https://www.facebook.com/",
+    "official": false
+  },
+  "instagram": {
+    "url": "https://www.instagram.com/",
+    "official": false
+  },
+  "tiktok": {
+    "url": "https://www.tiktok.com/",
+    "official": false
+  }
+}
