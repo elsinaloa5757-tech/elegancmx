@@ -48,3 +48,23 @@
 .recovery-mode #recovery-status{font-size:13px;color:#bdd9e7}
 @media(max-width:1100px){.recovery-mode .recovery-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.recovery-mode .recovery-video-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:600px){.recovery-mode .recovery-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.recovery-mode .recovery-video-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.recovery-mode .hero a.cta{font-size:11px;padding:10px}.recovery-mode main{margin-left:0}.recovery-mode .recovery-card h3{min-height:0}.recovery-mode .recovery-video video{aspect-ratio:1/1}}
+
+
+/* Calligraphic Elegance wordmark used by the original image archive. */
+.recovery-mode .logo,
+.recovery-mode .hero h1.brand-script{
+ font-family:"Great Vibes","Snell Roundhand","URW Chancery L","Brush Script MT",cursive;
+ font-weight:400;font-style:normal;font-synthesis:none;
+ letter-spacing:0;
+ color:#e5f5ff;
+ text-shadow:0 0 10px #7ebfff9c,0 0 20px #4f9aff50;
+}
+.recovery-mode .logo{font-size:clamp(38px,4vw,54px);line-height:1.2;white-space:nowrap}
+.recovery-mode .hero h1.brand-script{
+ font-size:clamp(70px,11vw,150px);line-height:1.15;
+ letter-spacing:0;margin:6px 0 12px;
+}
+@media(max-width:600px){
+ .recovery-mode .logo{font-size:30px}
+ .recovery-mode .hero h1.brand-script{font-size:clamp(52px,11vw,78px)}
+}
