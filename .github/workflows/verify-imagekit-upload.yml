@@ -21,13 +21,15 @@ jobs:
         shell: bash
         run: |
           python3 - <<'PY'
-          import os,sys,uuid,time,json,base64,hmac,hashlib,urllib.request,urllib.error
+          import os,sys,uuid,time,json,base64,hmac,hashlib,urllib.request,urllib.error,urllib.parse,struct,zlib
           private=os.getenv('PRIVATE_IMAGEKIT') or ''
           public=os.getenv('PUBLIC_IMAGEKIT') or ''
           if not private.startswith('private_') or not public.startswith('public_'):
               print('::error::ImageKit keys not configured correctly')
               sys.exit(1)
-          png=base64.b64decode('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+/wXkAAAAASUVORK5CYII=')
+          def chunk(tag,data):
+              return struct.pack('!I',len(data))+tag+data+struct.pack('!I',zlib.crc32(tag+data)&0xffffffff)
+          png=b'\x89PNG\r\n\x1a\n'+chunk(b'IHDR',struct.pack('!IIBBBBB',2,2,8,2,0,0,0))+chunk(b'IDAT',zlib.compress((b'\x00'+b'\x24\x77\xaa'*2)*2,9))+chunk(b'IEND',b'')
           token=str(uuid.uuid4())
           expire=int(time.time())+180
           signature=hmac.new(private.encode(),(token+str(expire)).encode(),hashlib.sha1).hexdigest()
@@ -48,7 +50,15 @@ jobs:
               with urllib.request.urlopen(req,timeout=45) as response:
                   created=json.load(response)
           except urllib.error.HTTPError as e:
-              print('::error::ImageKit signed file upload rejected (HTTP '+str(e.code)+'). A private key with media write permission is required.')
+              try:
+                  error=json.loads(e.read(2500).decode())
+                  reason=str(error.get("message") or error.get("error") or "unspecified")[:350]
+                  # imagekit messages never need or show credentials; mask them defensively.
+                  for credential in (private,public):
+                      if credential: reason=reason.replace(credential,"[redacted]")
+                  print("ImageKit diagnostic:",reason)
+              except Exception: pass
+              print('::error::ImageKit signed file upload rejected (HTTP '+str(e.code)+'). Check signature/key pair and request schema.')
               sys.exit(1)
           except Exception:
               print('::error::ImageKit upload failed due to network or API error')
