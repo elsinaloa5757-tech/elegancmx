@@ -64,3 +64,8 @@
  .admin-upload-controls{justify-content:flex-start}
  .admin-upload-controls #admin-selected{flex:1 0 100%}
 }
+.admin-archive-search-label{display:grid;gap:8px;margin:12px 0;color:#b9d7e9;font-size:12px}
+.admin-archive-search-label input{background:#092138;color:#ecf9ff;border:1px solid #6b9bbe;border-radius:10px;min-height:44px;padding:9px}
+#admin-archive-more{display:block;margin:13px auto;border:1px solid #69a9c9;border-radius:10px;padding:9px 16px}
+#admin-archive-more:hover{background:#174463}
+.admin-historic-row .admin-media-fields>strong{overflow-wrap:anywhere}
