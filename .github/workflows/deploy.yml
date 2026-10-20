@@ -6,6 +6,9 @@ on:
       - 'index.html'
       - 'panel.js'
       - 'panel.css'
+      - 'social-clover.js'
+      - 'social-clover.css'
+      - 'data/social-links.json'
       - 'archivo.html'
       - 'styles.css'
       - 'app.js'
@@ -40,6 +43,7 @@ jobs:
           npm run check
           node --check catalog-recovery.js
           node --check panel.js
+          node --check social-clover.js
           node scripts/build-public.mjs
       - name: Install Chromium
         run: npx playwright install --with-deps chromium
