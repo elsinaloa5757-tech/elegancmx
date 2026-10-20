@@ -245,6 +245,39 @@ function bind(){
  $('promo-limited').addEventListener('click',()=>nav('Ediciones limitadas'));
  $('side-nav').addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu()});
 }
+// Only corrections explicitly reviewed by the owner are visible to visitors.
+async function hydrateHistoricalEdits(){
+ try{
+  const res=await fetch('https://czekazhacqaamwecjthp.supabase.co/rest/v1/elegance_existing_overrides?select=file_id,title,brand,category,hidden,reviewed&reviewed=eq.true&limit=5000',{
+   headers:{apikey:'sb_publishable_Z51W6iueiL_dmRdmZe6_JQ_WoSirGA3'}
+  });
+  if(!res.ok)return;
+  const edits=await res.json();
+  if(!Array.isArray(edits)||!edits.length)return;
+  let changed=false;
+  for(const row of edits){
+   if(!row.reviewed||!state.mediaById.has(row.file_id))continue;
+   const previous=state.curation.get(row.file_id)||{};
+   state.curation.set(row.file_id,{...previous,
+    ...(row.title?{name:row.title}:{}),...(row.category?{category:row.category}:{}),
+    ...(row.brand?{brand:row.brand}:{}),hidden:row.hidden===true});
+   changed=true;
+  }
+  if(!changed)return;
+  state.groups=new Map();
+  for(const m of state.allMedia){
+   if(override(m.fileId).hidden)continue;
+   const key=override(m.fileId).groupId||m.fileId;
+   if(!state.groups.has(key))state.groups.set(key,[]);
+   state.groups.get(key).push(m);
+  }
+  state.media=[...state.groups.entries()].map(([key,photos])=>photos.find(x=>x.fileId===key)||photos[0]);
+  state.media.sort((a,b)=>String(b.createdAt).localeCompare(String(a.createdAt)));
+  renderShelves();renderBrowse();
+ }catch{/* Static original catalog remains usable during network issues. */}
+}
+window.addEventListener('elegance-catalog-updated',hydrateHistoricalEdits);
+
 // Recently approved admin uploads appear without a redeploy or duplicate ImageKit storage.
 // The public API has RLS and exposes only owner-approved published records.
 async function hydrateApprovedUploads(){
@@ -326,6 +359,7 @@ async function boot(){
  for(const set of [state.favorites,state.inquiries]){for(const id of set)if(!state.mediaById.has(id))set.delete(id);}
  save();renderShelves();renderBrowse();
  hydrateApprovedUploads();
+ hydrateHistoricalEdits();
  const videos=media.filter(m=>m.mime?.startsWith('video/')&&safeImg(m));
  $('videos-preview').innerHTML=videos.slice(0,4).map(m=>'<article><video controls preload="none" playsinline src="'+esc(m.url)+'" aria-label="Video de Elegance"></video></article>').join('');
  }catch(err){
