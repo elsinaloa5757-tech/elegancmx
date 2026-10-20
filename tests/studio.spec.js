@@ -23,7 +23,7 @@ test('Published owner curation hides grouped photos and changes product title/ca
  }));
  await page.reload();
  await expect(page.locator('#product-grid .catalog-card')).toHaveCount(30);
- await expect(page.locator('#product-grid .card-title').first()).toContainText('Tenis aprobados por Studio');
+ await expect(page.locator('#product-grid .card-title').first()).toContainText('Tenis aprobados por Administrador');
  await page.locator('#product-grid [data-open]').first().click();
  await expect(page.locator('#item-dialog')).toBeVisible();
  await expect(page.locator('#item-detail .detail-gallery button')).toHaveCount(2);
