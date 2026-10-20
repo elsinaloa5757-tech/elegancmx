@@ -17,6 +17,10 @@ function mockApi(page,{configured=true}={}){
      {publicKey:'public_test',tokens:Array.from({length:post.count},(_,i)=>({token:'t'+i,signature:'test',expire:Math.floor(Date.now()/1000)+900})),
       folder:'/elegance/products',uploadUrl:'https://upload.imagekit.io/api/v1/files/upload'})});
   }
+  if(url.pathname.endsWith('/rest/v1/elegance_existing_overrides')){
+   if(req.method()==='POST'){posted.push(post);return route.fulfill({status:201,contentType:'application/json',headers:{'access-control-allow-origin':'*'},body:'{}'})}
+   return route.fulfill({status:200,contentType:'application/json',headers:{'access-control-allow-origin':'*'},body:'[]'});
+  }
   if(url.pathname.endsWith('/rest/v1/elegance_uploaded_media')){
    if(req.method()==='POST'){posted.push(post);return route.fulfill({status:201,contentType:'application/json',body:'{}'})}
    if(req.method()==='PATCH'){posted.push(post);return route.fulfill({status:204,body:''})}
@@ -81,3 +85,22 @@ test('maximum 250 per batch enforced and ImageKit unavailable shows truthful dis
  await expect(page.locator('#admin-status')).toContainText('Máximo 250');
  await expect(page.locator('#admin-start-upload')).toBeDisabled();
 });
+
+
+test('same private panel lets owner correct historical photos and save approved edits',async({page})=>{
+ const mock=mockApi(page);
+ await page.goto('/');
+ await page.locator('#admin-open').click();
+ await page.locator('#admin-email').fill('owner@elegance.test');
+ await page.locator('#admin-password').fill('testing');
+ await page.locator('#admin-signin button[type=submit]').click();
+ await expect(page.locator('#admin-private')).toBeVisible();
+ await expect(page.locator('.admin-historic-row').first()).toBeVisible({timeout:10000});
+ const row=page.locator('.admin-historic-row').first();
+ await row.locator('input[name=title]').fill('Artículo identificado por la administración');
+ await row.locator('select[name=category]').selectOption('Tenis');
+ await row.locator('button[type=submit]').click();
+ await expect(page.locator('#admin-status')).toContainText('Corrección aprobada');
+ expect(mock.posted.some(x=>x.title==='Artículo identificado por la administración'&&x.reviewed===true)).toBe(true);
+});
+
