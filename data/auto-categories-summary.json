@@ -1,29 +1,29 @@
 {
   "photoCount": 3909,
   "historicalPhotos": 80,
-  "classifiedImages": 1752,
-  "autoAssignedPhotos": 1447,
-  "pendingPhotos": 2462,
+  "classifiedImages": 2752,
+  "autoAssignedPhotos": 2288,
+  "pendingPhotos": 1621,
   "sources": {
     "legacy_name": 77,
-    "clip": 1370
+    "clip": 2211
   },
   "categories": {
     "Vestidos": 3,
     "Ropa": 4,
     "Gorras": 6,
     "Pantalones": 4,
-    "Relojes": 78,
-    "Bolsas": 411,
+    "Bolsas": 859,
+    "Relojes": 91,
     "Lentes": 116,
-    "Tenis": 708,
-    "Calzado": 44,
-    "Playeras": 26,
-    "Joyería": 34,
+    "Tenis": 1049,
+    "Calzado": 46,
+    "Playeras": 27,
+    "Fragancias": 35,
+    "Joyería": 37,
     "Lencería": 2,
     "Cinturones": 6,
-    "Fragancias": 3,
-    "Buckets": 2
+    "Buckets": 3
   },
   "noSellableProductsCreated": true,
   "note": "Auto filing is provisional by photo, not proof of distinct or available products."
