@@ -245,6 +245,57 @@ function bind(){
  $('promo-limited').addEventListener('click',()=>nav('Ediciones limitadas'));
  $('side-nav').addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu()});
 }
+// Recently approved admin uploads appear without a redeploy or duplicate ImageKit storage.
+// The public API has RLS and exposes only owner-approved published records.
+async function hydrateApprovedUploads(){
+ try{
+  const ctl=new AbortController();
+  const timer=setTimeout(()=>ctl.abort(),6000);
+  let response;
+  try{
+   response=await fetch('https://czekazhacqaamwecjthp.supabase.co/rest/v1/elegance_uploaded_media?select=file_id,file_url,filename,mime_type,title,brand,category,created_at&visible=eq.true&order=created_at.desc&limit=2000',{
+    headers:{apikey:'sb_publishable_Z51W6iueiL_dmRdmZe6_JQ_WoSirGA3'},signal:ctl.signal
+   });
+  }finally{clearTimeout(timer)}
+  if(!response.ok)return;
+  const rows=await response.json();
+  if(!Array.isArray(rows)||!rows.length)return;
+  let changed=false;
+  for(const r of rows){
+   if(typeof r.file_id!=='string'||typeof r.file_url!=='string')continue;
+   const m={fileId:r.file_id,url:r.file_url,mime:r.mime_type,createdAt:r.created_at};
+   if(!safeImg(m))continue;
+   const existed=state.mediaById.has(m.fileId);
+   if(!existed&&m.mime.startsWith('image/')){
+    state.allMedia.push(m);
+    state.mediaById.set(m.fileId,m);
+    state.groups.set(m.fileId,[m]);
+    state.media.push(m);
+    changed=true;
+   }
+   if(r.category||r.title||r.brand){
+    const previous=state.curation.get(m.fileId)||{};
+    state.curation.set(m.fileId,{...previous,...(r.title?{name:r.title}:{}),
+      ...(r.category?{category:r.category}:{}),...(r.brand?{brand:r.brand}:{})});
+    changed=true;
+   }
+  }
+  if(changed){
+   state.media.sort((a,b)=>String(b.createdAt).localeCompare(String(a.createdAt)));
+   renderShelves();renderBrowse();
+  }
+  const videos=rows.filter(r=>r.mime_type?.startsWith('video/')&&
+    r.file_url?.startsWith('https://ik.imagekit.io/elegancemx/'));
+  if(videos.length){
+   const current=[...document.querySelectorAll('#videos-preview video')].map(x=>x.getAttribute('src'));
+   const fresh=videos.filter(r=>!current.includes(r.file_url)).slice(0,4);
+   $('videos-preview').innerHTML=fresh.map(r=>'<article><video controls preload="none" playsinline src="'+esc(r.file_url)+'" aria-label="Video reciente de Elegance"></video></article>').join('')+
+    $('videos-preview').innerHTML;
+  }
+ }catch{/* Existing recovered catalog remains available if Supabase is offline. */}
+}
+window.addEventListener('elegance-catalog-updated',hydrateApprovedUploads);
+
 async function boot(){
  bind();
  try{
@@ -274,6 +325,7 @@ async function boot(){
  options.map(c=>'<option value="'+esc(c)+'">'+esc(c)+'</option>').join('');
  for(const set of [state.favorites,state.inquiries]){for(const id of set)if(!state.mediaById.has(id))set.delete(id);}
  save();renderShelves();renderBrowse();
+ hydrateApprovedUploads();
  const videos=media.filter(m=>m.mime?.startsWith('video/')&&safeImg(m));
  $('videos-preview').innerHTML=videos.slice(0,4).map(m=>'<article><video controls preload="none" playsinline src="'+esc(m.url)+'" aria-label="Video de Elegance"></video></article>').join('');
  }catch(err){
