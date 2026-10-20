@@ -41,7 +41,7 @@ async function enter(){
  $('admin-workspace').hidden=false;$('admin-auth-screen').hidden=true;
  $('admin-session-email').textContent=a.email;
  $('admin-upload').disabled=!S.ready||!S.files.length;
- notice(S.ready?'Acceso administrativo verificado. Puedes editar y subir mercancía.':'Acceso aprobado, pero faltan IMAGEKIT_PRIVATE_KEY e IMAGEKIT_PUBLIC_KEY en los secretos de Supabase para activar la carga.',!S.ready);
+ notice(S.ready?'Acceso administrativo verificado. Puedes editar y subir mercancía.':'Acceso autorizado. La conexión protegida a ImageKit aún no se ha completado; la edición de mercancía sigue disponible.',!S.ready);
  await load();
 }
 function open(){
@@ -101,8 +101,8 @@ async function compress(file){
    w=src.naturalWidth;h=src.naturalHeight;
   }
   if(!w||!h)throw Error('Imagen no válida');
-  let max=1400,q=.74,compressed;
-  for(let i=0;i<4;i++){
+  let max=1200,q=.66,compressed;
+  for(let i=0;i<6;i++){
    const scale=Math.min(1,max/Math.max(w,h));
    const canvas=document.createElement('canvas');
    canvas.width=Math.max(1,Math.round(w*scale));canvas.height=Math.max(1,Math.round(h*scale));
@@ -110,8 +110,8 @@ async function compress(file){
    if(!ctx)throw Error('Compresión no compatible');
    ctx.fillStyle='#fff';ctx.fillRect(0,0,canvas.width,canvas.height);ctx.drawImage(src,0,0,canvas.width,canvas.height);
    compressed=await new Promise((ok,no)=>canvas.toBlob(b=>b?ok(b):no(Error('Falló la compresión')),'image/webp',q));
-   if(compressed.size<=1250000)break;
-   max=Math.round(max*.82);q=Math.max(.56,q-.06);
+   if(compressed.size<=250000)break;
+   max=Math.round(max*.86);q=Math.max(.44,q-.045);
   }
   if(!TYPES.has(compressed.type))throw Error('El navegador no pudo generar una imagen compatible');
   const ext=compressed.type==='image/webp'?'webp':compressed.type==='image/png'?'png':'jpg';
