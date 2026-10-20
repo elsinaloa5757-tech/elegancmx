@@ -4,10 +4,12 @@ test('approved Elegance luxury layout loads all interactive shelves',async({page
  await expect(page).toHaveTitle(/Elegance MX/);
  await expect(page.locator('.hero')).toBeVisible();
  await expect(page.locator('.wordmark')).toContainText('elegance');
- await expect(page.locator('#quick-categories .quick-category')).toHaveCount(8);
+ await expect(page.locator('#quick-categories .quick-category')).toHaveCount(6);
  await expect(page.locator('#brand-rail .brand-card')).toHaveCount(7);
  await expect(page.locator('#arrivals-rail .catalog-card')).toHaveCount(22);
- await expect(page.locator('#category-grid .category-tile')).toHaveCount(8);
+ await expect(page.locator('#category-grid .category-tile')).toHaveCount(6);
+ await expect(page.locator('#category-grid [data-category="Combos"]')).toHaveCount(0);
+ await expect(page.locator('#category-grid [data-category="Ediciones limitadas"]')).toHaveCount(0);
  await expect(page.locator('#product-grid .catalog-card')).toHaveCount(30);
  await expect(page.locator('#videos-preview video')).toHaveCount(4);
  const panther=await page.evaluate(async()=>{const r=await fetch('/assets/elegance-panther.png');return r.ok&&r.headers.get('content-type')?.includes('image')});
