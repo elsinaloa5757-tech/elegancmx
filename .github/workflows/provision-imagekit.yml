@@ -22,7 +22,7 @@ jobs:
     timeout-minutes: 10
     env:
       IMAGEKIT_PRIVATE_KEY: ${{ secrets.IMAGEKIT_PRIVATE_KEY }}
-      IMAGEKIT_PUBLIC_KEY: ${{ secrets.IMAGEKIT_PUBLIC_KEY || vars.IMAGEKIT_PUBLIC_KEY }}
+      IMAGEKIT_PUBLIC_KEY: ${{ secrets.IMAGEKIT_PUBLIC_KEY || vars.IMAGEKIT_PUBLIC_KEY || 'public_QNnLTJ0r+C9SvJxa+9jL/lr3z6E=' }}
       EDGE_ENDPOINT: https://czekazhacqaamwecjthp.supabase.co/functions/v1/elegance-admin
     steps:
       - name: Verify keys exist without printing them
