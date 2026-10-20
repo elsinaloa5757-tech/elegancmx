@@ -84,12 +84,12 @@ section[id]{scroll-margin-top:90px}
   .brand-card .brand-symbol{font-size:clamp(11px,3.5vw,18px);line-height:21px;font-weight:950}
   .brand-card strong{font-size:clamp(6px,1.72vw,8px)!important;line-height:1.1;white-space:normal}
   .brand-card small{font-size:5px!important;line-height:1.1;white-space:normal}
-  /* Main categories: 4 wide then 5 wide, as in the approved screenshot. */
+  /* Main categories: four columns per row; removed unused Memorias tile. */
   .category-grid{display:grid;grid-template-columns:repeat(20,minmax(0,1fr))!important;gap:4px!important;
     padding-top:6px!important}
   .category-grid .category-tile{grid-column:span 5;aspect-ratio:auto!important;height:73px!important;
     min-width:0!important;padding:5px!important;border-radius:6px!important}
-  .category-grid .category-tile:nth-child(n+5){grid-column:span 4;height:65px!important}
+  .category-grid .category-tile:nth-child(n+5){grid-column:span 5;height:65px!important}
   .category-tile .category-name{font-size:clamp(7px,2.1vw,10px)!important;letter-spacing:0;text-shadow:0 1px 4px #000}
   .category-tile small{display:none!important}
   .category-tile:after{content:'→';position:absolute;bottom:5px;right:4px;
