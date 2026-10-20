@@ -1,7 +1,8 @@
-/* Elegance MX — approved blue-ice / gold clover, freely draggable on touch screens. */
+/* Elegance MX — approved blue-ice / gold clover, freely draggable on touch screens.
+   Visible width and height are exactly one third of prior responsive sizing. */
 .social-clover.jewel-clover{
  position:fixed;z-index:70;left:auto;top:auto;right:14px;bottom:16px;
- width:clamp(122px,39vw,166px);height:clamp(122px,39vw,166px);
+ width:clamp(40.667px,13vw,55.333px);height:clamp(40.667px,13vw,55.333px);
  isolation:isolate;
  background:transparent;border:0;box-shadow:none;
  filter:drop-shadow(0 4px 10px rgba(0,0,0,.65)) drop-shadow(0 1px 5px rgba(126,201,255,.32));
@@ -52,7 +53,7 @@
 }
 @media(max-width:650px){
  .social-clover.jewel-clover{
-   width:clamp(118px,37vw,158px);height:clamp(118px,37vw,158px);
+   width:clamp(39.333px,12.333333vw,52.667px);height:clamp(39.333px,12.333333vw,52.667px);
    transform:none!important;
  }
 }

@@ -22,6 +22,10 @@ test('exact user gold-and-ice blue 4-leaf artwork, tap leaves, drag without redi
   await expect(link).toHaveAttribute('href',new RegExp('^https://(www\\.)?'+expected[id].replace('.','\\.')+'/'));
  }
  const before=await host.boundingBox();expect(before).not.toBeNull();
+ // 390px phone: old responsive clover was 144.3px; a third is 48.1px.
+ expect(before.width).toBeGreaterThan(47);
+ expect(before.width).toBeLessThan(50);
+ expect(Math.abs(before.height-before.width)).toBeLessThan(1);
  const fb=await page.locator('[data-social="facebook"]').boundingBox();
  expect(fb).not.toBeNull();
  const popups=[];
@@ -91,4 +95,24 @@ test('same gemstone clover is shown on archive and does not point to GabyCases',
   const href=await page.locator('[data-social="'+id+'"]').getAttribute('href');
   expect(href).not.toMatch(/gabycases|525547572297/i);
  }
+});
+
+
+test('one-third size applies on wide desktops and remains within viewport',async({page})=>{
+ await page.setViewportSize({width:1280,height:900});
+ await page.goto('/');
+ const desktop=await page.locator('#elegance-social-clover').boundingBox();
+ expect(desktop).not.toBeNull();
+ // Previous max size 166px -> 55.333px after one-third reduction.
+ expect(desktop.width).toBeGreaterThan(54);
+ expect(desktop.width).toBeLessThan(57);
+ expect(Math.abs(desktop.width-desktop.height)).toBeLessThan(1);
+ await page.setViewportSize({width:310,height:630});
+ const phone=await page.locator('#elegance-social-clover').boundingBox();
+ expect(phone).not.toBeNull();
+ // Previous minimum mobile size 118px -> 39.333px.
+ expect(phone.width).toBeGreaterThan(38);
+ expect(phone.width).toBeLessThan(41);
+ expect(phone.x+phone.width).toBeLessThanOrEqual(310);
+ expect(phone.y+phone.height).toBeLessThanOrEqual(630);
 });
