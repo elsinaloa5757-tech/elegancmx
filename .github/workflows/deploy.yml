@@ -8,6 +8,7 @@ on:
       - 'panel.css'
       - 'social-clover.js'
       - 'social-clover.css'
+      - 'assets/elegance-social-clover.webp'
       - 'data/social-links.json'
       - 'archivo.html'
       - 'styles.css'
