@@ -64,6 +64,6 @@ test('ImageKit keys not configured: administrator can inspect catalog but cannot
  await page.locator('#admin-password').fill('example-password');
  await page.locator('#admin-signin').click();
  await expect(page.locator('#admin-workspace')).toBeVisible();
- await expect(page.locator('#admin-message')).toContainText('IMAGEKIT_PRIVATE_KEY');
+ await expect(page.locator('#admin-message')).toContainText('conexión protegida a ImageKit');
  await expect(page.locator('#admin-upload')).toBeDisabled();
 });
