@@ -36,6 +36,7 @@
     <button type="button" data-nav="Ediciones limitadas"><span>♛</span>Ediciones limitadas</button>
     <button type="button" data-nav="Nuevos ingresos"><span>⚡</span>Nuevos ingresos</button>
     <a href="./archivo.html"><span>▤</span>Archivo completo</a>
+    <button type="button" id="admin-nav-open" class="admin-nav-link"><span>⚙</span>Administrador</button>
   </nav>
 </aside>
 <main>
@@ -87,7 +88,7 @@
     <div class="videos-grid" id="videos-preview"></div>
   </section>
   <section class="trust-row"><span>◇ FOTOGRAFÍAS REALES</span><span>♛ IDENTIDAD ELEGANCE</span><span>▤ CONSULTA POR REFERENCIA</span><span>◈ CLASIFICACIÓN AUTOMÁTICA</span></section>
-  <footer>♛ ELEGANCE MX · CATÁLOGO EN RECUPERACIÓN <a href="./archivo.html">Archivo completo de ImageKit</a> <a href="./studio.html">Studio · Administración</a></footer>
+  <footer>♛ ELEGANCE MX · CATÁLOGO EN RECUPERACIÓN <a href="./archivo.html">Archivo completo de ImageKit</a> <button type="button" id="admin-footer-open" class="admin-footer-link">⚙ Administrador</button></footer>
 </main>
 <nav class="mobile-tabbar" aria-label="Navegación móvil">
  <button type="button" data-mobile="Inicio"><span>⌂</span>Inicio</button>
@@ -100,6 +101,47 @@
 <dialog id="list-dialog" class="list-dialog"><div class="dialog-header"><h2 id="list-title"></h2><button id="close-list" type="button" aria-label="Cerrar">×</button></div><div id="list-content"></div><div id="list-footer"></div></dialog>
 <dialog id="profile-dialog" class="list-dialog"><div class="dialog-header"><h2>Mi espacio Elegance</h2><button id="close-profile" type="button" aria-label="Cerrar perfil">×</button></div><p>Los favoritos y el carrito de consultas se guardan en este navegador. Todavía no hay inicio de sesión ni pedidos asociados a una cuenta.</p><p>Puedes guardar referencias para consultarlas con la tienda cuando se confirme el contacto oficial.</p><button type="button" id="profile-favorites" class="outline-action">Ver favoritos</button></dialog>
 <dialog id="contact-dialog" class="list-dialog"><div class="dialog-header"><h2>Contacto Elegance MX</h2><button id="close-contact" type="button" aria-label="Cerrar">×</button></div><p>El número oficial de atención todavía no está confirmado en el catálogo recuperado. Puedes copiar la referencia o tu lista de consulta para compartirla con la tienda por tu canal habitual.</p><button type="button" id="copy-contact-list" class="outline-action">Copiar mi lista de consultas</button><p id="copy-feedback" role="status"></p></dialog>
+
+<dialog id="admin-dialog" class="admin-dialog" aria-labelledby="admin-title">
+ <header class="admin-dialog-head"><div><span>elegance <small>GESTIÓN PRIVADA</small></span><h2 id="admin-title">Administrador</h2></div><button type="button" id="admin-close" aria-label="Cerrar administrador">×</button></header>
+ <section id="admin-auth-screen" class="admin-auth-screen">
+   <p>Ingresa a tu panel privado para subir y administrar mercancía. Esta cuenta es independiente del antiguo acceso de Floot.</p>
+   <form id="admin-login-form" autocomplete="on">
+     <label>Correo electrónico<input required id="admin-email" name="email" type="email" autocomplete="email" placeholder="correo@ejemplo.com" maxlength="254"></label>
+     <label>Contraseña<input required id="admin-password" name="password" type="password" autocomplete="current-password" minlength="8" placeholder="Contraseña de Elegance MX"></label>
+     <button id="admin-signin" class="admin-primary" type="submit">Entrar al administrador</button>
+     <button id="admin-signup" type="button" class="admin-secondary">Crear mi acceso seguro</button>
+   </form>
+   <p class="admin-note">Tu acceso requiere correo confirmado y autorización del propietario. No compartas tu contraseña por chat.</p>
+ </section>
+ <section id="admin-workspace" hidden>
+  <div class="admin-session-bar"><div><strong id="admin-session-email"></strong><small>Acceso protegido · Elegance MX</small></div><button type="button" id="admin-signout">Cerrar sesión</button></div>
+  <div class="admin-stats"><div><strong id="admin-count-files">0</strong><small>Mercancía registrada</small></div><div><strong id="admin-count-batch">0/250</strong><small>Archivos en lote</small></div><div><strong id="admin-count-uploaded">0</strong><small>Cargas realizadas</small></div></div>
+  <div class="admin-upload-panel">
+    <h3>Subir mercancía</h3>
+    <p>Una sola zona para seleccionar o arrastrar hasta <strong>250 imágenes o videos</strong>. Las fotografías se comprimen antes de guardarse en ImageKit; los videos MP4/WebM se cargan directamente.</p>
+    <label id="admin-dropzone" class="admin-dropzone" for="admin-files"><span>☁</span><strong>Toca aquí para elegir hasta 250 archivos</strong><small>También puedes arrastrarlos · JPG, PNG, WebP, MP4, WebM</small></label>
+    <input id="admin-files" class="admin-file-input" type="file" multiple accept="image/jpeg,image/png,image/webp,video/mp4,video/webm">
+    <div class="admin-upload-stats"><span id="admin-selected-size"></span><span id="admin-upload-progress-text"></span></div>
+    <progress id="admin-upload-progress" value="0" max="100" hidden></progress>
+    <div class="admin-upload-actions">
+      <button type="button" id="admin-upload" class="admin-primary" disabled>Subir a ImageKit</button>
+      <button type="button" id="admin-cancel-upload" class="admin-secondary" hidden>Detener lote</button>
+      <button type="button" id="admin-clear-files" class="admin-secondary">Vaciar selección</button>
+    </div>
+    <div id="admin-queue" class="admin-queue" role="status" aria-live="polite"></div>
+  </div>
+  <section class="admin-media-area">
+    <div class="admin-manage-header"><h3>Administrar mercancía</h3><button id="admin-refresh" type="button" class="admin-secondary">Actualizar</button></div>
+    <p class="admin-note">Edita títulos, categorías, marcas, precios y existencias. Los datos no confirmados permanecen en blanco.</p>
+    <label class="admin-search-label">Buscar referencia<input type="search" id="admin-media-search" placeholder="Nombre, categoría, referencia..."></label>
+    <div id="admin-media-grid" class="admin-media-grid"></div>
+    <button id="admin-more" class="admin-secondary" type="button" hidden>Mostrar más</button>
+  </section>
+ </section>
+ <p id="admin-message" class="admin-message" role="status" aria-live="polite"></p>
+</dialog>
+<script src="admin.js" defer></script>
 <script src="panel.js" defer></script>
 <script src="social-clover.js" defer></script></body>
 </html>
