@@ -28,6 +28,7 @@ on:
       - 'data/ai-classifications.json'
       - 'data/vision-drafts.json'
       - 'data/visual-relations.json'
+      - 'data/identification-audit.json'
       - '.github/workflows/deploy.yml'
   workflow_dispatch:
 permissions:
@@ -60,6 +61,7 @@ jobs:
           node --check social-clover.js
           node --test tests/visual-relations.test.mjs
           node scripts/build-visual-relations.mjs
+          node scripts/build-identification-audit.mjs
           node scripts/build-public.mjs
       - name: Install Chromium
         run: npx playwright install --with-deps chromium
