@@ -13,7 +13,7 @@ test('Open vision proposes a generic name visibly marked unverified without maki
  await expect(proposal).toHaveCount(1);
  await expect(proposal).toContainText('Sin verificar');
  await proposal.locator('[data-open]').first().click();
- await expect(page.locator('#item-dialog')).toContainText('Descripción visual propuesta por IA (sin verificar)');
+ await expect(page.locator('#item-dialog')).toContainText('Identificación visual propuesta por IA (sin verificar)');
  await expect(page.locator('#item-dialog')).not.toContainText('$');
 });
 
