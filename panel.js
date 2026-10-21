@@ -257,7 +257,7 @@ async function boot(){
  bind();
  try{
  const dynamicPromise=Promise.allSettled([
-   fetch('https://czekazhacqaamwecjthp.supabase.co/rest/v1/elegance_admin_media?select=imagekit_file_id,url,filename,mime,title,description,brand,category,price,stock,visible,ai_status,group_id,created_at&visible=eq.true&order=created_at.desc&limit=1000',{
+   fetch('https://czekazhacqaamwecjthp.supabase.co/rest/v1/elegance_admin_media?select=imagekit_file_id,url,filename,mime,title,description,brand,category,price,stock,visible,ai_status,created_at&visible=eq.true&order=created_at.desc&limit=1000',{
      headers:{apikey:'sb_publishable_Z51W6iueiL_dmRdmZe6_JQ_WoSirGA3'},signal:AbortSignal.timeout(2500)
    }).then(r=>r.ok?r.json():[]),
    fetch('https://czekazhacqaamwecjthp.supabase.co/functions/v1/elegance-admin',{
