@@ -1,0 +1,53 @@
+name: Elegance MX — Image timeout pipeline smoke test
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/verify-vision-ingestion.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify-vision-ingestion:
+    if: github.repository == 'elsinaloa5757-tech/elegancmx'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/cache@v4
+        with:
+          path: ~/.cache/huggingface
+          key: elegance-free-smolvlm-v1
+      - name: Limit this test to one known silver sneaker
+        run: |
+          python3 - <<'PY'
+          import json
+          p='data/imagekit-media.json'
+          media=json.load(open(p))
+          photo=next(x for x in media if x['fileId']=='6ad86205ead997d09a2accd8')
+          with open(p,'w') as f: json.dump([photo],f)
+          with open('data/vision-drafts.json','w') as f: json.dump([],f)
+          PY
+      - name: Install free CPU-only SmolVLM
+        run: |
+          python3 -m pip install --quiet --index-url https://download.pytorch.org/whl/cpu torch==2.6.0
+          python3 -m pip install --quiet transformers==4.55.2 pillow requests
+      - name: Verify bounded image fetch and vision result
+        env:
+          HF_HUB_DISABLE_TELEMETRY: '1'
+          VISION_BATCH_SIZE: '1'
+        run: |
+          python3 scripts/vision-enrich.py
+          python3 - <<'PY'
+          import json
+          rows=json.load(open('data/vision-drafts.json'))
+          assert len(rows)==1
+          record=rows[0]
+          assert record['fileId']=='6ad86205ead997d09a2accd8'
+          assert record.get('nameSuggestion')=='Tenis plateados', record
+          assert record['verified'] is False
+          print('Bounded free vision test passed:',record['nameSuggestion'])
+          PY
