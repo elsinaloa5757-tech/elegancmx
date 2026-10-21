@@ -16,7 +16,7 @@ Repositorio: `elsinaloa5757-tech/elegancmx`.
 - Archivo histórico base: **3,929 referencias**, desglosadas en **3,909 fotografías** y **20 videos**, en `data/imagekit-media.json`.
 - Clasificación automática por modelo CLIP de ejecución local en GitHub Actions: a la revisión del 20 de octubre de 2026, **3,010 fotos con sugerencias de categoría** y **899 por clasificar con mayor seguridad** (ver `data/auto-categories-summary.json`).
 - **0 productos comerciales confirmados.** `products.json` permanece vacío a propósito: una foto no confirma marca, autenticidad, existencias, precio ni producto único.
-- Automatización: `.github/workflows/catalog-ai.yml` consulta ImageKit de manera no destructiva dos veces por hora, analiza nuevas fotos y actualiza los borradores. Los cambios de datos publicados pueden activar el despliegue por las rutas configuradas en `deploy.yml`.
+- Automatización: `.github/workflows/catalog-ai.yml` comprueba ImageKit de manera no destructiva aproximadamente cada 10 minutos y actualiza las categorías provisionales. Los cambios de datos publicados pueden activar el despliegue por las rutas configuradas en `deploy.yml`.
 - El panel de administración permite subidas de hasta 250 fotos/videos por lote, compresión WebP de imágenes, comprobación de duplicados y modificaciones aprobadas.
 - La prueba real de firma ImageKit guardada en Supabase Vault se completó satisfactoriamente (20 de octubre de 2026); creó y eliminó su archivo temporal. Las originales de ImageKit no se sustituyen ni destruyen.
 
@@ -24,14 +24,21 @@ Repositorio: `elsinaloa5757-tech/elegancmx`.
 
 El único panel vigente está integrado en la página principal. La ruta antigua `/studio.html` redirige a `/?administrador=1`. No utilizar ningún panel Studio separado para publicar mercancía.
 
-La lista de autorización administrativa de Supabase ya contiene el correo propietario registrado. A la revisión del 20 de octubre aún no había una cuenta de autenticación **confirmada** que coincidiera con la lista. El propietario debe:
-
-1. Abrir https://elegancemx-14c.pages.dev/?administrador=1.
-2. Introducir **su correo ya autorizado** y una contraseña nueva de uso exclusivo.
-3. Pulsar **Crear mi acceso seguro** y confirmar el enlace enviado al correo, si Supabase lo exige.
-4. Volver a iniciar sesión y verificar el aviso **Acceso administrativo verificado** antes de subir fotos. No enviar contraseñas por chat.
+La lista de autorización administrativa de Supabase ya contiene el correo propietario registrado. A partir del 21 de octubre de 2026, la cuenta autorizada **ya está confirmada y ha iniciado sesión**. Para acceder, abrir https://elegancemx-14c.pages.dev/?administrador=1 e iniciar sesión con la contraseña existente. **No** crear otra cuenta ni publicar ninguna credencial en el repositorio.
 
 El inicio de sesión y todas las operaciones administrativas están validadas por una Edge Function con verificación de usuario y lista de correos autorizados. La clave privada de ImageKit no debe enviarse al navegador.
+
+## Reconocimiento gratuito de fotografías y vinculación manual
+
+- **Publicación inmediata:** la función protegida `elegance-admin` registra cada carga en Supabase e ImageKit. Su acción de consulta `visibility` publica solo los campos públicos de fotografías visibles; no devuelve SHA-256, credenciales, precios, existencias ni información del usuario.
+- **Clasificación CLIP:** `.github/workflows/catalog-ai.yml` exporta ImageKit sin cambios destructivos, propone categorías y busca nuevas fotografías aproximadamente cada 10 minutos. GitHub Actions puede retrasar sus horarios. Después de guardar cambios, solicita el despliegue de Cloudflare y una ejecución de la IA visual.
+- **Visión abierta SmolVLM:** `.github/workflows/vision-enrich.yml` procesa hasta 40 fotos por ejecución, programada dos veces cada hora y además invocable desde CLIP. Sus nombres en `data/vision-drafts.json` son borradores, no marcas/modelos/comercialización verificados.
+- **Sugerencias de fotografías parecidas:** `scripts/build-visual-relations.mjs` compara huellas perceptuales de fotografías de la misma categoría con distancia Hamming 0-1. Emite `data/visual-relations.json`, un listado **no verificado** que no elimina ni fusiona nada. Fotos del mismo producto desde ángulos distintos pueden no detectarse.
+- **Agrupación revisada por el propietario:** desde el administrador, en **Editar artículo → Revisar fotografías relacionadas**, se puede vincular una sugerencia tras comparar las imágenes; también se puede desagrupar. La acción autenticada `set-group` conserva una referencia `group_id` por fotografía en Supabase. La tienda solo reúne en una galería los vínculos ya aprobados, nunca los propuestos por la IA.
+- **Auditoría:** `tests/visual-relations.test.mjs`, `tests/visual-photo-pipeline.spec.js`, `tests/admin-photo-groups.spec.js` y el flujo `verify-admin-cors.yml` prueban la separación entre propuestas públicas y modificaciones administrativas. Los datos reales de clasificación se consultan en `data/auto-categories-summary.json`.
+- **Sin gastos de inferencia por fotografía:** los modelos abiertos se ejecutan en los runners de GitHub Actions, sujetos a límites, demoras y políticas de GitHub. No se han añadido APIs de inferencia de pago.
+
+**Límite técnico:** modelo o marca exacta, autenticidad, talla y existencias siguen requiriendo evidencia verificable. Un nombre propuesto por la IA no convierte una foto en un artículo comercial confirmado.
 
 ## Canales sociales y pedidos
 
