@@ -1,0 +1,72 @@
+name: Elegance MX — Identificación visual gratuita por lotes
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/vision-enrich.yml'
+  schedule:
+    - cron: '24 * * * *'
+  workflow_dispatch:
+    inputs:
+      batch_size:
+        description: 'Fotos a analizar en CPU en esta ejecución (1-8)'
+        required: false
+        default: '5'
+permissions:
+  contents: write
+  actions: write
+concurrency:
+  group: elegance-vision-catalog
+  cancel-in-progress: false
+jobs:
+  visualize:
+    if: github.repository == 'elsinaloa5757-tech/elegancmx' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 75
+    env:
+      VISION_BATCH_SIZE: ${{ github.event_name == 'workflow_dispatch' && inputs.batch_size || '5' }}
+      HF_HUB_DISABLE_TELEMETRY: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/cache@v4
+        with:
+          path: ~/.cache/huggingface
+          key: elegance-free-smolvlm-v1
+      - name: Probar reglas de identidad comercial provisional
+        run: python3 -m unittest discover -s tests -p 'test_vision_drafts.py' -v
+      - name: Instalar visión abierta en CPU sin APIs de pago
+        run: |
+          python3 -m pip install --quiet --index-url https://download.pytorch.org/whl/cpu torch==2.6.0
+          python3 -m pip install --quiet transformers==4.55.2 pillow requests
+      - name: Analizar fotografías pendientes sin tocar originales
+        run: python3 scripts/vision-enrich.py
+      - name: Actualizar las categorías con sugerencias visuales conservadoras
+        run: node scripts/build-auto-categories.mjs
+      - name: Validar contenido público sin productos falsos
+        run: node scripts/build-public.mjs
+      - name: Guardar únicamente borradores de visión y clasificación
+        id: save
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/vision-drafts.json data/auto-categories.json data/auto-categories-summary.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'data(vision): no-fee visual description drafts and safe category routing'
+            git fetch origin main
+            git rebase origin/main
+            git push origin HEAD:main
+            echo 'changed=true' >> "$GITHUB_OUTPUT"
+          else
+            echo 'changed=false' >> "$GITHUB_OUTPUT"
+          fi
+      - name: Publicar nuevas sugerencias y categorías en Cloudflare
+        if: steps.save.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run deploy.yml --ref main
