@@ -212,11 +212,13 @@ async function load(){
  S.items=[...existing,...historic];
  $('admin-count-files').textContent=S.items.length.toLocaleString('es-MX');
  $('admin-count-vision').textContent=[...S.vision.values()].filter(x=>x.nameSuggestion).length.toLocaleString('es-MX');
+ $('admin-similar-count').textContent='('+S.similar.size.toLocaleString('es-MX')+' fotos)';
  S.shown=48;render();
 }
 function render(){
  const query=$('admin-media-search').value.toLowerCase().trim();
- const match=S.items.filter(x=>[x.filename,x.title,S.vision.get(x.fileId)?.nameSuggestion,x.brand,x.category,x.fileId,S.routes.get(x.fileId)].join(' ').toLowerCase().includes(query));
+ const onlySimilar=$('admin-similar-only').checked;
+ const match=S.items.filter(x=>(!onlySimilar||S.similar.has(x.fileId))&&[x.filename,x.title,S.vision.get(x.fileId)?.nameSuggestion,x.brand,x.category,x.fileId,S.routes.get(x.fileId)].join(' ').toLowerCase().includes(query));
  $('admin-media-grid').innerHTML=match.slice(0,S.shown).map(x=>
   '<article class="admin-media-card" data-id="'+esc(x.fileId)+'">'+
   (x.mime.startsWith('video/')?'<video preload="none" muted src="'+esc(x.url)+'"></video>':'<img loading="lazy" src="'+esc(x.url)+'" alt="">')+
@@ -314,6 +316,7 @@ function bind(){
  $('admin-clear-files').addEventListener('click',()=>{if(S.uploading)return;S.files=[];$('admin-files').value='';queue([])});
  $('admin-refresh').addEventListener('click',()=>load().catch(e=>notice(e.message,true)));
  $('admin-media-search').addEventListener('input',()=>{S.shown=48;render()});
+ $('admin-similar-only').addEventListener('change',()=>{S.shown=48;render()});
  $('admin-more').addEventListener('click',()=>{S.shown+=48;render()});
  $('admin-media-grid').addEventListener('click',e=>{const b=e.target.closest('[data-edit-admin]');if(b)edit(b.dataset.editAdmin)});
 }
