@@ -4,6 +4,9 @@ on:
     branches: [main]
     paths:
       - '.github/workflows/vision-enrich.yml'
+      - 'scripts/vision-enrich.py'
+      - 'scripts/vision-catalog-utils.py'
+      - 'tests/test_vision_drafts.py'
   schedule:
     - cron: '24 * * * *'
   workflow_dispatch:
