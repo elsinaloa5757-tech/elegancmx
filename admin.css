@@ -105,3 +105,12 @@
 .admin-similar-filter{display:flex;align-items:center;flex-wrap:wrap;gap:7px;margin:7px 0 14px;padding:9px 12px;border:1px solid #345a78;border-radius:8px;font-size:11px;color:#c6e6f7;background:#0a2032;cursor:pointer}
 .admin-similar-filter input{width:16px;height:16px;accent-color:#8dd6ff;cursor:pointer}
 .admin-similar-filter span{font-variant-numeric:tabular-nums;color:#9bd8ff}
+
+/* Read-only free AI quality audit; owner fixes are always explicit. */
+.admin-ai-audit{display:grid;gap:9px;margin:7px 0 15px;padding:14px;border:1px solid #517e9b;border-radius:10px;background:linear-gradient(145deg,#071522,#102a3e);color:#d6ebf9;font-size:12px}
+.admin-ai-audit strong{color:#b5e4ff}
+.admin-ai-audit label{display:flex;flex-wrap:wrap;align-items:center;gap:10px;color:#c4d9ed;font-size:12px}
+.admin-ai-audit select{min-width:min(100%,280px);padding:8px 10px;background:#03121e;border:1px solid #6aa5c7;color:#effaff;border-radius:6px}
+.admin-ai-audit small{color:#9db5c5;font-size:10px;line-height:1.5}
+.admin-ai-conflict{color:#ffd8a1!important;font-weight:600}
+@media(max-width:650px){.admin-ai-audit select{width:100%;min-width:0}}
