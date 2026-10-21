@@ -44,19 +44,3 @@ jobs:
             exit 1
           fi
           echo "Elegance admin CORS: 204; unauthorized admin access: 401. Both verified."
-; then
-            echo "::error::Preflight did not authorize the Elegance origin"
-            exit 1
-          fi
-          if ! grep -qi '^access-control-allow-headers:' /tmp/elegance-preflight-headers; then
-            echo "::error::Missing preflight allowed headers"
-            exit 1
-          fi
-          unauthorized=$(curl --silent --show-error --max-time 25 --output /dev/null --write-out '%{http_code}' \
-            --request POST "$url" --header "Origin: $origin" \
-            --header 'Content-Type: application/json' --data '{"action":"status"}')
-          if [ "$unauthorized" != "401" ]; then
-            echo "::error::Unauthenticated admin request returned HTTP $unauthorized (expected 401)"
-            exit 1
-          fi
-          echo "Elegance admin CORS: 204; unauthorized admin access: 401. Both verified."
