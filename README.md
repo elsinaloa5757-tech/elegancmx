@@ -36,7 +36,7 @@ El inicio de sesión y todas las operaciones administrativas están validadas po
 ## Canales sociales y pedidos
 
 - Instagram enlazado a su perfil identificable: https://www.instagram.com/5_elegance_7/
-- Facebook, TikTok y WhatsApp: enlaces directos a las cuentas oficiales todavía sin confirmar. El trébol presenta destinos generales para esos tres canales.
+- Facebook enlazado a la página conectada a la marca Elegance MX en Metricool: https://www.facebook.com/profile.php?id=1435660872952998\n- TikTok: la conexión de Metricool corresponde a `javiersanchez570`, pero todavía no se ha demostrado que sea la cuenta comercial de Elegance; el trébol mantiene un enlace general.\n- WhatsApp: número oficial de atención todavía sin verificar; el trébol mantiene un enlace general.
 - No inventar un número de WhatsApp, precios ni métodos de cobro. Las consultas pueden copiar referencias de las fotos para preguntar por canales conocidos fuera del sitio.
 - Evitar cualquier cambio en GabyCases u otros repositorios y aplicaciones.
 
