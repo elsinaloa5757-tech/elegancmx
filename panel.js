@@ -10,13 +10,13 @@ const MORE_BRANDS=['Louis Vuitton','Gucci','Dior','Prada'];
 let expandedBrands=false,expandedCategories=false;
 const LS_FAV='elegance_public_favorites_v3',LS_INQ='elegance_public_inquiries_v3';
 const getSaved=key=>{try{const a=JSON.parse(localStorage.getItem(key)||'[]');return new Set(Array.isArray(a)?a.filter(x=>typeof x==='string'):[]);}catch{return new Set();}};
-const state={media:[],allMedia:[],groups:new Map(),curation:new Map(),adminOverrides:new Map(),mediaById:new Map(),routes:new Map(),ai:new Map(),favorites:getSaved(LS_FAV),inquiries:getSaved(LS_INQ),filterCat:'',filterConfidence:'all',filterBrand:'',search:'',sort:'new',collection:'',page:0,pageSize:30};
+const state={media:[],allMedia:[],groups:new Map(),curation:new Map(),adminOverrides:new Map(),mediaById:new Map(),routes:new Map(),ai:new Map(),vision:new Map(),favorites:getSaved(LS_FAV),inquiries:getSaved(LS_INQ),filterCat:'',filterConfidence:'all',filterBrand:'',search:'',sort:'new',collection:'',page:0,pageSize:30};
 const normalizeCat=cat=>cat==='Playeras'?'Ropa':cat||null;
 const getRoute=id=>state.routes.get(id)||{};
 const override=id=>({...state.curation.get(id),...state.adminOverrides.get(id)});
 const getCat=id=>{const edit=override(id);return edit.category===null?null:normalizeCat(edit.category||getRoute(id).category)};
 const suggestionBrand=id=>override(id).brand||state.ai.get(id)?.brandSuggestion||null;
-const getLabel=m=>override(m.fileId).name||getRoute(m.fileId)?.legacyReference?.historicalName||((getCat(m.fileId)||'Artículo')+' · Referencia');
+const getLabel=m=>override(m.fileId).name||getRoute(m.fileId)?.legacyReference?.historicalName||state.vision.get(m.fileId)?.nameSuggestion||((getCat(m.fileId)||'Artículo')+' · Referencia');
 const shortRef=id=>{let h=2166136261;for(const ch of id)h=Math.imul(h^ch.charCodeAt(0),16777619)>>>0;return 'E-'+h.toString(16).padStart(8,'0').toUpperCase()};
 const safeImg=m=>{try{const u=new URL(m.url);return u.protocol==='https:'&&u.hostname==='ik.imagekit.io'&&u.pathname.startsWith('/elegancemx/elegance/products/')}catch{return false}};
 const item=m=>({id:m.fileId,ref:shortRef(m.fileId),name:getLabel(m),url:m.url,category:getCat(m.fileId)||'Por clasificar'});
@@ -56,7 +56,7 @@ function card(m,type='small'){
    '<button class="floating-heart" type="button" data-fav="'+esc(m.fileId)+'" aria-label="'+(fav?'Quitar favorito':'Guardar favorito')+'">'+(fav?'♥':'♡')+'</button>'+
    '<div class="catalog-card-info"><span class="micro-category">'+esc(data.category)+'</span>'+
    '<button class="card-title" type="button" data-open="'+esc(m.fileId)+'">'+esc(data.name)+'</button>'+
-   '<p class="card-ref">'+esc(data.ref)+' · Por confirmar</p>'+
+   '<p class="card-ref">'+esc(data.ref)+' · '+(state.vision.get(m.fileId)?.nameSuggestion?'Descripción IA · Sin verificar':'Por confirmar')+'</p>'+
    '<button class="query-add" type="button" data-inq="'+esc(m.fileId)+'">'+(inq?'✓ En consultas':'＋ Consultar')+'</button></div></article>';
 }
 function pick(cat){return state.media.find(m=>cat==='Accesorios'?ACCESSORY_CATS.has(getCat(m.fileId)):getCat(m.fileId)===cat)}
@@ -102,7 +102,7 @@ function matches(m){
  if(state.filterConfidence==='classified'&&!cat)return false;
  if(state.filterConfidence==='pending'&&cat)return false;
  if(state.search){
- const raw=[cat,r.legacyReference?.historicalName,brand,m.fileId,shortRef(m.fileId)].filter(Boolean).join(' ').toLocaleLowerCase('es-MX');
+ const raw=[cat,getLabel(m),r.legacyReference?.historicalName,brand,m.fileId,shortRef(m.fileId)].filter(Boolean).join(' ').toLocaleLowerCase('es-MX');
  if(!raw.includes(state.search))return false;
  }
  return true;
@@ -131,6 +131,7 @@ function showItem(id){
   '<div class="detail-text"><span class="micro-category">'+esc(p.category)+'</span>'+
   '<h2>'+esc(p.name)+'</h2><p class="detail-code">Código de referencia: '+esc(p.ref)+'</p>'+
   (b?'<p>Marca sugerida por IA: '+esc(b)+' (sin verificar)</p>':'')+
+  (state.vision.get(id)?.visualDescriptionUnverified?'<p>Descripción visual propuesta por IA (sin verificar): '+esc(state.vision.get(id).visualDescriptionUnverified)+'</p>':'')+
   '<p>Esta es una fotografía del archivo ImageKit. Identificación, agrupación, tallas, precios y existencia pendientes de confirmación.</p>'+
   '<div class="detail-actions"><button type="button" data-fav="'+esc(id)+'">'+(isFav?'♥ Quitar favorito':'♡ Añadir a favoritos')+'</button>'+
   '<button type="button" data-inq="'+esc(id)+'">'+(isInq?'✓ Quitar de consultas':'＋ Agregar a consultas')+'</button>'+
@@ -256,15 +257,16 @@ async function boot(){
      method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({action:'visibility'}),signal:AbortSignal.timeout(2500)
    }).then(r=>r.ok?r.json():{hiddenIds:[]})
  ]);
- const [fm,fr,fa,fc]=await Promise.all([
+ const [fm,fr,fa,fc,fv]=await Promise.all([
    fetch('data/imagekit-media.json'),fetch('data/auto-categories.json'),
-   fetch('data/ai-classifications.json'),fetch('data/catalog-curation.json')
+   fetch('data/ai-classifications.json'),fetch('data/catalog-curation.json'),fetch('data/vision-drafts.json').catch(()=>null)
  ]);
  if(!fm.ok||!fr.ok||!fc.ok)throw Error('El archivo multimedia no está disponible');
- const [media,routes,ai,curation]=await Promise.all([fm.json(),fr.json(),fa.ok?fa.json():[],fc.json()]);
+ const [media,routes,ai,curation,visual]=await Promise.all([fm.json(),fr.json(),fa.ok?fa.json():[],fc.json(),fv?.ok?fv.json():[]]);
  if(!Array.isArray(media)||!Array.isArray(routes)||!Array.isArray(ai)||curation?.version!==1)throw Error('Formatos no válidos');
  state.routes=new Map(routes.filter(x=>x.fileId).map(x=>[x.fileId,x]));
  state.ai=new Map(ai.filter(x=>x.fileId).map(x=>[x.fileId,x]));
+ state.vision=new Map((Array.isArray(visual)?visual:[]).filter(x=>x.fileId&&x.status==='requires_review'&&x.verified===false).map(x=>[x.fileId,x]));
  state.curation=new Map(Object.entries(curation.entries||{}));
  const liveResult=await dynamicPromise;
  const publicRecords=liveResult[0]?.status==='fulfilled'&&Array.isArray(liveResult[0].value)?liveResult[0].value:[];
