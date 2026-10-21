@@ -30,6 +30,8 @@ on:
       - 'data/visual-relations.json'
       - 'data/identification-audit.json'
       - 'data/web-reference-candidates.json'
+      - 'data/name-drafts.json'
+      - 'data/ocr-drafts.json'
       - 'data/owner-feedback.json'
       - '.github/workflows/deploy.yml'
   workflow_dispatch:
