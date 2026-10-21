@@ -192,7 +192,7 @@
     "verified": false,
     "source": "smolvlm_open_cpu",
     "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
-    "attempts": 1
+    "attempts": 2
   },
   {
     "fileId": "6ad217f6ead997d09ac78778",
@@ -233,7 +233,7 @@
     "verified": false,
     "source": "smolvlm_open_cpu",
     "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
-    "attempts": 1
+    "attempts": 2
   },
   {
     "fileId": "6ad217eaead997d09ac70135",
@@ -259,7 +259,7 @@
     "verified": false,
     "source": "smolvlm_open_cpu",
     "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
-    "attempts": 1
+    "attempts": 2
   },
   {
     "fileId": "6ad002e3ead997d09a7f7002",
@@ -285,7 +285,7 @@
     "verified": false,
     "source": "smolvlm_open_cpu",
     "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
-    "attempts": 1
+    "attempts": 2
   },
   {
     "fileId": "6acfcb59ead997d09a5f6dbf",
@@ -298,7 +298,7 @@
     "verified": false,
     "source": "smolvlm_open_cpu",
     "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
-    "attempts": 1
+    "attempts": 2
   },
   {
     "fileId": "6acfcb57ead997d09a5f6282",
@@ -350,7 +350,7 @@
     "verified": false,
     "source": "smolvlm_open_cpu",
     "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
-    "attempts": 1
+    "attempts": 2
   },
   {
     "fileId": "6acfcb4cead997d09a5f3767",
@@ -363,12 +363,190 @@
     "verified": false,
     "source": "smolvlm_open_cpu",
     "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
-    "attempts": 1
+    "attempts": 2
   },
   {
     "fileId": "6acec100ead997d09a7037d3",
     "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-69554e35-2e88-4345-855a-6fc8c2050a6a_jjbOmqxKZ.webp?updatedAt=1791934721159",
     "visualDescriptionUnverified": "The shoe is a MCCQUEEN sneaker.",
+    "categorySuggestion": "Tenis",
+    "nameSuggestion": "Tenis",
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acec0ffead997d09a702650",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-d67eaa5a-a58d-4614-9cba-97bd9230cbf9_j4zRDL9Re.webp?updatedAt=1791934719834",
+    "visualDescriptionUnverified": "The product is a brown shoe. Its visible colors are brown and black. The brand or exact model is not mentioned.",
+    "categorySuggestion": null,
+    "nameSuggestion": null,
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acebd71ead997d09a60a56b",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-0e1110e1-2eff-4ba7-8079-4b3f8c87e695_pEKmMuy5I.webp?updatedAt=1791933809338",
+    "visualDescriptionUnverified": "The main fashion product in this image is a pair of gold-framed glasses with a gold-embellished handle.",
+    "categorySuggestion": "Lentes",
+    "nameSuggestion": "Lentes dorados",
+    "colorsSuggestion": [
+      "dorado"
+    ],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acebd6fead997d09a60a1c3",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-4510ac22-5ee7-4fe3-b717-f646677cdf0a_-759D8yhJk.webp?updatedAt=1791933807582",
+    "visualDescriptionUnverified": "Gucci.",
+    "categorySuggestion": null,
+    "nameSuggestion": null,
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acebd6bead997d09a609941",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-834aba45-2547-4e78-a1cf-746382432fc6_ELKiCwddl.webp?updatedAt=1791933803914",
+    "visualDescriptionUnverified": "The main fashion product in this image is a Gucci sneaker.",
+    "categorySuggestion": "Tenis",
+    "nameSuggestion": "Tenis",
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acebd65ead997d09a608df2",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-b28ebf51-e82b-4f98-a4a7-74ef63d7f313_26rQf3o9O.webp?updatedAt=1791933798105",
+    "visualDescriptionUnverified": "The product in this image is a pair of purple sunglasses.",
+    "categorySuggestion": "Lentes",
+    "nameSuggestion": "Lentes morados",
+    "colorsSuggestion": [
+      "morado"
+    ],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acebd5eead997d09a60749a",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-57287694-97ed-4a80-ad86-bc4b9d621ff7_KpI3U10-k.webp?updatedAt=1791933790838",
+    "visualDescriptionUnverified": "The product in the image is a pair of Fendi sneakers.",
+    "categorySuggestion": "Tenis",
+    "nameSuggestion": "Tenis",
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acebd54ead997d09a605e36",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-a722bbcd-9373-4fa6-80ac-8c1ba110d610_cJ8oqS7QI.webp?updatedAt=1791933780424",
+    "visualDescriptionUnverified": "The product is a pair of Glasses.",
+    "categorySuggestion": "Lentes",
+    "nameSuggestion": "Lentes",
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acebd4fead997d09a604d34",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-9d322574-a829-4d81-86ab-7caac4b7aaa6_v6xnoep3QQ.webp?updatedAt=1791933775884",
+    "visualDescriptionUnverified": "The main fashion product in this image is a pair of yellow sneakers.",
+    "categorySuggestion": "Tenis",
+    "nameSuggestion": "Tenis",
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acebd4eead997d09a6049b7",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-d51181ab-46b0-4707-ae04-0b2989d62b02_EMzYEGYl8.webp?updatedAt=1791933774286",
+    "visualDescriptionUnverified": "The product is a blue sneaker.",
+    "categorySuggestion": "Tenis",
+    "nameSuggestion": "Tenis azules",
+    "colorsSuggestion": [
+      "azul"
+    ],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acebd44ead997d09a602b7d",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-a612c18f-9155-4646-b748-828d0f5dab33_siZmLCr_L.webp?updatedAt=1791933764973",
+    "visualDescriptionUnverified": "The product is a pair of sunglasses with a white, translucent, and silver cap. The visible logo on the cap is \"alo,\" which is a stylized letter \"O\" with a small circle above it.",
+    "categorySuggestion": null,
+    "nameSuggestion": null,
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acebd44ead997d09a6026d1",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-560033fd-0602-4c11-ab73-c053fe9cca07_dt4sOnmcD.webp?updatedAt=1791933764748",
+    "visualDescriptionUnverified": "The main fashion product in this image is a pair of blue, black, and white alo sunglasses.",
+    "categorySuggestion": "Lentes",
+    "nameSuggestion": "Lentes",
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acebd44ead997d09a60236a",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-12ff6ec0-0a86-4857-a747-c19deb5d73f8_OqrAG1b9C.webp?updatedAt=1791933764501",
+    "visualDescriptionUnverified": "The product is a hat. Its visible colors are green and silver. The brand or exact model is also unknown.",
+    "categorySuggestion": "Gorras",
+    "nameSuggestion": "Gorra plateada",
+    "colorsSuggestion": [
+      "plateado",
+      "verde"
+    ],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acebd44ead997d09a6022d4",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-7c86920c-3265-405e-be6c-54a2439b6803__iAjfM5II.webp?updatedAt=1791933764429",
+    "visualDescriptionUnverified": "The product in this image is a pair of \"Alo\" sneakers.",
     "categorySuggestion": "Tenis",
     "nameSuggestion": "Tenis",
     "colorsSuggestion": [],
