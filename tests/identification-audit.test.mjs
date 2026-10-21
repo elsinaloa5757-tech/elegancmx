@@ -35,3 +35,33 @@ test('unapproved machine responses never count as reviewed truth',()=>{
  assert.equal(out.modelConflict,0);
  assert.equal(out.ownerReviewedCount,0);
 });
+
+test('owner reviewed similar photo suggests a category but never overwrites the existing route',()=>{
+ const photos=[photo('approved'),photo('candidate')];
+ const report=auditIdentification({
+   media:photos,
+   routes:[{fileId:'approved',category:'Tenis'},{fileId:'candidate',category:'Bolsas'}],
+   vision:[],ai:[],
+   curation:{entries:{}},
+   ownerFeedback:[{fileId:'approved',category:'Tenis',verifiedByOwner:true,source:'owner_entered_category'}],
+   relations:{pairs:[{a:'approved',b:'candidate',distance:0}]}
+ });
+ assert.equal(report.ownerReviewedCount,1);
+ assert.equal(report.counters.ownerReferenceSuggestions,1);
+ const suggested=report.queue.find(x=>x.fileId==='candidate');
+ assert.equal(suggested.reason,'conflict');
+ assert.equal(suggested.category,'Bolsas','existing categorization remains unchanged');
+ assert.equal(suggested.ownerReferenceCategory,'Tenis');
+ assert.equal(suggested.ownerReferenceFileId,'approved');
+ assert.equal(report.ownerMeasuredAccuracy,null,'A single approved photo is not accuracy evidence');
+});
+test('contradicting confirmed examples must not produce a category suggestion',()=>{
+ const output=auditIdentification({
+   media:['a','b','c'].map(photo),
+   routes:[{fileId:'a',category:'Tenis'},{fileId:'b',category:'Bolsas'},{fileId:'c',category:null}],
+   vision:[],ai:[],
+   curation:{entries:{a:{reviewed:true,category:'Tenis'},b:{reviewed:true,category:'Bolsas'}}},
+   relations:{pairs:[{a:'a',b:'c',distance:0},{a:'b',b:'c',distance:0}]}
+ });
+ assert.equal(output.queue.find(x=>x.fileId==='c').ownerReferenceCategory,null);
+});
