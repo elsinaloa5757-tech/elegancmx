@@ -131,7 +131,7 @@ function showItem(id){
   '<div class="detail-text"><span class="micro-category">'+esc(p.category)+'</span>'+
   '<h2>'+esc(p.name)+'</h2><p class="detail-code">Código de referencia: '+esc(p.ref)+'</p>'+
   (b?'<p>Marca sugerida por IA: '+esc(b)+' (sin verificar)</p>':'')+
-  (state.vision.get(id)?.visualDescriptionUnverified?'<p>Descripción visual propuesta por IA (sin verificar): '+esc(state.vision.get(id).visualDescriptionUnverified)+'</p>':'')+
+  (state.vision.get(id)?.nameSuggestion?'<p>Identificación visual propuesta por IA (sin verificar): '+esc(state.vision.get(id).nameSuggestion)+'. No acredita marca, modelo ni autenticidad.</p>':'')+
   '<p>Esta es una fotografía del archivo ImageKit. Identificación, agrupación, tallas, precios y existencia pendientes de confirmación.</p>'+
   '<div class="detail-actions"><button type="button" data-fav="'+esc(id)+'">'+(isFav?'♥ Quitar favorito':'♡ Añadir a favoritos')+'</button>'+
   '<button type="button" data-inq="'+esc(id)+'">'+(isInq?'✓ Quitar de consultas':'＋ Agregar a consultas')+'</button>'+
