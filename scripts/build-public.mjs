@@ -38,6 +38,20 @@ if(!Array.isArray(ownerFeedback)||ownerFeedback.some(x=>!allowedIds.has(x.fileId
   x.verifiedByOwner!==true||x.source!=='owner_entered_category'||typeof x.category!=='string'||
   Object.keys(x).some(k=>!['fileId','category','source','verifiedByOwner'].includes(k))))
  throw Error('Unsafe owner feedback cache');
+const [nameDrafts,ocrDrafts,webRefs]=await Promise.all([
+ read('data/name-drafts.json'),read('data/ocr-drafts.json'),read('data/web-reference-candidates.json')
+]);
+if(nameDrafts?.version!==1||nameDrafts.verified!==false||!Array.isArray(nameDrafts.records)||
+ !Array.isArray(ocrDrafts)||!Array.isArray(webRefs))throw Error('Invalid background identification caches');
+if(new Set(nameDrafts.records.map(x=>x.fileId)).size!==nameDrafts.records.length||
+ nameDrafts.records.some(x=>!allowedIds.has(x.fileId)||x.verified!==false||
+  x.nameSuggestion!==null&&(typeof x.nameSuggestion!=='string'||x.nameSuggestion.length>100))||
+ ocrDrafts.some(x=>!allowedIds.has(x.fileId)||x.verified!==false||
+  !Array.isArray(x.skuCandidates)||!Array.isArray(x.brandHints))||
+ webRefs.some(x=>!allowedIds.has(x.fileId)||x.verified!==false||
+  !Array.isArray(x.candidates)||x.candidates.some(p=>{
+    try{return new URL(p.url).hostname!=='www.wikidata.org'}catch{return true}
+  })))throw Error('Unsafe provisional auto identification data');
 if(Object.keys(curation.entries).some(id=>!allowedIds.has(id)))throw Error('Unknown curated photo ID');
 if(Object.values(curation.entries).some(row=>['price','stock','availability','size'].some(key=>key in row)))throw Error('No prices, stock or sizes allowed in Studio curation');
 const homepage=await fs.readFile('index.html','utf8');
@@ -68,7 +82,7 @@ const cloverAsset=await fs.readFile('assets/elegance-social-clover.webp');
 if(cloverAsset.byteLength<6000||cloverAsset.toString('ascii',0,4)!=='RIFF'||cloverAsset.toString('ascii',8,12)!=='WEBP')
   throw Error('Approved gemstone clover image missing or invalid');
 await fs.copyFile('assets/elegance-social-clover.webp',path.join(dir,'assets/elegance-social-clover.webp'));
-for(const name of ['imagekit-media.json','auto-categories.json','auto-categories-summary.json','ai-classifications.json','vision-drafts.json','visual-relations.json','identification-audit.json','web-reference-candidates.json','social-links.json','catalog-curation.json']){
+for(const name of ['imagekit-media.json','auto-categories.json','auto-categories-summary.json','ai-classifications.json','vision-drafts.json','visual-relations.json','identification-audit.json','web-reference-candidates.json','name-drafts.json','ocr-drafts.json','social-links.json','catalog-curation.json']){
  await fs.copyFile(path.join('data',name),path.join(dir,'data',name));
 }
 await fs.writeFile(path.join(dir,'_headers'),
