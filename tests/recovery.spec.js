@@ -3,7 +3,8 @@ test('public archive loads real ImageKit photos and original panther',async({pag
  await page.goto('/archivo.html');
  await expect(page).toHaveTitle(/Elegance MX/);
  await expect(page.locator('.hero')).toBeVisible();
- await expect(page.locator('#recovery-count')).toHaveText('3,909');
+ const imageCount=await page.evaluate(async()=> (await(await fetch('data/imagekit-media.json')).json()).filter(m=>m.mime?.startsWith('image/')).length);
+ await expect(page.locator('#recovery-count')).toHaveText(imageCount.toLocaleString('en-US'));
  await expect(page.locator('#recovery-grid .recovery-card')).toHaveCount(30);
  await expect(page.locator('#recovery-grid img')).toHaveCount(30);
  await expect(page.locator('#recovery-grid [data-copy]')).toHaveCount(30);
