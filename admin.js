@@ -5,7 +5,7 @@ const API=HOST+'/functions/v1/elegance-admin', $=id=>document.getElementById(id)
 const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const CAT=['Tenis','Bolsas','Ropa','Playeras','Gorras','Pantalones','Accesorios','Joyería','Relojes','Lentes','Fragancias','Calzado','Vestidos','Lencería','Cinturones','Buckets'];
 const TYPES=new Set(['image/jpeg','image/png','image/webp','video/mp4','video/webm']);
-const S={session:null,authorized:false,ready:false,files:[],items:[],routes:new Map(),vision:new Map(),uploading:false,cancelled:false,requests:new Set(),shown:48};
+const S={session:null,authorized:false,ready:false,files:[],items:[],routes:new Map(),vision:new Map(),similar:new Map(),uploading:false,cancelled:false,requests:new Set(),shown:48};
 function notice(s,error=false){$('admin-message').textContent=s;$('admin-message').dataset.error=String(error)}
 function store(){try{if(S.session)sessionStorage.setItem('elegance_admin_auth_v1',JSON.stringify(S.session));else sessionStorage.removeItem('elegance_admin_auth_v1')}catch{}}
 async function auth(path,payload){
@@ -188,13 +188,22 @@ async function uploadBatch(){
 function norm(x){return {id:x.id||null,fileId:x.imagekit_file_id||x.fileId,
  url:x.url,mime:x.mime,filename:x.filename||x.name||'Imagen ImageKit',title:x.title||'',brand:x.brand||'',
  category:x.category||'',description:x.description||'',price:x.price??null,stock:x.stock??null,
- visible:x.visible!==false,createdAt:x.created_at||x.createdAt||'',reviewed:!!x.id};}
+ visible:x.visible!==false,createdAt:x.created_at||x.createdAt||'',groupId:x.group_id||null,reviewed:!!x.id};}
 async function load(){
- const [live,raw,routes,visual]=await Promise.all([api('list'),
+ const [live,raw,routes,visual,similar]=await Promise.all([api('list'),
   fetch('data/imagekit-media.json').then(r=>r.json()),
   fetch('data/auto-categories.json').then(r=>r.json()),
-  fetch('data/vision-drafts.json').then(r=>r.ok?r.json():[]).catch(()=>[])
+  fetch('data/vision-drafts.json').then(r=>r.ok?r.json():[]).catch(()=>[]),
+  fetch('data/visual-relations.json').then(r=>r.ok?r.json():{pairs:[]}).catch(()=>({pairs:[]}))
  ]);
+ S.similar=new Map();
+ if(similar?.verified===false&&Array.isArray(similar.pairs))for(const pair of similar.pairs){
+  for(const [a,b] of [[pair.a,pair.b],[pair.b,pair.a]]){
+   if(!a||!b||a===b||pair.distance>1)continue;
+   const list=S.similar.get(a)||[];
+   if(list.length<12&&!list.includes(b)){list.push(b);S.similar.set(a,list)}
+  }
+ }
  S.vision=new Map((Array.isArray(visual)?visual:[]).filter(x=>x.fileId&&x.status==='requires_review'&&x.verified===false).map(x=>[x.fileId,x]));
  S.routes=new Map(routes.filter(x=>x.fileId).map(x=>[x.fileId,x.category]));
  const existing=live.items.map(norm),seen=new Set(existing.map(x=>x.fileId));
@@ -214,6 +223,8 @@ function render(){
   '<div class="admin-media-copy"><strong>'+esc(x.title||S.vision.get(x.fileId)?.nameSuggestion||x.filename)+'</strong>'+ 
   (!x.title&&S.vision.get(x.fileId)?.nameSuggestion?'<small>Propuesta visual IA · sin verificar</small>':'')+
   '<small>'+esc(x.category||S.routes.get(x.fileId)||'Por clasificar')+' · '+esc(x.fileId.slice(-9))+'</small>'+
+  (x.groupId?'<small>Galería aprobada: '+esc(x.groupId.slice(-9))+'</small>':'')+
+  (S.similar.get(x.fileId)?.length?'<small>Fotos parecidas para revisar: '+S.similar.get(x.fileId).length+'</small>':'')+
   '<small class="'+(x.visible?'':'is-hidden')+'">'+(x.visible?'Visible':'Oculto')+(x.reviewed?' · Revisado':' · Histórico')+'</small>'+
   '<button type="button" data-edit-admin="'+esc(x.fileId)+'">Editar artículo</button></div></article>').join('');
  $('admin-more').hidden=S.shown>=match.length;
@@ -242,6 +253,37 @@ async function edit(fileId){
   notice('Propuesta copiada en la ficha; revisa la imagen y pulsa Guardar cambios solo si es correcta.');
  });
  target.append(form);
+ const related=(S.similar.get(fileId)||[]).map(fid=>S.items.find(a=>a.fileId===fid)).filter(Boolean).slice(0,8);
+ if(related.length||x.groupId){
+  const review=document.createElement('section');
+  review.className='admin-related-review';
+  review.innerHTML='<h4>Revisar fotografías relacionadas</h4><p>La similitud visual no demuestra que sean el mismo artículo. Vincula únicamente después de comparar ambas fotos.</p>'+
+   related.map(a=>'<button type="button" data-link-admin="'+esc(a.fileId)+'">'+
+      '<img loading="lazy" src="'+esc(a.url)+'" alt="">Vincular con '+esc(a.filename.slice(0,28))+'</button>').join('')+
+   (x.groupId?'<button type="button" data-unlink-admin>Desagrupar esta fotografía</button>':'');
+  form.insertBefore(review,form.querySelector('button[type=submit]'));
+  async function setGroup(targetId){
+   const btn=review.querySelectorAll('button');
+   btn.forEach(b=>b.disabled=true);
+   try{
+    if(!x.id){const a=await api('adopt',{fileId:x.fileId,url:x.url,mime:x.mime,filename:x.filename});x.id=a.item.id;}
+    if(targetId){
+     const other=S.items.find(a=>a.fileId===targetId);
+     if(!other)throw Error('Fotografía relacionada no disponible');
+     if(!other.id){const a=await api('adopt',{fileId:other.fileId,url:other.url,mime:other.mime,filename:other.filename});other.id=a.item.id;}
+    }
+    const out=await api('set-group',{id:x.id,targetFileId:targetId});
+    x.groupId=out.item.group_id;
+    notice(targetId?'Galería confirmada por el administrador; actualización guardada.':'Fotografía desagrupada.');
+    await load();window.dispatchEvent(new Event('elegance:catalog-refresh'));
+   }catch(error){notice(error.message,true);btn.forEach(b=>b.disabled=false)}
+  }
+  review.addEventListener('click',e=>{
+    const link=e.target.closest('[data-link-admin]');
+    if(link){setGroup(link.dataset.linkAdmin);return;}
+    if(e.target.closest('[data-unlink-admin]'))setGroup(null);
+  });
+ }
  form.addEventListener('submit',async e=>{
   e.preventDefault();const btn=form.querySelector('button[type=submit]');btn.disabled=true;
   const fd=new FormData(form);
