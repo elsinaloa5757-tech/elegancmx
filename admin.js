@@ -202,6 +202,7 @@ async function load(){
   /^https:\/\/ik\.imagekit\.io\/elegancemx\/elegance\/products\//.test(x.url)&&!seen.has(x.fileId)).map(norm);
  S.items=[...existing,...historic];
  $('admin-count-files').textContent=S.items.length.toLocaleString('es-MX');
+ $('admin-count-vision').textContent=[...S.vision.values()].filter(x=>x.nameSuggestion).length.toLocaleString('es-MX');
  S.shown=48;render();
 }
 function render(){
