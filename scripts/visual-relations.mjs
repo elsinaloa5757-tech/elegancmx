@@ -1,3 +1,4 @@
+import {hashDistance} from './ai-utils.mjs';
 /** Produce conservative similarity suggestions, NEVER approved products or forced merges.
  * Uses existing perceptual-hash nearest neighbors: exact or 1-bit difference,
  * with compatible categories. Different viewing angles may not be detected.
@@ -16,6 +17,7 @@ export function buildRelations(ai, routes){
       const other=byId.get(candidate.fileId);
       if(!other || byCategory.get(other.fileId)!==category)continue;
       if(!/^[a-f0-9]{16}$/i.test(other.visualHash||''))continue;
+      if(hashDistance(record.visualHash,other.visualHash)!==candidate.distance)continue;
       const left=record.fileId<other.fileId?record:other;
       const right=record.fileId<other.fileId?other:record;
       if(left.fileId===right.fileId)continue;
