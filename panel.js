@@ -65,7 +65,7 @@ function card(m,type='small'){
    '<button class="floating-heart" type="button" data-fav="'+esc(m.fileId)+'" aria-label="'+(fav?'Quitar favorito':'Guardar favorito')+'">'+(fav?'♥':'♡')+'</button>'+
    '<div class="catalog-card-info"><span class="micro-category">'+esc(data.category)+'</span>'+
    '<button class="card-title" type="button" data-open="'+esc(m.fileId)+'">'+esc(data.name)+'</button>'+
-   '<p class="card-ref">'+esc(data.ref)+' · '+(visualDraft(m.fileId)?.nameSuggestion?'Descripción IA · Sin verificar':'Por confirmar')+'</p>'+
+   '<p class="card-ref">'+esc(data.ref)+' · '+(backgroundName(m.fileId)||visualDraft(m.fileId)?.nameSuggestion?'Nombre automático · Sin verificar':'Por confirmar')+'</p>'+
    '<button class="query-add" type="button" data-inq="'+esc(m.fileId)+'">'+(inq?'✓ En consultas':'＋ Consultar')+'</button></div></article>';
 }
 function pick(cat){return state.media.find(m=>cat==='Accesorios'?ACCESSORY_CATS.has(getCat(m.fileId)):getCat(m.fileId)===cat)}
