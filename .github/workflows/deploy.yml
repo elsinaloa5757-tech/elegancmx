@@ -23,6 +23,7 @@ on:
       - 'scripts/build-public.mjs'
       - 'data/imagekit-media.json'
       - 'data/auto-categories.json'
+      - 'data/auto-categories-summary.json'
       - 'data/ai-classifications.json'
       - '.github/workflows/deploy.yml'
   workflow_dispatch:
