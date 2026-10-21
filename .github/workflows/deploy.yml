@@ -6,6 +6,7 @@ on:
       - 'index.html'
       - 'panel.js'
       - 'elegance-depth.js'
+      - 'panther-3d.js'
       - 'admin.js'
       - 'admin.css'
       - 'studio.html'
@@ -54,6 +55,7 @@ jobs:
           node --check catalog-recovery.js
           node --check panel.js
           node --check elegance-depth.js
+          node --check panther-3d.js
           node --check admin.js
           node --check studio.js
           node --test tests/curation.test.mjs
