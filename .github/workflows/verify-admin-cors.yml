@@ -44,3 +44,32 @@ jobs:
             exit 1
           fi
           echo "Elegance admin CORS: 204; unauthorized admin access: 401. Both verified."
+      - name: Confirm sanitized public media and protected owner-only grouping
+        shell: bash
+        run: |
+          set -euo pipefail
+          url="https://czekazhacqaamwecjthp.supabase.co/functions/v1/elegance-admin"
+          http=$(curl --silent --show-error --max-time 30 --output /tmp/elegance-public.json --write-out '%{http_code}' \
+            -H "Origin: https://elegancemx-14c.pages.dev" -H "Content-Type: application/json" \
+            --data '{"action":"visibility"}' "$url")
+          test "$http" = "200"
+          python3 - <<'PY'
+          import json
+          payload=json.load(open('/tmp/elegance-public.json'))
+          assert payload.get('ok') is True
+          assert isinstance(payload.get('hiddenIds'),list)
+          assert isinstance(payload.get('media'),list)
+          private={'sha256','uploaded_by','password','access_token','price','stock','bytes'}
+          for item in payload['media']:
+              assert isinstance(item.get('imagekit_file_id'),str)
+              assert item.get('url','').startswith('https://ik.imagekit.io/elegancemx/elegance/products/')
+              assert item.get('mime','').startswith('image/')
+              assert not (private&set(item)), 'Confidential data exposed in public listing'
+          print('Sanitized visible photos:',len(payload['media']))
+          PY
+          code=$(curl --silent --show-error --max-time 25 -o /dev/null -w '%{http_code}' \
+            -H "Content-Type: application/json" \
+            --data '{"action":"set-group","id":"00000000-0000-0000-0000-000000000001","targetFileId":null}' "$url")
+          test "$code" = "401"
+          echo "Public uploads accessible; grouped merchandise remains administrator-only."
+
