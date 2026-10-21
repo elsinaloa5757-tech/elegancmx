@@ -32,7 +32,7 @@ for(const channel of ['whatsapp','facebook','instagram','tiktok']){
  if(!social?.[channel]?.url?.startsWith('https://'))throw Error('Social channel missing safe redirect '+channel);
 }
 if(!homepage.includes('elegance-depth.js')||!homepage.includes('class="hero-depth"'))throw Error('3D luxury hero enhancement missing');
-if(!homepage.includes('id="panther-3d"')||!homepage.includes('panther-3d.js'))throw Error('Real 3D panther viewer missing');
+if(!homepage.includes('id="pantera-3d"')||!homepage.includes('panther-3d.js'))throw Error('Real 3D panther viewer missing');
 if(!homepage.includes('social-clover.js')||!homepage.includes('social-clover.css'))throw Error('Floating social clover missing');
 if(!homepage.includes('id="admin-dialog"')||!homepage.includes('id="admin-nav-open"')||!homepage.includes('admin.js'))throw Error('Secure integrated administrator missing');
 const archivePage=await fs.readFile('archivo.html','utf8');
