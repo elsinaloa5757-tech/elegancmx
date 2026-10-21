@@ -19,6 +19,7 @@ on:
 
 permissions:
   contents: write
+  actions: write
 
 concurrency:
   group: elegance-ai-inventory
@@ -71,7 +72,8 @@ jobs:
           assert len(routes)==images, f'Category routes {len(routes)} != current images {images}'
           print('Draft category assignments:',sum(bool(x['category']) for x in routes))
           PY
-      - name: Actualizar solo medios y sugerencias, sin desplegar la tienda
+      - name: Guardar clasificación nueva del archivo fotográfico
+        id: save-categories
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
@@ -81,6 +83,13 @@ jobs:
             git fetch origin main
             git rebase origin/main
             git push origin HEAD:main
+            echo 'changed=true' >> "$GITHUB_OUTPUT"
           else
             echo 'Sin cambios nuevos'
+            echo 'changed=false' >> "$GITHUB_OUTPUT"
           fi
+      - name: Publicar la redistribución de categorías en Cloudflare
+        if: steps.save-categories.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run deploy.yml --ref main
