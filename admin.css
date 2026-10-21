@@ -122,3 +122,12 @@
 .admin-web-identify p{color:#b7d5e9;font-size:11px;line-height:1.5}
 .admin-web-identify a{display:inline-flex;align-items:center;border:1px solid #70a6c8;padding:8px 10px;border-radius:5px;text-decoration:none;color:#d7f4ff;background:#08203a;font-size:11px}
 .admin-web-identify a:hover,.admin-web-identify a:focus-visible{background:#195b88}
+
+/* The new category is explicitly provisional until the owner saves it. */
+.admin-auto-section-hint{border:1px dashed #4686a9;background:#0a2132;
+ border-radius:8px;padding:10px 12px;margin:10px 0;color:#c6eaff;
+ font-size:12px;line-height:1.5}
+.admin-auto-section-hint button{display:inline-block;margin:8px 0 0;
+ border:1px solid #8eceec;border-radius:6px;padding:8px 10px;color:#e4f8ff;
+ background:#184666;cursor:pointer}
+.admin-auto-section-hint button:focus-visible{outline:2px solid #b7e7ff}
