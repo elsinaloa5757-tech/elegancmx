@@ -1,15 +1,15 @@
 {
-  "totalUniqueMedia": 3929,
-  "imageCount": 3909,
+  "totalUniqueMedia": 3931,
+  "imageCount": 3911,
   "videoCount": 20,
   "folders": {
-    "/elegance/products/": 2768,
+    "/elegance/products/": 2770,
     "/elegance/products/migrated/": 1141,
     "/elegance/products/videos/": 20
   },
   "mime": {
     "image/jpeg": 28,
-    "image/webp": 3881,
+    "image/webp": 3883,
     "video/mp4": 7,
     "video/webm": 13
   },

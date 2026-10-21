@@ -1,5 +1,74 @@
 [
   {
+    "fileId": "6ad86205ead997d09a2accd8",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/WhatsApp-Image-2026-09-21-at-8-27-53-PM__-CKXSwys.webp?updatedAt=1792565766110",
+    "filePath": "/elegance/products/WhatsApp-Image-2026-09-21-at-8-27-53-PM__-CKXSwys.webp",
+    "createdAt": "2026-10-21T06:56:05.565Z",
+    "categorySuggestion": "Tenis",
+    "categoryScore": 0.5778,
+    "otherCategories": [
+      {
+        "category": "Tenis",
+        "score": 0.5778
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.184
+      },
+      {
+        "category": "Buckets",
+        "score": 0.0525
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.6609,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "97e7e7c4c117e718",
+    "duplicateCandidates": [],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
+    "fileId": "6ad86205ead997d09a2acc95",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/WhatsApp-Image-2026-09-21-at-8-27-54-PM--1-_nHFnqqK4y.webp?updatedAt=1792565766011",
+    "filePath": "/elegance/products/WhatsApp-Image-2026-09-21-at-8-27-54-PM--1-_nHFnqqK4y.webp",
+    "createdAt": "2026-10-21T06:56:05.497Z",
+    "categorySuggestion": "Tenis",
+    "categoryScore": 0.6103,
+    "otherCategories": [
+      {
+        "category": "Tenis",
+        "score": 0.6103
+      },
+      {
+        "category": "Accesorios",
+        "score": 0.1929
+      },
+      {
+        "category": "Calzado",
+        "score": 0.0945
+      }
+    ],
+    "brandSuggestion": null,
+    "brandScore": 0.4107,
+    "brandVerified": false,
+    "name": null,
+    "price": null,
+    "stock": null,
+    "visualHash": "a6a0a3a0f072a3c3",
+    "duplicateCandidates": [
+      {
+        "fileId": "6acead2eead997d09a1b387e",
+        "distance": 3
+      }
+    ],
+    "status": "pending_review",
+    "model": "Xenova/clip-vit-base-patch32"
+  },
+  {
     "fileId": "6ad2fc54ead997d09a2d4ffe",
     "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-05c3785f-bc07-4542-8c0c-0cf7ed50fb02_swbHqYucas.webp?updatedAt=1792212053070",
     "filePath": "/elegance/products/product-05c3785f-bc07-4542-8c0c-0cf7ed50fb02_swbHqYucas.webp",
@@ -26812,7 +26881,12 @@
     "price": null,
     "stock": null,
     "visualHash": "a6a0a3a0f0b2b3c3",
-    "duplicateCandidates": [],
+    "duplicateCandidates": [
+      {
+        "fileId": "6ad86205ead997d09a2acc95",
+        "distance": 3
+      }
+    ],
     "status": "pending_review",
     "model": "Xenova/clip-vit-base-patch32"
   },
