@@ -108,9 +108,14 @@ test('25 percent larger clover works on desktops and remains within viewport',as
  expect(desktop.width).toBeLessThan(71);
  expect(Math.abs(desktop.width-desktop.height)).toBeLessThan(1);
  await page.setViewportSize({width:310,height:630});
+ // Resize/drag positioning is reconciled by the next animation frame.
+ // Poll the settled position rather than racing the resize listener.
+ await expect.poll(async()=>{
+  const phone=await page.locator('#elegance-social-clover').boundingBox();
+  return phone?.x+phone?.width;
+ }).toBeLessThanOrEqual(310);
  const phone=await page.locator('#elegance-social-clover').boundingBox();
  expect(phone).not.toBeNull();
- // Previous compact minimum was 39.333px; enlarge by 25% -> 49.166px.
  expect(phone.width).toBeGreaterThan(48);
  expect(phone.width).toBeLessThan(51);
  expect(phone.x+phone.width).toBeLessThanOrEqual(310);
