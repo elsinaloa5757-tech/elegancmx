@@ -5,7 +5,7 @@ const API=HOST+'/functions/v1/elegance-admin', $=id=>document.getElementById(id)
 const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const CAT=['Tenis','Bolsas','Ropa','Playeras','Gorras','Pantalones','Accesorios','Joyería','Relojes','Lentes','Fragancias','Calzado','Vestidos','Lencería','Cinturones','Buckets'];
 const TYPES=new Set(['image/jpeg','image/png','image/webp','video/mp4','video/webm']);
-const S={session:null,authorized:false,ready:false,files:[],items:[],routes:new Map(),vision:new Map(),similar:new Map(),webRefs:new Map(),names:new Map(),ocrHints:new Map(),audit:null,auditQueue:new Map(),uploading:false,cancelled:false,requests:new Set(),shown:48};
+const S={session:null,authorized:false,ready:false,files:[],items:[],routes:new Map(),vision:new Map(),similar:new Map(),sectionHints:new Map(),categoryOptions:[...CAT],webRefs:new Map(),names:new Map(),ocrHints:new Map(),audit:null,auditQueue:new Map(),uploading:false,cancelled:false,requests:new Set(),shown:48};
 function notice(s,error=false){$('admin-message').textContent=s;$('admin-message').dataset.error=String(error)}
 function store(){try{if(S.session)sessionStorage.setItem('elegance_admin_auth_v1',JSON.stringify(S.session));else sessionStorage.removeItem('elegance_admin_auth_v1')}catch{}}
 async function auth(path,payload){
@@ -203,7 +203,7 @@ function norm(x){return {id:x.id||null,fileId:x.imagekit_file_id||x.fileId,
  category:x.category||'',description:x.description||'',price:x.price??null,stock:x.stock??null,
  visible:x.visible!==false,createdAt:x.created_at||x.createdAt||'',groupId:x.group_id||null,reviewed:!!x.id};}
 async function load(){
- const [live,raw,routes,visual,similar,audit,webRefs,names,ocr]=await Promise.all([api('list'),
+ const [live,raw,routes,visual,similar,audit,webRefs,names,ocr,sections]=await Promise.all([api('list'),
   fetch('data/imagekit-media.json').then(r=>r.json()),
   fetch('data/auto-categories.json').then(r=>r.json()),
   fetch('data/vision-drafts.json').then(r=>r.ok?r.json():[]).catch(()=>[]),
@@ -211,8 +211,11 @@ async function load(){
   fetch('data/identification-audit.json').then(r=>r.ok?r.json():null).catch(()=>null),
   fetch('data/web-reference-candidates.json').then(r=>r.ok?r.json():[]).catch(()=>[]),
   fetch('data/name-drafts.json').then(r=>r.ok?r.json():null).catch(()=>null),
-  fetch('data/ocr-drafts.json').then(r=>r.ok?r.json():[]).catch(()=>[])
+  fetch('data/ocr-drafts.json').then(r=>r.ok?r.json():[]).catch(()=>[]),
+  fetch('data/dynamic-sections.json').then(r=>r.ok?r.json():null).catch(()=>null)
  ]);
+ S.sectionHints=new Map((sections?.version===1&&sections.verified===false&&Array.isArray(sections.assignments)?sections.assignments:[]).filter(x=>x.fileId).map(x=>[x.fileId,x]));
+ S.categoryOptions=[...new Set([...CAT,...(Array.isArray(sections?.categories)?sections.categories.map(x=>x.name):[])].filter(x=>typeof x==='string'&&x.length<48))];
  S.names=new Map((names?.verified===false&&Array.isArray(names.records)?names.records:[]).filter(x=>x.fileId&&x.verified===false).map(x=>[x.fileId,x]));
  S.ocrHints=new Map((Array.isArray(ocr)?ocr:[]).filter(x=>x.fileId&&x.verified===false).map(x=>[x.fileId,x]));
  S.webRefs=new Map((Array.isArray(webRefs)?webRefs:[]).filter(x=>x.fileId&&x.verified===false&&Array.isArray(x.candidates)).map(x=>[x.fileId,x]));
@@ -232,6 +235,7 @@ async function load(){
  const historic=raw.filter(x=>/^(image|video)\//.test(x.mime||'')&&
   /^https:\/\/ik\.imagekit\.io\/elegancemx\/elegance\/products\//.test(x.url)&&!seen.has(x.fileId)).map(norm);
  S.items=[...existing,...historic];
+ for(const item of S.items)if(item.category&&!S.categoryOptions.includes(item.category))S.categoryOptions.push(item.category);
  $('admin-count-files').textContent=S.items.length.toLocaleString('es-MX');
  $('admin-count-vision').textContent=[...S.vision.values()].filter(x=>x.nameSuggestion).length.toLocaleString('es-MX');
  $('admin-similar-count').textContent='('+S.similar.size.toLocaleString('es-MX')+' fotos)';
@@ -285,13 +289,33 @@ async function edit(fileId){
  const form=document.createElement('form');form.className='admin-edit-form';
  form.innerHTML='<div class="admin-edit-fields">'+
  '<label class="wide">Nombre<input name="title" maxlength="150" value="'+esc(x.title)+'" placeholder="Sin confirmar"></label>'+
- '<label>Categoría<select name="category"><option value="">Por clasificar</option>'+CAT.map(c=>'<option value="'+esc(c)+'"'+(c===x.category?' selected':'')+'>'+esc(c)+'</option>').join('')+'</select></label>'+
+ '<label>Categoría<select name="category"><option value="">Por clasificar</option>'+S.categoryOptions.map(c=>'<option value="'+esc(c)+'"'+(c===x.category?' selected':'')+'>'+esc(c)+'</option>').join('')+'</select></label>'+
  '<label>Marca<input name="brand" maxlength="150" value="'+esc(x.brand)+'"></label>'+
  '<label>Precio MXN<input name="price" type="number" min="0" step="0.01" value="'+(x.price??'')+'"></label>'+
  '<label>Existencias<input name="stock" type="number" min="0" step="1" value="'+(x.stock??'')+'"></label>'+
  '<label class="wide">Descripción<textarea name="description" maxlength="1500">'+esc(x.description)+'</textarea></label>'+
  '<label class="checkbox-field wide"><input name="visible" type="checkbox"'+(x.visible?' checked':'')+'> Visible en tienda</label>'+
  '</div>'+(reviewedVisual(fileId)?.nameSuggestion?'<button type="button" class="admin-secondary" data-apply-vision>Usar propuesta IA en la ficha</button>':'')+'<button type="submit" class="admin-primary">Guardar cambios</button>';
+ const hint=S.sectionHints.get(fileId);
+ if(hint?.subCategory&&hint.subCategory!==x.category&&S.categoryOptions.includes(hint.subCategory)){
+  const note=document.createElement('div');
+  note.className='admin-auto-section-hint';
+  note.textContent='Subcategoría propuesta por IA: '+hint.subCategory+' (sin verificar).';
+  const button=document.createElement('button');button.type='button';
+  button.textContent='Usar esta subcategoría en la ficha';
+  button.addEventListener('click',()=>{
+   form.elements.namedItem('category').value=hint.subCategory;
+   notice('Categoría seleccionada; revisa la foto y guarda solo si corresponde.');
+  });
+  note.append(button);
+  form.insertBefore(note,form.querySelector('button[type=submit]'));
+ }
+ if(hint?.brand&&!x.brand){
+  const note=document.createElement('p');
+  note.className='admin-auto-section-hint';
+  note.textContent='Marca sugerida: '+hint.brand+' · '+(hint.brandEvidence||'sin confirmar')+'. No acredita autenticidad.';
+  form.insertBefore(note,form.querySelector('button[type=submit]'));
+ }
  const draft=reviewedVisual(fileId);
  form.querySelector('[data-apply-vision]')?.addEventListener('click',()=>{
   if(!draft?.nameSuggestion)return;
