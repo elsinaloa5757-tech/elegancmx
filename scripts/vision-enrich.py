@@ -8,6 +8,7 @@ import json
 import os
 import sys
 from pathlib import Path
+from datetime import datetime, timezone
 
 sys.path.insert(0, str(Path(__file__).parent))
 from importlib import import_module
@@ -16,7 +17,7 @@ helpers = import_module("vision-catalog-utils")
 MEDIA = Path("data/imagekit-media.json")
 OUTPUT = Path("data/vision-drafts.json")
 MODEL = "HuggingFaceTB/SmolVLM-256M-Instruct"
-MAX = min(8, max(1, int(os.environ.get("VISION_BATCH_SIZE", "5"))))
+MAX = min(40, max(1, int(os.environ.get("VISION_BATCH_SIZE", "20"))))
 PROMPT = (
     "Identify the MAIN fashion product in this image, ignoring bags, boxes, "
     "background logos, props, and any brand name that is not on the product itself. "
@@ -65,7 +66,18 @@ def main():
                not by_id[m["fileId"]].get("nameSuggestion")) and
               by_id[m["fileId"]].get("attempts", 0) < 2))
     ]
-    candidates.sort(key=lambda m: str(m.get("createdAt") or ""), reverse=True)
+    routes = read_rows(Path("data/auto-categories.json"))
+    pending_ids = {r["fileId"] for r in routes if r.get("fileId") and not r.get("category")}
+    cutoff = datetime.now(timezone.utc).timestamp() - 48 * 3600
+    def rank(media):
+        try:
+            date = datetime.fromisoformat(str(media.get("createdAt") or "").replace("Z", "+00:00"))
+            updated = date.timestamp()
+        except (ValueError, TypeError):
+            updated = 0.0
+        # Process just-uploaded files first, then old unsorted photos before already categorized ones.
+        return (updated >= cutoff, media["fileId"] in pending_ids, updated)
+    candidates.sort(key=rank, reverse=True)
     todo = candidates[:MAX]
     print("Vision catalog:", len(by_id), "drafts;", len(candidates), "awaiting;", len(todo), "in this run", flush=True)
     if not todo:
