@@ -120,8 +120,7 @@ function brandCard(brand){
 function renderBrands(){
  const dynamic=state.sections.brands.filter(x=>x?.name&&state.brandGroups.has(x.name))
   .map(x=>x.name).filter(x=>![...BRANDS,...MORE_BRANDS].includes(x));
- const names=expandedBrands?[...new Set([...BRANDS,...MORE_BRANDS,...dynamic])]:
-  [...BRANDS,...dynamic.slice(0,3)];
+ const names=expandedBrands?[...new Set([...BRANDS,...MORE_BRANDS,...dynamic])]:BRANDS;
  $('brand-rail').innerHTML=names.map(brandCard).join('');
  $('all-brands').textContent=expandedBrands?'Ver menos ↑':'Ver todas →';
  $('all-brands').setAttribute('aria-expanded',String(expandedBrands));
@@ -131,7 +130,7 @@ function renderCategories(){
  const discovered=state.sections.categories.filter(x=>x?.name&&state.categoryGroups.has(x.name))
   .map(x=>x.name).filter(cat=>![...PRIMARY,...extra].includes(cat));
  $('category-grid').innerHTML=(expandedCategories?
-  [...new Set([...PRIMARY,...extra,...discovered])]:[...PRIMARY,...discovered.slice(0,3)])
+  [...new Set([...PRIMARY,...extra,...discovered])]:PRIMARY)
   .map(c=>makeCategoryCard(c,'category-tile')).join('');
  $('all-categories').textContent=expandedCategories?'Ver menos ↑':'Ver todas →';
  $('all-categories').setAttribute('aria-expanded',String(expandedCategories));
