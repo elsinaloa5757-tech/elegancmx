@@ -55,6 +55,8 @@ jobs:
         run: node scripts/build-auto-categories.mjs
       - name: Generar relaciones visuales sin fusionar artículos
         run: node scripts/build-visual-relations.mjs
+      - name: Recopilar categorías revisadas por el propietario
+        run: node scripts/fetch-owner-feedback.mjs
       - name: Auditar desacuerdos de las dos IA y referencias revisadas
         run: node scripts/build-identification-audit.mjs
       - name: Validar contenido público sin productos falsos
@@ -64,7 +66,7 @@ jobs:
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add data/vision-drafts.json data/auto-categories.json data/auto-categories-summary.json data/visual-relations.json data/identification-audit.json
+          git add data/vision-drafts.json data/auto-categories.json data/auto-categories-summary.json data/visual-relations.json data/identification-audit.json data/owner-feedback.json
           if ! git diff --cached --quiet; then
             git commit -m 'data(vision): no-fee visual description drafts and safe category routing'
             git fetch origin main
