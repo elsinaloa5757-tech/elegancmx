@@ -21,6 +21,7 @@ on:
       - 'app.js'
       - 'catalog-recovery.js'
       - 'scripts/build-public.mjs'
+      - 'tests/**'
       - 'data/imagekit-media.json'
       - 'data/auto-categories.json'
       - 'data/auto-categories-summary.json'
