@@ -138,6 +138,18 @@
     <p class="admin-note">Edita títulos, categorías, marcas, precios y existencias. Los datos no confirmados permanecen en blanco.</p>
     <label class="admin-search-label">Buscar referencia<input type="search" id="admin-media-search" placeholder="Nombre, categoría, referencia..."></label>
     <label class="admin-similar-filter"><input id="admin-similar-only" type="checkbox"> Revisar únicamente fotos con posibles coincidencias <span id="admin-similar-count">0</span></label>
+    <div class="admin-ai-audit" role="group" aria-label="Revisión gratuita de identificación">
+      <div><strong>Control de calidad IA</strong> · <span id="admin-ai-audit-summary">Preparando análisis…</span></div>
+      <label>Prioridad de revisión
+        <select id="admin-ai-priority">
+          <option value="all">Todas las fotografías</option>
+          <option value="conflict">CLIP y visión no coinciden</option>
+          <option value="unclassified">Sin categoría segura</option>
+          <option value="needs_review">Otras propuestas dudosas</option>
+        </select>
+      </label>
+      <small>Los desacuerdos son señales para revisar, no una medición de exactitud ni una corrección automática.</small>
+    </div>
     <div id="admin-media-grid" class="admin-media-grid"></div>
     <button id="admin-more" class="admin-secondary" type="button" hidden>Mostrar más</button>
   </section>
