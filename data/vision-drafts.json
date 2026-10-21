@@ -615,20 +615,22 @@
     "verified": false,
     "source": "smolvlm_open_cpu",
     "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
-    "attempts": 1
+    "attempts": 2
   },
   {
     "fileId": "6acebd42ead997d09a601911",
     "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-e888b682-008a-4d4a-a4eb-2b9af18bdd1a_Te-7y8f8A.webp?updatedAt=1791933762552",
-    "visualDescriptionUnverified": "The main fashion product in this image is a metallic silver visor with the brand name \"aloo\" in a bright blue color.",
-    "categorySuggestion": null,
-    "nameSuggestion": null,
-    "colorsSuggestion": [],
+    "visualDescriptionUnverified": "The product is a metallic silver cap with the brand name \"aloo\" on it.",
+    "categorySuggestion": "Gorras",
+    "nameSuggestion": "Gorra plateada",
+    "colorsSuggestion": [
+      "plateado"
+    ],
     "status": "requires_review",
     "verified": false,
     "source": "smolvlm_open_cpu",
     "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
-    "attempts": 1
+    "attempts": 2
   },
   {
     "fileId": "6acebd41ead997d09a601251",
@@ -728,15 +730,17 @@
   {
     "fileId": "6acead30ead997d09a1b3d2d",
     "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-4f840162-79d4-4347-a0a9-087977501bd2_lrM9v0-3v.webp?updatedAt=1791929649188",
-    "visualDescriptionUnverified": "The main fashion product in this image is a black leather Celine bag.",
-    "categorySuggestion": null,
-    "nameSuggestion": null,
-    "colorsSuggestion": [],
+    "visualDescriptionUnverified": "The main fashion product in this image is a black leather Celine handbag.",
+    "categorySuggestion": "Bolsas",
+    "nameSuggestion": "Bolsa negra",
+    "colorsSuggestion": [
+      "negro"
+    ],
     "status": "requires_review",
     "verified": false,
     "source": "smolvlm_open_cpu",
     "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
-    "attempts": 1
+    "attempts": 2
   },
   {
     "fileId": "6acead2fead997d09a1b3a64",
@@ -756,7 +760,7 @@
   {
     "fileId": "6acead2fead997d09a1b3a0e",
     "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-03d1ee38-8a08-4ddc-bbce-46d47459d78d_do422gMLM.webp?updatedAt=1791929647609",
-    "visualDescriptionUnverified": "Gucci.",
+    "visualDescriptionUnverified": "The product type is shoe. The visible colors are black, white, and blue. The brand or exact model is Gucci.",
     "categorySuggestion": null,
     "nameSuggestion": null,
     "colorsSuggestion": [],
@@ -764,7 +768,7 @@
     "verified": false,
     "source": "smolvlm_open_cpu",
     "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
-    "attempts": 1
+    "attempts": 2
   },
   {
     "fileId": "6acead2eead997d09a1b38e1",
@@ -789,6 +793,498 @@
     "nameSuggestion": "Tenis rosas",
     "colorsSuggestion": [
       "rosa"
+    ],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acead2eead997d09a1b387e",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-272ae150-28aa-4298-93a3-1ddc545a8a79_wbJCuCIF2.webp?updatedAt=1791929646950",
+    "visualDescriptionUnverified": "The main fashion product in this image is a pair of black lacy mini heels.",
+    "categorySuggestion": "Calzado",
+    "nameSuggestion": "Calzado negro",
+    "colorsSuggestion": [
+      "negro"
+    ],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6aceacc6ead997d09a19dc5c",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-ae96bd5c-337e-46dd-a1bb-5c42f65336e5_mzataW8nv.webp?updatedAt=1791929542408",
+    "visualDescriptionUnverified": "The product in the image is a pair of heels.",
+    "categorySuggestion": "Calzado",
+    "nameSuggestion": "Calzado",
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6aceacc6ead997d09a19dc13",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-0d2866a8-1612-41e6-b7f5-f49925d6a70a_bZTpzMw-8.webp?updatedAt=1791929542290",
+    "visualDescriptionUnverified": "The product in this image is a pair of high heels.",
+    "categorySuggestion": "Calzado",
+    "nameSuggestion": "Calzado",
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6aceacc5ead997d09a19dbcb",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-eae6cc97-3363-4ffb-b4d5-f07ec862a2db_WCHeWxTw-H.webp?updatedAt=1791929542189",
+    "visualDescriptionUnverified": "The product is a pair of Dior high heels.",
+    "categorySuggestion": "Calzado",
+    "nameSuggestion": "Calzado",
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6aceacc5ead997d09a19d719",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-5ad4404a-97be-4e18-9a7c-b735943b03f1_9F9y3zFrK.webp?updatedAt=1791929541699",
+    "visualDescriptionUnverified": "The main fashion product in this image is a pair of short-sleeve, low-heeled sandals in a blue-and-white color.",
+    "categorySuggestion": "Calzado",
+    "nameSuggestion": "Calzado blanco",
+    "colorsSuggestion": [
+      "blanco",
+      "azul"
+    ],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6aceacc5ead997d09a19d618",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-019b74dc-3ca8-4c18-8671-8e7efab6adf0_UX62IGh68.webp?updatedAt=1791929541724",
+    "visualDescriptionUnverified": "The main fashion product in this image is a pair of pointed stiletto heels.",
+    "categorySuggestion": "Calzado",
+    "nameSuggestion": "Calzado",
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6aceacc4ead997d09a19d070",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-223d20f0-bdc4-489e-9c6d-f7452109424b_KcIutTZjW.webp?updatedAt=1791929540939",
+    "visualDescriptionUnverified": "The product is a pair of HOSIER Sneakers.",
+    "categorySuggestion": "Tenis",
+    "nameSuggestion": "Tenis",
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6aceacc4ead997d09a19cf4a",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-ac29faa9-ff8c-4b0c-b83c-1beb44d63363_Uted0xIwy.webp?updatedAt=1791929540423",
+    "visualDescriptionUnverified": "The shoe is a Shih Tzu.",
+    "categorySuggestion": null,
+    "nameSuggestion": null,
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6aceacc4ead997d09a19cf05",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-f367793d-c324-449c-bd84-ee83f5001480_nAHbXI1nHc.webp?updatedAt=1791929540352",
+    "visualDescriptionUnverified": "The product in this image is a pair of Christian Dior Shoe Gloves.",
+    "categorySuggestion": null,
+    "nameSuggestion": null,
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6aceacc4ead997d09a19ceda",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-55ec053d-bf8c-4792-ba6c-704624b8b1cd_X2FKhcrSV.webp?updatedAt=1791929540234",
+    "visualDescriptionUnverified": "The main fashion product in this image is a pair of Gucci sandals.",
+    "categorySuggestion": "Calzado",
+    "nameSuggestion": "Calzado",
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6aceacc3ead997d09a19cd07",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-a297f9a9-5e7f-4a87-a32c-3d6d59085c67_btU3bEXWF.webp?updatedAt=1791929539539",
+    "visualDescriptionUnverified": "The main fashion product in this image is a pair of Gucci Shoes.",
+    "categorySuggestion": null,
+    "nameSuggestion": null,
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6aceacc3ead997d09a19ccdf",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-786e0c5c-491d-4ec3-9190-1e27c83551df_Mb7u79hpI.webp?updatedAt=1791929539518",
+    "visualDescriptionUnverified": "The main fashion product in this image is a pair of Saint Laurent Paris heels.",
+    "categorySuggestion": "Calzado",
+    "nameSuggestion": "Calzado",
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6aceacc2ead997d09a19cafc",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-45e073bd-c564-4378-a5b4-ff90573d51af_JTpEhlMSA.webp?updatedAt=1791929538764",
+    "visualDescriptionUnverified": "The Dior sneaker.",
+    "categorySuggestion": "Tenis",
+    "nameSuggestion": "Tenis",
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6aceacc2ead997d09a19cac5",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-965fc09e-35bc-4cce-b52b-fffef4a40dff_UCN1oQn2i.webp?updatedAt=1791929538687",
+    "visualDescriptionUnverified": "The main fashion product in this image is a pair of Gucci sneakers.",
+    "categorySuggestion": "Tenis",
+    "nameSuggestion": "Tenis",
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6aceacc2ead997d09a19caad",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-f136255b-43a4-4220-9cef-80186bf4a191_wX-rOdKMJ.webp?updatedAt=1791929538706",
+    "visualDescriptionUnverified": "The product is a lace high heels.",
+    "categorySuggestion": "Calzado",
+    "nameSuggestion": "Calzado",
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6aceacc1ead997d09a19c96b",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-d592e391-426d-4f59-8948-cb7743c2fb03_xV13tePBF.webp?updatedAt=1791929538007",
+    "visualDescriptionUnverified": "The shoe is a heels.",
+    "categorySuggestion": "Calzado",
+    "nameSuggestion": "Calzado",
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6aceacc1ead997d09a19c8c3",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-d6c0abc4-d051-4d05-802e-e3d1a6eca8c0_puLGQ20z0.webp?updatedAt=1791929537794",
+    "visualDescriptionUnverified": "Dior.",
+    "categorySuggestion": null,
+    "nameSuggestion": null,
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6aceacc1ead997d09a19c79b",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-95c4411f-476b-4e2e-a329-b71372f1e0f9_1AbrDmkh1.webp?updatedAt=1791929537357",
+    "visualDescriptionUnverified": "The product in the image is a pair of Dior heels.",
+    "categorySuggestion": "Calzado",
+    "nameSuggestion": "Calzado",
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6aceacc0ead997d09a19c6e0",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-6bccf6d8-8838-49ce-9a8f-68ae0ffff271_oLNmFdZIp.webp?updatedAt=1791929537100",
+    "visualDescriptionUnverified": "The product is a black leather sneaker.",
+    "categorySuggestion": "Tenis",
+    "nameSuggestion": "Tenis negros",
+    "colorsSuggestion": [
+      "negro"
+    ],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6aceacbfead997d09a19bffe",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-8afdbe87-906e-4378-bc6f-5713c1c801f8_ApX_VH72Fq.webp?updatedAt=1791929535798",
+    "visualDescriptionUnverified": "The product is a white leather handbag with a gold-colored zipper and gold-colored cross-bar.",
+    "categorySuggestion": "Bolsas",
+    "nameSuggestion": "Bolsa blanca",
+    "colorsSuggestion": [
+      "blanco",
+      "dorado"
+    ],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6aceacbeead997d09a19bdfe",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-ab51107b-f8bd-4e49-b4dd-07cd64378338_8_b_gzan_M.webp?updatedAt=1791929535141",
+    "visualDescriptionUnverified": "The product in the image is a Guess handbag.",
+    "categorySuggestion": "Bolsas",
+    "nameSuggestion": "Bolsa",
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6aceacbeead997d09a19bca6",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-d3aa3b16-f22f-4f7e-b7ee-41282078275f_twIc0gs2Y.webp?updatedAt=1791929534693",
+    "visualDescriptionUnverified": "The main fashion product in this image is a Guess brand sneaker.",
+    "categorySuggestion": "Tenis",
+    "nameSuggestion": "Tenis",
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6aceab8dead997d09a154812",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-080cf94a-cef5-4ea0-baf0-2dcc4dbcfbef_LVXqqDt59i.webp?updatedAt=1791929229735",
+    "visualDescriptionUnverified": "The main fashion product in this image is a strapless white and black handbag.",
+    "categorySuggestion": "Bolsas",
+    "nameSuggestion": "Bolsa negra",
+    "colorsSuggestion": [
+      "negro",
+      "blanco"
+    ],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6aceab8dead997d09a15466f",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-99d055a0-84ab-44fd-b6f6-e47b77b73f6e_8PS5TlIEf.webp?updatedAt=1791929229382",
+    "visualDescriptionUnverified": "The product in this image is a set of two bags. The bags are of different colors and have different shapes.",
+    "categorySuggestion": null,
+    "nameSuggestion": null,
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6aceab8bead997d09a153e43",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-9ecfe7fc-1b84-4763-ae52-c45e2ca29273_kLJA2Sou9.webp?updatedAt=1791929227387",
+    "visualDescriptionUnverified": "The product in the image is a pair of black Louis Vuitton handbags.",
+    "categorySuggestion": "Bolsas",
+    "nameSuggestion": "Bolsa negra",
+    "colorsSuggestion": [
+      "negro"
+    ],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6aceab8aead997d09a153c7a",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-09bf2b2f-69d8-42ef-a38d-40665cea75e6_lB-1DQnSkb.webp?updatedAt=1791929227161",
+    "visualDescriptionUnverified": "The product in the image is a blazer.",
+    "categorySuggestion": null,
+    "nameSuggestion": null,
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6aceab8aead997d09a153ab7",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-6c3b4eaa-7483-4980-af92-c1faa6441ea0_ns3NOL4Bx.webp?updatedAt=1791929226649",
+    "visualDescriptionUnverified": "The product is a GOARD brand handbag.",
+    "categorySuggestion": "Bolsas",
+    "nameSuggestion": "Bolsa",
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6aceab8aead997d09a1539f4",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-221b71d8-9975-4dea-b553-cf03e233cc2e_kL36lLLhR.webp?updatedAt=1791929226374",
+    "visualDescriptionUnverified": "The product in the image is a Goyard shoe.",
+    "categorySuggestion": null,
+    "nameSuggestion": null,
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6aceab89ead997d09a153833",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-1bc8b5e0-e10e-4c84-a50e-36a0c0465753_mtDKEJKkI0.webp?updatedAt=1791929226016",
+    "visualDescriptionUnverified": "Goyard Belvedere Pm Black Brown.",
+    "categorySuggestion": null,
+    "nameSuggestion": null,
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6aceab89ead997d09a15374d",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-0bb285e1-a111-470e-90f5-3d62f1aa7091_B7NZv5oSf.webp?updatedAt=1791929225776",
+    "visualDescriptionUnverified": "The product is a black leather sneaker.",
+    "categorySuggestion": "Tenis",
+    "nameSuggestion": "Tenis negros",
+    "colorsSuggestion": [
+      "negro"
+    ],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6aceab88ead997d09a153169",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-a1dbb192-9325-4f9f-92a5-0e942cba06ca_0yAtKMD0T.webp?updatedAt=1791929224671",
+    "visualDescriptionUnverified": "The product is a SHOELAC.",
+    "categorySuggestion": null,
+    "nameSuggestion": null,
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6aceab87ead997d09a152f95",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-482727fa-ab30-41a1-aca9-a5239086257f_l-1-Z4fnr.webp?updatedAt=1791929223873",
+    "visualDescriptionUnverified": "The product is a pair of shoes.",
+    "categorySuggestion": null,
+    "nameSuggestion": null,
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6aceab85ead997d09a151267",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-6dc0d707-2225-4a25-81f9-ccba4d4dad65_YnKXepxeH.webp?updatedAt=1791929221643",
+    "visualDescriptionUnverified": "The main fashion product in this image is a black handbag with gold chain.",
+    "categorySuggestion": "Bolsas",
+    "nameSuggestion": "Bolsa negra",
+    "colorsSuggestion": [
+      "negro",
+      "dorado"
+    ],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6aceab85ead997d09a15118f",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-abf45520-4091-4ee5-8a63-20495b8330ba_ANr_8K8Egx.webp?updatedAt=1791929221374",
+    "visualDescriptionUnverified": "The main fashion product in this image is a black leather handbag.",
+    "categorySuggestion": "Bolsas",
+    "nameSuggestion": "Bolsa negra",
+    "colorsSuggestion": [
+      "negro"
+    ],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6aceab84ead997d09a15109c",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-5191f4dc-2b9f-4bf5-bca4-bcc64f560e11_fIT-GwKmId.webp?updatedAt=1791929220983",
+    "visualDescriptionUnverified": "The main fashion product in this image is a pair of orange Nike brand sneakers.",
+    "categorySuggestion": "Tenis",
+    "nameSuggestion": "Tenis",
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6aceab84ead997d09a150ea9",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-c9bd1bd3-fb1a-4731-b5c9-208ac71aeb31_JOlr0xv3-.webp?updatedAt=1791929220744",
+    "visualDescriptionUnverified": "The product in the image is a red Louis Vuitton handbag.",
+    "categorySuggestion": "Bolsas",
+    "nameSuggestion": "Bolsa roja",
+    "colorsSuggestion": [
+      "rojo"
     ],
     "status": "requires_review",
     "verified": false,
