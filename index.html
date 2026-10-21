@@ -10,7 +10,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="panel.css">
 <link rel="stylesheet" href="social-clover.css">
-<link rel="stylesheet" href="admin.css"></head>
+<link rel="stylesheet" href="admin.css">
+<link rel="stylesheet" href="premium-motion.css"></head>
 <body>
 <header class="site-header">
   <button class="icon-button menu-button" id="toggle-menu" type="button" aria-label="Abrir menú" aria-expanded="false">☰</button>
@@ -42,7 +43,8 @@
   </nav>
 </aside>
 <main>
-  <section id="inicio" class="hero" aria-label="Elegance MX">
+  <section id="inicio" class="hero elegance-motion-hero" aria-label="Elegance MX">
+    <div class="hero-ambient" aria-hidden="true"><span class="hero-orbit hero-orbit-a"></span><span class="hero-orbit hero-orbit-b"></span></div>
     <div class="hero-copy">
       <p class="eyebrow">LUXURY · SNEAKERS · STREETWEAR</p>
       <h1 class="brand-script">elegance</h1>
@@ -50,6 +52,7 @@
       <p class="hero-subtitle">Más que moda, es un estilo de vida.</p>
       <button class="outline-action" data-target="browse" type="button">EXPLORAR COLECCIÓN <span>→</span></button>
     </div>
+    <span class="hero-scroll-indicator" aria-hidden="true">Explora las colecciones</span>
   </section>
   <section class="visually-deferred-quick" aria-label="Categorías destacadas">
     <div class="category-rail" id="quick-categories"></div>
@@ -158,5 +161,6 @@
 </dialog>
 <script src="admin.js" defer></script>
 <script src="panel.js" defer></script>
-<script src="social-clover.js" defer></script></body>
+<script src="social-clover.js" defer></script>
+<script src="premium-motion.js" defer></script></body>
 </html>
