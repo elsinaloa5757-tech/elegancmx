@@ -23,6 +23,7 @@ jobs:
       - run: node --test tests/curation.test.mjs
       - run: node --check social-clover.js
       - run: node --test tests/identification-audit.test.mjs
+      - run: node scripts/fetch-owner-feedback.mjs
       - run: node scripts/build-identification-audit.mjs
       - run: node scripts/build-public.mjs
       - run: node --test tests/ai-utils.test.mjs tests/category-router.test.mjs tests/visual-relations.test.mjs
