@@ -18,11 +18,11 @@ OUTPUT = Path("data/vision-drafts.json")
 MODEL = "HuggingFaceTB/SmolVLM-256M-Instruct"
 MAX = min(8, max(1, int(os.environ.get("VISION_BATCH_SIZE", "5"))))
 PROMPT = (
-    "Look at the MAIN fashion product only. Ignore brand names on packaging, boxes, "
-    "background and decorations. In one short factual sentence, identify the product "
-    "type (sneaker, loafers, heels, handbag, etc.) and its clearly visible color. "
-    "Do not guess a brand, authenticity, model, materials or price. "
-    "If the product is unclear, answer 'Object unclear'."
+    "Identify the MAIN fashion product in this image, ignoring bags, boxes, "
+    "background logos, props, and any brand name that is not on the product itself. "
+    "State the product type (sneaker, dress shoe, handbag, cap, etc.), its visible "
+    "colors, and any clearly legible logo on the product. If a brand or exact model "
+    "is uncertain, say unknown. Reply in two brief sentences."
 )
 
 def read_rows(path):
@@ -61,7 +61,8 @@ def main():
         and m.get("fileId")
         and m.get("url", "").startswith("https://ik.imagekit.io/elegancemx/elegance/products/")
         and (m["fileId"] not in by_id or
-             (by_id[m["fileId"]].get("status") == "pilot_error" and
+             ((by_id[m["fileId"]].get("status") == "pilot_error" or
+               not by_id[m["fileId"]].get("nameSuggestion")) and
               by_id[m["fileId"]].get("attempts", 0) < 2))
     ]
     candidates.sort(key=lambda m: str(m.get("createdAt") or ""), reverse=True)
@@ -79,7 +80,7 @@ def main():
                 {"type": "image", "url": m["url"]},
                 {"type": "text", "text": PROMPT},
             ]}]
-            output = model(text=messages, max_new_tokens=78)
+            output = model(text=messages, max_new_tokens=130)
             description = helpers.clean_description(get_text(output[0].get("generated_text")) if output else "")
             suggestion = helpers.suggest(description)
             if suggestion:
