@@ -5,7 +5,7 @@ const API=HOST+'/functions/v1/elegance-admin', $=id=>document.getElementById(id)
 const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const CAT=['Tenis','Bolsas','Ropa','Playeras','Gorras','Pantalones','Accesorios','Joyería','Relojes','Lentes','Fragancias','Calzado','Vestidos','Lencería','Cinturones','Buckets'];
 const TYPES=new Set(['image/jpeg','image/png','image/webp','video/mp4','video/webm']);
-const S={session:null,authorized:false,ready:false,files:[],items:[],routes:new Map(),uploading:false,cancelled:false,requests:new Set(),shown:48};
+const S={session:null,authorized:false,ready:false,files:[],items:[],routes:new Map(),vision:new Map(),uploading:false,cancelled:false,requests:new Set(),shown:48};
 function notice(s,error=false){$('admin-message').textContent=s;$('admin-message').dataset.error=String(error)}
 function store(){try{if(S.session)sessionStorage.setItem('elegance_admin_auth_v1',JSON.stringify(S.session));else sessionStorage.removeItem('elegance_admin_auth_v1')}catch{}}
 async function auth(path,payload){
@@ -190,10 +190,12 @@ function norm(x){return {id:x.id||null,fileId:x.imagekit_file_id||x.fileId,
  category:x.category||'',description:x.description||'',price:x.price??null,stock:x.stock??null,
  visible:x.visible!==false,createdAt:x.created_at||x.createdAt||'',reviewed:!!x.id};}
 async function load(){
- const [live,raw,routes]=await Promise.all([api('list'),
+ const [live,raw,routes,visual]=await Promise.all([api('list'),
   fetch('data/imagekit-media.json').then(r=>r.json()),
-  fetch('data/auto-categories.json').then(r=>r.json())
+  fetch('data/auto-categories.json').then(r=>r.json()),
+  fetch('data/vision-drafts.json').then(r=>r.ok?r.json():[]).catch(()=>[])
  ]);
+ S.vision=new Map((Array.isArray(visual)?visual:[]).filter(x=>x.fileId&&x.status==='requires_review'&&x.verified===false).map(x=>[x.fileId,x]));
  S.routes=new Map(routes.filter(x=>x.fileId).map(x=>[x.fileId,x.category]));
  const existing=live.items.map(norm),seen=new Set(existing.map(x=>x.fileId));
  const historic=raw.filter(x=>/^(image|video)\//.test(x.mime||'')&&
@@ -204,11 +206,12 @@ async function load(){
 }
 function render(){
  const query=$('admin-media-search').value.toLowerCase().trim();
- const match=S.items.filter(x=>[x.filename,x.title,x.brand,x.category,x.fileId,S.routes.get(x.fileId)].join(' ').toLowerCase().includes(query));
+ const match=S.items.filter(x=>[x.filename,x.title,S.vision.get(x.fileId)?.nameSuggestion,x.brand,x.category,x.fileId,S.routes.get(x.fileId)].join(' ').toLowerCase().includes(query));
  $('admin-media-grid').innerHTML=match.slice(0,S.shown).map(x=>
   '<article class="admin-media-card" data-id="'+esc(x.fileId)+'">'+
   (x.mime.startsWith('video/')?'<video preload="none" muted src="'+esc(x.url)+'"></video>':'<img loading="lazy" src="'+esc(x.url)+'" alt="">')+
-  '<div class="admin-media-copy"><strong>'+esc(x.title||x.filename)+'</strong>'+
+  '<div class="admin-media-copy"><strong>'+esc(x.title||S.vision.get(x.fileId)?.nameSuggestion||x.filename)+'</strong>'+ 
+  (!x.title&&S.vision.get(x.fileId)?.nameSuggestion?'<small>Propuesta visual IA · sin verificar</small>':'')+
   '<small>'+esc(x.category||S.routes.get(x.fileId)||'Por clasificar')+' · '+esc(x.fileId.slice(-9))+'</small>'+
   '<small class="'+(x.visible?'':'is-hidden')+'">'+(x.visible?'Visible':'Oculto')+(x.reviewed?' · Revisado':' · Histórico')+'</small>'+
   '<button type="button" data-edit-admin="'+esc(x.fileId)+'">Editar artículo</button></div></article>').join('');
@@ -228,7 +231,15 @@ async function edit(fileId){
  '<label>Existencias<input name="stock" type="number" min="0" step="1" value="'+(x.stock??'')+'"></label>'+
  '<label class="wide">Descripción<textarea name="description" maxlength="1500">'+esc(x.description)+'</textarea></label>'+
  '<label class="checkbox-field wide"><input name="visible" type="checkbox"'+(x.visible?' checked':'')+'> Visible en tienda</label>'+
- '</div><button type="submit" class="admin-primary">Guardar cambios</button>';
+ '</div>'+(S.vision.get(fileId)?.nameSuggestion?'<button type="button" class="admin-secondary" data-apply-vision>Usar propuesta IA en la ficha</button>':'')+'<button type="submit" class="admin-primary">Guardar cambios</button>';
+ const draft=S.vision.get(fileId);
+ form.querySelector('[data-apply-vision]')?.addEventListener('click',()=>{
+  if(!draft?.nameSuggestion)return;
+  form.elements.namedItem('title').value=draft.nameSuggestion;
+  const category=form.elements.namedItem('category');
+  if(CAT.includes(draft.categorySuggestion))category.value=draft.categorySuggestion;
+  notice('Propuesta copiada en la ficha; revisa la imagen y pulsa Guardar cambios solo si es correcta.');
+ });
  target.append(form);
  form.addEventListener('submit',async e=>{
   e.preventDefault();const btn=form.querySelector('button[type=submit]');btn.disabled=true;
