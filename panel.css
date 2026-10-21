@@ -207,3 +207,12 @@ section[id]{scroll-margin-top:90px}
  .wordmark{font-size:26px!important}
  .hero h1.brand-script{font-size:32px!important}
 }
+
+
+/* Photo relation proposals are review-only, never an automatic product merge. */
+.related-photo-proposals{margin:14px 0 0;padding:12px;border:1px dashed #487b9e;border-radius:9px;background:#092035}
+.related-photo-proposals>p{font-size:12px;color:#c0e5ff;margin:0 0 10px;line-height:1.45}
+.related-photo-proposals .detail-gallery{display:flex;flex-wrap:wrap;gap:8px}
+.related-photo-proposals .detail-gallery button{width:66px;height:66px;overflow:hidden;border:1px solid #648eae;border-radius:6px;padding:0}
+.related-photo-proposals .detail-gallery img{width:100%;height:100%;object-fit:cover;display:block}
+.related-photo-proposals .detail-gallery button:focus-visible{outline:2px solid #b0e3ff}
