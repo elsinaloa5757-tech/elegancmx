@@ -381,7 +381,7 @@
   {
     "fileId": "6acec0ffead997d09a702650",
     "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-d67eaa5a-a58d-4614-9cba-97bd9230cbf9_j4zRDL9Re.webp?updatedAt=1791934719834",
-    "visualDescriptionUnverified": "The product is a brown shoe. Its visible colors are brown and black. The brand or exact model is not mentioned.",
+    "visualDescriptionUnverified": "The product is a brown leather shoe. Its visible colors are brown and black.",
     "categorySuggestion": null,
     "nameSuggestion": null,
     "colorsSuggestion": [],
@@ -389,7 +389,7 @@
     "verified": false,
     "source": "smolvlm_open_cpu",
     "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
-    "attempts": 1
+    "attempts": 2
   },
   {
     "fileId": "6acebd71ead997d09a60a56b",
@@ -417,7 +417,7 @@
     "verified": false,
     "source": "smolvlm_open_cpu",
     "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
-    "attempts": 1
+    "attempts": 2
   },
   {
     "fileId": "6acebd6bead997d09a609941",
@@ -504,15 +504,18 @@
   {
     "fileId": "6acebd44ead997d09a602b7d",
     "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-a612c18f-9155-4646-b748-828d0f5dab33_siZmLCr_L.webp?updatedAt=1791933764973",
-    "visualDescriptionUnverified": "The product is a pair of sunglasses with a white, translucent, and silver cap. The visible logo on the cap is \"alo,\" which is a stylized letter \"O\" with a small circle above it.",
-    "categorySuggestion": null,
-    "nameSuggestion": null,
-    "colorsSuggestion": [],
+    "visualDescriptionUnverified": "The product is a pair of sunglasses with a white, translucent, and silver frame. The visible logo on the sunglasses is \"alo,\" which is a stylized letter \"O\" with a small circle above it.",
+    "categorySuggestion": "Lentes",
+    "nameSuggestion": "Lentes plateados",
+    "colorsSuggestion": [
+      "plateado",
+      "blanco"
+    ],
     "status": "requires_review",
     "verified": false,
     "source": "smolvlm_open_cpu",
     "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
-    "attempts": 1
+    "attempts": 2
   },
   {
     "fileId": "6acebd44ead997d09a6026d1",
@@ -550,6 +553,243 @@
     "categorySuggestion": "Tenis",
     "nameSuggestion": "Tenis",
     "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acebd43ead997d09a6021fa",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-719a1257-00e4-43f2-8970-d809d574b5a4_iu0Eo2bTY.webp?updatedAt=1791933763855",
+    "visualDescriptionUnverified": "The product is a casual, metallic, and metallic-colored, high-neck, visor-style cap.",
+    "categorySuggestion": "Gorras",
+    "nameSuggestion": "Gorra",
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acebd42ead997d09a601f3f",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-15e4c5da-cb58-428a-9336-495db5998c30_e5unNqyDp.webp?updatedAt=1791933763160",
+    "visualDescriptionUnverified": "The product is a white cap with \"alo\" written on it in black letters.",
+    "categorySuggestion": "Gorras",
+    "nameSuggestion": "Gorra negra",
+    "colorsSuggestion": [
+      "negro",
+      "blanco"
+    ],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acebd42ead997d09a601d2c",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-b5a6cc74-ea98-478c-aaf8-336ecf5568bf_FoRzB3SsCG.webp?updatedAt=1791933762962",
+    "visualDescriptionUnverified": "The product in this image is a sports cap. Its visible colors are silver, clear, and gray. There is a clearly legible logo on the product, which is \"alo\".",
+    "categorySuggestion": "Gorras",
+    "nameSuggestion": "Gorra plateada",
+    "colorsSuggestion": [
+      "plateado",
+      "gris"
+    ],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acebd42ead997d09a601c1d",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-e310141e-02ad-4812-8077-e07000655276_Ki4Ca38nyw.webp?updatedAt=1791933762831",
+    "visualDescriptionUnverified": "The main fashion product in this image is a white alo visor.",
+    "categorySuggestion": null,
+    "nameSuggestion": null,
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acebd42ead997d09a601911",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-e888b682-008a-4d4a-a4eb-2b9af18bdd1a_Te-7y8f8A.webp?updatedAt=1791933762552",
+    "visualDescriptionUnverified": "The main fashion product in this image is a metallic silver visor with the brand name \"aloo\" in a bright blue color.",
+    "categorySuggestion": null,
+    "nameSuggestion": null,
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acebd41ead997d09a601251",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-472e0a25-a8af-45a4-9c3a-cbf573493ed8_i-WZP9tSa.webp?updatedAt=1791933761602",
+    "visualDescriptionUnverified": "The product is a bright red, plastic, visor-style cap.",
+    "categorySuggestion": "Gorras",
+    "nameSuggestion": "Gorra roja",
+    "colorsSuggestion": [
+      "rojo"
+    ],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6aceae78ead997d09a1fa05d",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-584ac904-6560-46ec-b12d-2ee0c47bdd82_tjkYX82nc0.webp?updatedAt=1791929976715",
+    "visualDescriptionUnverified": "The product in the image is a white handbag with floral embroidery.",
+    "categorySuggestion": "Bolsas",
+    "nameSuggestion": "Bolsa blanca",
+    "colorsSuggestion": [
+      "blanco"
+    ],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6aceae77ead997d09a1f9a19",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-35edecdb-49e7-4a2a-b707-a2409e4fd231_Qm5FI4xoa.webp?updatedAt=1791929975555",
+    "visualDescriptionUnverified": "The product is a Coach handbag.",
+    "categorySuggestion": "Bolsas",
+    "nameSuggestion": "Bolsa",
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6aceae77ead997d09a1f9a09",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-2a404695-8b89-4456-9c34-ed146183646b_428OZ4IAL.webp?updatedAt=1791929975530",
+    "visualDescriptionUnverified": "The main fashion product in this image is a Coach handbag.",
+    "categorySuggestion": "Bolsas",
+    "nameSuggestion": "Bolsa",
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6aceae74ead997d09a1f8d1a",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-cf01a677-f558-412c-b7f8-4f10923c06ca_pV8HOva9d.webp?updatedAt=1791929972896",
+    "visualDescriptionUnverified": "The product in the image is a handbag.",
+    "categorySuggestion": "Bolsas",
+    "nameSuggestion": "Bolsa",
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6aceae73ead997d09a1f8975",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-aaa29c28-933c-4f50-83c6-18ae636d599c_FyhLDHhFS.webp?updatedAt=1791929971369",
+    "visualDescriptionUnverified": "The product in the image is a small handbag.",
+    "categorySuggestion": "Bolsas",
+    "nameSuggestion": "Bolsa",
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acead30ead997d09a1b3d58",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-3059a5d8-8799-4bed-b3fc-f74d7840ee40_lX6-l-LC0.webp?updatedAt=1791929649253",
+    "visualDescriptionUnverified": "The product is a sneaker.",
+    "categorySuggestion": "Tenis",
+    "nameSuggestion": "Tenis",
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acead30ead997d09a1b3d2d",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-4f840162-79d4-4347-a0a9-087977501bd2_lrM9v0-3v.webp?updatedAt=1791929649188",
+    "visualDescriptionUnverified": "The main fashion product in this image is a black leather Celine bag.",
+    "categorySuggestion": null,
+    "nameSuggestion": null,
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acead2fead997d09a1b3a64",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-c4e56b59-a565-420c-8276-fdd9bbeb3828_Pw2seuOTG.webp?updatedAt=1791929647767",
+    "visualDescriptionUnverified": "The product is a pair of black Sneakers.",
+    "categorySuggestion": "Tenis",
+    "nameSuggestion": "Tenis negros",
+    "colorsSuggestion": [
+      "negro"
+    ],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acead2fead997d09a1b3a0e",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-03d1ee38-8a08-4ddc-bbce-46d47459d78d_do422gMLM.webp?updatedAt=1791929647609",
+    "visualDescriptionUnverified": "Gucci.",
+    "categorySuggestion": null,
+    "nameSuggestion": null,
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acead2eead997d09a1b38e1",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-bef4da24-aec1-4b88-aa7a-97d3b577f178_li3cwulvK.webp?updatedAt=1791929647006",
+    "visualDescriptionUnverified": "The product in the image is a pair of light pink, short-sleeve, pointy sandals.",
+    "categorySuggestion": "Calzado",
+    "nameSuggestion": "Calzado rosa",
+    "colorsSuggestion": [
+      "rosa"
+    ],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acead2eead997d09a1b38c3",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-88b02f25-c8d4-4c13-a10f-941397954902_aOioiOq58.webp?updatedAt=1791929647080",
+    "visualDescriptionUnverified": "The main fashion product in this image is a pair of light pink, high-heeled sneakers.",
+    "categorySuggestion": "Tenis",
+    "nameSuggestion": "Tenis rosas",
+    "colorsSuggestion": [
+      "rosa"
+    ],
     "status": "requires_review",
     "verified": false,
     "source": "smolvlm_open_cpu",
