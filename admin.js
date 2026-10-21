@@ -239,6 +239,14 @@ async function load(){
   (S.audit.unclassified.toLocaleString('es-MX')+' sin categoría · '+S.audit.modelConflict.toLocaleString('es-MX')+
     ' desacuerdos · '+S.audit.ownerReviewedCount.toLocaleString('es-MX')+' referencias revisadas'):
   'Datos de calidad temporalmente no disponibles';
+ const autoDetails=[...S.names.values()].filter(x=>x.method==='visual_description_generic').length;
+ const autoGeneric=[...S.names.values()].filter(x=>x.method==='category_generic').length;
+ const autoPending=[...S.names.values()].filter(x=>x.method==='pending').length;
+ if(S.names.size){
+  $('admin-ai-audit-summary').textContent+=' · Nombres automáticos: '+autoDetails.toLocaleString('es-MX')+
+   ' descriptivos, '+autoGeneric.toLocaleString('es-MX')+' genéricos, '+
+   autoPending.toLocaleString('es-MX')+' pendientes';
+ }
  S.shown=48;render();
 }
 function render(){
