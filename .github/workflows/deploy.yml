@@ -12,6 +12,8 @@ on:
       - 'studio.css'
       - 'data/catalog-curation.json'
       - 'panel.css'
+      - 'premium-motion.css'
+      - 'premium-motion.js'
       - 'social-clover.js'
       - 'social-clover.css'
       - 'assets/elegance-social-clover.webp'
