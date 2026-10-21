@@ -101,3 +101,7 @@
 .admin-related-review button:hover{border-color:#afe4ff;background:#1a4b6c}
 .admin-related-review button:disabled{opacity:.4}
 .admin-related-review img{width:46px;height:46px;object-fit:cover;border-radius:5px}
+
+.admin-similar-filter{display:flex;align-items:center;flex-wrap:wrap;gap:7px;margin:7px 0 14px;padding:9px 12px;border:1px solid #345a78;border-radius:8px;font-size:11px;color:#c6e6f7;background:#0a2032;cursor:pointer}
+.admin-similar-filter input{width:16px;height:16px;accent-color:#8dd6ff;cursor:pointer}
+.admin-similar-filter span{font-variant-numeric:tabular-nums;color:#9bd8ff}
