@@ -248,7 +248,8 @@ function render(){
   '<div class="admin-media-copy"><strong>'+esc(x.title||reviewedVisual(x.fileId)?.nameSuggestion||x.filename)+'</strong>'+ 
   (!x.title&&reviewedVisual(x.fileId)?.nameSuggestion?'<small>Propuesta visual IA · sin verificar</small>':'')+
   '<small>'+esc(x.category||S.routes.get(x.fileId)||'Por clasificar')+' · '+esc(x.fileId.slice(-9))+'</small>'+
-  (S.auditQueue.get(x.fileId)?.reason==='conflict'?'<small class="admin-ai-conflict">⚠ CLIP y SmolVLM discrepan: verificar antes de aprobar</small>':'')+
+  (S.auditQueue.get(x.fileId)?.reason==='conflict'?'<small class="admin-ai-conflict">⚠ Discrepancia IA o con una referencia aprobada: verificar antes de aprobar</small>':'')+
+  (S.auditQueue.get(x.fileId)?.ownerReferenceCategory?'<small class="admin-owner-hint">Referencia revisada parecida: '+esc(S.auditQueue.get(x.fileId).ownerReferenceCategory)+' (no confirmado para esta foto)</small>':'')+
   (x.groupId?'<small>Galería aprobada: '+esc(x.groupId.slice(-9))+'</small>':'')+
   (S.similar.get(x.fileId)?.length?'<small>Fotos parecidas para revisar: '+S.similar.get(x.fileId).length+'</small>':'')+
   '<small class="'+(x.visible?'':'is-hidden')+'">'+(x.visible?'Visible':'Oculto')+(x.reviewed?' · Revisado':' · Histórico')+'</small>'+
