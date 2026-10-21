@@ -21,23 +21,33 @@ export function queryForProduct({name='',brand='',description=''}={}){
  return (identifiedBrand+' '+title.replace(new RegExp(identifiedBrand.replace(/[.*+?^$\{\}()|[\]\\]/g,'\\$&'),'i'),'').trim()).slice(0,110);
 }
 export function normalizeCandidates(response,search,limit=3){
- const rows=response?.query?.search;
+ // wbsearchentities returns real Wikidata Q identifiers and readable labels.
+ // A MediaWiki pageid is NOT a Wikidata entity ID.
+ const rows=response?.search;
  if(!Array.isArray(rows))return [];
- const words=new Set(search.toLowerCase().split(/\W+/).filter(w=>w.length>=3));
- return rows.filter(x=>typeof x.title==='string'&&Number.isInteger(x.pageid))
+ const terms=[...new Set(String(search).toLowerCase().split(/[^a-z0-9]+/).filter(w=>w.length>=3))];
+ return rows.filter(x=>/^Q[1-9][0-9]*$/.test(x.id||'')&&typeof x.label==='string')
   .map(x=>{
-   const title=x.title.replace(/<[^>]*>/g,'').slice(0,140);
-   const shared=[...words].filter(w=>title.toLowerCase().includes(w)).length;
-   return {label:title,url:'https://www.wikidata.org/wiki/Q'+x.pageid,
-    evidence:'text_search_only',matchedTerms:shared};
-  }).filter(x=>x.matchedTerms>=2)
+   const label=x.label.replace(/<[^>]*>/g,'').slice(0,140);
+   const desc=String(x.description||'').replace(/<[^>]*>/g,'').slice(0,160);
+   const haystack=(label+' '+desc).toLowerCase();
+   const count=terms.filter(w=>haystack.includes(w)).length;
+   return {label,description:desc,url:'https://www.wikidata.org/wiki/'+x.id,
+     evidence:'public_catalog_text_search_only',matchedTerms:count};
+  }).filter(x=>x.matchedTerms>=Math.min(2,terms.length))
   .sort((a,b)=>b.matchedTerms-a.matchedTerms).slice(0,limit);
 }
 export async function findWikidataCandidates(query,fetchImpl=fetch){
  const u=new URL('https://www.wikidata.org/w/api.php');
- u.searchParams.set('action','query');u.searchParams.set('list','search');
- u.searchParams.set('srsearch',query);u.searchParams.set('srlimit','8');u.searchParams.set('format','json');
- const r=await fetchImpl(u.toString(),{headers:{'user-agent':'EleganceMXResearch/1.0 (manual candidate review; no bulk crawling)'},signal:AbortSignal.timeout(9000)});
+ u.searchParams.set('action','wbsearchentities');
+ u.searchParams.set('search',query);u.searchParams.set('language','en');
+ u.searchParams.set('uselang','en');u.searchParams.set('limit','8');
+ u.searchParams.set('format','json');
+ const r=await fetchImpl(u.toString(),{
+  headers:{'user-agent':'EleganceMXResearch/1.1 (https://github.com/elsinaloa5757-tech/elegancmx; limited catalog lookups)',
+    accept:'application/json'},
+  signal:AbortSignal.timeout(12000)
+ });
  if(!r.ok)throw new Error('Wikidata search HTTP '+r.status);
  return normalizeCandidates(await r.json(),query);
 }
