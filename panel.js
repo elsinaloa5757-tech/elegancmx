@@ -10,13 +10,17 @@ const MORE_BRANDS=['Louis Vuitton','Gucci','Dior','Prada'];
 let expandedBrands=false,expandedCategories=false;
 const LS_FAV='elegance_public_favorites_v3',LS_INQ='elegance_public_inquiries_v3';
 const getSaved=key=>{try{const a=JSON.parse(localStorage.getItem(key)||'[]');return new Set(Array.isArray(a)?a.filter(x=>typeof x==='string'):[]);}catch{return new Set();}};
-const state={media:[],allMedia:[],groups:new Map(),curation:new Map(),adminOverrides:new Map(),mediaById:new Map(),routes:new Map(),ai:new Map(),vision:new Map(),favorites:getSaved(LS_FAV),inquiries:getSaved(LS_INQ),filterCat:'',filterConfidence:'all',filterBrand:'',search:'',sort:'new',collection:'',page:0,pageSize:30};
+const state={media:[],allMedia:[],groups:new Map(),curation:new Map(),adminOverrides:new Map(),mediaById:new Map(),routes:new Map(),ai:new Map(),vision:new Map(),similar:new Map(),favorites:getSaved(LS_FAV),inquiries:getSaved(LS_INQ),filterCat:'',filterConfidence:'all',filterBrand:'',search:'',sort:'new',collection:'',page:0,pageSize:30};
 const normalizeCat=cat=>cat==='Playeras'?'Ropa':cat||null;
 const getRoute=id=>state.routes.get(id)||{};
 const override=id=>({...state.curation.get(id),...state.adminOverrides.get(id)});
 const getCat=id=>{const edit=override(id);return edit.category===null?null:normalizeCat(edit.category||getRoute(id).category)};
 const suggestionBrand=id=>override(id).brand||state.ai.get(id)?.brandSuggestion||null;
-const getLabel=m=>override(m.fileId).name||getRoute(m.fileId)?.legacyReference?.historicalName||state.vision.get(m.fileId)?.nameSuggestion||((getCat(m.fileId)||'Artículo')+' · Referencia');
+const visualDraft=id=>{
+ const v=state.vision.get(id),cat=getCat(id);
+ return v?.nameSuggestion&&v.categorySuggestion&&(!cat||normalizeCat(v.categorySuggestion)===cat)?v:null;
+};
+const getLabel=m=>override(m.fileId).name||getRoute(m.fileId)?.legacyReference?.historicalName||visualDraft(m.fileId)?.nameSuggestion||((getCat(m.fileId)||'Artículo')+' · Referencia');
 const shortRef=id=>{let h=2166136261;for(const ch of id)h=Math.imul(h^ch.charCodeAt(0),16777619)>>>0;return 'E-'+h.toString(16).padStart(8,'0').toUpperCase()};
 const safeImg=m=>{try{const u=new URL(m.url);return u.protocol==='https:'&&u.hostname==='ik.imagekit.io'&&u.pathname.startsWith('/elegancemx/elegance/products/')}catch{return false}};
 const item=m=>({id:m.fileId,ref:shortRef(m.fileId),name:getLabel(m),url:m.url,category:getCat(m.fileId)||'Por clasificar'});
@@ -56,7 +60,7 @@ function card(m,type='small'){
    '<button class="floating-heart" type="button" data-fav="'+esc(m.fileId)+'" aria-label="'+(fav?'Quitar favorito':'Guardar favorito')+'">'+(fav?'♥':'♡')+'</button>'+
    '<div class="catalog-card-info"><span class="micro-category">'+esc(data.category)+'</span>'+
    '<button class="card-title" type="button" data-open="'+esc(m.fileId)+'">'+esc(data.name)+'</button>'+
-   '<p class="card-ref">'+esc(data.ref)+' · '+(state.vision.get(m.fileId)?.nameSuggestion?'Descripción IA · Sin verificar':'Por confirmar')+'</p>'+
+   '<p class="card-ref">'+esc(data.ref)+' · '+(visualDraft(m.fileId)?.nameSuggestion?'Descripción IA · Sin verificar':'Por confirmar')+'</p>'+
    '<button class="query-add" type="button" data-inq="'+esc(m.fileId)+'">'+(inq?'✓ En consultas':'＋ Consultar')+'</button></div></article>';
 }
 function pick(cat){return state.media.find(m=>cat==='Accesorios'?ACCESSORY_CATS.has(getCat(m.fileId)):getCat(m.fileId)===cat)}
@@ -125,18 +129,20 @@ function showItem(id){
  const m=state.mediaById.get(id);if(!m)return;
  const p=item(m),r=getRoute(id),b=suggestionBrand(id),isFav=state.favorites.has(id),isInq=state.inquiries.has(id);
  const group=state.groups.get(override(id).groupId||id)||[m];
+ const related=(state.similar.get(id)||[]).map(x=>state.mediaById.get(x)).filter(Boolean).filter(x=>x.fileId!==id).slice(0,8);
  $('item-detail').innerHTML=
   '<div class="detail-image">'+mediaPhoto(m,p.name)+
   (group.length>1?'<div class="detail-gallery" aria-label="Más fotos del artículo">'+group.map(g=>'<button type="button" data-gallery="'+esc(g.fileId)+'" aria-label="Ver otra fotografía">'+mediaPhoto(g,'Otra vista')+'</button>').join('')+'</div>':'')+'</div>'+
   '<div class="detail-text"><span class="micro-category">'+esc(p.category)+'</span>'+
   '<h2>'+esc(p.name)+'</h2><p class="detail-code">Código de referencia: '+esc(p.ref)+'</p>'+
   (b?'<p>Marca sugerida por IA: '+esc(b)+' (sin verificar)</p>':'')+
-  (state.vision.get(id)?.nameSuggestion?'<p>Identificación visual propuesta por IA (sin verificar): '+esc(state.vision.get(id).nameSuggestion)+'. No acredita marca, modelo ni autenticidad.</p>':'')+
+  (visualDraft(id)?.nameSuggestion?'<p>Identificación visual propuesta por IA (sin verificar): '+esc(visualDraft(id).nameSuggestion)+'. No acredita marca, modelo ni autenticidad.</p>':'')+
+  (related.length?'<div class="related-photo-proposals"><p>Fotografías visualmente parecidas (sin agrupar ni confirmar):</p><div class="detail-gallery">'+related.map(x=>'<button type="button" data-similar="'+esc(x.fileId)+'" aria-label="Abrir foto similar '+esc(shortRef(x.fileId))+'">'+mediaPhoto(x,'Otra fotografía similar por verificar')+'</button>').join('')+'</div></div>':'')+
   '<p>Esta es una fotografía del archivo ImageKit. Identificación, agrupación, tallas, precios y existencia pendientes de confirmación.</p>'+
   '<div class="detail-actions"><button type="button" data-fav="'+esc(id)+'">'+(isFav?'♥ Quitar favorito':'♡ Añadir a favoritos')+'</button>'+
   '<button type="button" data-inq="'+esc(id)+'">'+(isInq?'✓ Quitar de consultas':'＋ Agregar a consultas')+'</button>'+
   '<button type="button" data-copy="'+esc(id)+'">Copiar referencia</button></div></div>';
- $('item-dialog').showModal();
+ if(!$('item-dialog').open)$('item-dialog').showModal();
 }
 async function clipboard(content){
  try{await navigator.clipboard.writeText(content);return true;}
@@ -203,6 +209,7 @@ function bind(){
      $('browse').scrollIntoView({behavior:'smooth'});return
    }
    if(b.dataset.open){showItem(b.dataset.open);return}
+   if(b.dataset.similar){showItem(b.dataset.similar);return}
    if(b.dataset.gallery){const photo=state.mediaById.get(b.dataset.gallery);if(photo){const shown=document.querySelector('#item-detail .detail-image>img');if(shown){shown.src=photo.url;shown.alt=getLabel(photo)}}return}
    if(b.dataset.fav){const id=b.dataset.fav;state.favorites.has(id)?state.favorites.delete(id):state.favorites.add(id);save();refreshMediaActions();return}
    if(b.dataset.inq){const id=b.dataset.inq;state.inquiries.has(id)?state.inquiries.delete(id):state.inquiries.add(id);save();refreshMediaActions();return}
@@ -257,17 +264,27 @@ async function boot(){
      method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({action:'visibility'}),signal:AbortSignal.timeout(2500)
    }).then(r=>r.ok?r.json():{hiddenIds:[]})
  ]);
- const [fm,fr,fa,fc,fv]=await Promise.all([
+ const [fm,fr,fa,fc,fv,fg]=await Promise.all([
    fetch('data/imagekit-media.json'),fetch('data/auto-categories.json'),
-   fetch('data/ai-classifications.json'),fetch('data/catalog-curation.json'),fetch('data/vision-drafts.json').catch(()=>null)
+   fetch('data/ai-classifications.json'),fetch('data/catalog-curation.json'),fetch('data/vision-drafts.json').catch(()=>null),fetch('data/visual-relations.json').catch(()=>null)
  ]);
  if(!fm.ok||!fr.ok||!fc.ok)throw Error('El archivo multimedia no está disponible');
- const [media,routes,ai,curation,visual]=await Promise.all([fm.json(),fr.json(),fa.ok?fa.json():[],fc.json(),fv?.ok?fv.json():[]]);
+ const [media,routes,ai,curation,visual,relations]=await Promise.all([fm.json(),fr.json(),fa.ok?fa.json():[],fc.json(),fv?.ok?fv.json():[],fg?.ok?fg.json():{pairs:[]}]);
  if(!Array.isArray(media)||!Array.isArray(routes)||!Array.isArray(ai)||curation?.version!==1)throw Error('Formatos no válidos');
  state.routes=new Map(routes.filter(x=>x.fileId).map(x=>[x.fileId,x]));
  state.ai=new Map(ai.filter(x=>x.fileId).map(x=>[x.fileId,x]));
  state.vision=new Map((Array.isArray(visual)?visual:[]).filter(x=>x.fileId&&x.status==='requires_review'&&x.verified===false).map(x=>[x.fileId,x]));
  state.curation=new Map(Object.entries(curation.entries||{}));
+ state.similar=new Map();
+ if(relations?.verified===false&&Array.isArray(relations.pairs)){
+  for(const p of relations.pairs){
+   if(!p.a||!p.b||p.a===p.b||p.distance>1)continue;
+   for(const [a,b] of [[p.a,p.b],[p.b,p.a]]){
+    const arr=state.similar.get(a)||[];
+    if(arr.length<12&&!arr.includes(b)){arr.push(b);state.similar.set(a,arr)}
+   }
+  }
+ }
  const liveResult=await dynamicPromise;
  const publicRecords=liveResult[0]?.status==='fulfilled'&&Array.isArray(liveResult[0].value)?liveResult[0].value:[];
  const hiddenIds=new Set(liveResult[1]?.status==='fulfilled'&&Array.isArray(liveResult[1].value?.hiddenIds)?liveResult[1].value.hiddenIds:[]);
