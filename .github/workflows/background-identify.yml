@@ -57,9 +57,21 @@ jobs:
           git add data/ocr-drafts.json data/name-drafts.json data/web-reference-candidates.json
           if ! git diff --cached --quiet; then
             git commit -m 'data(identify): unattended free OCR, public catalog matches and safe draft names'
-            git fetch origin main
-            git rebase origin/main
-            git push origin HEAD:main
+            # GitHub Actions may push fresh media concurrently; never force-push.
+            published=false
+            for retry in 1 2 3 4 5; do
+              git fetch origin main
+              git rebase origin/main
+              if git push origin HEAD:main; then
+                published=true
+                break
+              fi
+              sleep "$((retry * 2))"
+            done
+            if [ "$published" != true ]; then
+              echo "::error::No se guardo el lote; se reintentara en la siguiente ejecucion."
+              exit 1
+            fi
             echo 'changed=true' >> "$GITHUB_OUTPUT"
           else
             echo 'changed=false' >> "$GITHUB_OUTPUT"
