@@ -10,7 +10,7 @@ const MORE_BRANDS=['Louis Vuitton','Gucci','Dior','Prada'];
 let expandedBrands=false,expandedCategories=false;
 const LS_FAV='elegance_public_favorites_v3',LS_INQ='elegance_public_inquiries_v3';
 const getSaved=key=>{try{const a=JSON.parse(localStorage.getItem(key)||'[]');return new Set(Array.isArray(a)?a.filter(x=>typeof x==='string'):[]);}catch{return new Set();}};
-const state={media:[],allMedia:[],groups:new Map(),curation:new Map(),adminOverrides:new Map(),mediaById:new Map(),routes:new Map(),ai:new Map(),vision:new Map(),similar:new Map(),favorites:getSaved(LS_FAV),inquiries:getSaved(LS_INQ),filterCat:'',filterConfidence:'all',filterBrand:'',search:'',sort:'new',collection:'',page:0,pageSize:30};
+const state={media:[],allMedia:[],groups:new Map(),curation:new Map(),adminOverrides:new Map(),mediaById:new Map(),routes:new Map(),ai:new Map(),vision:new Map(),names:new Map(),similar:new Map(),favorites:getSaved(LS_FAV),inquiries:getSaved(LS_INQ),filterCat:'',filterConfidence:'all',filterBrand:'',search:'',sort:'new',collection:'',page:0,pageSize:30};
 const normalizeCat=cat=>cat==='Playeras'?'Ropa':cat||null;
 const getRoute=id=>state.routes.get(id)||{};
 const override=id=>({...state.curation.get(id),...state.adminOverrides.get(id)});
@@ -20,7 +20,12 @@ const visualDraft=id=>{
  const v=state.vision.get(id),cat=getCat(id);
  return v?.nameSuggestion&&v.categorySuggestion&&(!cat||normalizeCat(v.categorySuggestion)===cat)?v:null;
 };
-const getLabel=m=>override(m.fileId).name||getRoute(m.fileId)?.legacyReference?.historicalName||visualDraft(m.fileId)?.nameSuggestion||((getCat(m.fileId)||'Artículo')+' · Referencia');
+const backgroundName=id=>{
+ const d=state.names.get(id),cat=getCat(id);
+ return d?.verified===false&&d.status!=='owner_override'&&
+  (!cat||normalizeCat(d.category)===cat)&&d.nameSuggestion?d.nameSuggestion:null;
+};
+const getLabel=m=>override(m.fileId).name||getRoute(m.fileId)?.legacyReference?.historicalName||backgroundName(m.fileId)||visualDraft(m.fileId)?.nameSuggestion||((getCat(m.fileId)||'Artículo')+' · Referencia');
 const shortRef=id=>{let h=2166136261;for(const ch of id)h=Math.imul(h^ch.charCodeAt(0),16777619)>>>0;return 'E-'+h.toString(16).padStart(8,'0').toUpperCase()};
 const safeImg=m=>{try{const u=new URL(m.url);return u.protocol==='https:'&&u.hostname==='ik.imagekit.io'&&u.pathname.startsWith('/elegancemx/elegance/products/')}catch{return false}};
 const item=m=>({id:m.fileId,ref:shortRef(m.fileId),name:getLabel(m),url:m.url,category:getCat(m.fileId)||'Por clasificar'});
@@ -264,16 +269,17 @@ async function boot(){
      method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({action:'visibility'}),signal:AbortSignal.timeout(2500)
    }).then(r=>r.ok?r.json():{hiddenIds:[]})
  ]);
- const [fm,fr,fa,fc,fv,fg]=await Promise.all([
+ const [fm,fr,fa,fc,fv,fg,fn]=await Promise.all([
    fetch('data/imagekit-media.json'),fetch('data/auto-categories.json'),
-   fetch('data/ai-classifications.json'),fetch('data/catalog-curation.json'),fetch('data/vision-drafts.json').catch(()=>null),fetch('data/visual-relations.json').catch(()=>null)
+   fetch('data/ai-classifications.json'),fetch('data/catalog-curation.json'),fetch('data/vision-drafts.json').catch(()=>null),fetch('data/visual-relations.json').catch(()=>null),fetch('data/name-drafts.json').catch(()=>null)
  ]);
  if(!fm.ok||!fr.ok||!fc.ok)throw Error('El archivo multimedia no está disponible');
- const [media,routes,ai,curation,visual,relations]=await Promise.all([fm.json(),fr.json(),fa.ok?fa.json():[],fc.json(),fv?.ok?fv.json():[],fg?.ok?fg.json():{pairs:[]}]);
+ const [media,routes,ai,curation,visual,relations,names]=await Promise.all([fm.json(),fr.json(),fa.ok?fa.json():[],fc.json(),fv?.ok?fv.json():[],fg?.ok?fg.json():{pairs:[]},fn?.ok?fn.json():null]);
  if(!Array.isArray(media)||!Array.isArray(routes)||!Array.isArray(ai)||curation?.version!==1)throw Error('Formatos no válidos');
  state.routes=new Map(routes.filter(x=>x.fileId).map(x=>[x.fileId,x]));
  state.ai=new Map(ai.filter(x=>x.fileId).map(x=>[x.fileId,x]));
  state.vision=new Map((Array.isArray(visual)?visual:[]).filter(x=>x.fileId&&x.status==='requires_review'&&x.verified===false).map(x=>[x.fileId,x]));
+ state.names=new Map((names?.verified===false&&Array.isArray(names?.records)?names.records:[]).filter(x=>x.fileId&&x.verified===false).map(x=>[x.fileId,x]));
  state.curation=new Map(Object.entries(curation.entries||{}));
  state.similar=new Map();
  if(relations?.verified===false&&Array.isArray(relations.pairs)){
