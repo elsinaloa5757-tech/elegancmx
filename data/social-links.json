@@ -1,5 +1,5 @@
 {
-  "note": "Los enlaces exactos a las cuentas oficiales de Elegance MX no están verificados. Cada hoja abre la plataforma correspondiente hasta que el propietario facilite los enlaces oficiales. No usar GabyCases ni el antiguo número de Floot sin validar.",
+  "note": "Instagram oficial de Elegance MX verificado como @5_elegance_7: la biografía coincide con la tienda y remite al sitio Floot anterior. WhatsApp, Facebook y TikTok aún requieren enlace de cuenta comprobado; no utilizar números ni cuentas de GabyCases.",
   "whatsapp": {
     "url": "https://www.whatsapp.com/",
     "official": false
@@ -9,8 +9,8 @@
     "official": false
   },
   "instagram": {
-    "url": "https://www.instagram.com/",
-    "official": false
+    "url": "https://www.instagram.com/5_elegance_7/",
+    "official": true
   },
   "tiktok": {
     "url": "https://www.tiktok.com/",
