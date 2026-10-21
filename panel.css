@@ -296,3 +296,62 @@ section[id]{scroll-margin-top:90px}
   .hero-depth-orbit,.hero-depth-spark,.depth-revealed{animation:none!important}
   .depth-revealed{filter:none!important;opacity:1!important}
 }
+
+
+/* ELEGANCE REAL 3D STAGE — interactive third-party polygon mesh, not pseudo-3D. */
+.panther-3d-section{margin:19px 0 24px;color:#eaf5ff}
+.panther-3d-intro{display:flex;justify-content:space-between;align-items:flex-end;gap:18px;margin-bottom:12px}
+.panther-3d-kicker{margin:0 0 7px;color:#93c9ea;font-size:10px;letter-spacing:3px;font-weight:700}
+.panther-3d-intro h2{font-size:clamp(23px,3vw,42px);font-weight:400;line-height:1.1;letter-spacing:-.75px;margin:0}
+.panther-3d-intro h2 em{font:italic 1.08em Georgia,serif;color:#b0e8ff;text-shadow:0 0 24px #51b9ff53}
+.panther-3d-subtitle{max-width:780px;color:#afc6da;line-height:1.5;font-size:12px;margin:9px 0 0}
+.panther-3d-status{flex-shrink:0;white-space:nowrap;font-size:10px;font-weight:700;letter-spacing:1.4px;color:#b5e9ff;border:1px solid #5991b8;border-radius:3px;padding:9px 14px;background:#06192c}
+.panther-3d-stage{position:relative;overflow:hidden;isolation:isolate;min-height:440px;border:1px solid #497a9c;background:#040c17;
+  box-shadow:0 16px 48px rgba(0,0,0,.3),inset 0 0 45px rgba(70,146,224,.09);border-radius:14px}
+.panther-3d-stage:before{content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(ellipse at 54% 50%,transparent 40%,rgba(0,0,0,.39) 94%);z-index:0}
+.panther-3d-starter{position:absolute;inset:0;display:grid;place-items:center;
+  background:linear-gradient(90deg,rgba(1,10,21,.85),rgba(1,10,21,.36) 52%,rgba(1,10,21,.85)),
+    url('assets/elegance-panther.png') center 49%/cover no-repeat}
+.panther-3d-rim{position:absolute;width:min(46vw,490px);height:min(46vw,490px);border-radius:50%;border:1px solid rgba(137,213,255,.3);
+  box-shadow:0 0 70px rgba(16,120,216,.28),inset 0 0 30px rgba(64,149,227,.23);
+  transform:perspective(900px) rotateX(63deg);pointer-events:none}
+.panther-3d-center{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;padding:25px;z-index:2}
+.panther-3d-mark{font-size:38px;color:#c5eeff;text-shadow:0 0 25px #5baeff99;margin-bottom:6px}
+.panther-3d-stage-label{color:#bfddf2;font-size:10px;letter-spacing:3px;text-shadow:0 3px 14px #000;margin:8px 0 20px}
+.panther-3d-launch{padding:18px 30px;border:1px solid #c4eeff;background:linear-gradient(110deg,#082642e9,#155b8bf2);border-radius:4px;
+  font-size:12px;letter-spacing:2px;font-weight:800;color:#f3fbff;box-shadow:0 0 35px #1684c455,0 12px 40px #0008;min-height:55px}
+.panther-3d-launch:hover,.panther-3d-launch:focus-visible{background:linear-gradient(110deg,#164f7c,#2584b8);box-shadow:0 0 40px #42b4ff84}
+.panther-3d-launch span{font-size:20px;margin-left:15px;vertical-align:middle}
+.panther-3d-hint{font-size:11px;letter-spacing:.4px;color:#b3d6eb;margin:14px 0 0;text-shadow:0 1px 9px #000}
+.panther-3d-viewport{position:absolute;inset:0;z-index:2;pointer-events:none}
+.panther-3d-live .panther-3d-viewport{pointer-events:auto}
+.panther-3d-viewport iframe{display:block;width:100%;height:100%;border:0;background:#050c16}
+.panther-3d-loading{position:absolute;top:45%;left:50%;transform:translate(-50%,-50%);color:#e2f6ff;font-size:12px;
+  padding:12px 16px;background:#051726d9;border-radius:5px;z-index:4;pointer-events:none}
+.panther-3d-controls{position:absolute;left:12px;right:12px;top:12px;z-index:4;display:flex;justify-content:space-between;align-items:center;gap:10px;
+  font-size:10px;letter-spacing:1.4px;color:#def3ff;pointer-events:none}
+.panther-3d-controls span{padding:8px 11px;background:#031320d9;border:1px solid #477393;border-radius:5px}
+.panther-3d-controls button{pointer-events:auto;background:#031522f0;padding:8px 12px;font-size:11px;border:1px solid #668db1;border-radius:5px;color:#ebf7ff}
+.panther-3d-credit{font-size:10px;color:#96b4ca;line-height:1.5;margin:8px 3px 0}
+.panther-3d-credit a{text-decoration:underline;text-decoration-color:#75a8cf;color:#b4e4ff}
+@media(max-width:650px){
+  .panther-3d-section{margin:14px 0 16px}
+  .panther-3d-intro{align-items:flex-start;gap:9px;flex-direction:column;margin-bottom:8px}
+  .panther-3d-kicker{font-size:7px;letter-spacing:1.7px;margin-bottom:3px}
+  .panther-3d-intro h2{font-size:clamp(21px,5.9vw,28px)}
+  .panther-3d-status{font-size:8px;letter-spacing:.8px;padding:5px 8px}
+  .panther-3d-subtitle{font-size:9px;margin:4px 0 0}
+  .panther-3d-stage{min-height:315px;border-radius:7px}
+  .panther-3d-rim{height:210px;width:210px}
+  .panther-3d-launch{min-height:48px;padding:14px;font-size:10px;letter-spacing:1px}
+  .panther-3d-stage-label{font-size:8px;letter-spacing:1.4px}
+  .panther-3d-hint{font-size:9px}
+  .panther-3d-controls{left:5px;right:5px;top:5px;font-size:8px;letter-spacing:0}
+  .panther-3d-controls span{padding:5px}
+  .panther-3d-controls button{font-size:9px;padding:5px}
+  .panther-3d-credit{font-size:9px}
+}
+@media(prefers-reduced-motion:reduce){
+  .panther-3d-launch{animation:none;transition:none}
+}
