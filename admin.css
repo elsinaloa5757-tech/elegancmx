@@ -36,7 +36,7 @@
 .admin-session-bar strong{display:block;font-size:13px;overflow-wrap:anywhere}
 .admin-session-bar small{color:#a8cce0;font-size:11px}
 .admin-session-bar button{border:1px solid #4c829e;border-radius:8px;padding:8px 10px;font-size:11px}
-.admin-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:20px 0}
+.admin-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:20px 0}
 .admin-stats>div{border:1px solid #345b79;border-radius:10px;background:#0a2438;padding:12px 9px;text-align:center;min-width:0}
 .admin-stats strong{display:block;font-size:22px;color:#d7f0ff}
 .admin-stats small{display:block;font-size:10px;color:#a8c9e1}
@@ -88,3 +88,5 @@
  .admin-stats small{font-size:9px}
  .admin-edit-fields{grid-template-columns:1fr 1fr}
 }
+
+@media(max-width:650px){.admin-stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
