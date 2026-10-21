@@ -8,8 +8,8 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 const root=process.cwd(),dir=path.join(root,'dist');
 const read=async file=>JSON.parse(await fs.readFile(file,'utf8'));
-const [media,route,products,curation]=await Promise.all([
-  read('data/imagekit-media.json'),read('data/auto-categories.json'),read('products.json'),read('data/catalog-curation.json')
+const [media,route,products,curation,vision]=await Promise.all([
+  read('data/imagekit-media.json'),read('data/auto-categories.json'),read('products.json'),read('data/catalog-curation.json'),read('data/vision-drafts.json')
 ]);
 if(!Array.isArray(media)||!Array.isArray(route)||!Array.isArray(products))throw Error('Invalid JSON payload');
 const imgs=media.filter(x=>x.mime?.startsWith('image/')),videos=media.filter(x=>x.mime?.startsWith('video/'));
@@ -20,6 +20,9 @@ if(route.length!==imgs.length||route.some(x=>x.canPublish!==false||x.price!==nul
 if(products.length)throw Error('Unreviewed products.json cannot be deployed as sellable products');
 if(curation?.version!==1||!curation.entries||Array.isArray(curation.entries))throw Error('Invalid owner curation state');
 const allowedIds=new Set(imgs.map(x=>x.fileId));
+if(!Array.isArray(vision)||vision.some(v=>!allowedIds.has(v.fileId)||v.verified!==false||
+  ('price' in v)||('stock' in v)||('brandVerified' in v)))throw Error('Unsafe AI vision draft data');
+if(new Set(vision.map(v=>v.fileId)).size!==vision.length)throw Error('Duplicate vision draft IDs');
 if(Object.keys(curation.entries).some(id=>!allowedIds.has(id)))throw Error('Unknown curated photo ID');
 if(Object.values(curation.entries).some(row=>['price','stock','availability','size'].some(key=>key in row)))throw Error('No prices, stock or sizes allowed in Studio curation');
 const homepage=await fs.readFile('index.html','utf8');
@@ -50,7 +53,7 @@ const cloverAsset=await fs.readFile('assets/elegance-social-clover.webp');
 if(cloverAsset.byteLength<6000||cloverAsset.toString('ascii',0,4)!=='RIFF'||cloverAsset.toString('ascii',8,12)!=='WEBP')
   throw Error('Approved gemstone clover image missing or invalid');
 await fs.copyFile('assets/elegance-social-clover.webp',path.join(dir,'assets/elegance-social-clover.webp'));
-for(const name of ['imagekit-media.json','auto-categories.json','auto-categories-summary.json','ai-classifications.json','social-links.json','catalog-curation.json']){
+for(const name of ['imagekit-media.json','auto-categories.json','auto-categories-summary.json','ai-classifications.json','vision-drafts.json','social-links.json','catalog-curation.json']){
  await fs.copyFile(path.join('data',name),path.join(dir,'data',name));
 }
 await fs.writeFile(path.join(dir,'_headers'),
