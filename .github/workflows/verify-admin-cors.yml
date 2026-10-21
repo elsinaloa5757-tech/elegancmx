@@ -28,7 +28,7 @@ jobs:
             echo "::error::Preflight returned HTTP $status instead of 204"
             exit 1
           fi
-          if ! tr -d '\r' < /tmp/elegance-preflight-headers | grep -qiE '^access-control-allow-origin: https://elegancemx-14c\.pages\.dev
+          if ! grep -qiF "access-control-allow-origin: $origin" /tmp/elegance-preflight-headers; then
             echo "::error::Preflight did not authorize the Elegance origin"
             exit 1
           fi
