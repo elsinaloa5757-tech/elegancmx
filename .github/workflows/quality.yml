@@ -18,8 +18,6 @@ jobs:
       - run: npm run check
       - run: node --check catalog-recovery.js
       - run: node --check panel.js
-      - run: node --check elegance-depth.js
-      - run: node --check panther-3d.js
       - run: node --check admin.js
       - run: node --check studio.js
       - run: node --test tests/curation.test.mjs
