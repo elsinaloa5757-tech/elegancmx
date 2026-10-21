@@ -1,0 +1,71 @@
+name: Elegance MX - Identificacion automatica en segundo plano
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/background-identify.yml'
+      - 'scripts/ocr-products.py'
+      - 'scripts/name-draft-utils.mjs'
+      - 'scripts/build-name-drafts.mjs'
+      - 'scripts/find-web-references.mjs'
+      - 'scripts/web-reference-utils.mjs'
+  schedule:
+    - cron: '23 * * * *'
+  workflow_dispatch:
+permissions:
+  contents: write
+  actions: write
+concurrency:
+  group: elegance-background-product-identifier
+  cancel-in-progress: false
+jobs:
+  identify:
+    if: github.repository == 'elsinaloa5757-tech/elegancmx' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    env:
+      OCR_BATCH_SIZE: '40'
+      WEB_REFERENCE_BATCH: '4'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Preparar OCR gratuito sin API
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq tesseract-ocr
+          python3 -m pip install --quiet pillow requests pytesseract
+      - name: Probar identificacion segura y fuentes reales
+        run: node --test tests/name-draft-utils.test.mjs tests/web-reference-utils.test.mjs
+      - name: Leer codigos visibles automaticamente sin modificar originales
+        run: python3 scripts/ocr-products.py
+      - name: Buscar automaticamente modelos por codigos en Wikidata con cuota limitada
+        run: node scripts/find-web-references.mjs
+      - name: Crear nombres provisionales para todo el catalogo
+        run: node scripts/build-name-drafts.mjs
+      - name: Verificar que nunca se inventan productos comerciales
+        run: node scripts/build-public.mjs
+      - name: Guardar solamente resultados de identificacion
+        id: save
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/ocr-drafts.json data/name-drafts.json data/web-reference-candidates.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'data(identify): unattended free OCR, public catalog matches and safe draft names'
+            git fetch origin main
+            git rebase origin/main
+            git push origin HEAD:main
+            echo 'changed=true' >> "$GITHUB_OUTPUT"
+          else
+            echo 'changed=false' >> "$GITHUB_OUTPUT"
+          fi
+      - name: Publicar nombres actualizados en Cloudflare
+        if: steps.save.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run deploy.yml --ref main
