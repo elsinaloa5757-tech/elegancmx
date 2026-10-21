@@ -33,6 +33,11 @@ if(audit?.version!==1||audit.verified!==false||audit.photoCount!==imgs.length||
   audit.queue.some(x=>!allowedIds.has(x.fileId))||
   audit.queue.some(x=>x.reason!=='conflict'&&x.reason!=='unclassified'&&x.reason!=='needs_review'))
  throw Error('AI quality audit incomplete or unsafe');
+const ownerFeedback=await read('data/owner-feedback.json');
+if(!Array.isArray(ownerFeedback)||ownerFeedback.some(x=>!allowedIds.has(x.fileId)||
+  x.verifiedByOwner!==true||x.source!=='owner_entered_category'||typeof x.category!=='string'||
+  Object.keys(x).some(k=>!['fileId','category','source','verifiedByOwner'].includes(k))))
+ throw Error('Unsafe owner feedback cache');
 if(Object.keys(curation.entries).some(id=>!allowedIds.has(id)))throw Error('Unknown curated photo ID');
 if(Object.values(curation.entries).some(row=>['price','stock','availability','size'].some(key=>key in row)))throw Error('No prices, stock or sizes allowed in Studio curation');
 const homepage=await fs.readFile('index.html','utf8');
