@@ -185,6 +185,12 @@ async function uploadBatch(){
   if(completionMessage)notice(completionMessage,completionError);
  }
 }
+function reviewedVisual(id){
+ const v=S.vision.get(id),x=S.items.find(row=>row.fileId===id);
+ const known=x?.category||S.routes.get(id)||null;
+ const fold=cat=>cat==='Playeras'?'Ropa':cat;
+ return v?.nameSuggestion&&(!known||fold(known)===fold(v.categorySuggestion))?v:null;
+}
 function norm(x){return {id:x.id||null,fileId:x.imagekit_file_id||x.fileId,
  url:x.url,mime:x.mime,filename:x.filename||x.name||'Imagen ImageKit',title:x.title||'',brand:x.brand||'',
  category:x.category||'',description:x.description||'',price:x.price??null,stock:x.stock??null,
@@ -218,12 +224,12 @@ async function load(){
 function render(){
  const query=$('admin-media-search').value.toLowerCase().trim();
  const onlySimilar=$('admin-similar-only').checked;
- const match=S.items.filter(x=>(!onlySimilar||S.similar.has(x.fileId))&&[x.filename,x.title,S.vision.get(x.fileId)?.nameSuggestion,x.brand,x.category,x.fileId,S.routes.get(x.fileId)].join(' ').toLowerCase().includes(query));
+ const match=S.items.filter(x=>(!onlySimilar||S.similar.has(x.fileId))&&[x.filename,x.title,reviewedVisual(x.fileId)?.nameSuggestion,x.brand,x.category,x.fileId,S.routes.get(x.fileId)].join(' ').toLowerCase().includes(query));
  $('admin-media-grid').innerHTML=match.slice(0,S.shown).map(x=>
   '<article class="admin-media-card" data-id="'+esc(x.fileId)+'">'+
   (x.mime.startsWith('video/')?'<video preload="none" muted src="'+esc(x.url)+'"></video>':'<img loading="lazy" src="'+esc(x.url)+'" alt="">')+
-  '<div class="admin-media-copy"><strong>'+esc(x.title||S.vision.get(x.fileId)?.nameSuggestion||x.filename)+'</strong>'+ 
-  (!x.title&&S.vision.get(x.fileId)?.nameSuggestion?'<small>Propuesta visual IA · sin verificar</small>':'')+
+  '<div class="admin-media-copy"><strong>'+esc(x.title||reviewedVisual(x.fileId)?.nameSuggestion||x.filename)+'</strong>'+ 
+  (!x.title&&reviewedVisual(x.fileId)?.nameSuggestion?'<small>Propuesta visual IA · sin verificar</small>':'')+
   '<small>'+esc(x.category||S.routes.get(x.fileId)||'Por clasificar')+' · '+esc(x.fileId.slice(-9))+'</small>'+
   (x.groupId?'<small>Galería aprobada: '+esc(x.groupId.slice(-9))+'</small>':'')+
   (S.similar.get(x.fileId)?.length?'<small>Fotos parecidas para revisar: '+S.similar.get(x.fileId).length+'</small>':'')+
@@ -245,8 +251,8 @@ async function edit(fileId){
  '<label>Existencias<input name="stock" type="number" min="0" step="1" value="'+(x.stock??'')+'"></label>'+
  '<label class="wide">Descripción<textarea name="description" maxlength="1500">'+esc(x.description)+'</textarea></label>'+
  '<label class="checkbox-field wide"><input name="visible" type="checkbox"'+(x.visible?' checked':'')+'> Visible en tienda</label>'+
- '</div>'+(S.vision.get(fileId)?.nameSuggestion?'<button type="button" class="admin-secondary" data-apply-vision>Usar propuesta IA en la ficha</button>':'')+'<button type="submit" class="admin-primary">Guardar cambios</button>';
- const draft=S.vision.get(fileId);
+ '</div>'+(reviewedVisual(fileId)?.nameSuggestion?'<button type="button" class="admin-secondary" data-apply-vision>Usar propuesta IA en la ficha</button>':'')+'<button type="submit" class="admin-primary">Guardar cambios</button>';
+ const draft=reviewedVisual(fileId);
  form.querySelector('[data-apply-vision]')?.addEventListener('click',()=>{
   if(!draft?.nameSuggestion)return;
   form.elements.namedItem('title').value=draft.nameSuggestion;
