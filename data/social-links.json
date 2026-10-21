@@ -1,12 +1,12 @@
 {
-  "note": "Instagram oficial de Elegance MX verificado como @5_elegance_7: la biografía coincide con la tienda y remite al sitio Floot anterior. WhatsApp, Facebook y TikTok aún requieren enlace de cuenta comprobado; no utilizar números ni cuentas de GabyCases.",
+  "note": "Instagram @5_elegance_7 y página Facebook ID 1435660872952998 vinculados a la marca de Elegance MX en Metricool. TikTok conectado a Metricool como javiersanchez570, pero su identidad comercial no está confirmada; por ahora no enlazarlo como perfil oficial. WhatsApp Business: número oficial pendiente de verificación. Nunca usar GabyCases.",
   "whatsapp": {
     "url": "https://www.whatsapp.com/",
     "official": false
   },
   "facebook": {
-    "url": "https://www.facebook.com/",
-    "official": false
+    "url": "https://www.facebook.com/profile.php?id=1435660872952998",
+    "official": true
   },
   "instagram": {
     "url": "https://www.instagram.com/5_elegance_7/",
