@@ -14,7 +14,17 @@ test('Administrador lives inside Elegance MX and hides all editing tools from vi
  await expect(page.locator('#admin-dialog')).toContainText('250');
  await page.locator('#admin-close').click();
  await expect(page.locator('#admin-dialog')).not.toBeVisible();
+ await expect(page.locator('#admin-header-open')).toBeVisible();
+ await page.locator('#admin-header-open').click();
+ await expect(page.locator('#admin-dialog')).toBeVisible();
+ await page.locator('#admin-close').click();
  await expect(page.locator('#product-grid .catalog-card')).toHaveCount(30);
+});
+test('Direct admin URL automatically opens protected login without exposing management',async({page})=>{
+ await page.goto('/?administrador=1');
+ await expect(page.locator('#admin-dialog')).toBeVisible();
+ await expect(page.locator('#admin-login-form')).toBeVisible();
+ await expect(page.locator('#admin-workspace')).toBeHidden();
 });
 test('Account with password but without Elegance allowlist cannot upload',async({page})=>{
  await page.route(AUTH,route=>route.fulfill({status:200,contentType:'application/json',body:JSON.stringify({access_token:'test-only-access',refresh_token:'test-only-refresh'})}));
