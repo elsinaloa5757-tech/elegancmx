@@ -52,6 +52,21 @@ if(new Set(nameDrafts.records.map(x=>x.fileId)).size!==nameDrafts.records.length
   !Array.isArray(x.candidates)||x.candidates.some(p=>{
     try{return new URL(p.url).hostname!=='www.wikidata.org'}catch{return true}
   })))throw Error('Unsafe provisional auto identification data');
+const sections=await read('data/dynamic-sections.json');
+if(sections?.version!==1||sections.verified!==false||
+ sections.photoCount!==imgs.length||
+ !Array.isArray(sections.categories)||!Array.isArray(sections.brands)||
+ !Array.isArray(sections.assignments)||
+ sections.categories.some(c=>typeof c.name!=='string'||c.name.length>48||
+   (c.parent!==null&&typeof c.parent!=='string'))||
+ sections.brands.some(b=>typeof b.name!=='string'||b.name.length>48)||
+ sections.assignments.some(x=>!allowedIds.has(x.fileId)||x.fileId===undefined||
+   x.verifiedBrand!==true&&x.verifiedBrand!==false||
+   x.verifiedCategory!==true&&x.verifiedCategory!==false||
+   x.brand&&typeof x.brand!=='string'))
+ throw Error('Unsafe or stale dynamic brand/category index');
+if(new Set(sections.assignments.map(x=>x.fileId)).size!==sections.assignments.length)
+ throw Error('Duplicate dynamic section photo assignments');
 if(Object.keys(curation.entries).some(id=>!allowedIds.has(id)))throw Error('Unknown curated photo ID');
 if(Object.values(curation.entries).some(row=>['price','stock','availability','size'].some(key=>key in row)))throw Error('No prices, stock or sizes allowed in Studio curation');
 const homepage=await fs.readFile('index.html','utf8');
@@ -82,7 +97,7 @@ const cloverAsset=await fs.readFile('assets/elegance-social-clover.webp');
 if(cloverAsset.byteLength<6000||cloverAsset.toString('ascii',0,4)!=='RIFF'||cloverAsset.toString('ascii',8,12)!=='WEBP')
   throw Error('Approved gemstone clover image missing or invalid');
 await fs.copyFile('assets/elegance-social-clover.webp',path.join(dir,'assets/elegance-social-clover.webp'));
-for(const name of ['imagekit-media.json','auto-categories.json','auto-categories-summary.json','ai-classifications.json','vision-drafts.json','visual-relations.json','identification-audit.json','web-reference-candidates.json','name-drafts.json','ocr-drafts.json','social-links.json','catalog-curation.json']){
+for(const name of ['imagekit-media.json','auto-categories.json','auto-categories-summary.json','ai-classifications.json','vision-drafts.json','visual-relations.json','identification-audit.json','web-reference-candidates.json','name-drafts.json','ocr-drafts.json','dynamic-sections.json','social-links.json','catalog-curation.json']){
  await fs.copyFile(path.join('data',name),path.join(dir,'data',name));
 }
 await fs.writeFile(path.join(dir,'_headers'),
