@@ -279,6 +279,22 @@ async function edit(fileId){
   if(CAT.includes(draft.categorySuggestion))category.value=draft.categorySuggestion;
   notice('Propuesta copiada en la ficha; revisa la imagen y pulsa Guardar cambios solo si es correcta.');
  });
+ // Google Lens is user-operated: this opens the original photograph in the user's
+ // browser. It is NOT a server-side Lens API and creates no paid API traffic.
+ const research=document.createElement('section');
+ research.className='admin-web-identify';
+ const imageUrl=new URL(x.url);
+ if(imageUrl.protocol==='https:'&&imageUrl.hostname==='ik.imagekit.io'){
+  const photoLink='https://lens.google.com/uploadbyurl?url='+encodeURIComponent(imageUrl.href);
+  const searchParts=[x.brand,x.title||reviewedVisual(fileId)?.nameSuggestion||''].filter(Boolean);
+  const q=searchParts.join(' ').trim();
+  const searchLink=q?'https://www.google.com/search?q='+encodeURIComponent(q):null;
+  research.innerHTML='<h4>Buscar modelo en internet · gratis</h4>'+
+   '<p>Lens permite comparar la fotografía con resultados de internet. Sus coincidencias no confirman marca, modelo ni autenticidad.</p>'+
+   '<a target="_blank" rel="noopener noreferrer" href="'+esc(photoLink)+'">🔎 Buscar esta fotografía con Google Lens ↗</a>'+
+   (searchLink?'<a target="_blank" rel="noopener noreferrer" href="'+esc(searchLink)+'">Buscar por nombre o marca ↗</a>':'');
+  form.insertBefore(research,form.querySelector('button[type=submit]'));
+ }
  target.append(form);
  const related=(S.similar.get(fileId)||[]).map(fid=>S.items.find(a=>a.fileId===fid)).filter(Boolean).slice(0,8);
  if(related.length||x.groupId){
