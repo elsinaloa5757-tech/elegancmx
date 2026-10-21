@@ -40,3 +40,16 @@ test('uncorroborated OCR-only brand cannot create a public brand section',async(
  await page.locator('#all-brands').click();
  await expect(page.locator('#brand-rail [data-brand="MarcaInventadaPorOCR"]')).toHaveCount(0);
 });
+
+test('published Cloudflare package includes real current dynamic sections manifest',async({page})=>{
+ const r=await page.request.get('/data/dynamic-sections.json');
+ expect(r.ok()).toBeTruthy();
+ expect(r.headers()['content-type']).toMatch(/json/);
+ const data=await r.json();
+ expect(data.version).toBe(1);
+ expect(data.verified).toBe(false);
+ expect(data.photoCount).toBeGreaterThan(3908);
+ expect(Array.isArray(data.categories)).toBeTruthy();
+ expect(Array.isArray(data.brands)).toBeTruthy();
+ expect(Array.isArray(data.assignments)).toBeTruthy();
+});
