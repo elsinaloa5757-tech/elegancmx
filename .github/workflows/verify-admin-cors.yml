@@ -1,0 +1,46 @@
+name: Elegance MX — Admin API smoke test
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/verify-admin-cors.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify-admin-cors:
+    if: github.repository == 'elsinaloa5757-tech/elegancmx'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Verify admin CORS preflight and secure unauthenticated rejection
+        shell: bash
+        run: |
+          set -euo pipefail
+          url="https://czekazhacqaamwecjthp.supabase.co/functions/v1/elegance-admin"
+          origin="https://elegancemx-14c.pages.dev"
+          status=$(curl --silent --show-error --max-time 25 --dump-header /tmp/elegance-preflight-headers --output /dev/null --write-out '%{http_code}' \
+            --request OPTIONS "$url" \
+            --header "Origin: $origin" \
+            --header "Access-Control-Request-Method: POST" \
+            --header "Access-Control-Request-Headers: authorization,apikey,content-type")
+          if [ "$status" != "204" ]; then
+            echo "::error::Preflight returned HTTP $status instead of 204"
+            exit 1
+          fi
+          if ! grep -qiE '^access-control-allow-origin: https://elegancemx-14c\.pages\.dev\r?$' /tmp/elegance-preflight-headers; then
+            echo "::error::Preflight did not authorize the Elegance origin"
+            exit 1
+          fi
+          if ! grep -qi '^access-control-allow-headers:' /tmp/elegance-preflight-headers; then
+            echo "::error::Missing preflight allowed headers"
+            exit 1
+          fi
+          unauthorized=$(curl --silent --show-error --max-time 25 --output /dev/null --write-out '%{http_code}' \
+            --request POST "$url" --header "Origin: $origin" \
+            --header 'Content-Type: application/json' --data '{"action":"status"}')
+          if [ "$unauthorized" != "401" ]; then
+            echo "::error::Unauthenticated admin request returned HTTP $unauthorized (expected 401)"
+            exit 1
+          fi
+          echo "Elegance admin CORS: 204; unauthorized admin access: 401. Both verified."
