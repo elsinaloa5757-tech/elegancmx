@@ -10,12 +10,28 @@ const MORE_BRANDS=['Louis Vuitton','Gucci','Dior','Prada'];
 let expandedBrands=false,expandedCategories=false;
 const LS_FAV='elegance_public_favorites_v3',LS_INQ='elegance_public_inquiries_v3';
 const getSaved=key=>{try{const a=JSON.parse(localStorage.getItem(key)||'[]');return new Set(Array.isArray(a)?a.filter(x=>typeof x==='string'):[]);}catch{return new Set();}};
-const state={media:[],allMedia:[],groups:new Map(),curation:new Map(),adminOverrides:new Map(),mediaById:new Map(),routes:new Map(),ai:new Map(),vision:new Map(),names:new Map(),similar:new Map(),favorites:getSaved(LS_FAV),inquiries:getSaved(LS_INQ),filterCat:'',filterConfidence:'all',filterBrand:'',search:'',sort:'new',collection:'',page:0,pageSize:30};
+const state={media:[],allMedia:[],groups:new Map(),curation:new Map(),adminOverrides:new Map(),mediaById:new Map(),routes:new Map(),ai:new Map(),vision:new Map(),names:new Map(),similar:new Map(),sectionAssignments:new Map(),sectionParents:new Map(),sections:{categories:[],brands:[]},categoryGroups:new Map(),brandGroups:new Map(),favorites:getSaved(LS_FAV),inquiries:getSaved(LS_INQ),filterCat:'',filterConfidence:'all',filterBrand:'',search:'',sort:'new',collection:'',page:0,pageSize:30};
 const normalizeCat=cat=>cat==='Playeras'?'Ropa':cat||null;
 const getRoute=id=>state.routes.get(id)||{};
 const override=id=>({...state.curation.get(id),...state.adminOverrides.get(id)});
 const getCat=id=>{const edit=override(id);return edit.category===null?null:normalizeCat(edit.category||getRoute(id).category)};
-const suggestionBrand=id=>override(id).brand||state.ai.get(id)?.brandSuggestion||null;
+const suggestionBrand=id=>{
+ const owner=override(id).brand;
+ const assigned=state.sectionAssignments.get(id)?.brand||state.ai.get(id)?.brandSuggestion||null;
+ if(!owner)return assigned;
+ // Do not turn a model code into a new brand (e.g. "New Balance 960").
+ const known=[...BRANDS,...MORE_BRANDS,...state.sections.brands.map(x=>x.name)]
+  .filter(x=>x!=='Otras marcas').sort((a,b)=>b.length-a.length);
+ return known.find(b=>owner.toLocaleLowerCase('es-MX')===b.toLocaleLowerCase('es-MX')||
+  owner.toLocaleLowerCase('es-MX').startsWith(b.toLocaleLowerCase('es-MX')+' '))||owner;
+};
+const getSubCat=id=>{
+ const proposed=state.sectionAssignments.get(id)?.subCategory;
+ const parent=state.sectionParents.get(proposed);
+ return proposed&&parent!==undefined&&(parent===null?
+  getCat(id)===proposed:getCat(id)===parent)?proposed:null;
+};
+const getDisplayCat=id=>getSubCat(id)||getCat(id);
 const visualDraft=id=>{
  const v=state.vision.get(id),cat=getCat(id);
  return v?.nameSuggestion&&v.categorySuggestion&&(!cat||normalizeCat(v.categorySuggestion)===cat)?v:null;
@@ -28,7 +44,7 @@ const backgroundName=id=>{
 const getLabel=m=>override(m.fileId).name||getRoute(m.fileId)?.legacyReference?.historicalName||backgroundName(m.fileId)||visualDraft(m.fileId)?.nameSuggestion||((getCat(m.fileId)||'Artículo')+' · Referencia');
 const shortRef=id=>{let h=2166136261;for(const ch of id)h=Math.imul(h^ch.charCodeAt(0),16777619)>>>0;return 'E-'+h.toString(16).padStart(8,'0').toUpperCase()};
 const safeImg=m=>{try{const u=new URL(m.url);return u.protocol==='https:'&&u.hostname==='ik.imagekit.io'&&u.pathname.startsWith('/elegancemx/elegance/products/')}catch{return false}};
-const item=m=>({id:m.fileId,ref:shortRef(m.fileId),name:getLabel(m),url:m.url,category:getCat(m.fileId)||'Por clasificar'});
+const item=m=>({id:m.fileId,ref:shortRef(m.fileId),name:getLabel(m),url:m.url,category:getDisplayCat(m.fileId)||'Por clasificar'});
 function nav(target){
  if(window.matchMedia('(max-width:650px)').matches){$('side-nav').classList.remove('collapsed')}else{$('side-nav').classList.remove('open')}
  $('nav-shade').hidden=true;
@@ -68,30 +84,55 @@ function card(m,type='small'){
    '<p class="card-ref">'+esc(data.ref)+' · '+(backgroundName(m.fileId)||visualDraft(m.fileId)?.nameSuggestion?'Nombre automático · Sin verificar':'Por confirmar')+'</p>'+
    '<button class="query-add" type="button" data-inq="'+esc(m.fileId)+'">'+(inq?'✓ En consultas':'＋ Consultar')+'</button></div></article>';
 }
-function pick(cat){return state.media.find(m=>cat==='Accesorios'?ACCESSORY_CATS.has(getCat(m.fileId)):getCat(m.fileId)===cat)}
+function inCategory(id,cat){
+ const primary=getCat(id),sub=getSubCat(id);
+ return cat==='Accesorios'?ACCESSORY_CATS.has(primary):cat===primary||cat===sub;
+}
+function updateSectionCounts(){
+ state.categoryGroups=new Map();state.brandGroups=new Map();
+ for(const m of state.media){
+  const cat=getCat(m.fileId),sub=getSubCat(m.fileId),brand=suggestionBrand(m.fileId);
+  const cats=new Set([cat,sub]);
+  if(cat&&ACCESSORY_CATS.has(cat))cats.add('Accesorios');
+  for(const c of cats)if(c){
+   const g=state.categoryGroups.get(c)||{n:0,first:m};g.n++;state.categoryGroups.set(c,g);
+  }
+  if(brand){
+   const g=state.brandGroups.get(brand)||{n:0,first:m};g.n++;state.brandGroups.set(brand,g);
+  }
+ }
+}
+function pick(cat){return state.categoryGroups.get(cat)?.first||null}
 function makeCategoryCard(cat,type){
  const special=cat==='Combos'||cat==='Ediciones limitadas';
  const m= special ? state.media.find(x=>getCat(x.fileId)==='Tenis') : pick(cat);
- const count=special?0:state.media.reduce((n,x)=>n+(cat==='Accesorios'?ACCESSORY_CATS.has(getCat(x.fileId)):getCat(x.fileId)===cat?1:0),0);
+ const count=special?0:state.categoryGroups.get(cat)?.n||0;
  return '<button type="button" class="'+type+'" data-category="'+esc(cat)+'">'+
    (m?mediaPhoto(m,cat):'<span class="category-placeholder">◇</span>')+
    '<span class="category-name">'+esc(cat)+'</span>'+
    '<small>'+ (special?'En preparación':count?count.toLocaleString('es-MX')+' fotos':'En preparación')+'</small></button>';
 }
 function brandCard(brand){
- const n=state.media.filter(m=>suggestionBrand(m.fileId)===brand).length;
- const photo=state.media.find(m=>suggestionBrand(m.fileId)===brand);
+ const n=state.brandGroups.get(brand)?.n||0;
+ const photo=state.brandGroups.get(brand)?.first||null;
  return '<button type="button" class="brand-card" data-brand="'+esc(brand)+'">'+(photo?'<span class="brand-photo">'+mediaPhoto(photo,'Fotografía con marca sugerida')+'</span>':'')+'<span class="brand-symbol">'+esc(brand==='Nike'?'NIKE':brand==='Jordan'?'✦':brand==='Adidas'?'▲':brand==='New Balance'?'NB':brand==='Puma'?'PUMA':brand==='Vans'?'VANS':'♛')+'</span><strong>'+esc(brand)+'</strong><small>'+ (n?n+' sugerencias':'Por identificar')+'</small></button>';
 }
 function renderBrands(){
- const names=expandedBrands?[...BRANDS,...MORE_BRANDS]:BRANDS;
+ const dynamic=state.sections.brands.filter(x=>x?.name&&state.brandGroups.has(x.name))
+  .map(x=>x.name).filter(x=>![...BRANDS,...MORE_BRANDS].includes(x));
+ const names=expandedBrands?[...new Set([...BRANDS,...MORE_BRANDS,...dynamic])]:
+  [...BRANDS,...dynamic.slice(0,3)];
  $('brand-rail').innerHTML=names.map(brandCard).join('');
  $('all-brands').textContent=expandedBrands?'Ver menos ↑':'Ver todas →';
  $('all-brands').setAttribute('aria-expanded',String(expandedBrands));
 }
 function renderCategories(){
  const extra=CATS.filter(cat=>!PRIMARY.includes(cat)&&cat!=='Playeras');
- $('category-grid').innerHTML=(expandedCategories?[...PRIMARY,...extra]:PRIMARY).map(c=>makeCategoryCard(c,'category-tile')).join('');
+ const discovered=state.sections.categories.filter(x=>x?.name&&state.categoryGroups.has(x.name))
+  .map(x=>x.name).filter(cat=>![...PRIMARY,...extra].includes(cat));
+ $('category-grid').innerHTML=(expandedCategories?
+  [...new Set([...PRIMARY,...extra,...discovered])]:[...PRIMARY,...discovered.slice(0,3)])
+  .map(c=>makeCategoryCard(c,'category-tile')).join('');
  $('all-categories').textContent=expandedCategories?'Ver menos ↑':'Ver todas →';
  $('all-categories').setAttribute('aria-expanded',String(expandedCategories));
 }
@@ -104,14 +145,13 @@ function matches(m){
  const cat=getCat(m.fileId),r=getRoute(m.fileId),brand=suggestionBrand(m.fileId);
  if(state.collection==='limited')return false;
  if(state.collection==='combos'&&!['Tenis','Ropa','Accesorios'].includes(cat))return false;
- if(state.filterCat==='Accesorios'&&!ACCESSORY_CATS.has(cat))return false;
- if(state.filterCat&&state.filterCat!=='Accesorios'&&cat!==state.filterCat)return false;
+ if(state.filterCat&&!inCategory(m.fileId,state.filterCat))return false;
  if(state.filterBrand==='__sin_marca__'&&brand)return false;
  if(state.filterBrand&&state.filterBrand!=='__sin_marca__'&&brand!==state.filterBrand)return false;
  if(state.filterConfidence==='classified'&&!cat)return false;
  if(state.filterConfidence==='pending'&&cat)return false;
  if(state.search){
- const raw=[cat,getLabel(m),r.legacyReference?.historicalName,brand,m.fileId,shortRef(m.fileId)].filter(Boolean).join(' ').toLocaleLowerCase('es-MX');
+ const raw=[cat,getSubCat(m.fileId),getLabel(m),r.legacyReference?.historicalName,brand,m.fileId,shortRef(m.fileId)].filter(Boolean).join(' ').toLocaleLowerCase('es-MX');
  if(!raw.includes(state.search))return false;
  }
  return true;
@@ -269,13 +309,17 @@ async function boot(){
      method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({action:'visibility'}),signal:AbortSignal.timeout(2500)
    }).then(r=>r.ok?r.json():{hiddenIds:[]})
  ]);
- const [fm,fr,fa,fc,fv,fg,fn]=await Promise.all([
+ const [fm,fr,fa,fc,fv,fg,fn,fsct]=await Promise.all([
    fetch('data/imagekit-media.json'),fetch('data/auto-categories.json'),
-   fetch('data/ai-classifications.json'),fetch('data/catalog-curation.json'),fetch('data/vision-drafts.json').catch(()=>null),fetch('data/visual-relations.json').catch(()=>null),fetch('data/name-drafts.json').catch(()=>null)
+   fetch('data/ai-classifications.json'),fetch('data/catalog-curation.json'),fetch('data/vision-drafts.json').catch(()=>null),fetch('data/visual-relations.json').catch(()=>null),fetch('data/name-drafts.json').catch(()=>null),fetch('data/dynamic-sections.json').catch(()=>null)
  ]);
  if(!fm.ok||!fr.ok||!fc.ok)throw Error('El archivo multimedia no está disponible');
- const [media,routes,ai,curation,visual,relations,names]=await Promise.all([fm.json(),fr.json(),fa.ok?fa.json():[],fc.json(),fv?.ok?fv.json():[],fg?.ok?fg.json():{pairs:[]},fn?.ok?fn.json():null]);
+ const [media,routes,ai,curation,visual,relations,names,sections]=await Promise.all([fm.json(),fr.json(),fa.ok?fa.json():[],fc.json(),fv?.ok?fv.json():[],fg?.ok?fg.json():{pairs:[]},fn?.ok?fn.json():null,fsct?.ok?fsct.json():null]);
  if(!Array.isArray(media)||!Array.isArray(routes)||!Array.isArray(ai)||curation?.version!==1)throw Error('Formatos no válidos');
+ state.sections=sections?.version===1&&sections.verified===false&&Array.isArray(sections.categories)&&Array.isArray(sections.brands)&&Array.isArray(sections.assignments)?
+ sections:{categories:[],brands:[],assignments:[]};
+ state.sectionAssignments=new Map(state.sections.assignments.filter(x=>x.fileId).map(x=>[x.fileId,x]));
+ state.sectionParents=new Map(state.sections.categories.filter(x=>x.name).map(x=>[x.name,x.parent??null]));
  state.routes=new Map(routes.filter(x=>x.fileId).map(x=>[x.fileId,x]));
  state.ai=new Map(ai.filter(x=>x.fileId).map(x=>[x.fileId,x]));
  state.vision=new Map((Array.isArray(visual)?visual:[]).filter(x=>x.fileId&&x.status==='requires_review'&&x.verified===false).map(x=>[x.fileId,x]));
@@ -323,7 +367,16 @@ async function boot(){
   state.groups.get(key).push(m);
  }
  state.media=[...state.groups.entries()].map(([key,photos])=>photos.find(x=>x.fileId===key)||photos[0]);
- const options=[...new Set(CATS.map(normalizeCat))];
+ // Include owner-approved categories even before the next hourly background run.
+ const base=new Set(CATS.map(normalizeCat));
+ const ownerNew=state.media.map(x=>getCat(x.fileId)).filter(c=>c&&!base.has(c)&&
+  /^[\\p{L}][\\p{L}\\p{N} /&'-]{1,37}$/u.test(c));
+ for(const cat of ownerNew)if(!state.sectionParents.has(cat)){
+  state.sectionParents.set(cat,null);
+  state.sections.categories.push({name:cat,parent:null,ownerSources:1,photoCount:1});
+ }
+ updateSectionCounts();
+ const options=[...new Set([...base,...state.sections.categories.map(x=>x.name)])].filter(Boolean);
  $('filter-category').innerHTML='<option value="">Todas las categorías</option>'+
  options.map(c=>'<option value="'+esc(c)+'">'+esc(c)+'</option>').join('');
  for(const set of [state.favorites,state.inquiries]){for(const id of set)if(!state.mediaById.has(id))set.delete(id);}
