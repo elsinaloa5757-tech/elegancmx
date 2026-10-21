@@ -5,7 +5,7 @@ const API=HOST+'/functions/v1/elegance-admin', $=id=>document.getElementById(id)
 const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const CAT=['Tenis','Bolsas','Ropa','Playeras','Gorras','Pantalones','Accesorios','Joyería','Relojes','Lentes','Fragancias','Calzado','Vestidos','Lencería','Cinturones','Buckets'];
 const TYPES=new Set(['image/jpeg','image/png','image/webp','video/mp4','video/webm']);
-const S={session:null,authorized:false,ready:false,files:[],items:[],routes:new Map(),vision:new Map(),similar:new Map(),audit:null,auditQueue:new Map(),uploading:false,cancelled:false,requests:new Set(),shown:48};
+const S={session:null,authorized:false,ready:false,files:[],items:[],routes:new Map(),vision:new Map(),similar:new Map(),webRefs:new Map(),audit:null,auditQueue:new Map(),uploading:false,cancelled:false,requests:new Set(),shown:48};
 function notice(s,error=false){$('admin-message').textContent=s;$('admin-message').dataset.error=String(error)}
 function store(){try{if(S.session)sessionStorage.setItem('elegance_admin_auth_v1',JSON.stringify(S.session));else sessionStorage.removeItem('elegance_admin_auth_v1')}catch{}}
 async function auth(path,payload){
@@ -196,13 +196,15 @@ function norm(x){return {id:x.id||null,fileId:x.imagekit_file_id||x.fileId,
  category:x.category||'',description:x.description||'',price:x.price??null,stock:x.stock??null,
  visible:x.visible!==false,createdAt:x.created_at||x.createdAt||'',groupId:x.group_id||null,reviewed:!!x.id};}
 async function load(){
- const [live,raw,routes,visual,similar,audit]=await Promise.all([api('list'),
+ const [live,raw,routes,visual,similar,audit,webRefs]=await Promise.all([api('list'),
   fetch('data/imagekit-media.json').then(r=>r.json()),
   fetch('data/auto-categories.json').then(r=>r.json()),
   fetch('data/vision-drafts.json').then(r=>r.ok?r.json():[]).catch(()=>[]),
   fetch('data/visual-relations.json').then(r=>r.ok?r.json():{pairs:[]}).catch(()=>({pairs:[]})),
-  fetch('data/identification-audit.json').then(r=>r.ok?r.json():null).catch(()=>null)
+  fetch('data/identification-audit.json').then(r=>r.ok?r.json():null).catch(()=>null),
+  fetch('data/web-reference-candidates.json').then(r=>r.ok?r.json():[]).catch(()=>[])
  ]);
+ S.webRefs=new Map((Array.isArray(webRefs)?webRefs:[]).filter(x=>x.fileId&&x.verified===false&&Array.isArray(x.candidates)).map(x=>[x.fileId,x]));
  S.audit=audit?.version===1&&audit.verified===false&&Array.isArray(audit.queue)?audit:null;
  S.auditQueue=new Map((S.audit?.queue||[]).filter(x=>x.fileId).map((x,i)=>[x.fileId,{...x,order:i}]));
  S.similar=new Map();
@@ -293,6 +295,11 @@ async function edit(fileId){
    '<p>Lens permite comparar la fotografía con resultados de internet. Sus coincidencias no confirman marca, modelo ni autenticidad.</p>'+
    '<a target="_blank" rel="noopener noreferrer" href="'+esc(photoLink)+'">🔎 Buscar esta fotografía con Google Lens ↗</a>'+
    (searchLink?'<a target="_blank" rel="noopener noreferrer" href="'+esc(searchLink)+'">Buscar por nombre o marca ↗</a>':'');
+  const refs=S.webRefs.get(fileId);
+  if(refs?.candidates?.length){
+   const refLinks=refs.candidates.filter(c=>{try{return new URL(c.url).hostname==='www.wikidata.org'}catch{return false}}).slice(0,3);
+   research.innerHTML+='<p>Posibles referencias históricas encontradas por texto (NO confirmadas visualmente):</p>'+refLinks.map(c=>'<a target="_blank" rel="noopener noreferrer" href="'+esc(c.url)+'">'+esc(c.label)+' ↗</a>').join('');
+  }
   form.insertBefore(research,form.querySelector('button[type=submit]'));
  }
  target.append(form);
