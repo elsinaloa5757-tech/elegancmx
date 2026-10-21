@@ -77,8 +77,14 @@ def suggest(description):
         color = colors[0]
         if cat == "Tenis":
             color = ADJECTIVES["Tenis"].get(color, color)
-        elif cat == "Calzado":
-            color = ADJECTIVES["Calzado"].get(color, color)
+        elif cat in ("Bolsas", "Gorras", "Playeras", "Ropa", "Fragancias"):
+            if color in ("plateado", "negro", "blanco", "rojo", "dorado", "morado"):
+                color = color[:-1] + "a"
+        elif cat == "Lentes":
+            if color in ("azul", "verde", "gris", "marrón"):
+                color = {"azul":"azules","verde":"verdes","gris":"grises","marrón":"marrones"}[color]
+            elif color in ("plateado", "negro", "blanco", "rojo", "dorado", "morado"):
+                color += "s"
         base += " " + color
     return {"categorySuggestion":cat,"nameSuggestion":base[:90],"colorsSuggestion":colors,
             "status":"requires_review","verified":False}
