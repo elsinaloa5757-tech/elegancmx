@@ -5,7 +5,7 @@ const API=HOST+'/functions/v1/elegance-admin', $=id=>document.getElementById(id)
 const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const CAT=['Tenis','Bolsas','Ropa','Playeras','Gorras','Pantalones','Accesorios','Joyería','Relojes','Lentes','Fragancias','Calzado','Vestidos','Lencería','Cinturones','Buckets'];
 const TYPES=new Set(['image/jpeg','image/png','image/webp','video/mp4','video/webm']);
-const S={session:null,authorized:false,ready:false,files:[],items:[],routes:new Map(),vision:new Map(),similar:new Map(),uploading:false,cancelled:false,requests:new Set(),shown:48};
+const S={session:null,authorized:false,ready:false,files:[],items:[],routes:new Map(),vision:new Map(),similar:new Map(),audit:null,auditQueue:new Map(),uploading:false,cancelled:false,requests:new Set(),shown:48};
 function notice(s,error=false){$('admin-message').textContent=s;$('admin-message').dataset.error=String(error)}
 function store(){try{if(S.session)sessionStorage.setItem('elegance_admin_auth_v1',JSON.stringify(S.session));else sessionStorage.removeItem('elegance_admin_auth_v1')}catch{}}
 async function auth(path,payload){
@@ -196,12 +196,15 @@ function norm(x){return {id:x.id||null,fileId:x.imagekit_file_id||x.fileId,
  category:x.category||'',description:x.description||'',price:x.price??null,stock:x.stock??null,
  visible:x.visible!==false,createdAt:x.created_at||x.createdAt||'',groupId:x.group_id||null,reviewed:!!x.id};}
 async function load(){
- const [live,raw,routes,visual,similar]=await Promise.all([api('list'),
+ const [live,raw,routes,visual,similar,audit]=await Promise.all([api('list'),
   fetch('data/imagekit-media.json').then(r=>r.json()),
   fetch('data/auto-categories.json').then(r=>r.json()),
   fetch('data/vision-drafts.json').then(r=>r.ok?r.json():[]).catch(()=>[]),
-  fetch('data/visual-relations.json').then(r=>r.ok?r.json():{pairs:[]}).catch(()=>({pairs:[]}))
+  fetch('data/visual-relations.json').then(r=>r.ok?r.json():{pairs:[]}).catch(()=>({pairs:[]})),
+  fetch('data/identification-audit.json').then(r=>r.ok?r.json():null).catch(()=>null)
  ]);
+ S.audit=audit?.version===1&&audit.verified===false&&Array.isArray(audit.queue)?audit:null;
+ S.auditQueue=new Map((S.audit?.queue||[]).filter(x=>x.fileId).map((x,i)=>[x.fileId,{...x,order:i}]));
  S.similar=new Map();
  if(similar?.verified===false&&Array.isArray(similar.pairs))for(const pair of similar.pairs){
   for(const [a,b] of [[pair.a,pair.b],[pair.b,pair.a]]){
@@ -219,18 +222,33 @@ async function load(){
  $('admin-count-files').textContent=S.items.length.toLocaleString('es-MX');
  $('admin-count-vision').textContent=[...S.vision.values()].filter(x=>x.nameSuggestion).length.toLocaleString('es-MX');
  $('admin-similar-count').textContent='('+S.similar.size.toLocaleString('es-MX')+' fotos)';
+ $('admin-ai-audit-summary').textContent=S.audit?
+  (S.audit.unclassified.toLocaleString('es-MX')+' sin categoría · '+S.audit.modelConflict.toLocaleString('es-MX')+
+    ' desacuerdos · '+S.audit.ownerReviewedCount.toLocaleString('es-MX')+' referencias revisadas'):
+  'Datos de calidad temporalmente no disponibles';
  S.shown=48;render();
 }
 function render(){
  const query=$('admin-media-search').value.toLowerCase().trim();
  const onlySimilar=$('admin-similar-only').checked;
- const match=S.items.filter(x=>(!onlySimilar||S.similar.has(x.fileId))&&[x.filename,x.title,reviewedVisual(x.fileId)?.nameSuggestion,x.brand,x.category,x.fileId,S.routes.get(x.fileId)].join(' ').toLowerCase().includes(query));
+ const priority=$('admin-ai-priority').value;
+ const match=S.items.filter(x=>{
+  if(onlySimilar&&!S.similar.has(x.fileId))return false;
+  const item=S.auditQueue.get(x.fileId);
+  if(priority==='conflict'&&item?.reason!=='conflict')return false;
+  if(priority==='unclassified'&&(x.category||S.routes.get(x.fileId)))return false;
+  if(priority==='needs_review'&&item?.reason!=='needs_review')return false;
+  return [x.filename,x.title,reviewedVisual(x.fileId)?.nameSuggestion,x.brand,x.category,x.fileId,S.routes.get(x.fileId)].join(' ').toLowerCase().includes(query);
+ });
+ if(priority!=='all')match.sort((a,b)=>(S.auditQueue.get(a.fileId)?.order??999999)-(S.auditQueue.get(b.fileId)?.order??999999));
+
  $('admin-media-grid').innerHTML=match.slice(0,S.shown).map(x=>
   '<article class="admin-media-card" data-id="'+esc(x.fileId)+'">'+
   (x.mime.startsWith('video/')?'<video preload="none" muted src="'+esc(x.url)+'"></video>':'<img loading="lazy" src="'+esc(x.url)+'" alt="">')+
   '<div class="admin-media-copy"><strong>'+esc(x.title||reviewedVisual(x.fileId)?.nameSuggestion||x.filename)+'</strong>'+ 
   (!x.title&&reviewedVisual(x.fileId)?.nameSuggestion?'<small>Propuesta visual IA · sin verificar</small>':'')+
   '<small>'+esc(x.category||S.routes.get(x.fileId)||'Por clasificar')+' · '+esc(x.fileId.slice(-9))+'</small>'+
+  (S.auditQueue.get(x.fileId)?.reason==='conflict'?'<small class="admin-ai-conflict">⚠ CLIP y SmolVLM discrepan: verificar antes de aprobar</small>':'')+
   (x.groupId?'<small>Galería aprobada: '+esc(x.groupId.slice(-9))+'</small>':'')+
   (S.similar.get(x.fileId)?.length?'<small>Fotos parecidas para revisar: '+S.similar.get(x.fileId).length+'</small>':'')+
   '<small class="'+(x.visible?'':'is-hidden')+'">'+(x.visible?'Visible':'Oculto')+(x.reviewed?' · Revisado':' · Histórico')+'</small>'+
@@ -323,6 +341,7 @@ function bind(){
  $('admin-refresh').addEventListener('click',()=>load().catch(e=>notice(e.message,true)));
  $('admin-media-search').addEventListener('input',()=>{S.shown=48;render()});
  $('admin-similar-only').addEventListener('change',()=>{S.shown=48;render()});
+ $('admin-ai-priority').addEventListener('change',()=>{S.shown=48;render()});
  $('admin-more').addEventListener('click',()=>{S.shown+=48;render()});
  $('admin-media-grid').addEventListener('click',e=>{const b=e.target.closest('[data-edit-admin]');if(b)edit(b.dataset.editAdmin)});
 }
