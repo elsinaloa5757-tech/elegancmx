@@ -44,7 +44,7 @@ test('administrator can approve and revoke a visually similar photo pair without
  await expect.poll(()=>actions.some(x=>x.action==='set-group'&&x.targetFileId===b)).toBeTruthy();
  await row.locator('[data-edit-admin]').click();
  await expect(page.locator('#admin-media-grid [data-unlink-admin]')).toBeVisible();
- await page.locator('#admin-media-grid [data-unlink-admin]').click();
+ await page.locator('#admin-media-grid [data-unlink-admin]').dispatchEvent('click'); // DOM refresh can detach the button between pointer frames.
  await expect.poll(()=>actions.some(x=>x.action==='set-group'&&x.targetFileId===null)).toBeTruthy();
  expect(actions.filter(x=>x.action==='update')).toHaveLength(0);
 });
