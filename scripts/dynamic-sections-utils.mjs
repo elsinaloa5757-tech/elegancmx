@@ -76,7 +76,11 @@ export function createSectionRegistry({media,routes,ai,vision,ocr,curation,owner
     manual.category:approved.get(id);
   const parent=String(fixedCat||byRoute.get(id)?.category||'').trim();
   const validParent=TAXONOMY.includes(parent)?parent:null;
-  const proposed=validParent&&!fixedCat?visualSubcategory(byVision.get(id),validParent):null;
+  const ownerCustom=!!fixedCat&&!validParent&&
+    /^[\\p{L}][\\p{L}\\p{N} /&'-]{1,37}$/u.test(parent) &&
+    !/^(sin categor[ií]a|por clasificar|sin identificar)$/i.test(parent);
+  const proposed=ownerCustom?parent:validParent&&!fixedCat?
+    visualSubcategory(byVision.get(id),validParent):null;
   const aiRow=byAI.get(id),ocrRow=byOCR.get(id);
   const manualBrand=manual.reviewed===true?canonicalBrand(manual.brand,{owner:true}):null;
   // CLIP brandSuggestion is already gated by chooseBrand: p>=0.7,
@@ -87,15 +91,15 @@ export function createSectionRegistry({media,routes,ai,vision,ocr,curation,owner
   const corroborated=clip&&ocrHints.includes(clip);
   const brand=manualBrand||clip||null;
   if(!brand)unresolvedBrand++;
-  if(!validParent)pending++;
-  if(proposed)add(catSections,proposed,false);
+  if(!validParent&&!ownerCustom)pending++;
+  if(proposed)add(catSections,proposed,ownerCustom);
   if(manualBrand)add(brandSections,manualBrand,true);
   else if(brand)add(brandSections,brand,false);
   if(proposed||brand){
    assignments.push({fileId:id,subCategory:proposed,brand,
     brandEvidence:manualBrand?'owner_approved':
       corroborated?'clip_and_ocr':clip?'clip_logo_candidate':null,
-    verifiedBrand:!!manualBrand,verifiedCategory:false});
+    verifiedBrand:!!manualBrand,verifiedCategory:!!ownerCustom});
   }
  }
  assignments.sort((a,b)=>a.fileId.localeCompare(b.fileId));
