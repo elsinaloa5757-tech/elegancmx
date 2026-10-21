@@ -118,8 +118,9 @@ function brandCard(brand){
  return '<button type="button" class="brand-card" data-brand="'+esc(brand)+'">'+(photo?'<span class="brand-photo">'+mediaPhoto(photo,'Fotografía con marca sugerida')+'</span>':'')+'<span class="brand-symbol">'+esc(brand==='Nike'?'NIKE':brand==='Jordan'?'✦':brand==='Adidas'?'▲':brand==='New Balance'?'NB':brand==='Puma'?'PUMA':brand==='Vans'?'VANS':'♛')+'</span><strong>'+esc(brand)+'</strong><small>'+ (n?n+' sugerencias':'Por identificar')+'</small></button>';
 }
 function renderBrands(){
- const dynamic=state.sections.brands.filter(x=>x?.name&&state.brandGroups.has(x.name))
-  .map(x=>x.name).filter(x=>![...BRANDS,...MORE_BRANDS].includes(x));
+ const dynamic=[...new Set([...state.sections.brands.map(x=>x.name),...state.brandGroups.keys()])]
+  .filter(x=>x&&state.brandGroups.has(x)&&![...BRANDS,...MORE_BRANDS].includes(x))
+  .sort((a,b)=>(state.brandGroups.get(b)?.n||0)-(state.brandGroups.get(a)?.n||0));
  const names=expandedBrands?[...new Set([...BRANDS,...MORE_BRANDS,...dynamic])]:BRANDS;
  $('brand-rail').innerHTML=names.map(brandCard).join('');
  $('all-brands').textContent=expandedBrands?'Ver menos ↑':'Ver todas →';
@@ -127,8 +128,10 @@ function renderBrands(){
 }
 function renderCategories(){
  const extra=CATS.filter(cat=>!PRIMARY.includes(cat)&&cat!=='Playeras');
- const discovered=state.sections.categories.filter(x=>x?.name&&state.categoryGroups.has(x.name))
-  .map(x=>x.name).filter(cat=>![...PRIMARY,...extra].includes(cat));
+ const discovered=[...new Set([...state.sections.categories.map(x=>x.name),
+    ...state.categoryGroups.keys()])]
+  .filter(cat=>cat&&state.categoryGroups.has(cat)&&![...PRIMARY,...extra].includes(cat))
+  .sort((a,b)=>(state.categoryGroups.get(b)?.n||0)-(state.categoryGroups.get(a)?.n||0));
  $('category-grid').innerHTML=(expandedCategories?
   [...new Set([...PRIMARY,...extra,...discovered])]:PRIMARY)
   .map(c=>makeCategoryCard(c,'category-tile')).join('');
