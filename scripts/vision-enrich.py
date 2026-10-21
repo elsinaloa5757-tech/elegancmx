@@ -83,16 +83,33 @@ def main():
     if not todo:
         return
     from transformers import pipeline
+    from PIL import Image
+    from io import BytesIO
+    import requests
+    Image.MAX_IMAGE_PIXELS = 35_000_000
     model = pipeline("image-text-to-text", model=MODEL, device="cpu")
     for m in todo:
         fid = m["fileId"]
         attempts = by_id.get(fid, {}).get("attempts", 0) + 1
         try:
+            # Fetch images ourselves with deadlines: some remote URLs may hang
+            # indefinitely when left to the model's image loader.
+            with requests.get(m["url"], timeout=(8, 15), stream=True) as response:
+                response.raise_for_status()
+                parts = []
+                size = 0
+                for piece in response.iter_content(65_536):
+                    size += len(piece)
+                    if size > 8_000_000:
+                        raise ValueError("Image over safe 8 MB inference limit")
+                    parts.append(piece)
+            image = Image.open(BytesIO(b"".join(parts))).convert("RGB")
+            image.thumbnail((896, 896), Image.Resampling.LANCZOS)
             messages = [{"role": "user", "content": [
-                {"type": "image", "url": m["url"]},
+                {"type": "image"},
                 {"type": "text", "text": PROMPT},
             ]}]
-            output = model(text=messages, max_new_tokens=130)
+            output = model(text=messages, images=[image], max_new_tokens=130, return_full_text=False)
             description = helpers.clean_description(get_text(output[0].get("generated_text")) if output else "")
             suggestion = helpers.suggest(description)
             if suggestion:
