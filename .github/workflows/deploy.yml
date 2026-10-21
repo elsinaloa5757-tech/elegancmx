@@ -29,6 +29,7 @@ on:
       - 'data/vision-drafts.json'
       - 'data/visual-relations.json'
       - 'data/identification-audit.json'
+      - 'data/web-reference-candidates.json'
       - 'data/owner-feedback.json'
       - '.github/workflows/deploy.yml'
   workflow_dispatch:
