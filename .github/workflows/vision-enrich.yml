@@ -12,9 +12,9 @@ on:
   workflow_dispatch:
     inputs:
       batch_size:
-        description: 'Fotos a analizar en CPU en esta ejecución (1-8)'
+        description: 'Fotos a analizar en CPU en esta ejecución (1-40)'
         required: false
-        default: '5'
+        default: '20'
 permissions:
   contents: write
   actions: write
@@ -27,7 +27,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 75
     env:
-      VISION_BATCH_SIZE: ${{ github.event_name == 'workflow_dispatch' && inputs.batch_size || '5' }}
+      VISION_BATCH_SIZE: ${{ github.event_name == 'workflow_dispatch' && inputs.batch_size || '20' }}
       HF_HUB_DISABLE_TELEMETRY: '1'
     steps:
       - uses: actions/checkout@v4
