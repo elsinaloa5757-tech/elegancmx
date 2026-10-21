@@ -2,59 +2,66 @@
   {
     "fileId": "6ad86205ead997d09a2accd8",
     "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/WhatsApp-Image-2026-09-21-at-8-27-53-PM__-CKXSwys.webp?updatedAt=1792565766110",
-    "visualDescriptionUnverified": "Glam.",
-    "categorySuggestion": null,
-    "nameSuggestion": null,
-    "colorsSuggestion": [],
+    "visualDescriptionUnverified": "The main fashion product in this image is a shiny silver sneaker.",
+    "categorySuggestion": "Tenis",
+    "nameSuggestion": "Tenis plateados",
+    "colorsSuggestion": [
+      "plateado"
+    ],
     "status": "requires_review",
     "verified": false,
     "source": "smolvlm_open_cpu",
     "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
-    "attempts": 1
+    "attempts": 2
   },
   {
     "fileId": "6ad86205ead997d09a2acc95",
     "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/WhatsApp-Image-2026-09-21-at-8-27-54-PM--1-_nHFnqqK4y.webp?updatedAt=1792565766011",
-    "visualDescriptionUnverified": "Loafers.",
-    "categorySuggestion": null,
-    "nameSuggestion": null,
-    "colorsSuggestion": [],
+    "visualDescriptionUnverified": "The main fashion product in this image is a pair of black loafers.",
+    "categorySuggestion": "Calzado",
+    "nameSuggestion": "Calzado negro",
+    "colorsSuggestion": [
+      "negro"
+    ],
     "status": "requires_review",
     "verified": false,
     "source": "smolvlm_open_cpu",
     "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
-    "attempts": 1
+    "attempts": 2
   },
   {
     "fileId": "6ad2fc54ead997d09a2d4ffe",
     "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-05c3785f-bc07-4542-8c0c-0cf7ed50fb02_swbHqYucas.webp?updatedAt=1792212053070",
-    "visualDescriptionUnverified": "Shoe.",
-    "categorySuggestion": null,
-    "nameSuggestion": null,
-    "colorsSuggestion": [],
+    "visualDescriptionUnverified": "The product is a black sneaker with red accents.",
+    "categorySuggestion": "Tenis",
+    "nameSuggestion": "Tenis negros",
+    "colorsSuggestion": [
+      "negro",
+      "rojo"
+    ],
     "status": "requires_review",
     "verified": false,
     "source": "smolvlm_open_cpu",
     "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
-    "attempts": 1
+    "attempts": 2
   },
   {
     "fileId": "6ad2fc54ead997d09a2d4f5c",
     "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-42ae8237-9b73-4118-bdee-12db274c94c5_TiPlQljdg.webp?updatedAt=1792212052927",
-    "visualDescriptionUnverified": "Nike",
-    "categorySuggestion": null,
-    "nameSuggestion": null,
+    "visualDescriptionUnverified": "The shoe is a Nike Airforce 1 sneaker.",
+    "categorySuggestion": "Tenis",
+    "nameSuggestion": "Tenis",
     "colorsSuggestion": [],
     "status": "requires_review",
     "verified": false,
     "source": "smolvlm_open_cpu",
     "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
-    "attempts": 1
+    "attempts": 2
   },
   {
     "fileId": "6ad2fc54ead997d09a2d4e4d",
     "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-48eeb5f0-750d-4ef5-b862-73a2b7c8ae74_8NVlL56Er.webp?updatedAt=1792212052624",
-    "visualDescriptionUnverified": "Nike",
+    "visualDescriptionUnverified": "The product is a Nike Air Zoom 2.0.",
     "categorySuggestion": null,
     "nameSuggestion": null,
     "colorsSuggestion": [],
@@ -62,6 +69,6 @@
     "verified": false,
     "source": "smolvlm_open_cpu",
     "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
-    "attempts": 1
+    "attempts": 2
   }
 ]

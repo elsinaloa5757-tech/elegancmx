@@ -2,16 +2,17 @@
   "photoCount": 3911,
   "historicalPhotos": 80,
   "classifiedImages": 3911,
-  "visionDrafts": 0,
-  "visionGenericCategories": 0,
-  "autoAssignedPhotos": 3011,
-  "pendingPhotos": 900,
+  "visionDrafts": 5,
+  "visionGenericCategories": 1,
+  "autoAssignedPhotos": 3012,
+  "pendingPhotos": 899,
   "sources": {
     "clip": 2934,
-    "legacy_name": 77
+    "legacy_name": 77,
+    "vision_generic": 1
   },
   "categories": {
-    "Tenis": 1307,
+    "Tenis": 1308,
     "Fragancias": 148,
     "Lencería": 49,
     "Joyería": 46,
