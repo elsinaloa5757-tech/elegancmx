@@ -92,7 +92,10 @@ export function createSectionRegistry({media,routes,ai,vision,ocr,curation,owner
   const brand=manualBrand||clip||null;
   if(!brand)unresolvedBrand++;
   if(!validParent&&!ownerCustom)pending++;
-  if(proposed)add(catSections,proposed,ownerCustom);
+  if(proposed){
+   add(catSections,proposed,ownerCustom);
+   catSections.get(proposed).parent=ownerCustom?null:validParent;
+  }
   if(manualBrand)add(brandSections,manualBrand,true);
   else if(brand)add(brandSections,brand,false);
   if(proposed||brand){
