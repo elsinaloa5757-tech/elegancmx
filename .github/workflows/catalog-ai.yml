@@ -63,6 +63,8 @@ jobs:
         run: node scripts/build-visual-relations.mjs
       - name: Recopilar categorías corregidas por el propietario (solo datos públicos)
         run: node scripts/fetch-owner-feedback.mjs
+      - name: Investigar referencias comerciales verificables en catálogo público gratuito
+        run: node scripts/find-web-references.mjs
       - name: Auditar discrepancias entre CLIP y SmolVLM
         run: node scripts/build-identification-audit.mjs
       - name: Comprobar que no hay productos ni precios inventados
@@ -85,7 +87,7 @@ jobs:
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add data/imagekit-media.json data/imagekit-report.json data/potential-duplicates.json data/ai-classifications.json data/auto-categories.json data/auto-categories-summary.json data/visual-relations.json data/identification-audit.json data/owner-feedback.json
+          git add data/imagekit-media.json data/imagekit-report.json data/potential-duplicates.json data/ai-classifications.json data/auto-categories.json data/auto-categories-summary.json data/visual-relations.json data/identification-audit.json data/owner-feedback.json data/web-reference-candidates.json
           if ! git diff --cached --quiet; then
             git commit -m 'data(ai): automatic ImageKit classification and category routing'
             git fetch origin main
