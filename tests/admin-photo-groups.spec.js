@@ -42,6 +42,8 @@ test('administrator can approve and revoke a visually similar photo pair without
  await expect(link).toBeVisible();
  await link.click();
  await expect.poll(()=>actions.some(x=>x.action==='set-group'&&x.targetFileId===b)).toBeTruthy();
+ // Await asynchronous admin reload; otherwise editing a row being replaced is flaky.
+ await expect(row).toContainText('Galería aprobada:');
  await row.locator('[data-edit-admin]').click();
  await expect(page.locator('#admin-media-grid [data-unlink-admin]')).toBeVisible();
  await page.locator('#admin-media-grid [data-unlink-admin]').dispatchEvent('click'); // DOM refresh can detach the button between pointer frames.
