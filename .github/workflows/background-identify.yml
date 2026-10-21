@@ -9,6 +9,8 @@ on:
       - 'scripts/build-name-drafts.mjs'
       - 'scripts/find-web-references.mjs'
       - 'scripts/web-reference-utils.mjs'
+      - 'scripts/dynamic-sections-utils.mjs'
+      - 'scripts/build-dynamic-sections.mjs'
   schedule:
     - cron: '23 * * * *'
   workflow_dispatch:
@@ -40,13 +42,15 @@ jobs:
           sudo apt-get install -y -qq tesseract-ocr
           python3 -m pip install --quiet pillow requests pytesseract
       - name: Probar identificacion segura y fuentes reales
-        run: node --test tests/name-draft-utils.test.mjs tests/web-reference-utils.test.mjs
+        run: node --test tests/name-draft-utils.test.mjs tests/web-reference-utils.test.mjs tests/dynamic-sections.test.mjs
       - name: Leer codigos visibles automaticamente sin modificar originales
         run: python3 scripts/ocr-products.py
       - name: Buscar automaticamente modelos por codigos en Wikidata con cuota limitada
         run: node scripts/find-web-references.mjs
       - name: Crear nombres provisionales para todo el catalogo
         run: node scripts/build-name-drafts.mjs
+      - name: Actualizar secciones dinamicas de marcas y tipos
+        run: node scripts/build-dynamic-sections.mjs
       - name: Verificar que nunca se inventan productos comerciales
         run: node scripts/build-public.mjs
       - name: Guardar solamente resultados de identificacion
@@ -54,7 +58,7 @@ jobs:
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add data/ocr-drafts.json data/name-drafts.json data/web-reference-candidates.json
+          git add data/ocr-drafts.json data/name-drafts.json data/web-reference-candidates.json data/dynamic-sections.json
           if ! git diff --cached --quiet; then
             git commit -m 'data(identify): unattended free OCR, public catalog matches and safe draft names'
             # GitHub Actions may push fresh media concurrently; never force-push.
