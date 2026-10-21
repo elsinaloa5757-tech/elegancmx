@@ -32,6 +32,9 @@ on:
       - 'data/web-reference-candidates.json'
       - 'data/name-drafts.json'
       - 'data/ocr-drafts.json'
+      - 'data/dynamic-sections.json'
+      - 'scripts/dynamic-sections-utils.mjs'
+      - 'scripts/build-dynamic-sections.mjs'
       - 'data/owner-feedback.json'
       - '.github/workflows/deploy.yml'
   workflow_dispatch:
@@ -67,6 +70,8 @@ jobs:
           node scripts/build-visual-relations.mjs
           node scripts/fetch-owner-feedback.mjs
           node scripts/build-identification-audit.mjs
+          node --test tests/dynamic-sections.test.mjs
+          node scripts/build-dynamic-sections.mjs
           node scripts/build-public.mjs
       - name: Install Chromium
         run: npx playwright install --with-deps chromium
