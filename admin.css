@@ -114,3 +114,11 @@
 .admin-ai-audit small{color:#9db5c5;font-size:10px;line-height:1.5}
 .admin-ai-conflict{color:#ffd8a1!important;font-weight:600}
 @media(max-width:650px){.admin-ai-audit select{width:100%;min-width:0}}
+
+/* Optional, owner-operated web identification; no external Lens API required. */
+.admin-web-identify{margin:12px 0;padding:12px;border:1px solid #457eac;border-radius:9px;background:#0a263b;display:flex;flex-wrap:wrap;gap:8px}
+.admin-web-identify h4,.admin-web-identify p{flex-basis:100%;margin:0}
+.admin-web-identify h4{color:#bee9ff;font-size:13px}
+.admin-web-identify p{color:#b7d5e9;font-size:11px;line-height:1.5}
+.admin-web-identify a{display:inline-flex;align-items:center;border:1px solid #70a6c8;padding:8px 10px;border-radius:5px;text-decoration:none;color:#d7f4ff;background:#08203a;font-size:11px}
+.admin-web-identify a:hover,.admin-web-identify a:focus-visible{background:#195b88}
