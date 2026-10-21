@@ -9,6 +9,7 @@ on:
       - 'tests/test_vision_drafts.py'
       - 'scripts/visual-relations.mjs'
       - 'scripts/build-visual-relations.mjs'
+      - 'scripts/name-draft-utils.mjs'
   schedule:
     - cron: '11,41 * * * *'
   workflow_dispatch:
@@ -80,4 +81,6 @@ jobs:
         if: steps.save.outputs.changed == 'true'
         env:
           GH_TOKEN: ${{ github.token }}
-        run: gh workflow run deploy.yml --ref main
+        run: |
+          gh workflow run deploy.yml --ref main
+          gh workflow run background-identify.yml --ref main
