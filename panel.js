@@ -286,7 +286,13 @@ async function boot(){
   }
  }
  const liveResult=await dynamicPromise;
- const publicRecords=liveResult[0]?.status==='fulfilled'&&Array.isArray(liveResult[0].value)?liveResult[0].value:[];
+ const apiData=liveResult[1]?.status==='fulfilled'?liveResult[1].value:{};
+ const restRows=liveResult[0]?.status==='fulfilled'&&Array.isArray(liveResult[0].value)?liveResult[0].value:[];
+ // The public admin function returns sanitized, visible-only data even if the
+ // direct REST API does not grant anonymous SELECT permission.
+ const safeRows=Array.isArray(apiData?.media)?apiData.media:[];
+ const publicRecords=[...new Map([...restRows,...safeRows].filter(x=>x?.imagekit_file_id)
+   .map(x=>[x.imagekit_file_id,x])).values()];
  const hiddenIds=new Set(liveResult[1]?.status==='fulfilled'&&Array.isArray(liveResult[1].value?.hiddenIds)?liveResult[1].value.hiddenIds:[]);
  const liveMedia=publicRecords.map(row=>({
   fileId:row.imagekit_file_id,url:row.url,mime:row.mime,createdAt:row.created_at
@@ -295,8 +301,8 @@ async function boot(){
   ...(row.title?{name:row.title}:{}),
   ...(row.category?{category:row.category}:{}),
   ...(row.brand?{brand:row.brand}:{}),
-  ...(row.price!==null?{price:row.price}:{}),
-  ...(row.stock!==null?{stock:row.stock}:{}),
+  ...(row.price!=null?{price:row.price}:{}),
+  ...(row.stock!=null?{stock:row.stock}:{}),
   ...(row.group_id?{groupId:row.group_id}:{}),
   hidden:false
  }]));
