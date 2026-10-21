@@ -245,6 +245,7 @@ async function edit(fileId){
  });
 }
 function bind(){
+ $('admin-header-open').addEventListener('click',open);
  $('admin-nav-open').addEventListener('click',open);
  $('admin-footer-open').addEventListener('click',open);
  $('admin-close').addEventListener('click',()=>$('admin-dialog').close());
