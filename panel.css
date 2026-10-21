@@ -207,3 +207,92 @@ section[id]{scroll-margin-top:90px}
  .wordmark{font-size:26px!important}
  .hero h1.brand-script{font-size:32px!important}
 }
+
+
+/* ELEGANCE DEPTH — restrained luxury 3D, progressive enhancement.
+   Existing real panther artwork, palette, merchandise and interactions are unchanged.
+   Decoration never intercepts taps or clicks. */
+.hero{perspective:1250px;transform-style:preserve-3d}
+.hero-depth{
+  position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0;isolation:isolate;
+  transform:translate3d(var(--depth-x,0px),var(--depth-y,0px),0);
+  transition:transform .36s cubic-bezier(.2,.75,.3,1);
+}
+.hero-depth-grid{
+  position:absolute;inset:-20%;opacity:.23;
+  background:linear-gradient(110deg,transparent 35%,rgba(96,193,255,.14) 67%,transparent 90%),
+    repeating-linear-gradient(90deg,transparent 0,transparent 78px,rgba(151,217,255,.12) 79px,transparent 80px);
+  transform:perspective(900px) rotateY(-20deg) rotateX(9deg) scale(1.25);
+  mask-image:linear-gradient(to right,transparent 14%,black 78%);
+}
+.hero-depth-orbit{
+  position:absolute;right:2.5%;top:50%;width:min(44vw,440px);aspect-ratio:1;
+  border-radius:50%;transform-style:preserve-3d;pointer-events:none;
+  border:1px solid rgba(152,223,255,.38);
+  box-shadow:0 0 38px rgba(60,157,241,.15),inset 0 0 26px rgba(63,162,255,.14);
+  transform:translateY(-50%) rotateX(63deg) rotateZ(-27deg);
+}
+.hero-depth-orbit:before{
+  content:"";position:absolute;inset:9%;border:1px solid rgba(190,238,255,.22);
+  border-radius:50%;box-shadow:0 0 18px rgba(123,209,255,.14);
+}
+.hero-depth-orbit-outer{animation:depth-orbit 19s ease-in-out infinite alternate}
+.hero-depth-orbit-inner{
+  width:min(31vw,300px);right:7%;border-style:dashed;
+  border-color:rgba(127,206,255,.22);box-shadow:none;
+  transform:translateY(-50%) rotateX(70deg) rotateZ(30deg);
+  animation:depth-orbit-inner 24s ease-in-out infinite alternate;
+}
+.hero-depth-spark{
+  position:absolute;pointer-events:none;width:4px;height:4px;border-radius:50%;
+  background:#d1f5ff;box-shadow:0 0 13px 3px rgba(125,210,255,.6);
+  animation:depth-spark 6s ease-in-out infinite alternate;
+}
+.hero-depth-spark-one{right:8%;top:23%}
+.hero-depth-spark-two{right:38%;top:68%;animation-delay:-2s}
+.hero-depth-spark-three{right:24%;top:81%;animation-delay:-4s}
+.hero-copy{transform:translate3d(var(--copy-x,0px),var(--copy-y,0px),0);transition:transform .36s cubic-bezier(.2,.75,.3,1)}
+@keyframes depth-orbit{
+  from{transform:translateY(-50%) rotateX(63deg) rotateZ(-27deg)}
+  to{transform:translateY(-52%) rotateX(67deg) rotateZ(9deg)}
+}
+@keyframes depth-orbit-inner{
+  from{transform:translateY(-50%) rotateX(70deg) rotateZ(30deg)}
+  to{transform:translateY(-48%) rotateX(62deg) rotateZ(-11deg)}
+}
+@keyframes depth-spark{
+  from{opacity:.26;transform:translate3d(0,0,0) scale(.75)}
+  to{opacity:.8;transform:translate3d(0,-9px,0) scale(1.1)}
+}
+@media(hover:hover) and (pointer:fine){
+  .luxury-tilt{
+    --card-rx:0deg;--card-ry:0deg;
+    transform:perspective(900px) rotateX(var(--card-rx)) rotateY(var(--card-ry)) translateY(-3px);
+    transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease;
+    transform-style:preserve-3d;
+    backface-visibility:hidden;will-change:transform;
+    box-shadow:0 8px 28px rgba(5,25,50,.4),0 0 21px rgba(104,188,250,.14);
+    border-color:rgba(153,222,255,.7);
+  }
+  .luxury-tilt .catalog-photo img,.luxury-tilt>img{transform:scale(1.027)}
+}
+.depth-revealed{animation:depth-reveal .65s cubic-bezier(.22,1,.36,1) both}
+@keyframes depth-reveal{from{opacity:.84;filter:brightness(.92)}to{opacity:1;filter:brightness(1)}}
+@media(max-width:850px){
+  .hero-depth-orbit-outer{right:-12%;width:280px;opacity:.45}
+  .hero-depth-orbit-inner{right:1%;width:190px;opacity:.4}
+  .hero-depth-grid{opacity:.13}
+}
+@media(max-width:650px){
+  .hero-depth{opacity:.30;transform:none!important;transition:none!important}
+  .hero-depth-grid{display:none}
+  .hero-depth-orbit-outer{right:-7%;width:200px;border-color:rgba(156,226,255,.17)}
+  .hero-depth-orbit-inner{display:none}
+  .hero-depth-spark{display:none}
+  .hero-copy{transform:none!important}
+}
+@media(prefers-reduced-motion:reduce){
+  .hero-depth,.hero-copy,.luxury-tilt{transform:none!important;transition:none!important}
+  .hero-depth-orbit,.hero-depth-spark,.depth-revealed{animation:none!important}
+  .depth-revealed{filter:none!important;opacity:1!important}
+}
