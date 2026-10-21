@@ -70,5 +70,72 @@
     "source": "smolvlm_open_cpu",
     "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
     "attempts": 2
+  },
+  {
+    "fileId": "6ad21821ead997d09ac91e3e",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-84896916-8e55-4f70-8eff-a86c1d355c9c_vZACAF3a7.jpg?updatedAt=1792153633679",
+    "visualDescriptionUnverified": "The shoe shown is a pair of Adidas Loafers.",
+    "categorySuggestion": "Calzado",
+    "nameSuggestion": "Calzado",
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6ad21804ead997d09ac80142",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-9950350c-748b-444a-aea6-5bc8cd5aa375_fUPjylQdG.webp?updatedAt=1792153604985",
+    "visualDescriptionUnverified": "The product is a pair of Adidas athletic pants.",
+    "categorySuggestion": "Pantalones",
+    "nameSuggestion": "Pantalón",
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6ad21803ead997d09ac7f444",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-b0213adc-a8d9-4177-b28e-188d82c2e38b_lOsBfmvUq.webp?updatedAt=1792153603858",
+    "visualDescriptionUnverified": "The product is a peach-colored, sleeveless, athletic top with the brand name \"B.B. King\" on the left side.",
+    "categorySuggestion": null,
+    "nameSuggestion": null,
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6ad21802ead997d09ac7ee4a",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-ae179e0c-5202-442e-8b8b-f10f362ff7aa_UgDfAqQwa.webp?updatedAt=1792153602786",
+    "visualDescriptionUnverified": "The product is a green jacket with a zipper on the front and a zipper on the collar.",
+    "categorySuggestion": "Ropa",
+    "nameSuggestion": "Prenda verde",
+    "colorsSuggestion": [
+      "verde"
+    ],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6ad21800ead997d09ac7e533",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-f0483c14-b387-4a26-a82a-8ffbc56ef131_LBBMUXoV4.webp?updatedAt=1792153601233",
+    "visualDescriptionUnverified": "The product is a pair of Adidas tracksuit.",
+    "categorySuggestion": null,
+    "nameSuggestion": null,
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
   }
 ]
