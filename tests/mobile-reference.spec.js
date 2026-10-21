@@ -111,7 +111,9 @@ test('Ver todas expands brands/categories and shows full arrivals catalog; Ver m
  await page.goto('/');
  await expect(page.locator('#brand-rail .brand-card')).toHaveCount(7);
  await page.locator('#all-brands').click();
- await expect(page.locator('#brand-rail .brand-card')).toHaveCount(11);
+ // Eleven original brand tiles must remain, plus any genuinely discovered brands.
+ await expect.poll(async()=>page.locator('#brand-rail .brand-card').count())
+  .toBeGreaterThanOrEqual(11);
  await expect(page.locator('#all-brands')).toContainText('Ver menos');
  await page.locator('#all-brands').click();
  await expect(page.locator('#brand-rail .brand-card')).toHaveCount(7);
