@@ -907,12 +907,12 @@
     "verified": false,
     "source": "smolvlm_open_cpu",
     "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
-    "attempts": 1
+    "attempts": 2
   },
   {
     "fileId": "6aceacc4ead997d09a19cf05",
     "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-f367793d-c324-449c-bd84-ee83f5001480_nAHbXI1nHc.webp?updatedAt=1791929540352",
-    "visualDescriptionUnverified": "The product in this image is a pair of Christian Dior Shoe Gloves.",
+    "visualDescriptionUnverified": "The product in the image is a pair of Christian Dior Shoe Gloves.",
     "categorySuggestion": null,
     "nameSuggestion": null,
     "colorsSuggestion": [],
@@ -920,7 +920,7 @@
     "verified": false,
     "source": "smolvlm_open_cpu",
     "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
-    "attempts": 1
+    "attempts": 2
   },
   {
     "fileId": "6aceacc4ead997d09a19ceda",
@@ -946,7 +946,7 @@
     "verified": false,
     "source": "smolvlm_open_cpu",
     "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
-    "attempts": 1
+    "attempts": 2
   },
   {
     "fileId": "6aceacc3ead997d09a19ccdf",
@@ -1024,7 +1024,7 @@
     "verified": false,
     "source": "smolvlm_open_cpu",
     "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
-    "attempts": 1
+    "attempts": 2
   },
   {
     "fileId": "6aceacc1ead997d09a19c79b",
@@ -1115,7 +1115,7 @@
   {
     "fileId": "6aceab8dead997d09a15466f",
     "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-99d055a0-84ab-44fd-b6f6-e47b77b73f6e_8PS5TlIEf.webp?updatedAt=1791929229382",
-    "visualDescriptionUnverified": "The product in this image is a set of two bags. The bags are of different colors and have different shapes.",
+    "visualDescriptionUnverified": "The product in the image is a set of two bags. The bags are of different colors and have different shapes.",
     "categorySuggestion": null,
     "nameSuggestion": null,
     "colorsSuggestion": [],
@@ -1123,7 +1123,7 @@
     "verified": false,
     "source": "smolvlm_open_cpu",
     "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
-    "attempts": 1
+    "attempts": 2
   },
   {
     "fileId": "6aceab8bead997d09a153e43",
@@ -1151,7 +1151,7 @@
     "verified": false,
     "source": "smolvlm_open_cpu",
     "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
-    "attempts": 1
+    "attempts": 2
   },
   {
     "fileId": "6aceab8aead997d09a153ab7",
@@ -1177,7 +1177,7 @@
     "verified": false,
     "source": "smolvlm_open_cpu",
     "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
-    "attempts": 1
+    "attempts": 2
   },
   {
     "fileId": "6aceab89ead997d09a153833",
@@ -1190,7 +1190,7 @@
     "verified": false,
     "source": "smolvlm_open_cpu",
     "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
-    "attempts": 1
+    "attempts": 2
   },
   {
     "fileId": "6aceab89ead997d09a15374d",
@@ -1218,7 +1218,7 @@
     "verified": false,
     "source": "smolvlm_open_cpu",
     "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
-    "attempts": 1
+    "attempts": 2
   },
   {
     "fileId": "6aceab87ead997d09a152f95",
@@ -1231,7 +1231,7 @@
     "verified": false,
     "source": "smolvlm_open_cpu",
     "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
-    "attempts": 1
+    "attempts": 2
   },
   {
     "fileId": "6aceab85ead997d09a151267",
@@ -1286,6 +1286,410 @@
     "colorsSuggestion": [
       "rojo"
     ],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6aceab81ead997d09a14fe66",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-4842d0de-568c-4fd6-a2a5-c8450aa4f4d7_InSKIucAT.webp?updatedAt=1791929218208",
+    "visualDescriptionUnverified": "The product in the image is a black handbag.",
+    "categorySuggestion": "Bolsas",
+    "nameSuggestion": "Bolsa negra",
+    "colorsSuggestion": [
+      "negro"
+    ],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6aceab80ead997d09a14fb87",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-94180622-e623-4d07-af6e-0a0dc833f982_Mu8_97NMFH.webp?updatedAt=1791929217298",
+    "visualDescriptionUnverified": "The product in the image is a Louis Vuitton handbag.",
+    "categorySuggestion": "Bolsas",
+    "nameSuggestion": "Bolsa",
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acea38aead997d09ae72c5e",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-47073b79-6703-4a10-a19c-ecb815322aba_WM9BQWza5.webp?updatedAt=1791927179174",
+    "visualDescriptionUnverified": "The product is a brown leather bag with a lock on the top.",
+    "categorySuggestion": null,
+    "nameSuggestion": null,
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acea38aead997d09ae72c54",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-cb849e88-952d-4fa4-bd2e-428c0f64f4f5_f4opX9kUT.webp?updatedAt=1791927179026",
+    "visualDescriptionUnverified": "The product is a locket.",
+    "categorySuggestion": null,
+    "nameSuggestion": null,
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acea389ead997d09ae72af8",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-3101a758-329a-4bb0-8a81-62e6d45f76eb_4BezSWUgMI.webp?updatedAt=1791927178259",
+    "visualDescriptionUnverified": "The product is a leather handbag.",
+    "categorySuggestion": "Bolsas",
+    "nameSuggestion": "Bolsa",
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acea387ead997d09ae723a5",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-948c3e91-a20a-48ab-a451-eadf62faa192_7gdixDjd6.webp?updatedAt=1791927175481",
+    "visualDescriptionUnverified": "The product is a Yves Saint Laurent brand sneaker.",
+    "categorySuggestion": "Tenis",
+    "nameSuggestion": "Tenis",
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acea386ead997d09ae7218d",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-cc64d873-7e16-4877-88bf-70ae558ffcec_OIGelYETM.webp?updatedAt=1791927174835",
+    "visualDescriptionUnverified": "The product is a genuine glatestanned pebble leather.",
+    "categorySuggestion": null,
+    "nameSuggestion": null,
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acea386ead997d09ae71f4f",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-cc9239d7-e9e3-403c-a24a-d2685d049834_8db034MMB.webp?updatedAt=1791927174407",
+    "visualDescriptionUnverified": "The main fashion product in this image is a YSL brand handbag.",
+    "categorySuggestion": "Bolsas",
+    "nameSuggestion": "Bolsa",
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acea385ead997d09ae71d12",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-be35b891-59b0-4797-80ba-739def7aaa87_nyhIldqqG.webp?updatedAt=1791927173461",
+    "visualDescriptionUnverified": "The product is a puffy, furry Nike Nike Nike Nike Nike Nike Nike Nike Nike Nike Nike Nike Nike Nike Nike Nike Nike Nike Nike Nike Nike Nike Nike Nike Nike Nike Nike Nike Nike Nike Nike Nike Nike Nike Nike Nike Nike Nike Nike Nike Nike Nike Nike Nike Nike Nike Nike Nike Nike Nike Nike Nike Nike Nike Nike Nike Nike Nike ",
+    "categorySuggestion": null,
+    "nameSuggestion": null,
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acea37cead997d09ae6fd65",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-bb933133-3e4d-4926-b8a0-846ae27e97ee_ryLtiQIOQ.webp?updatedAt=1791927164539",
+    "visualDescriptionUnverified": "The product is a new york sneaker.",
+    "categorySuggestion": "Tenis",
+    "nameSuggestion": "Tenis",
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acea30eead997d09ae574a7",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-46279b7d-65a9-45dc-837f-6c6bd16ce552_b4aaOe7s7l.webp?updatedAt=1791927054856",
+    "visualDescriptionUnverified": "The product is a Hermes handbag.",
+    "categorySuggestion": "Bolsas",
+    "nameSuggestion": "Bolsa",
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acea30dead997d09ae5701e",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-d6bbd768-b824-4efd-a949-7a7ac75fd0a8_kcPa0Yrda.webp?updatedAt=1791927053794",
+    "visualDescriptionUnverified": "The product in the image is a brown leather handbag.",
+    "categorySuggestion": "Bolsas",
+    "nameSuggestion": "Bolsa marrón",
+    "colorsSuggestion": [
+      "marrón"
+    ],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acea30dead997d09ae56e6b",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-7992cb41-f238-4be9-8f62-b177c4257f9e_xswrhF-tRL.webp?updatedAt=1791927053302",
+    "visualDescriptionUnverified": "Yelp.",
+    "categorySuggestion": null,
+    "nameSuggestion": null,
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acea30cead997d09ae56c59",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-bf2d6c31-3224-4a4d-85cf-63948538e913_5htUEDQWm.webp?updatedAt=1791927052622",
+    "visualDescriptionUnverified": "The main fashion product in this image is a handbag. Its visible colors are brown, black, and beige. The brand or exact model is unknown.",
+    "categorySuggestion": "Bolsas",
+    "nameSuggestion": "Bolsa",
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acea30bead997d09ae56a98",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-24ad3545-8c7e-4671-a80a-7a7e90c56104_T5Jf95s_da.webp?updatedAt=1791927052127",
+    "visualDescriptionUnverified": "The main fashion product in this image is a Yelena brand sneaker.",
+    "categorySuggestion": "Tenis",
+    "nameSuggestion": "Tenis",
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acea309ead997d09ae5608e",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-94bbc53c-fc89-4915-a931-6fa81fcd71de_p0NyFdfJh.webp?updatedAt=1791927050114",
+    "visualDescriptionUnverified": "The product in the image is a handbag.",
+    "categorySuggestion": "Bolsas",
+    "nameSuggestion": "Bolsa",
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acea309ead997d09ae56017",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-0c742a3f-6560-4a9b-b31f-1a92ed64a5f1_B6SnSGBp46.webp?updatedAt=1791927050005",
+    "visualDescriptionUnverified": "The main fashion product in this image is a handbag.",
+    "categorySuggestion": "Bolsas",
+    "nameSuggestion": "Bolsa",
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acea309ead997d09ae55ecc",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-0b389f0a-e50d-42a2-8efe-c6aebcdded28_uZCG6JF8I.webp?updatedAt=1791927049622",
+    "visualDescriptionUnverified": "The product is a black leather handbag.",
+    "categorySuggestion": "Bolsas",
+    "nameSuggestion": "Bolsa negra",
+    "colorsSuggestion": [
+      "negro"
+    ],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acea308ead997d09ae55b51",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-fa4ce4f3-87a3-4565-a3fd-6fb0e511aa92_Mdl-avjK_U.webp?updatedAt=1791927048983",
+    "visualDescriptionUnverified": "The main fashion product in this image is a black leather handbag.",
+    "categorySuggestion": "Bolsas",
+    "nameSuggestion": "Bolsa negra",
+    "colorsSuggestion": [
+      "negro"
+    ],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acea308ead997d09ae55b23",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-7d89be29-a129-490f-abe2-6ac8195d631e_9WqK71ash.webp?updatedAt=1791927048850",
+    "visualDescriptionUnverified": "The product is YSL brand.",
+    "categorySuggestion": null,
+    "nameSuggestion": null,
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acea308ead997d09ae55ae4",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-fe68bd62-b0d8-4178-9a5f-f754e8d13d9b_34rLC_9tL.webp?updatedAt=1791927048777",
+    "visualDescriptionUnverified": "The product is a Gucci handbag.",
+    "categorySuggestion": "Bolsas",
+    "nameSuggestion": "Bolsa",
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acea307ead997d09ae5580e",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-3f4d9973-b051-488c-becb-0a4432243222_Y5oWmP-F6.webp?updatedAt=1791927048244",
+    "visualDescriptionUnverified": "The main fashion product in this image is a black Targus handbag with a chain-link design.",
+    "categorySuggestion": "Bolsas",
+    "nameSuggestion": "Bolsa negra",
+    "colorsSuggestion": [
+      "negro"
+    ],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acea307ead997d09ae557ee",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-c3daec4a-a68b-48c3-8b8f-b7cfbc0a4893_ZIgw8lzOPM.webp?updatedAt=1791927048166",
+    "visualDescriptionUnverified": "The product is a handbag.",
+    "categorySuggestion": "Bolsas",
+    "nameSuggestion": "Bolsa",
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acea306ead997d09ae550fa",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-e6f4d7e4-3027-481e-8030-244a068311b8_BmIvyw-6H.webp?updatedAt=1791927046779",
+    "visualDescriptionUnverified": "Hermes paris.",
+    "categorySuggestion": null,
+    "nameSuggestion": null,
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acea300ead997d09ae53038",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-c0c6b520-86c4-4212-8f82-98c4037084cf_vBZMNBipc.webp?updatedAt=1791927040609",
+    "visualDescriptionUnverified": "The main fashion product in this image is a pair of Coach sneakers.",
+    "categorySuggestion": "Tenis",
+    "nameSuggestion": "Tenis",
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acea2ffead997d09ae52e4f",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-5ef9eae7-d469-42da-8084-3ba1a272cde1_oLeCJha1uR.webp?updatedAt=1791927040221",
+    "visualDescriptionUnverified": "The main fashion product in this image is a black Louis Vuitton handbag.",
+    "categorySuggestion": "Bolsas",
+    "nameSuggestion": "Bolsa negra",
+    "colorsSuggestion": [
+      "negro"
+    ],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acea2fcead997d09ae51ee3",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-8e755ae4-7c0a-4f01-8827-adde8e46531d_yoS2k33YO.webp?updatedAt=1791927036929",
+    "visualDescriptionUnverified": "The product is a lock.",
+    "categorySuggestion": null,
+    "nameSuggestion": null,
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acea2faead997d09ae516c2",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-44a4835a-06a2-4047-8884-267deb07b4a5_UlpdR6--F.webp?updatedAt=1791927035013",
+    "visualDescriptionUnverified": "The main fashion product in this image is a black leather Sneaker.",
+    "categorySuggestion": "Tenis",
+    "nameSuggestion": "Tenis negros",
+    "colorsSuggestion": [
+      "negro"
+    ],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6ace29cfead997d09a5b9a10",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-a755267d-7633-45d0-99a9-3bd001266837_fzx-a94gK.webp?updatedAt=1791896015929",
+    "visualDescriptionUnverified": "The main fashion product in this image is a Converse Dior shoe.",
+    "categorySuggestion": null,
+    "nameSuggestion": null,
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6ace2354ead997d09a2d228e",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-9df71fc4-4aa2-4638-a513-d494d24f68c3_3J2SJUf_s.webp?updatedAt=1791894356287",
+    "visualDescriptionUnverified": "The main fashion product in this image is a Louis Vuitton handbag.",
+    "categorySuggestion": "Bolsas",
+    "nameSuggestion": "Bolsa",
+    "colorsSuggestion": [],
     "status": "requires_review",
     "verified": false,
     "source": "smolvlm_open_cpu",

@@ -2,17 +2,17 @@
   "photoCount": 3911,
   "historicalPhotos": 80,
   "classifiedImages": 3911,
-  "visionDrafts": 94,
-  "visionGenericCategories": 68,
-  "autoAssignedPhotos": 3079,
-  "pendingPhotos": 832,
+  "visionDrafts": 124,
+  "visionGenericCategories": 89,
+  "autoAssignedPhotos": 3100,
+  "pendingPhotos": 811,
   "sources": {
     "clip": 2934,
     "legacy_name": 77,
-    "vision_generic": 68
+    "vision_generic": 89
   },
   "categories": {
-    "Tenis": 1328,
+    "Tenis": 1333,
     "Fragancias": 148,
     "Lencería": 49,
     "Joyería": 46,
@@ -20,7 +20,7 @@
     "Pantalones": 9,
     "Ropa": 28,
     "Vestidos": 3,
-    "Bolsas": 1000,
+    "Bolsas": 1016,
     "Lentes": 128,
     "Playeras": 28,
     "Gorras": 113,
