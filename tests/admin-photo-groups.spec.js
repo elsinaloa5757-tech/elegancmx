@@ -33,6 +33,8 @@ test('administrator can approve and revoke a visually similar photo pair without
  });
  await page.goto('/');
  await page.locator('#admin-header-open').click();
+ await expect(page.locator('#admin-similar-count')).toContainText('2 fotos');
+ await page.locator('#admin-similar-only').check();
  const row=page.locator('#admin-media-grid [data-id="'+a+'"]');
  await expect(row).toBeVisible();
  await row.locator('[data-edit-admin]').click();
