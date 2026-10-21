@@ -34,7 +34,7 @@ permissions:
   contents: read
 concurrency:
   group: elegance-cloudflare-pages
-  cancel-in-progress: false
+  cancel-in-progress: true
 jobs:
   deploy:
     if: github.repository == 'elsinaloa5757-tech/elegancmx'
