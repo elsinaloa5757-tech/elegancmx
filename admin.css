@@ -1,5 +1,13 @@
 /* Elegance MX · administration belongs to the existing storefront, not a second shop. */
 .admin-nav-link,.admin-footer-link{color:#aee6ff!important}
+/* Always-available, one-click entry to the same protected admin dialog. */
+.admin-header-access{display:flex;align-items:center;justify-content:center;gap:6px;min-width:76px;min-height:39px;padding:4px 9px;border:1px solid #548bab;border-radius:9px;color:#b9e9ff;background:#0b2740;font-size:11px;white-space:nowrap}
+.admin-header-access span{font-size:22px;line-height:1}
+.admin-header-access small{font:600 10px system-ui,sans-serif;letter-spacing:.2px}
+.admin-header-access:hover,.admin-header-access:focus-visible{background:#1b4461;border-color:#a7dcff}
+@media(max-width:850px){.admin-header-access{min-width:33px;width:33px;height:31px;min-height:31px;padding:1px;flex-shrink:0}.admin-header-access small{display:none}.admin-header-access span{font-size:20px}}
+@media(max-width:650px){.admin-header-access{min-width:25px;width:25px;height:27px;min-height:27px;border-radius:6px;padding:0;margin-right:1px}.admin-header-access span{font-size:19px}}
+
 .admin-dialog{border:1px solid #638baa;border-radius:15px;background:#04121f;color:#e2f6ff;box-shadow:0 28px 80px #000d;width:min(1000px,96vw);max-width:min(1000px,96vw);max-height:94dvh;padding:0;overscroll-behavior:contain}
 .admin-dialog::backdrop{background:#000d;backdrop-filter:blur(3px)}
 .admin-dialog[open]{display:block}
