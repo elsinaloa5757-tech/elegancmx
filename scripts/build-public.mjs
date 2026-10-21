@@ -31,20 +31,18 @@ const social=await read('data/social-links.json');
 for(const channel of ['whatsapp','facebook','instagram','tiktok']){
  if(!social?.[channel]?.url?.startsWith('https://'))throw Error('Social channel missing safe redirect '+channel);
 }
-if(!homepage.includes('elegance-depth.js')||!homepage.includes('class="hero-depth"'))throw Error('3D luxury hero enhancement missing');
-if(!homepage.includes('id="pantera-3d"')||!homepage.includes('panther-3d.js'))throw Error('Real 3D panther viewer missing');
 if(!homepage.includes('social-clover.js')||!homepage.includes('social-clover.css'))throw Error('Floating social clover missing');
 if(!homepage.includes('id="admin-dialog"')||!homepage.includes('id="admin-nav-open"')||!homepage.includes('admin.js'))throw Error('Secure integrated administrator missing');
 const archivePage=await fs.readFile('archivo.html','utf8');
 if(!archivePage.includes('catalog-recovery.js'))throw Error('Original recovered photo archive missing');
-for(const filename of ['panel.js','panel.css','admin.js','admin.css','elegance-depth.js','panther-3d.js'])if(!(await fs.stat(filename)).size)throw Error('Missing '+filename);
+for(const filename of ['panel.js','panel.css','admin.js','admin.css'])if(!(await fs.stat(filename)).size)throw Error('Missing '+filename);
 if(!await fs.stat('assets/elegance-panther.png').then(x=>x.size>100000).catch(()=>false))
   throw Error('Original panther asset missing');
 await fs.rm(dir,{recursive:true,force:true});
 await fs.mkdir(path.join(dir,'assets'),{recursive:true});
 await fs.mkdir(path.join(dir,'data'),{recursive:true});
 for(const name of ['index.html','panel.js','panel.css','admin.js','admin.css','archivo.html',
- 'styles.css','app.js','catalog-recovery.js','social-clover.js','social-clover.css','elegance-depth.js','panther-3d.js','products.json',
+ 'styles.css','app.js','catalog-recovery.js','social-clover.js','social-clover.css','products.json',
  'laboratorio-ia.html','lab.js','lab.css']){
  await fs.copyFile(name,path.join(dir,name));
 }
