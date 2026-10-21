@@ -7,14 +7,16 @@ on:
       - 'scripts/vision-enrich.py'
       - 'scripts/vision-catalog-utils.py'
       - 'tests/test_vision_drafts.py'
+      - 'scripts/visual-relations.mjs'
+      - 'scripts/build-visual-relations.mjs'
   schedule:
-    - cron: '24 * * * *'
+    - cron: '11,41 * * * *'
   workflow_dispatch:
     inputs:
       batch_size:
         description: 'Fotos a analizar en CPU en esta ejecución (1-40)'
         required: false
-        default: '20'
+        default: '40'
 permissions:
   contents: write
   actions: write
@@ -27,7 +29,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 75
     env:
-      VISION_BATCH_SIZE: ${{ github.event_name == 'workflow_dispatch' && inputs.batch_size || '20' }}
+      VISION_BATCH_SIZE: ${{ github.event_name == 'workflow_dispatch' && inputs.batch_size || '40' }}
       HF_HUB_DISABLE_TELEMETRY: '1'
     steps:
       - uses: actions/checkout@v4
@@ -51,6 +53,8 @@ jobs:
         run: python3 scripts/vision-enrich.py
       - name: Actualizar las categorías con sugerencias visuales conservadoras
         run: node scripts/build-auto-categories.mjs
+      - name: Generar relaciones visuales sin fusionar artículos
+        run: node scripts/build-visual-relations.mjs
       - name: Validar contenido público sin productos falsos
         run: node scripts/build-public.mjs
       - name: Guardar únicamente borradores de visión y clasificación
@@ -58,7 +62,7 @@ jobs:
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add data/vision-drafts.json data/auto-categories.json data/auto-categories-summary.json
+          git add data/vision-drafts.json data/auto-categories.json data/auto-categories-summary.json data/visual-relations.json
           if ! git diff --cached --quiet; then
             git commit -m 'data(vision): no-fee visual description drafts and safe category routing'
             git fetch origin main
