@@ -24,6 +24,7 @@ jobs:
       - run: node --check social-clover.js
       - run: node --test tests/identification-audit.test.mjs
       - run: node scripts/fetch-owner-feedback.mjs
+      - run: python3 -m unittest discover -s tests -p 'test_ocr_hints.py' -v
       - run: node --test tests/name-draft-utils.test.mjs
       - run: node --test tests/web-reference-utils.test.mjs
       - run: node scripts/build-identification-audit.mjs
