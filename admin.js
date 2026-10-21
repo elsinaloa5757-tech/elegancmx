@@ -5,7 +5,7 @@ const API=HOST+'/functions/v1/elegance-admin', $=id=>document.getElementById(id)
 const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const CAT=['Tenis','Bolsas','Ropa','Playeras','Gorras','Pantalones','Accesorios','Joyería','Relojes','Lentes','Fragancias','Calzado','Vestidos','Lencería','Cinturones','Buckets'];
 const TYPES=new Set(['image/jpeg','image/png','image/webp','video/mp4','video/webm']);
-const S={session:null,authorized:false,ready:false,files:[],items:[],routes:new Map(),vision:new Map(),similar:new Map(),webRefs:new Map(),audit:null,auditQueue:new Map(),uploading:false,cancelled:false,requests:new Set(),shown:48};
+const S={session:null,authorized:false,ready:false,files:[],items:[],routes:new Map(),vision:new Map(),similar:new Map(),webRefs:new Map(),names:new Map(),ocrHints:new Map(),audit:null,auditQueue:new Map(),uploading:false,cancelled:false,requests:new Set(),shown:48};
 function notice(s,error=false){$('admin-message').textContent=s;$('admin-message').dataset.error=String(error)}
 function store(){try{if(S.session)sessionStorage.setItem('elegance_admin_auth_v1',JSON.stringify(S.session));else sessionStorage.removeItem('elegance_admin_auth_v1')}catch{}}
 async function auth(path,payload){
@@ -191,19 +191,30 @@ function reviewedVisual(id){
  const fold=cat=>cat==='Playeras'?'Ropa':cat;
  return v?.nameSuggestion&&(!known||fold(known)===fold(v.categorySuggestion))?v:null;
 }
+function provisionalName(id){
+ const d=S.names.get(id),x=S.items.find(x=>x.fileId===id);
+ const cat=x?.category||S.routes.get(id);
+ const fold=v=>v==='Playeras'?'Ropa':v;
+ return d?.verified===false&&d.status!=='owner_override'&&d.nameSuggestion&&
+  (!cat||fold(cat)===fold(d.category))?d.nameSuggestion:null;
+}
 function norm(x){return {id:x.id||null,fileId:x.imagekit_file_id||x.fileId,
  url:x.url,mime:x.mime,filename:x.filename||x.name||'Imagen ImageKit',title:x.title||'',brand:x.brand||'',
  category:x.category||'',description:x.description||'',price:x.price??null,stock:x.stock??null,
  visible:x.visible!==false,createdAt:x.created_at||x.createdAt||'',groupId:x.group_id||null,reviewed:!!x.id};}
 async function load(){
- const [live,raw,routes,visual,similar,audit,webRefs]=await Promise.all([api('list'),
+ const [live,raw,routes,visual,similar,audit,webRefs,names,ocr]=await Promise.all([api('list'),
   fetch('data/imagekit-media.json').then(r=>r.json()),
   fetch('data/auto-categories.json').then(r=>r.json()),
   fetch('data/vision-drafts.json').then(r=>r.ok?r.json():[]).catch(()=>[]),
   fetch('data/visual-relations.json').then(r=>r.ok?r.json():{pairs:[]}).catch(()=>({pairs:[]})),
   fetch('data/identification-audit.json').then(r=>r.ok?r.json():null).catch(()=>null),
-  fetch('data/web-reference-candidates.json').then(r=>r.ok?r.json():[]).catch(()=>[])
+  fetch('data/web-reference-candidates.json').then(r=>r.ok?r.json():[]).catch(()=>[]),
+  fetch('data/name-drafts.json').then(r=>r.ok?r.json():null).catch(()=>null),
+  fetch('data/ocr-drafts.json').then(r=>r.ok?r.json():[]).catch(()=>[])
  ]);
+ S.names=new Map((names?.verified===false&&Array.isArray(names.records)?names.records:[]).filter(x=>x.fileId&&x.verified===false).map(x=>[x.fileId,x]));
+ S.ocrHints=new Map((Array.isArray(ocr)?ocr:[]).filter(x=>x.fileId&&x.verified===false).map(x=>[x.fileId,x]));
  S.webRefs=new Map((Array.isArray(webRefs)?webRefs:[]).filter(x=>x.fileId&&x.verified===false&&Array.isArray(x.candidates)).map(x=>[x.fileId,x]));
  S.audit=audit?.version===1&&audit.verified===false&&Array.isArray(audit.queue)?audit:null;
  S.auditQueue=new Map((S.audit?.queue||[]).filter(x=>x.fileId).map((x,i)=>[x.fileId,{...x,order:i}]));
@@ -240,15 +251,15 @@ function render(){
   if(priority==='conflict'&&item?.reason!=='conflict')return false;
   if(priority==='unclassified'&&(x.category||S.routes.get(x.fileId)))return false;
   if(priority==='needs_review'&&item?.reason!=='needs_review')return false;
-  return [x.filename,x.title,reviewedVisual(x.fileId)?.nameSuggestion,x.brand,x.category,x.fileId,S.routes.get(x.fileId)].join(' ').toLowerCase().includes(query);
+  return [x.filename,x.title,provisionalName(x.fileId),reviewedVisual(x.fileId)?.nameSuggestion,x.brand,x.category,x.fileId,S.routes.get(x.fileId)].join(' ').toLowerCase().includes(query);
  });
  if(priority!=='all')match.sort((a,b)=>(S.auditQueue.get(a.fileId)?.order??999999)-(S.auditQueue.get(b.fileId)?.order??999999));
 
  $('admin-media-grid').innerHTML=match.slice(0,S.shown).map(x=>
   '<article class="admin-media-card" data-id="'+esc(x.fileId)+'">'+
   (x.mime.startsWith('video/')?'<video preload="none" muted src="'+esc(x.url)+'"></video>':'<img loading="lazy" src="'+esc(x.url)+'" alt="">')+
-  '<div class="admin-media-copy"><strong>'+esc(x.title||reviewedVisual(x.fileId)?.nameSuggestion||x.filename)+'</strong>'+ 
-  (!x.title&&reviewedVisual(x.fileId)?.nameSuggestion?'<small>Propuesta visual IA · sin verificar</small>':'')+
+  '<div class="admin-media-copy"><strong>'+esc(x.title||provisionalName(x.fileId)||reviewedVisual(x.fileId)?.nameSuggestion||x.filename)+'</strong>'+ 
+  (!x.title&&(provisionalName(x.fileId)||reviewedVisual(x.fileId)?.nameSuggestion)?'<small>Nombre automático · sin verificar</small>':'')+
   '<small>'+esc(x.category||S.routes.get(x.fileId)||'Por clasificar')+' · '+esc(x.fileId.slice(-9))+'</small>'+
   (S.auditQueue.get(x.fileId)?.reason==='conflict'?'<small class="admin-ai-conflict">⚠ Discrepancia IA o con una referencia aprobada: verificar antes de aprobar</small>':'')+
   (S.auditQueue.get(x.fileId)?.ownerReferenceCategory?'<small class="admin-owner-hint">Referencia revisada parecida: '+esc(S.auditQueue.get(x.fileId).ownerReferenceCategory)+' (no confirmado para esta foto)</small>':'')+
@@ -291,10 +302,15 @@ async function edit(fileId){
   const searchParts=[x.brand,x.title||reviewedVisual(fileId)?.nameSuggestion||''].filter(Boolean);
   const q=searchParts.join(' ').trim();
   const searchLink=q?'https://www.google.com/search?q='+encodeURIComponent(q):null;
+  const hints=S.ocrHints.get(fileId);
+  const codes=Array.isArray(hints?.skuCandidates)?hints.skuCandidates.slice(0,3):[];
+  const brands=Array.isArray(hints?.brandHints)?hints.brandHints.slice(0,3):[];
   research.innerHTML='<h4>Buscar modelo en internet · gratis</h4>'+
    '<p>Lens permite comparar la fotografía con resultados de internet. Sus coincidencias no confirman marca, modelo ni autenticidad.</p>'+
    '<a target="_blank" rel="noopener noreferrer" href="'+esc(photoLink)+'">🔎 Buscar esta fotografía con Google Lens ↗</a>'+
    (searchLink?'<a target="_blank" rel="noopener noreferrer" href="'+esc(searchLink)+'">Buscar por nombre o marca ↗</a>':'');
+  if(codes.length||brands.length)research.innerHTML+='<p>Lectura OCR automática (no confirma el producto): '+
+    esc(brands.join(', '))+(brands.length&&codes.length?' · ':'')+esc(codes.join(', '))+'</p>';
   const refs=S.webRefs.get(fileId);
   if(refs?.candidates?.length){
    const refLinks=refs.candidates.filter(c=>{try{return new URL(c.url).hostname==='www.wikidata.org'}catch{return false}}).slice(0,3);
