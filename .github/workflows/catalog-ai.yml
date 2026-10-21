@@ -5,8 +5,11 @@ on:
     branches: [main]
     paths:
       - '.github/workflows/catalog-ai.yml'
+      - 'scripts/classify-imagekit.mjs'
+      - 'scripts/build-auto-categories.mjs'
+      - 'scripts/category-router.mjs'
   schedule:
-    - cron: '13,43 * * * *'
+    - cron: '17,47 * * * *'
   workflow_dispatch:
     inputs:
       batch_size:
@@ -64,7 +67,8 @@ jobs:
           print('AI suggestions validated:',len(rows))
           routes=json.load(open('data/auto-categories.json'))
           assert all(x['canPublish'] is False and x['titleConfirmed'] is None and x['price'] is None and x['productId'] is None for x in routes)
-          assert len(routes)==3909 or len(routes)>3909
+          images=sum(x.get('mime','').startswith('image/') for x in json.load(open('data/imagekit-media.json')))
+          assert len(routes)==images, f'Category routes {len(routes)} != current images {images}'
           print('Draft category assignments:',sum(bool(x['category']) for x in routes))
           PY
       - name: Actualizar solo medios y sugerencias, sin desplegar la tienda
