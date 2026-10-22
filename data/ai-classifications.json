@@ -29,7 +29,19 @@
     "visualHash": "97e7e7c4c117e718",
     "duplicateCandidates": [],
     "status": "pending_review",
-    "model": "Xenova/clip-vit-base-patch32"
+    "model": "Xenova/clip-vit-base-patch32",
+    "rescueReview": {
+      "version": 1,
+      "status": "accepted",
+      "categorySuggestion": "Tenis",
+      "primaryScore": 0.5778,
+      "primaryMargin": 0.3938,
+      "croppedScore": 0.7441,
+      "croppedMargin": 0.6417,
+      "attempts": 1,
+      "method": "original_and_attention_crop_clip",
+      "verified": false
+    }
   },
   {
     "fileId": "6ad86205ead997d09a2acc95",
@@ -2200,7 +2212,19 @@
     "visualHash": "c8dce8e8e4f0f8e8",
     "duplicateCandidates": [],
     "status": "pending_review",
-    "model": "Xenova/clip-vit-base-patch32"
+    "model": "Xenova/clip-vit-base-patch32",
+    "rescueReview": {
+      "version": 1,
+      "status": "ambiguous",
+      "categorySuggestion": null,
+      "primaryScore": 0.4046,
+      "primaryMargin": 0.1439,
+      "croppedScore": 0.4932,
+      "croppedMargin": 0.2785,
+      "attempts": 1,
+      "method": "original_and_attention_crop_clip",
+      "verified": false
+    }
   },
   {
     "fileId": "6ad21807ead997d09ac82785",
@@ -2392,7 +2416,19 @@
     "visualHash": "049c2c5c59191270",
     "duplicateCandidates": [],
     "status": "pending_review",
-    "model": "Xenova/clip-vit-base-patch32"
+    "model": "Xenova/clip-vit-base-patch32",
+    "rescueReview": {
+      "version": 1,
+      "status": "ambiguous",
+      "categorySuggestion": null,
+      "primaryScore": 0.3187,
+      "primaryMargin": 0.0447,
+      "croppedScore": 0.3106,
+      "croppedMargin": 0.0843,
+      "attempts": 1,
+      "method": "original_and_attention_crop_clip",
+      "verified": false
+    }
   },
   {
     "fileId": "6ad21804ead997d09ac7fac5",
@@ -2456,7 +2492,19 @@
     "visualHash": "9e0a545c1a383920",
     "duplicateCandidates": [],
     "status": "pending_review",
-    "model": "Xenova/clip-vit-base-patch32"
+    "model": "Xenova/clip-vit-base-patch32",
+    "rescueReview": {
+      "version": 1,
+      "status": "ambiguous",
+      "categorySuggestion": null,
+      "primaryScore": 0.5118,
+      "primaryMargin": 0.3681,
+      "croppedScore": 0.7171,
+      "croppedMargin": 0.5338,
+      "attempts": 1,
+      "method": "original_and_attention_crop_clip",
+      "verified": false
+    }
   },
   {
     "fileId": "6ad21802ead997d09ac7ee4a",
@@ -2488,7 +2536,19 @@
     "visualHash": "64e0ac9ad8d8d9c3",
     "duplicateCandidates": [],
     "status": "pending_review",
-    "model": "Xenova/clip-vit-base-patch32"
+    "model": "Xenova/clip-vit-base-patch32",
+    "rescueReview": {
+      "version": 1,
+      "status": "ambiguous",
+      "categorySuggestion": null,
+      "primaryScore": 0.3611,
+      "primaryMargin": 0.093,
+      "croppedScore": 0.6377,
+      "croppedMargin": 0.5442,
+      "attempts": 1,
+      "method": "original_and_attention_crop_clip",
+      "verified": false
+    }
   },
   {
     "fileId": "6ad21800ead997d09ac7e533",
@@ -2520,7 +2580,19 @@
     "visualHash": "2ae66264e1f130f1",
     "duplicateCandidates": [],
     "status": "pending_review",
-    "model": "Xenova/clip-vit-base-patch32"
+    "model": "Xenova/clip-vit-base-patch32",
+    "rescueReview": {
+      "version": 1,
+      "status": "ambiguous",
+      "categorySuggestion": null,
+      "primaryScore": 0.5542,
+      "primaryMargin": 0.3529,
+      "croppedScore": 0.4281,
+      "croppedMargin": 0.0928,
+      "attempts": 1,
+      "method": "original_and_attention_crop_clip",
+      "verified": false
+    }
   },
   {
     "fileId": "6ad217ffead997d09ac7dca0",
@@ -2552,7 +2624,19 @@
     "visualHash": "66e18c8edad8d8c9",
     "duplicateCandidates": [],
     "status": "pending_review",
-    "model": "Xenova/clip-vit-base-patch32"
+    "model": "Xenova/clip-vit-base-patch32",
+    "rescueReview": {
+      "version": 1,
+      "status": "ambiguous",
+      "categorySuggestion": null,
+      "primaryScore": 0.3922,
+      "primaryMargin": 0.0488,
+      "croppedScore": 0.4549,
+      "croppedMargin": 0.1928,
+      "attempts": 1,
+      "method": "original_and_attention_crop_clip",
+      "verified": false
+    }
   },
   {
     "fileId": "6ad217fdead997d09ac7c2ae",
@@ -2584,7 +2668,19 @@
     "visualHash": "60e188b2d8d4d9c9",
     "duplicateCandidates": [],
     "status": "pending_review",
-    "model": "Xenova/clip-vit-base-patch32"
+    "model": "Xenova/clip-vit-base-patch32",
+    "rescueReview": {
+      "version": 1,
+      "status": "ambiguous",
+      "categorySuggestion": null,
+      "primaryScore": 0.5938,
+      "primaryMargin": 0.4542,
+      "croppedScore": 0.6519,
+      "croppedMargin": 0.4807,
+      "attempts": 1,
+      "method": "original_and_attention_crop_clip",
+      "verified": false
+    }
   },
   {
     "fileId": "6ad217fcead997d09ac7acc8",
@@ -2680,7 +2776,19 @@
     "visualHash": "66e1d8cab2d0d983",
     "duplicateCandidates": [],
     "status": "pending_review",
-    "model": "Xenova/clip-vit-base-patch32"
+    "model": "Xenova/clip-vit-base-patch32",
+    "rescueReview": {
+      "version": 1,
+      "status": "ambiguous",
+      "categorySuggestion": null,
+      "primaryScore": 0.5545,
+      "primaryMargin": 0.4003,
+      "croppedScore": 0.8472,
+      "croppedMargin": 0.774,
+      "attempts": 1,
+      "method": "original_and_attention_crop_clip",
+      "verified": false
+    }
   },
   {
     "fileId": "6ad217fbead997d09ac7aa54",
@@ -2712,7 +2820,19 @@
     "visualHash": "63645c5e5c1859c2",
     "duplicateCandidates": [],
     "status": "pending_review",
-    "model": "Xenova/clip-vit-base-patch32"
+    "model": "Xenova/clip-vit-base-patch32",
+    "rescueReview": {
+      "version": 1,
+      "status": "ambiguous",
+      "categorySuggestion": null,
+      "primaryScore": 0.3652,
+      "primaryMargin": 0.1001,
+      "croppedScore": 0.4323,
+      "croppedMargin": 0.1994,
+      "attempts": 1,
+      "method": "original_and_attention_crop_clip",
+      "verified": false
+    }
   },
   {
     "fileId": "6ad217f7ead997d09ac78b7b",
@@ -2776,7 +2896,19 @@
     "visualHash": "23e4ccbad2d0d934",
     "duplicateCandidates": [],
     "status": "pending_review",
-    "model": "Xenova/clip-vit-base-patch32"
+    "model": "Xenova/clip-vit-base-patch32",
+    "rescueReview": {
+      "version": 1,
+      "status": "ambiguous",
+      "categorySuggestion": null,
+      "primaryScore": 0.4234,
+      "primaryMargin": 0.2205,
+      "croppedScore": 0.6246,
+      "croppedMargin": 0.4983,
+      "attempts": 1,
+      "method": "original_and_attention_crop_clip",
+      "verified": false
+    }
   },
   {
     "fileId": "6ad217f6ead997d09ac78729",
@@ -2808,7 +2940,19 @@
     "visualHash": "27e1ec7ef2c0c1c0",
     "duplicateCandidates": [],
     "status": "pending_review",
-    "model": "Xenova/clip-vit-base-patch32"
+    "model": "Xenova/clip-vit-base-patch32",
+    "rescueReview": {
+      "version": 1,
+      "status": "ambiguous",
+      "categorySuggestion": null,
+      "primaryScore": 0.5675,
+      "primaryMargin": 0.2288,
+      "croppedScore": 0.4899,
+      "croppedMargin": 0.2642,
+      "attempts": 1,
+      "method": "original_and_attention_crop_clip",
+      "verified": false
+    }
   },
   {
     "fileId": "6ad217f5ead997d09ac778d6",
@@ -3128,7 +3272,19 @@
     "visualHash": "2365b1a1898cd825",
     "duplicateCandidates": [],
     "status": "pending_review",
-    "model": "Xenova/clip-vit-base-patch32"
+    "model": "Xenova/clip-vit-base-patch32",
+    "rescueReview": {
+      "version": 1,
+      "status": "ambiguous",
+      "categorySuggestion": null,
+      "primaryScore": 0.5869,
+      "primaryMargin": 0.3391,
+      "croppedScore": 0.6319,
+      "croppedMargin": 0.481,
+      "attempts": 1,
+      "method": "original_and_attention_crop_clip",
+      "verified": false
+    }
   },
   {
     "fileId": "6ad217eaead997d09ac70135",
@@ -3160,7 +3316,19 @@
     "visualHash": "1c38d0c18c8c8acc",
     "duplicateCandidates": [],
     "status": "pending_review",
-    "model": "Xenova/clip-vit-base-patch32"
+    "model": "Xenova/clip-vit-base-patch32",
+    "rescueReview": {
+      "version": 1,
+      "status": "ambiguous",
+      "categorySuggestion": null,
+      "primaryScore": 0.4586,
+      "primaryMargin": 0.1968,
+      "croppedScore": 0.3165,
+      "croppedMargin": 0.0595,
+      "attempts": 1,
+      "method": "original_and_attention_crop_clip",
+      "verified": false
+    }
   },
   {
     "fileId": "6ad217daead997d09ac6474c",
@@ -4024,7 +4192,19 @@
     "visualHash": "164ee2d1e971bc6d",
     "duplicateCandidates": [],
     "status": "pending_review",
-    "model": "Xenova/clip-vit-base-patch32"
+    "model": "Xenova/clip-vit-base-patch32",
+    "rescueReview": {
+      "version": 1,
+      "status": "ambiguous",
+      "categorySuggestion": null,
+      "primaryScore": 0.4764,
+      "primaryMargin": 0.3387,
+      "croppedScore": 0.4503,
+      "croppedMargin": 0.2842,
+      "attempts": 1,
+      "method": "original_and_attention_crop_clip",
+      "verified": false
+    }
   },
   {
     "fileId": "6ad217cdead997d09ac5aa98",
@@ -11935,7 +12115,19 @@
     "visualHash": "5bdbc26cecf82137",
     "duplicateCandidates": [],
     "status": "pending_review",
-    "model": "Xenova/clip-vit-base-patch32"
+    "model": "Xenova/clip-vit-base-patch32",
+    "rescueReview": {
+      "version": 1,
+      "status": "ambiguous",
+      "categorySuggestion": null,
+      "primaryScore": 0.4695,
+      "primaryMargin": 0.273,
+      "croppedScore": 0.4573,
+      "croppedMargin": 0.2668,
+      "attempts": 1,
+      "method": "original_and_attention_crop_clip",
+      "verified": false
+    }
   },
   {
     "fileId": "6ad002e3ead997d09a7f6fcf",
@@ -13320,7 +13512,19 @@
       }
     ],
     "status": "pending_review",
-    "model": "Xenova/clip-vit-base-patch32"
+    "model": "Xenova/clip-vit-base-patch32",
+    "rescueReview": {
+      "version": 1,
+      "status": "ambiguous",
+      "categorySuggestion": null,
+      "primaryScore": 0.4805,
+      "primaryMargin": 0.3155,
+      "croppedScore": 0.6447,
+      "croppedMargin": 0.4929,
+      "attempts": 1,
+      "method": "original_and_attention_crop_clip",
+      "verified": false
+    }
   },
   {
     "fileId": "6acfd155ead997d09a86e3f6",
@@ -15333,7 +15537,19 @@
     "visualHash": "89c9380161613a38",
     "duplicateCandidates": [],
     "status": "pending_review",
-    "model": "Xenova/clip-vit-base-patch32"
+    "model": "Xenova/clip-vit-base-patch32",
+    "rescueReview": {
+      "version": 1,
+      "status": "ambiguous",
+      "categorySuggestion": null,
+      "primaryScore": 0.3438,
+      "primaryMargin": 0.1686,
+      "croppedScore": 0.3097,
+      "croppedMargin": 0.1328,
+      "attempts": 1,
+      "method": "original_and_attention_crop_clip",
+      "verified": false
+    }
   },
   {
     "fileId": "6acfd140ead997d09a863ead",
@@ -18162,7 +18378,19 @@
     "visualHash": "2e494d4b6b333135",
     "duplicateCandidates": [],
     "status": "pending_review",
-    "model": "Xenova/clip-vit-base-patch32"
+    "model": "Xenova/clip-vit-base-patch32",
+    "rescueReview": {
+      "version": 1,
+      "status": "ambiguous",
+      "categorySuggestion": null,
+      "primaryScore": 0.2981,
+      "primaryMargin": 0.0871,
+      "croppedScore": 0.5249,
+      "croppedMargin": 0.3072,
+      "attempts": 1,
+      "method": "original_and_attention_crop_clip",
+      "verified": false
+    }
   },
   {
     "fileId": "6acfcb59ead997d09a5f6dbf",
@@ -18194,7 +18422,19 @@
     "visualHash": "1c9c96cce7b913f2",
     "duplicateCandidates": [],
     "status": "pending_review",
-    "model": "Xenova/clip-vit-base-patch32"
+    "model": "Xenova/clip-vit-base-patch32",
+    "rescueReview": {
+      "version": 1,
+      "status": "ambiguous",
+      "categorySuggestion": null,
+      "primaryScore": 0.5523,
+      "primaryMargin": 0.2651,
+      "croppedScore": 0.5816,
+      "croppedMargin": 0.381,
+      "attempts": 1,
+      "method": "original_and_attention_crop_clip",
+      "verified": false
+    }
   },
   {
     "fileId": "6acfcb58ead997d09a5f6bbf",
@@ -18258,7 +18498,19 @@
     "visualHash": "335309216e6b991a",
     "duplicateCandidates": [],
     "status": "pending_review",
-    "model": "Xenova/clip-vit-base-patch32"
+    "model": "Xenova/clip-vit-base-patch32",
+    "rescueReview": {
+      "version": 1,
+      "status": "ambiguous",
+      "categorySuggestion": null,
+      "primaryScore": 0.4374,
+      "primaryMargin": 0.1905,
+      "croppedScore": 0.4727,
+      "croppedMargin": 0.3006,
+      "attempts": 1,
+      "method": "original_and_attention_crop_clip",
+      "verified": false
+    }
   },
   {
     "fileId": "6acfcb56ead997d09a5f5fa1",
@@ -18322,7 +18574,19 @@
     "visualHash": "595c1b63e5363936",
     "duplicateCandidates": [],
     "status": "pending_review",
-    "model": "Xenova/clip-vit-base-patch32"
+    "model": "Xenova/clip-vit-base-patch32",
+    "rescueReview": {
+      "version": 1,
+      "status": "ambiguous",
+      "categorySuggestion": null,
+      "primaryScore": 0.449,
+      "primaryMargin": 0.2608,
+      "croppedScore": 0.3744,
+      "croppedMargin": 0.1201,
+      "attempts": 1,
+      "method": "original_and_attention_crop_clip",
+      "verified": false
+    }
   },
   {
     "fileId": "6acfcb4fead997d09a5f3e03",
@@ -18386,7 +18650,19 @@
     "visualHash": "395c1341c5a7b91a",
     "duplicateCandidates": [],
     "status": "pending_review",
-    "model": "Xenova/clip-vit-base-patch32"
+    "model": "Xenova/clip-vit-base-patch32",
+    "rescueReview": {
+      "version": 1,
+      "status": "ambiguous",
+      "categorySuggestion": null,
+      "primaryScore": 0.1853,
+      "primaryMargin": 0.0355,
+      "croppedScore": 0.1318,
+      "croppedMargin": 0.0037,
+      "attempts": 1,
+      "method": "original_and_attention_crop_clip",
+      "verified": false
+    }
   },
   {
     "fileId": "6acfcb4cead997d09a5f37fd",
@@ -18418,7 +18694,19 @@
     "visualHash": "305c0347e57f1f1e",
     "duplicateCandidates": [],
     "status": "pending_review",
-    "model": "Xenova/clip-vit-base-patch32"
+    "model": "Xenova/clip-vit-base-patch32",
+    "rescueReview": {
+      "version": 1,
+      "status": "ambiguous",
+      "categorySuggestion": null,
+      "primaryScore": 0.5139,
+      "primaryMargin": 0.4061,
+      "croppedScore": 0.2098,
+      "croppedMargin": 0.1057,
+      "attempts": 1,
+      "method": "original_and_attention_crop_clip",
+      "verified": false
+    }
   },
   {
     "fileId": "6acfcb4cead997d09a5f3767",

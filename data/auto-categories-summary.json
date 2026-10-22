@@ -3,13 +3,14 @@
   "historicalPhotos": 80,
   "classifiedImages": 3911,
   "visionDrafts": 124,
-  "visionGenericCategories": 89,
+  "visionGenericCategories": 88,
   "autoAssignedPhotos": 3100,
   "pendingPhotos": 811,
   "sources": {
     "clip": 2934,
     "legacy_name": 77,
-    "vision_generic": 89
+    "vision_generic": 88,
+    "clip_multiview": 1
   },
   "categories": {
     "Tenis": 1333,
