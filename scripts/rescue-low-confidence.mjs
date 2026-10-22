@@ -12,11 +12,15 @@ import {RESCUE_VERSION,secondViewConsensus,usableRescue} from './low-confidence-
 const input='data/ai-classifications.json';
 const MAX=Math.min(50,Math.max(1,Number.parseInt(process.env.RESCUE_BATCH_SIZE||'24',10)||24));
 async function main(){
-  const [media,records]=await Promise.all([
+  const [media,records,routes]=await Promise.all([
     fs.readFile('data/imagekit-media.json','utf8').then(JSON.parse),
-    fs.readFile(input,'utf8').then(JSON.parse)
+    fs.readFile(input,'utf8').then(JSON.parse),
+    fs.readFile('data/auto-categories.json','utf8').then(JSON.parse)
   ]);
   if(!Array.isArray(media)||!Array.isArray(records))throw Error('Invalid catalog files');
+  // Prioritize the genuinely unclassified images, not those already helped by
+  // a generic SmolVLM suggestion or an exact historical photo reference.
+  const pendingIds=new Set(routes.filter(r=>r?.fileId&&!r.category).map(r=>r.fileId));
   const mediaById=new Map(media.filter(m=>m.mime?.startsWith('image/')).map(m=>[m.fileId,m]));
   const todo=records.filter(r=>{
     const media=mediaById.get(r.fileId),v=r.rescueReview;
@@ -25,7 +29,10 @@ async function main(){
     return !confident&&!usableRescue(r)&&r.status==='pending_review'&&
       media?.url?.startsWith('https://ik.imagekit.io/elegancemx/')&&
       (v?.version!==RESCUE_VERSION||(v.status==='fetch_error'&&Number(v.attempts||0)<2));
-  }).sort((a,b)=>String(b.createdAt||'').localeCompare(String(a.createdAt||''))).slice(0,MAX);
+  }).sort((a,b)=>
+    Number(pendingIds.has(b.fileId))-Number(pendingIds.has(a.fileId)) ||
+    String(b.createdAt||'').localeCompare(String(a.createdAt||''))
+  ).slice(0,MAX);
   console.log('Second-view review:',todo.length,'of',records.length,'classified photo records');
   if(!todo.length)return;
   const model=await pipeline('zero-shot-image-classification',MODEL,{device:'cpu',dtype:'q8'});
