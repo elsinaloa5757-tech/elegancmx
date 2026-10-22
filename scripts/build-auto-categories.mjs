@@ -6,6 +6,7 @@
  */
 import fs from 'node:fs/promises';
 import {autoCategorize, parseLegacyTsv, routeLegacyTitle, TAXONOMY} from './category-router.mjs';
+import {usableRescue} from './low-confidence-utils.mjs';
 
 const media=JSON.parse(await fs.readFile('data/imagekit-media.json','utf8'));
 const candidates=JSON.parse(await fs.readFile('data/ai-classifications.json','utf8'));
@@ -22,6 +23,15 @@ for(const image of media){
   const uuid=image.filePath.toLowerCase().match(/[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}/)?.[0];
   const old=historicalByUuid.get(uuid),prediction=byId.get(image.fileId);
   const assigned=autoCategorize({historical:old, ai:prediction});
+  // Only promote a provisional category when two distinct CLIP image views
+  // agree; this does not verify a product or override historical labels.
+  const rescued=old?null:usableRescue(prediction);
+  if(!assigned.category && rescued){
+    assigned.category=rescued.category;
+    assigned.status='auto_draft';
+    assigned.source='clip_multiview';
+    assigned.score=rescued.score;
+  }
   const visual=visualById.get(image.fileId);
   // Only use a precise generic object type when CLIP was inconclusive.
   // Owner-curated categories remain authoritative in the public storefront.

@@ -6,6 +6,8 @@ on:
     paths:
       - '.github/workflows/catalog-ai.yml'
       - 'scripts/classify-imagekit.mjs'
+      - 'scripts/rescue-low-confidence.mjs'
+      - 'scripts/low-confidence-utils.mjs'
       - 'scripts/build-auto-categories.mjs'
       - 'scripts/category-router.mjs'
       - 'scripts/visual-relations.mjs'
@@ -61,6 +63,10 @@ jobs:
         run: node --test tests/ai-utils.test.mjs
       - name: Clasificar imágenes nuevas con CLIP, sin publicar productos
         run: node scripts/classify-imagekit.mjs
+      - name: Probar doble inspeccion conservadora de fotos inciertas
+        run: node --test tests/low-confidence-utils.test.mjs
+      - name: Reanalizar por recorte las fotos inciertas sin inventar mercancía
+        run: node scripts/rescue-low-confidence.mjs
       - name: Organizar automáticamente fotografías en categorías provisionales
         run: node scripts/build-auto-categories.mjs
       - name: Relacionar imágenes visualmente parecidas sin fusionar mercancía

@@ -31,7 +31,7 @@ jobs:
       - run: node --test tests/dynamic-sections.test.mjs
       - run: node scripts/build-dynamic-sections.mjs
       - run: node scripts/build-public.mjs
-      - run: node --test tests/ai-utils.test.mjs tests/category-router.test.mjs tests/visual-relations.test.mjs
+      - run: node --test tests/ai-utils.test.mjs tests/category-router.test.mjs tests/visual-relations.test.mjs tests/low-confidence-utils.test.mjs
       - run: node scripts/build-auto-categories.mjs
       - run: node scripts/build-visual-relations.mjs
       - run: python3 -m json.tool data/ai-classifications.json > /dev/null
