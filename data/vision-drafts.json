@@ -2615,7 +2615,7 @@
     "fileId": "6ace1fb6ead997d09a1d00c8",
     "status": "pilot_error",
     "error": "429 Client Error: Too Many Requests for url: https://ik.imagekit.io/elegancemx/elegance/products/product-e61221b4-dfc0-462d-ab60-049af814efff_4BcdslPI0.webp?updatedAt=1791893431042",
-    "attempts": 1,
+    "attempts": 2,
     "verified": false,
     "source": "smolvlm_open_cpu"
   },
@@ -2623,7 +2623,7 @@
     "fileId": "6ace1fb6ead997d09a1cfcd6",
     "status": "pilot_error",
     "error": "429 Client Error: Too Many Requests for url: https://ik.imagekit.io/elegancemx/elegance/products/product-6d3142b7-efd1-4b40-8765-1827391a7316_4nM3dIN7a.webp?updatedAt=1791893430499",
-    "attempts": 1,
+    "attempts": 2,
     "verified": false,
     "source": "smolvlm_open_cpu"
   },
@@ -2631,7 +2631,7 @@
     "fileId": "6ace1fb6ead997d09a1cfc57",
     "status": "pilot_error",
     "error": "429 Client Error: Too Many Requests for url: https://ik.imagekit.io/elegancemx/elegance/products/product-50f456fa-82b8-4b0f-9da4-db8729d2fa0b_162tnvNhd.webp?updatedAt=1791893430441",
-    "attempts": 1,
+    "attempts": 2,
     "verified": false,
     "source": "smolvlm_open_cpu"
   },
@@ -2639,7 +2639,7 @@
     "fileId": "6ace1fb6ead997d09a1cfac9",
     "status": "pilot_error",
     "error": "429 Client Error: Too Many Requests for url: https://ik.imagekit.io/elegancemx/elegance/products/product-c8b0206f-9284-4a08-83b5-a9296e7b1125_NMYBokcDK.webp?updatedAt=1791893430303",
-    "attempts": 1,
+    "attempts": 2,
     "verified": false,
     "source": "smolvlm_open_cpu"
   },
@@ -2647,7 +2647,7 @@
     "fileId": "6ace1fb5ead997d09a1cf9c4",
     "status": "pilot_error",
     "error": "429 Client Error: Too Many Requests for url: https://ik.imagekit.io/elegancemx/elegance/products/product-cf1effe6-700b-493b-818c-aa07e4f8c6e0_8b0qLTnAy.webp?updatedAt=1791893430220",
-    "attempts": 1,
+    "attempts": 2,
     "verified": false,
     "source": "smolvlm_open_cpu"
   },
@@ -2655,7 +2655,7 @@
     "fileId": "6ace1fb5ead997d09a1cf624",
     "status": "pilot_error",
     "error": "429 Client Error: Too Many Requests for url: https://ik.imagekit.io/elegancemx/elegance/products/product-bf8af33e-4c2f-4b9b-ac6e-d88f65432a9b_cAhBGfFwy.webp?updatedAt=1791893429632",
-    "attempts": 1,
+    "attempts": 2,
     "verified": false,
     "source": "smolvlm_open_cpu"
   },
@@ -2663,7 +2663,7 @@
     "fileId": "6ace1fb5ead997d09a1cf4b6",
     "status": "pilot_error",
     "error": "429 Client Error: Too Many Requests for url: https://ik.imagekit.io/elegancemx/elegance/products/product-6ab72525-be23-4a0d-b093-6f0384998f87_qkWZCoRtT.webp?updatedAt=1791893429381",
-    "attempts": 1,
+    "attempts": 2,
     "verified": false,
     "source": "smolvlm_open_cpu"
   },
@@ -2671,7 +2671,7 @@
     "fileId": "6ace1fb4ead997d09a1cf345",
     "status": "pilot_error",
     "error": "429 Client Error: Too Many Requests for url: https://ik.imagekit.io/elegancemx/elegance/products/product-5f60342d-b2f8-455d-a6dd-386d91d794ea_0qEIJkGxK7.webp?updatedAt=1791893429134",
-    "attempts": 1,
+    "attempts": 2,
     "verified": false,
     "source": "smolvlm_open_cpu"
   },
@@ -2679,7 +2679,7 @@
     "fileId": "6ace1fb4ead997d09a1cf02e",
     "status": "pilot_error",
     "error": "429 Client Error: Too Many Requests for url: https://ik.imagekit.io/elegancemx/elegance/products/product-e37aaa9f-be7d-4095-b668-b3945e2f1fd2_o8dPuag1E.webp?updatedAt=1791893428873",
-    "attempts": 1,
+    "attempts": 2,
     "verified": false,
     "source": "smolvlm_open_cpu"
   },
@@ -2687,7 +2687,7 @@
     "fileId": "6ace1fb4ead997d09a1cecd8",
     "status": "pilot_error",
     "error": "429 Client Error: Too Many Requests for url: https://ik.imagekit.io/elegancemx/elegance/products/product-95dd5969-5a22-4c39-b54d-b5c18a271b82_Jd0em8184.webp?updatedAt=1791893428542",
-    "attempts": 1,
+    "attempts": 2,
     "verified": false,
     "source": "smolvlm_open_cpu"
   },
@@ -2695,7 +2695,7 @@
     "fileId": "6ace1fb4ead997d09a1cec62",
     "status": "pilot_error",
     "error": "429 Client Error: Too Many Requests for url: https://ik.imagekit.io/elegancemx/elegance/products/product-6415c2cb-662f-486c-b0f7-f6a3a8e3a36f_Q2qItdUjT.webp?updatedAt=1791893428377",
-    "attempts": 1,
+    "attempts": 2,
     "verified": false,
     "source": "smolvlm_open_cpu"
   },
@@ -2703,7 +2703,7 @@
     "fileId": "6ace1fb3ead997d09a1ce748",
     "status": "pilot_error",
     "error": "429 Client Error: Too Many Requests for url: https://ik.imagekit.io/elegancemx/elegance/products/product-90a3e052-f589-4a8f-b890-803b92a86074_phK1NaxvS.webp?updatedAt=1791893427894",
-    "attempts": 1,
+    "attempts": 2,
     "verified": false,
     "source": "smolvlm_open_cpu"
   },
@@ -2711,7 +2711,7 @@
     "fileId": "6ace1fb3ead997d09a1ce332",
     "status": "pilot_error",
     "error": "429 Client Error: Too Many Requests for url: https://ik.imagekit.io/elegancemx/elegance/products/product-50d2c006-bba3-4fc1-83f5-c39d3a112d65_c23VaqGEK.webp?updatedAt=1791893427510",
-    "attempts": 1,
+    "attempts": 2,
     "verified": false,
     "source": "smolvlm_open_cpu"
   },
@@ -2719,7 +2719,7 @@
     "fileId": "6ace1fb2ead997d09a1ce00b",
     "status": "pilot_error",
     "error": "429 Client Error: Too Many Requests for url: https://ik.imagekit.io/elegancemx/elegance/products/product-99d06de2-796d-42d9-9701-f5452d13327f_Sd1HGhiKO.webp?updatedAt=1791893427121",
-    "attempts": 1,
+    "attempts": 2,
     "verified": false,
     "source": "smolvlm_open_cpu"
   },
@@ -2727,7 +2727,7 @@
     "fileId": "6ace1fb2ead997d09a1cde76",
     "status": "pilot_error",
     "error": "429 Client Error: Too Many Requests for url: https://ik.imagekit.io/elegancemx/elegance/products/product-dc0e14f8-e091-4e88-8cde-7610c2a6b348_OItKKxuPM.webp?updatedAt=1791893426783",
-    "attempts": 1,
+    "attempts": 2,
     "verified": false,
     "source": "smolvlm_open_cpu"
   },
@@ -2735,7 +2735,7 @@
     "fileId": "6ace1fb2ead997d09a1cdc77",
     "status": "pilot_error",
     "error": "429 Client Error: Too Many Requests for url: https://ik.imagekit.io/elegancemx/elegance/products/product-065764d6-7524-482c-b7c5-e28002731f63_HjCooF6fU.webp?updatedAt=1791893426504",
-    "attempts": 1,
+    "attempts": 2,
     "verified": false,
     "source": "smolvlm_open_cpu"
   },
@@ -2743,7 +2743,7 @@
     "fileId": "6ace1fb1ead997d09a1cd8b8",
     "status": "pilot_error",
     "error": "429 Client Error: Too Many Requests for url: https://ik.imagekit.io/elegancemx/elegance/products/product-06a5aa16-2891-4010-b425-ed5961d38c28_LafPYuk7R.webp?updatedAt=1791893426073",
-    "attempts": 1,
+    "attempts": 2,
     "verified": false,
     "source": "smolvlm_open_cpu"
   },
@@ -2751,7 +2751,7 @@
     "fileId": "6ace1fb1ead997d09a1cd6a9",
     "status": "pilot_error",
     "error": "429 Client Error: Too Many Requests for url: https://ik.imagekit.io/elegancemx/elegance/products/product-4dd778e7-c978-4ae9-a78e-719c6a7235f2_RQEkH_8If.webp?updatedAt=1791893425423",
-    "attempts": 1,
+    "attempts": 2,
     "verified": false,
     "source": "smolvlm_open_cpu"
   },
@@ -2759,7 +2759,7 @@
     "fileId": "6ace1fb1ead997d09a1cd66f",
     "status": "pilot_error",
     "error": "429 Client Error: Too Many Requests for url: https://ik.imagekit.io/elegancemx/elegance/products/product-b7f82eea-2ebe-47c3-84bd-204ce709bf38_tmAelWNjU.webp?updatedAt=1791893425359",
-    "attempts": 1,
+    "attempts": 2,
     "verified": false,
     "source": "smolvlm_open_cpu"
   },
@@ -2767,7 +2767,7 @@
     "fileId": "6ace1fb0ead997d09a1cd550",
     "status": "pilot_error",
     "error": "429 Client Error: Too Many Requests for url: https://ik.imagekit.io/elegancemx/elegance/products/product-e718a927-b0c4-4ca0-8e69-da0375fb1d2c_LloMT5SjM.webp?updatedAt=1791893425172",
-    "attempts": 1,
+    "attempts": 2,
     "verified": false,
     "source": "smolvlm_open_cpu"
   },
@@ -2775,7 +2775,7 @@
     "fileId": "6ace1fb0ead997d09a1cd51d",
     "status": "pilot_error",
     "error": "429 Client Error: Too Many Requests for url: https://ik.imagekit.io/elegancemx/elegance/products/product-4515d1ad-62e5-4b0a-ad08-cba9f19365da_Z6x8Bx0P6.webp?updatedAt=1791893425172",
-    "attempts": 1,
+    "attempts": 2,
     "verified": false,
     "source": "smolvlm_open_cpu"
   },
@@ -2783,7 +2783,7 @@
     "fileId": "6ace1fb0ead997d09a1cd1f8",
     "status": "pilot_error",
     "error": "429 Client Error: Too Many Requests for url: https://ik.imagekit.io/elegancemx/elegance/products/product-872e12db-2657-434e-9d13-32ddaec85fc3_I9lqTTDKc.webp?updatedAt=1791893424517",
-    "attempts": 1,
+    "attempts": 2,
     "verified": false,
     "source": "smolvlm_open_cpu"
   },
@@ -2791,7 +2791,7 @@
     "fileId": "6ace1fb0ead997d09a1cd13e",
     "status": "pilot_error",
     "error": "429 Client Error: Too Many Requests for url: https://ik.imagekit.io/elegancemx/elegance/products/product-24517583-0600-477b-9a07-571b67c78142_b7fznqRC4.webp?updatedAt=1791893424358",
-    "attempts": 1,
+    "attempts": 2,
     "verified": false,
     "source": "smolvlm_open_cpu"
   },
@@ -2799,7 +2799,7 @@
     "fileId": "6ace1fb0ead997d09a1cd126",
     "status": "pilot_error",
     "error": "429 Client Error: Too Many Requests for url: https://ik.imagekit.io/elegancemx/elegance/products/product-947a633d-4108-49ee-b54f-b8e61dd49414_-5deAuHwu.webp?updatedAt=1791893424294",
-    "attempts": 1,
+    "attempts": 2,
     "verified": false,
     "source": "smolvlm_open_cpu"
   },
@@ -2807,7 +2807,7 @@
     "fileId": "6ace1fb0ead997d09a1cd0d8",
     "status": "pilot_error",
     "error": "429 Client Error: Too Many Requests for url: https://ik.imagekit.io/elegancemx/elegance/products/product-136ebd67-269b-418c-ba5a-5430e82cb74c_cX_DLZkWN.webp?updatedAt=1791893424294",
-    "attempts": 1,
+    "attempts": 2,
     "verified": false,
     "source": "smolvlm_open_cpu"
   },
@@ -2815,7 +2815,7 @@
     "fileId": "6ace1fafead997d09a1cce8b",
     "status": "pilot_error",
     "error": "429 Client Error: Too Many Requests for url: https://ik.imagekit.io/elegancemx/elegance/products/product-f2829332-e2b0-43ec-95f2-591ddbed5a92_k7cyGlG9h.webp?updatedAt=1791893423652",
-    "attempts": 1,
+    "attempts": 2,
     "verified": false,
     "source": "smolvlm_open_cpu"
   },
@@ -2823,7 +2823,7 @@
     "fileId": "6ace1fafead997d09a1cce4f",
     "status": "pilot_error",
     "error": "429 Client Error: Too Many Requests for url: https://ik.imagekit.io/elegancemx/elegance/products/product-c07c0015-66e5-43eb-b247-2b717cead934_2rAb95dtc.webp?updatedAt=1791893423585",
-    "attempts": 1,
+    "attempts": 2,
     "verified": false,
     "source": "smolvlm_open_cpu"
   },
@@ -2831,7 +2831,7 @@
     "fileId": "6ace1fafead997d09a1ccdc4",
     "status": "pilot_error",
     "error": "429 Client Error: Too Many Requests for url: https://ik.imagekit.io/elegancemx/elegance/products/product-200f6a97-4188-4009-86f9-128a5f576e6c_Rlf-GJAoj.webp?updatedAt=1791893423440",
-    "attempts": 1,
+    "attempts": 2,
     "verified": false,
     "source": "smolvlm_open_cpu"
   },
@@ -2839,7 +2839,7 @@
     "fileId": "6ace1fafead997d09a1ccd59",
     "status": "pilot_error",
     "error": "429 Client Error: Too Many Requests for url: https://ik.imagekit.io/elegancemx/elegance/products/product-cdd7893b-d12f-44fa-9cd1-c0b3da2c1727_rFLs1mmy7.webp?updatedAt=1791893423338",
-    "attempts": 1,
+    "attempts": 2,
     "verified": false,
     "source": "smolvlm_open_cpu"
   },
@@ -2847,7 +2847,7 @@
     "fileId": "6ace1faeead997d09a1ccaf5",
     "status": "pilot_error",
     "error": "429 Client Error: Too Many Requests for url: https://ik.imagekit.io/elegancemx/elegance/products/product-caab07d3-1e19-41bd-85c8-59f4e2b06d4a_IdYZd0Hk4.webp?updatedAt=1791893422738",
-    "attempts": 1,
+    "attempts": 2,
     "verified": false,
     "source": "smolvlm_open_cpu"
   },
@@ -2855,6 +2855,78 @@
     "fileId": "6ace1faeead997d09a1cca6e",
     "status": "pilot_error",
     "error": "429 Client Error: Too Many Requests for url: https://ik.imagekit.io/elegancemx/elegance/products/product-57cfd49e-40d0-45fd-936f-88332fdbf0f8_WEYzY-eU4.webp?updatedAt=1791893422580",
+    "attempts": 2,
+    "verified": false,
+    "source": "smolvlm_open_cpu"
+  },
+  {
+    "fileId": "6ace1faeead997d09a1cc529",
+    "status": "pilot_error",
+    "error": "429 Client Error: Too Many Requests for url: https://ik.imagekit.io/elegancemx/elegance/products/product-af538373-3502-4fe2-a0af-388abee51521_eiOzrJGMd.webp?updatedAt=1791893422419",
+    "attempts": 1,
+    "verified": false,
+    "source": "smolvlm_open_cpu"
+  },
+  {
+    "fileId": "6ace1fadead997d09a1cbb9a",
+    "status": "pilot_error",
+    "error": "429 Client Error: Too Many Requests for url: https://ik.imagekit.io/elegancemx/elegance/products/product-f585a74e-d31f-437a-b852-77c019a62384_OXKf-nE_W.webp?updatedAt=1791893421983",
+    "attempts": 1,
+    "verified": false,
+    "source": "smolvlm_open_cpu"
+  },
+  {
+    "fileId": "6ace1fadead997d09a1cb482",
+    "status": "pilot_error",
+    "error": "429 Client Error: Too Many Requests for url: https://ik.imagekit.io/elegancemx/elegance/products/product-211d3690-3d31-4c8d-bace-5b7090d8042a_hxzO7u9Gj.webp?updatedAt=1791893421566",
+    "attempts": 1,
+    "verified": false,
+    "source": "smolvlm_open_cpu"
+  },
+  {
+    "fileId": "6ace1facead997d09a1cb0d4",
+    "status": "pilot_error",
+    "error": "429 Client Error: Too Many Requests for url: https://ik.imagekit.io/elegancemx/elegance/products/product-9c31284f-8d4e-49d8-bdd1-93ed6d27dc72_W8zV9KM5xR.webp?updatedAt=1791893420863",
+    "attempts": 1,
+    "verified": false,
+    "source": "smolvlm_open_cpu"
+  },
+  {
+    "fileId": "6ace1facead997d09a1cb0c8",
+    "status": "pilot_error",
+    "error": "429 Client Error: Too Many Requests for url: https://ik.imagekit.io/elegancemx/elegance/products/product-73efe1ce-cf3d-4806-93db-0fa1b0cb0a48_nBfwK6DgO1.webp?updatedAt=1791893420832",
+    "attempts": 1,
+    "verified": false,
+    "source": "smolvlm_open_cpu"
+  },
+  {
+    "fileId": "6ace1facead997d09a1cb013",
+    "status": "pilot_error",
+    "error": "429 Client Error: Too Many Requests for url: https://ik.imagekit.io/elegancemx/elegance/products/product-50a95a3f-69fd-43ed-9304-9951ba3dd508_E9oh5UOSf.webp?updatedAt=1791893420765",
+    "attempts": 1,
+    "verified": false,
+    "source": "smolvlm_open_cpu"
+  },
+  {
+    "fileId": "6ace1facead997d09a1cb001",
+    "status": "pilot_error",
+    "error": "429 Client Error: Too Many Requests for url: https://ik.imagekit.io/elegancemx/elegance/products/product-c78b87bc-3e48-491b-b149-341f450d685a_Sxv2IsG7si.webp?updatedAt=1791893420678",
+    "attempts": 1,
+    "verified": false,
+    "source": "smolvlm_open_cpu"
+  },
+  {
+    "fileId": "6ace1fabead997d09a1cabbb",
+    "status": "pilot_error",
+    "error": "429 Client Error: Too Many Requests for url: https://ik.imagekit.io/elegancemx/elegance/products/product-943b5214-8b34-4e5b-bc2b-731394d40a94_gIbk6MKkrQ.webp?updatedAt=1791893419820",
+    "attempts": 1,
+    "verified": false,
+    "source": "smolvlm_open_cpu"
+  },
+  {
+    "fileId": "6ace1fabead997d09a1cab01",
+    "status": "pilot_error",
+    "error": "429 Client Error: Too Many Requests for url: https://ik.imagekit.io/elegancemx/elegance/products/product-f2e698f2-f948-4c92-97d4-34cbbeb66b23_WFSMZc2Sw.webp?updatedAt=1791893419705",
     "attempts": 1,
     "verified": false,
     "source": "smolvlm_open_cpu"
