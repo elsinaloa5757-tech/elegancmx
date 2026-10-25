@@ -4,6 +4,9 @@ on:
     branches: [main]
     paths:
       - 'index.html'
+      - 'showroom.html'
+      - 'assets/panther-stage-desktop.jpg'
+      - 'assets/panther-stage-mobile.jpg'
       - 'panel.js'
       - 'admin.js'
       - 'admin.css'
