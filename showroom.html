@@ -27,7 +27,7 @@ main{min-width:0;padding:18px 22px 34px}.topbar{display:flex;align-items:center;
 .catalog-top button,.catalog-filters button,.catalog-pages button{border:1px solid #75bdf6;color:#e2f5ff;background:#103d65;border-radius:10px;min-height:40px;padding:9px 13px;cursor:pointer}
 .catalog-top button:hover,.catalog-filters button:hover,.catalog-pages button:hover{background:#165b8c}
 .catalog-body{padding:14px 18px 20px}
-.catalog-filters{display:grid;grid-template-columns:minmax(160px,2.3fr) minmax(100px,1fr) minmax(100px,1fr) auto;gap:9px;align-items:end}
+.catalog-filters{display:grid;grid-template-columns:minmax(155px,2fr) minmax(100px,1fr) minmax(100px,1fr) minmax(95px,.8fr) auto;gap:9px;align-items:end}
 .catalog-filters label{font-size:11px;color:#bcddf3;display:grid;gap:5px}
 .catalog-filters input,.catalog-filters select{width:100%;min-width:0;padding:10px;border:1px solid #5687b1;background:#091b30;color:#eaf6ff;border-radius:9px;min-height:42px}
 .catalog-notice{font-size:12px;line-height:1.55;color:#a7cde5;margin:13px 0}
@@ -47,6 +47,22 @@ main{min-width:0;padding:18px 22px 34px}.topbar{display:flex;align-items:center;
 @media(max-width:850px){.catalog-results{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:630px){.catalog-drawer{max-height:98dvh;width:100vw;max-width:100vw;border-radius:12px}.catalog-top{padding:10px 12px}.catalog-top h2{font-size:26px}.catalog-body{padding:11px}.catalog-filters{grid-template-columns:1fr 1fr}.catalog-filters label:first-child{grid-column:1/-1}.catalog-results{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.catalog-item-main{padding:8px}.catalog-item-main strong{font-size:11px}.catalog-filters button{min-height:42px}}
 @media(prefers-reduced-motion:reduce){.btn3d,.catalog-item{transition:none!important}}
+
+/* V4 – tactile independent controls; same approved composition. */
+.btn3d,.nav button,.preset,.catalog-item-main button{touch-action:manipulation}
+.btn3d:focus-visible,.nav button:focus-visible,.preset:focus-visible,.catalog-item-main button:focus-visible{outline:2px solid #aeeeff;outline-offset:3px}
+.btn3d{transform-style:preserve-3d;box-shadow:inset 0 1px 0 #e4faffae,inset 1px 0 0 #aeedff36,0 4px 0 #08243e,0 8px 12px #0009,0 0 10px #27b7ff22!important}
+.btn3d:hover{transform:translateY(-2px) rotateX(4deg);box-shadow:inset 0 1px 0 #fff,0 6px 0 #08243e,0 11px 17px #000a,0 0 16px #27b7ff7c!important}
+.btn3d:active,.btn3d[aria-pressed="true"]{transform:translateY(3px) rotateX(-2deg);box-shadow:inset 0 3px 9px #000b,0 1px 0 #08243e,0 0 14px #27b7ff7c!important}
+#roar[aria-pressed="true"]{border-color:#e4f6ff;background:linear-gradient(135deg,#4488d2,#164679);animation:roarGlow .46s ease-in-out infinite alternate}
+@keyframes roarGlow{from{filter:brightness(.95)}to{filter:brightness(1.33)}}
+/* Canvas fallback must remain alive when the browser disallows GPU acceleration. */
+.scene-viewport.motion-paused #scene,.scene-viewport.motion-disabled #scene{animation-play-state:paused!important}
+.scene-viewport.roaring.is-fallback #scene{animation:roarShake .16s ease-in-out 13 alternate!important;transform-origin:68% 30%}
+@keyframes roarShake{0%{transform:translate(-.2%,.05%) scale(1.025)}100%{transform:translate(.45%,-.65%) scale(1.045)}}
+.scene-viewport.is-fallback #scene{animation:fallbackLook 4.3s ease-in-out infinite alternate;transform-origin:52% 48%;background-size:105% 105%!important;background-repeat:no-repeat;filter:brightness(1.04) saturate(1.04)}
+@keyframes fallbackLook{0%{transform:scale(1.00) translate(-.25%,.25%);background-position:49% 49%}100%{transform:scale(var(--breath-scale,1.025)) translate(.3%,-.3%);background-position:51% 51%}}
+@media(prefers-reduced-motion:reduce){.scene-viewport.is-fallback #scene,#roar[aria-pressed="true"]{animation:none!important}.btn3d,.nav button,.preset{transition:none!important}}
 </style></head><body>
 <div class="shell">
 <aside class="sidebar"><div class="brand" aria-label="elegance">elegance</div><div class="subbrand">SHOWROOM · ICE EDITION</div>
@@ -62,31 +78,32 @@ main{min-width:0;padding:18px 22px 34px}.topbar{display:flex;align-items:center;
 <button data-panel="Ajustes"><span class="icon">⚙</span>Ajustes</button>
 </nav><div class="sidebar-bottom"><a href="https://elegancemx-14c.pages.dev/?administrador=1" target="_blank" rel="noopener noreferrer">↗ Administrador real</a><a href="https://elegancemx-14c.pages.dev/" target="_blank" rel="noopener noreferrer">↗ Ver tienda</a><small>Vista de diseño aislada · no modifica la tienda</small></div></aside>
 <main>
-<header class="topbar"><label class="search"><span aria-hidden="true">⌕</span><input type="search" id="search" placeholder="Buscar en el panel y las colecciones…" aria-label="Buscar secciones y colecciones"></label><div class="account"><span class="avatar">♜</span><span><b>elegance</b><small>Vista conectada · versión de prueba</small></span></div></header>
+<header class="topbar"><label class="search"><span aria-hidden="true">⌕</span><input type="search" id="search" placeholder="Buscar en el panel y las colecciones…" aria-label="Buscar secciones y colecciones"></label><div class="account"><span class="avatar">♜</span><span><b>elegance</b><small>Escena visual · archivo público</small></span></div></header>
 <section class="stats" aria-label="Estado del catálogo documentado"><div class="stat"><i>▤</i><div><strong><span id="live-total">3,929</span></strong><small>Referencias del archivo</small></div></div><div class="stat"><i>◇</i><div><strong><span id="live-photos">3,909</span></strong><small>Fotografías del archivo</small></div></div><div class="stat"><i>▷</i><div><strong><span id="live-videos">20</span></strong><small>Videos históricos</small></div></div><div class="stat"><i>✓</i><div><strong><span id="live-verified">0</span></strong><small>Artículos verificados</small></div></div></section>
 <div class="workspace"><section class="glass stagecard" aria-label="Escena interactiva">
 <div class="sectionbar"><div><h2>Showroom interactivo</h2><p>Composición aprobada · controles reconstruidos</p></div><div class="stagemenu"><select id="scene-preset" aria-label="Escoger ambiente"><option value="ice">Azul hielo</option><option value="night">Nocturno</option><option value="sunset">Atardecer</option><option value="pearl">Blanco perla</option></select><button id="play" class="btn3d" aria-pressed="true">❚❚ Pausar</button></div></div>
-<div class="scene-viewport" id="view" aria-label="Pantera fotográfica con animación 2.5D y cámara interactiva; usa arrastre o botones para cambiar vista" role="group">
+<div class="scene-viewport" id="view" aria-label="Pantera fotográfica original con deformación animada 2.5D; usa arrastre o botones para variar la perspectiva aproximada" role="group">
 <div class="scene-layer" id="scene-layer"><canvas id="scene" width="900" height="390"></canvas></div>
-<div class="stage-overlay"><div class="overlay-top"><span class="hint"><span class="led"></span> <b>ESCENA ICE</b> · ANIMACIÓN 2.5D</span><span class="hint" id="camera-state">Vista frontal</span></div><div class="overlay-bottom"><div class="group" role="group" aria-label="Ángulos de cámara"><span>Cámara</span><button data-view="front" class="btn3d secondary" aria-pressed="true">Frontal</button><button data-view="left" class="btn3d secondary" aria-pressed="false">Lateral</button><button data-view="high" class="btn3d secondary" aria-pressed="false">Superior</button><button data-view="reset" class="btn3d secondary">⟲</button></div><div class="pulse-label"><span class="led"></span> Arrastra para mover cámara</div></div></div>
+<div class="stage-overlay"><div class="overlay-top"><span class="hint"><span class="led"></span> <b>ESCENA ICE</b> · PANORAMA ANIMADO 2.5D</span><span class="hint" id="camera-state">Vista frontal</span></div><div class="overlay-bottom"><div class="group" role="group" aria-label="Ángulos de cámara"><span>Cámara</span><button data-view="front" class="btn3d secondary" aria-pressed="true">Frontal</button><button data-view="left" class="btn3d secondary" aria-pressed="false">Lateral</button><button data-view="high" class="btn3d secondary" aria-pressed="false">Superior</button><button data-view="reset" class="btn3d secondary">⟲</button></div><div class="pulse-label"><span class="led"></span> Arrastra para mover cámara</div></div></div>
 <div id="statepane" class="statepane" aria-live="polite"><button class="btn3d secondary pane-close" id="pane-close">✕ Volver</button><span class="badge">NAVEGACIÓN FUNCIONAL</span><h3 id="pane-title"></h3><p id="pane-body"></p><div class="pane-tabs" id="pane-actions"></div></div>
 </div>
-<div class="stage-footer"><small id="scene-status">WebGL activo al cargar · composición conservada</small><div class="actions"><button class="btn3d secondary" id="reset">Restablecer</button><button class="btn3d secondary" id="export">Exportar ajustes</button><button class="btn3d" id="admin">↗ Gestionar mercancía</button></div></div>
+<div class="stage-footer"><small id="scene-status">Cargando escena · composición conservada</small><div class="actions"><button class="btn3d secondary" id="reset">Restablecer</button><button class="btn3d secondary" id="export">Exportar ajustes</button><button class="btn3d" id="admin">↗ Gestionar mercancía</button></div></div>
 </section><aside class="glass settings"><div class="settingbox"><h3>AMBIENTE DE ESCENA</h3><div class="presets" role="group" aria-label="Iluminación predefinida"><button class="preset" data-preset="ice" aria-pressed="true">❄ Azul hielo</button><button class="preset" data-preset="night" aria-pressed="false">◕ Nocturno</button><button class="preset" data-preset="sunset" aria-pressed="false">◒ Atardecer</button><button class="preset" data-preset="pearl" aria-pressed="false">◊ Perla</button></div><label class="slider"><span>Iluminación <output id="bright-value">75 %</output></span><input id="bright" type="range" min="30" max="140" value="75"></label><label class="slider"><span>Reflejos <output id="glow-value">60 %</output></span><input id="glow" type="range" min="0" max="100" value="60"></label></div>
-<div class="settingbox"><h3>ANIMACIÓN</h3><div class="controlrow"><span>Respiración 2.5D</span><button class="toggle" id="breathe" aria-pressed="true">Sí</button></div><label class="slider"><span>Amplitud <output id="breathe-value">60 %</output></span><input id="breath-amp" type="range" min="0" max="100" value="60"></label><div class="controlrow"><span>Cámara flotante</span><button class="toggle" id="float" aria-pressed="true">Sí</button></div><div style="margin-top:11px"><button class="btn3d" id="roar" style="width:100%">♪ Prueba de rugido</button></div><p class="tiny-note" style="margin-top:10px">El sonido es sintetizado y la respiración es una simulación sobre la imagen. El rugido y la anatomía 3D reales requieren un modelo de pantera articulado.</p></div>
+<div class="settingbox"><h3>ANIMACIÓN</h3><div class="controlrow"><span>Respiración 2.5D</span><button class="toggle" id="breathe" aria-pressed="true">Sí</button></div><label class="slider"><span>Amplitud <output id="breathe-value">60 %</output></span><input id="breath-amp" type="range" min="0" max="100" value="60"></label><div class="controlrow"><span>Cámara flotante</span><button class="toggle" id="float" aria-pressed="true">Sí</button></div><div style="margin-top:11px"><button class="btn3d" id="roar" style="width:100%" aria-label="Reproducir rugido felino con movimiento de mandíbula" aria-pressed="false">◉ Rugido con movimiento</button></div><p class="tiny-note" style="margin-top:10px">Efecto de rugido de tigre CC0 de <a href="https://sfxmint.com/sounds/short-tiger-roar-01" target="_blank" rel="noopener noreferrer">SFXMint</a>, sincronizado con una deformación visual de la mandíbula. No es un modelo anatómico 3D ni una grabación de esta pantera.</p></div>
 <div class="settingbox"><h3>GUARDAR ESCENA</h3><p class="tiny-note">Los cambios visuales se guardan localmente en este navegador. No modifican ventas, archivos ni credenciales.</p><button class="btn3d secondary" id="save" style="margin-top:11px;width:100%">Guardar vista local</button></div>
 </aside></div>
 <section class="lower"><article class="glass upload"><h3>Añadir fotografías a esta vista</h3><label class="dropzone" id="dropzone" for="files"><span class="cloud">☁</span><b>Seleccionar o arrastrar imágenes</b><small>Vista previa local · no se suben a la tienda</small></label><input id="files" type="file" accept="image/*" multiple><div style="margin-top:7px"><a href="https://elegancemx-14c.pages.dev/?administrador=1" target="_blank" rel="noopener noreferrer" style="font-size:11px">Subir mercancía al administrador real ↗</a></div></article>
 <article class="glass"><h3>Archivos seleccionados <small id="file-count" style="color:#89bfdf;font-weight:400">(0)</small></h3><div class="photos" id="photos"><p class="tiny-note">Aquí aparecerán las imágenes que agregues a la vista previa. Ningún archivo sale de tu dispositivo.</p></div></article>
 <article class="glass"><h3>Colecciones destacadas</h3><div class="collections"><div class="collection"><b>NIKE</b><small>COLECCIÓN</small><button class="btn3d secondary" data-brand="Nike">Explorar →</button></div><div class="collection"><b>adidas</b><small>COLECCIÓN</small><button class="btn3d secondary" data-brand="Adidas">Explorar →</button></div><div class="collection"><b>JORDAN</b><small>COLECCIÓN</small><button class="btn3d secondary" data-brand="Jordan">Explorar →</button></div></div></article></section>
-<p class="lower-footer">ELEGANCE SHOWROOM v3 · Los conteos se actualizan desde los datos públicos del catálogo cuando hay conexión; no son métricas de ventas. Imagen de la pantera: composición Elegance aprobada. No se atribuye inventario comercial a fotografías sin verificar.</p>
+<p class="lower-footer">ELEGANCE SHOWROOM v4 · Los conteos se actualizan desde los datos públicos del catálogo cuando hay conexión; no son métricas de ventas. Imagen de la pantera: composición Elegance aprobada. No se atribuye inventario comercial a fotografías sin verificar.</p>
 </main></div>
+<audio id="roar-audio" preload="none" src="https://sfxmint.com/dl/short-tiger-roar-01.mp3" aria-hidden="true"></audio>
 <dialog class="catalog-drawer" id="catalog-drawer" aria-labelledby="catalog-title">
   <div class="catalog-top"><div><small>ARCHIVO FOTOGRÁFICO REAL · ELEGANCE</small><h2 id="catalog-title">elegance · catálogo</h2></div><button type="button" id="catalog-close" aria-label="Cerrar catálogo">✕ Cerrar</button></div>
   <div class="catalog-body">
     <div class="catalog-filters">
       <label>Buscar por referencia o nombre<input id="catalog-search" type="search" placeholder="Tenis, bolsas, gorras, referencia…"></label>
-      <label>Categoría<select id="catalog-category"><option value="">Todas</option></select></label>
+      <label>Categoría<select id="catalog-category"><option value="">Todas</option></select></label><label>Marca sugerida<select id="catalog-brand"><option value="">Todas</option></select></label>
       <label>Orden<select id="catalog-sort"><option value="new">Más recientes</option><option value="old">Más antiguas</option></select></label>
       <button id="catalog-clear" type="button">Limpiar</button>
     </div>
@@ -108,20 +125,28 @@ let reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
 let canvas=$('#scene'),gl=canvas.getContext('webgl',{alpha:false,antialias:true,premultipliedAlpha:false}),program=null;
 let renderGL=()=>{},im=new Image(); const mobileView=matchMedia('(max-width:540px)').matches; im.src=mobileView?MOBILE:IMAGE;
 function shader(gl,type,source){let s=gl.createShader(type);gl.shaderSource(s,source);gl.compileShader(s);if(!gl.getShaderParameter(s,gl.COMPILE_STATUS))throw Error(gl.getShaderInfoLog(s));return s}
-function createScene(){if(!gl){canvas.style.backgroundImage=`url(${mobileView?MOBILE:IMAGE})`;$('#scene-status').textContent='Imagen panorámica · WebGL no disponible';return}
+function createScene(){if(!gl){canvas.style.backgroundImage=`url(${mobileView?MOBILE:IMAGE})`;$('#view').classList.add('is-fallback');$('#scene-status').textContent='Modo compatible · animación de cámara disponible';sync();return}
 try{
 const vs=shader(gl,gl.VERTEX_SHADER,`attribute vec2 point;varying vec2 uv;void main(){uv=vec2((point.x+1.)*.5,1.-(point.y+1.)*.5);gl_Position=vec4(point,0.,1.);}`);
 const fs=shader(gl,gl.FRAGMENT_SHADER,`precision highp float;varying vec2 uv;uniform sampler2D imageTex;uniform float t;uniform float breathe;uniform float amp;uniform float glow;uniform float bright;uniform float kind;uniform float roar;uniform float mobile;void main(){
 float chest=exp(-pow((uv.x-(mobile>.5?.48:.49))/.177,2.)-pow((uv.y-(mobile>.5?.39:.49))/.27,2.));
-float head=exp(-pow((uv.x-(mobile>.5?.70:.68))/.115,2.)-pow((uv.y-(mobile>.5?.22:.34))/.145,2.));
+float head=exp(-pow((uv.x-(mobile>.5?.70:.68))/.12,2.)-pow((uv.y-(mobile>.5?.22:.21))/.16,2.));
+float jaw=exp(-pow((uv.x-(mobile>.5?.705:.702))/.078,2.)-pow((uv.y-(mobile>.5?.285:.295))/.062,2.));
+float tail=exp(-pow((uv.x-(mobile>.5?.21:.23))/.115,2.)-pow((uv.y-(mobile>.5?.62:.71))/.09,2.));
 float pulse=sin(t*1.6)*breathe*amp;
-vec2 pos=uv;pos.x-=((uv.x-(mobile>.5?.48:.49))*.022*chest*pulse);pos.y-=.006*chest*pulse+.008*head*roar;
+vec2 pos=uv;
+pos.x-=((uv.x-(mobile>.5?.48:.49))*.035*chest*pulse);
+pos.y-=.012*chest*pulse + .006*head*sin(t*.7) + .034*jaw*roar;
+pos.x-=.012*tail*sin(t*1.0);
 pos=clamp(pos,0.,1.);
 vec3 col=texture2D(imageTex,pos).rgb;
 // Illumination is computed in this same image pass; no duplicated panels or overlaid photo.
 float rim=(1.-smoothstep(.1,.95,distance(uv,vec2(.5,.47))));
 col=col*(.40+bright*.008)*vec3(1.+kind*.06,1.-kind*.04,1.-kind*.18);
 col+=vec3(.015,.082,.16)*(glow*.007)*(rim+ .33*sin(t*.7))*1.1;
+float eye=exp(-pow((uv.x-(mobile>.5?.72:.69))/.024,2.)-pow((uv.y-(mobile>.5?.13:.14))/.023,2.));
+float eyelid=pow(max(0.,sin(t*.93+.5)),55.);
+col*=1.-eye*eyelid*.60;
 col=clamp(col,0.,1.);
 gl_FragColor=vec4(col,1.);
 }`);
@@ -131,28 +156,42 @@ let tex=gl.createTexture();gl.bindTexture(gl.TEXTURE_2D,tex);gl.pixelStorei(gl.U
 const uniforms={};for(let name of ['t','breathe','amp','glow','bright','kind','roar','mobile'])uniforms[name]=gl.getUniformLocation(program,name);
 gl.uniform1i(gl.getUniformLocation(program,'imageTex'),0);
 renderGL=(t,roar)=>{gl.viewport(0,0,canvas.width,canvas.height);gl.uniform1f(uniforms.t,t);gl.uniform1f(uniforms.breathe,state.breathe&&!reduced?1:0);gl.uniform1f(uniforms.amp,state.breathAmp/100);gl.uniform1f(uniforms.glow,state.glow);gl.uniform1f(uniforms.bright,state.bright);gl.uniform1f(uniforms.kind,state.preset==='sunset'?1:state.preset==='night'?-1:0);gl.uniform1f(uniforms.roar,roar);gl.uniform1f(uniforms.mobile,mobileView?1:0);gl.drawArrays(gl.TRIANGLES,0,6)};
-$('#scene-status').textContent='WebGL activo · respiración visual · cámara interactiva';
-}catch(e){console.warn('WebGL fallback',e);gl=null;canvas.style.backgroundImage=`url(${mobileView?MOBILE:IMAGE})`;$('#scene-status').textContent='Modo imagen: WebGL no disponible';}
+$('#scene-status').textContent='WebGL activo · animación 2.5D · controles interactivos';
+}catch(e){console.warn('WebGL fallback',e);gl=null;canvas.style.backgroundImage=`url(${mobileView?MOBILE:IMAGE})`;$('#view').classList.add('is-fallback');$('#scene-status').textContent='Modo compatible · animación de cámara disponible';sync();}
 }
-let nowT=0,roarUntil=0,last=0;function tick(ms){let dt=Math.min(.05,(ms-last)/1000||0);last=ms;if(state.playing&&!reduced)nowT+=dt;let roaring=roarUntil>performance.now()?Math.sin(nowT*15.)*.48:0;if(gl)renderGL(nowT,roaring);let floatY=state.float&&state.playing&&!reduced?Math.sin(nowT*.7)*1.3:0;
+let nowT=0,roarUntil=0,last=0;function tick(ms){let dt=Math.min(.05,(ms-last)/1000||0);last=ms;if(state.playing&&!reduced)nowT+=dt;let roarRemain=roarUntil-performance.now();let roaring=roarRemain>0? Math.sin(Math.PI*Math.min(1,Math.max(0,(3200-roarRemain)/3200)))*(.85+.10*Math.sin(nowT*12)):0;if(gl)renderGL(nowT,roaring);let floatY=state.float&&state.playing&&!reduced?Math.sin(nowT*.7)*1.3:0;
 $('#scene-layer').style.transform=`perspective(1200px) rotateX(${state.rotX+floatY}deg) rotateY(${state.rotY}deg) scale(${state.zoom})`;requestAnimationFrame(tick)}
 if(im.complete)createScene();else im.onload=createScene;requestAnimationFrame(tick);
 function setPressed(sel,value){$$(sel).forEach(b=>b.setAttribute('aria-pressed',String(value(b))))}
-function sync(){ $('#scene-preset').value=state.preset;for(const [id,key] of [['#bright','bright'],['#glow','glow'],['#breath-amp','breathAmp']])$(id).value=state[key];$('#bright-value').textContent=state.bright+' %';$('#glow-value').textContent=state.glow+' %';$('#breathe-value').textContent=state.breathAmp+' %';$('#breathe').setAttribute('aria-pressed',String(state.breathe));$('#breathe').textContent=state.breathe?'Sí':'No';$('#float').setAttribute('aria-pressed',String(state.float));$('#float').textContent=state.float?'Sí':'No';$('#play').textContent=state.playing?'❚❚ Pausar':'▶ Reproducir';$('#play').setAttribute('aria-pressed',String(state.playing));setPressed('[data-preset]',b=>b.dataset.preset===state.preset);setPressed('[data-view]',b=>b.dataset.view===state.angle);$('#camera-state').textContent=({'front':'Vista frontal','left':'Vista lateral','high':'Vista superior','reset':'Vista frontal'})[state.angle]||'Cámara libre'}
+function sync(){ $('#scene-preset').value=state.preset;for(const [id,key] of [['#bright','bright'],['#glow','glow'],['#breath-amp','breathAmp']])$(id).value=state[key];$('#bright-value').textContent=state.bright+' %';$('#glow-value').textContent=state.glow+' %';$('#breathe-value').textContent=state.breathAmp+' %';$('#breathe').setAttribute('aria-pressed',String(state.breathe));$('#breathe').textContent=state.breathe?'Sí':'No';$('#float').setAttribute('aria-pressed',String(state.float));$('#float').textContent=state.float?'Sí':'No';$('#play').textContent=state.playing?'❚❚ Pausar':'▶ Reproducir';$('#play').setAttribute('aria-pressed',String(state.playing));setPressed('[data-preset]',b=>b.dataset.preset===state.preset);setPressed('[data-view]',b=>b.dataset.view===state.angle);$('#camera-state').textContent=({'front':'Vista frontal','left':'Perspectiva lateral aproximada','high':'Perspectiva superior aproximada','reset':'Vista frontal'})[state.angle]||'Cámara libre';
+ if(!gl){const level=Math.max(.6,(.40+state.bright*.008)),hue=state.preset==='sunset'?'sepia(.27) hue-rotate(-12deg)':state.preset==='night'?'saturate(.8)':'saturate(1.05)';canvas.style.filter=`brightness(${level}) ${hue}`;canvas.style.setProperty('--breath-scale',String(state.breathe&&state.playing&&!reduced?1+(state.breathAmp/100)*.058:1));$('#view').classList.toggle('motion-disabled',!state.breathe||!state.playing||reduced);} }
 function preset(k){state.preset=k;let values={ice:[75,60],night:[48,88],sunset:[105,32],pearl:[125,22]}[k];[state.bright,state.glow]=values;sync();toast('Ambiente '+({ice:'Azul hielo',night:'Nocturno',sunset:'Atardecer',pearl:'Blanco perla'}[k]));}
 $$('[data-preset]').forEach(b=>b.addEventListener('click',()=>preset(b.dataset.preset)));$('#scene-preset').onchange=e=>preset(e.target.value);
 for(const [id,key] of [['#bright','bright'],['#glow','glow'],['#breath-amp','breathAmp']])$(id).addEventListener('input',e=>{state[key]=Number(e.target.value);sync()});
 for(const [id,key] of [['#breathe','breathe'],['#float','float']])$(id).onclick=()=>{state[key]=!state[key];sync();toast((key==='breathe'?'Respiración':'Cámara flotante')+(state[key]?' activada':' desactivada'))};
-$('#play').onclick=()=>{state.playing=!state.playing;sync()};
-function view(mode){let angles={front:[0,0,1],left:[0,-14,1.035],high:[-12,0,1.035],reset:[0,0,1]};[state.rotX,state.rotY,state.zoom]=angles[mode];state.angle=mode==='reset'?'front':mode;sync()}
+$('#play').onclick=()=>{state.playing=!state.playing;$('#view').classList.toggle('motion-paused',!state.playing);sync()};
+function view(mode){let angles={front:[0,0,1],left:[0,-6,1.018],high:[-5,0,1.018],reset:[0,0,1]};[state.rotX,state.rotY,state.zoom]=angles[mode];state.angle=mode==='reset'?'front':mode;sync()}
 $$('[data-view]').forEach(b=>b.onclick=()=>view(b.dataset.view));
 $('#reset').onclick=()=>{state={...init};sync();toast('Escenario original restaurado; controles y distribución intactos.')};
 $('#save').onclick=()=>{localStorage.setItem(STORE,JSON.stringify({...state,playing:true}));toast('Preferencias visuales guardadas en este navegador.')};
-$('#export').onclick=()=>{const a=document.createElement('a');const blob=new Blob([JSON.stringify({version:2,scene:state,notice:'Valores de previsualización, no inventario real'},null,2)],{type:'application/json'});a.href=URL.createObjectURL(blob);a.download='elegance-escena-v2.json';document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),2000);toast('Ajustes de escena exportados en JSON.')};
+$('#export').onclick=()=>{const a=document.createElement('a');const blob=new Blob([JSON.stringify({version:4,scene:state,notice:'Valores de previsualización, no inventario real'},null,2)],{type:'application/json'});a.href=URL.createObjectURL(blob);a.download='elegance-escena-v4.json';document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),2000);toast('Ajustes de escena exportados en JSON.')};
 $('#admin').onclick=()=>window.open(REAL+'?administrador=1','_blank','noopener,noreferrer');
-// Synthesized audio is labelled as a proof of concept. The final photorealistic roar needs licensed sound and a rigged model.
-$('#roar').onclick=()=>{roarUntil=performance.now()+1050;let A=window.AudioContext||window.webkitAudioContext;if(!A){toast('Audio no disponible; se reproduce únicamente el gesto visual.');return}try{let ctx=new A();let len=Math.floor(ctx.sampleRate*1.0),buf=ctx.createBuffer(1,len,ctx.sampleRate),chan=buf.getChannelData(0);for(let i=0;i<len;i++){let t=i/ctx.sampleRate,env=Math.pow(Math.sin(Math.PI*t),1.5);chan[i]=env*((Math.random()*2-1)*.18+.22*Math.sin(t*110*Math.PI)+.13*Math.sin(t*164*Math.PI))}let node=ctx.createBufferSource();node.buffer=buf;let filter=ctx.createBiquadFilter();filter.type='lowpass';filter.frequency.value=370;let gain=ctx.createGain();gain.gain.value=.65;node.connect(filter);filter.connect(gain);gain.connect(ctx.destination);node.start();node.onended=()=>ctx.close()}catch(e){console.warn(e)}toast('Rugido sintetizado de prueba. Pendiente: audio felino real y mandíbula articulada.')};
-let dragging=false,startX=0,startY=0,rx=0,ry=0;const stage=$('#view');stage.addEventListener('pointerdown',e=>{if(e.target.closest('button'))return;dragging=true;startX=e.clientX;startY=e.clientY;rx=state.rotX;ry=state.rotY;stage.setPointerCapture(e.pointerId)});stage.addEventListener('pointermove',e=>{if(!dragging)return;state.rotY=Math.max(-20,Math.min(20,ry+(e.clientX-startX)*.06));state.rotX=Math.max(-15,Math.min(15,rx-(e.clientY-startY)*.04));state.angle='free';sync()});stage.addEventListener('pointerup',()=>dragging=false);stage.addEventListener('pointercancel',()=>dragging=false);
+// User-triggered public-domain big-cat audio. Browsers prevent automatic audio; click enables it.
+const roarAudio=$('#roar-audio');roarAudio.volume=.68;
+let roarTimeout=null;
+function stopRoar(){roarUntil=0;$('#view').classList.remove('roaring');$('#roar').setAttribute('aria-pressed','false');$('#roar').textContent='◉ Rugido con movimiento';clearTimeout(roarTimeout)}
+roarAudio.addEventListener('ended',stopRoar);
+roarAudio.addEventListener('error',()=>{stopRoar();toast('No se pudo cargar el rugido felino. Revisa tu conexión a internet.')});
+$('#roar').onclick=async()=>{
+ if(roarAudio&&!roarAudio.paused){roarAudio.pause();roarAudio.currentTime=0;stopRoar();return}
+ if(!state.playing){state.playing=true;sync()}
+ roarUntil=performance.now()+3200;$('#view').classList.add('roaring');
+ $('#roar').setAttribute('aria-pressed','true');$('#roar').textContent='■ Detener rugido';
+ try{roarAudio.currentTime=0;await roarAudio.play();}
+ catch(error){stopRoar();toast('Tu navegador bloqueó o no pudo cargar el audio. Prueba otra vez con conexión.');return}
+ roarTimeout=setTimeout(stopRoar,3500);
+};
+let dragging=false,startX=0,startY=0,rx=0,ry=0;const stage=$('#view');stage.addEventListener('pointerdown',e=>{if(e.target.closest('button'))return;dragging=true;startX=e.clientX;startY=e.clientY;rx=state.rotX;ry=state.rotY;stage.setPointerCapture(e.pointerId)});stage.addEventListener('pointermove',e=>{if(!dragging)return;state.rotY=Math.max(-7,Math.min(7,ry+(e.clientX-startX)*.025));state.rotX=Math.max(-6,Math.min(6,rx-(e.clientY-startY)*.018));state.angle='free';sync()});stage.addEventListener('pointerup',()=>dragging=false);stage.addEventListener('pointercancel',()=>dragging=false);
 let paneText={Dashboard:'Vista de control del archivo fotográfico. Los datos de producción y ventas requieren conexión al servicio; aquí no se presentan cifras ficticias.',Productos:'Gestiona mercancía desde el administrador protegido. Puedes cargar imágenes de prueba en esta maqueta, pero solo el administrador real guarda en ImageKit.',Catálogo:'Abre el catálogo público para buscar, filtrar y consultar referencias. Los productos no verificados se tratan como fotografías del archivo.',Marcas:'Nike, Adidas y Jordan son colecciones visuales. La marca y autenticidad de cada artículo deben verificarse antes de publicarlos como producto.',Categorías:'Explora tenis, ropa, gorras, bolsas, accesorios y otras categorías desde el catálogo real.',Multimedia:'El archivo documentado incluye 3,909 fotografías y 20 videos a la revisión del 20 de octubre de 2026.',Pedidos:'El catálogo público permite recopilar referencias para consulta. No se incluyen pedidos ni ventas ficticias.',Ajustes:'Modifica luz, cámara, movimiento y guarda los ajustes de esta vista. La publicación requiere integrar el módulo con el sitio seguro.'};
 function showPane(name){if(name==='Showroom'){hidePane();return}$$('.nav button').forEach(b=>{let active=b.dataset.panel===name;b.classList.toggle('active',active);if(active)b.setAttribute('aria-current','page');else b.removeAttribute('aria-current')});$('#pane-title').textContent=name;$('#pane-body').textContent=paneText[name]||'';$('#pane-actions').replaceChildren();for(let [label,url] of [['Abrir tienda',REAL],['Ir al administrador',REAL+'?administrador=1']]){let a=document.createElement('a');a.className='btn3d secondary';a.textContent=label+' ↗';a.href=url;a.target='_blank';a.rel='noopener noreferrer';$('#pane-actions').append(a)}$('#statepane').classList.add('open')}
 function hidePane(){$('#statepane').classList.remove('open');$$('.nav button').forEach(b=>{let a=b.dataset.panel==='Showroom';b.classList.toggle('active',a);if(a)b.setAttribute('aria-current','page');else b.removeAttribute('aria-current')})}
@@ -165,28 +204,34 @@ $('#files').onchange=e=>addPhotos(e.target.files);$('#dropzone').addEventListene
 window.addEventListener('pagehide',()=>photos.forEach(f=>URL.revokeObjectURL(f.url)));sync();
 
 // REAL IMAGEKIT PHOTO CATALOG: reads public publication files only; never sends administrator credentials.
-const catalog = {loaded:false,loading:null,items:[],filtered:[],search:'',category:'',sort:'new',page:0,selected:new Set(),labels:new Map(),categories:new Map(),shown:24};
+const catalog = {loaded:false,loading:null,items:[],filtered:[],search:'',category:'',brand:'',sort:'new',page:0,selected:new Set(),labels:new Map(),categories:new Map(),brandHints:new Map(),shown:24};
+try {const saved=JSON.parse(localStorage.getItem('elegance_showroom_refs_v4')||'[]');if(Array.isArray(saved))catalog.selected=new Set(saved.filter(x=>typeof x==='string'&&x.length<100).slice(0,150));}catch{}
+function persistRefs(){try{localStorage.setItem('elegance_showroom_refs_v4',JSON.stringify([...catalog.selected].slice(0,150)))}catch{}}
 const $cat=id=>document.getElementById(id);
 const VALID_CATEGORIES=['Tenis','Bolsas','Ropa','Playeras','Gorras','Pantalones','Accesorios','Joyería','Relojes','Lentes','Fragancias','Calzado','Vestidos','Lencería','Cinturones','Buckets','Memorias'];
 const safeURL=m=>{try{const u=new URL(m.url);return u.protocol==='https:'&&u.hostname==='ik.imagekit.io'&&u.pathname.startsWith('/elegancemx/elegance/products/')?u.href:null}catch{return null}};
 const clean=x=>String(x||'').slice(0,180);
-const previewFallback=()=>{catalog.loaded=false;$cat('catalog-status').textContent='El archivo remoto no pudo recuperarse. Puedes consultar el catálogo y administrar mercancía desde los enlaces oficiales.';
+const previewFallback=()=>{catalog.loaded=false;$cat('catalog-status').textContent='No se pudo recuperar el archivo remoto. Puedes abrir el catálogo o el administrador desde los enlaces oficiales.';
   $cat('catalog-results').innerHTML='<p class="catalog-empty">No se pudo cargar el archivo. La tienda oficial sigue disponible mediante el botón superior.</p>';};
 async function loadCatalog(){
  if(catalog.loaded)return;
  if(catalog.loading)return catalog.loading;
  $cat('catalog-status').textContent='Conectando con el archivo fotográfico publicado…';
  catalog.loading=(async()=>{
-  const paths=['data/imagekit-media.json','data/auto-categories.json','data/auto-categories-summary.json','data/name-drafts.json'];
+  const paths=['data/imagekit-media.json','data/auto-categories.json','data/auto-categories-summary.json','data/name-drafts.json','data/dynamic-sections.json'];
   const origin = location.protocol==='file:'?'https://elegancemx-14c.pages.dev/':'./';
   const responses=await Promise.all(paths.map(p=>fetch(origin+p,{cache:'no-store'})));
   if(!responses[0].ok||!responses[1].ok)throw Error('No disponibles');
-  const [media,routes,summary,names]=await Promise.all(responses.map(async r=>r.ok?r.json():null));
+  const [media,routes,summary,names,sections]=await Promise.all(responses.map(async r=>r.ok?r.json():null));
   if(!Array.isArray(media)||!Array.isArray(routes))throw Error('Formato del archivo inválido');
   catalog.categories=new Map(routes.filter(r=>r?.fileId&&typeof r.category==='string').map(r=>[r.fileId,r.category]));
   catalog.labels=new Map((names?.records||[]).filter(r=>r?.fileId&&r.nameSuggestion).map(r=>[r.fileId,clean(r.nameSuggestion)]));
-  catalog.items=media.filter(x=>/^image\//.test(x.mime||'')&&safeURL(x)).map(x=>({fileId:x.fileId,url:safeURL(x),createdAt:x.createdAt||'',category:catalog.categories.get(x.fileId)||'',name:catalog.labels.get(x.fileId)||x.filePath?.split('/').pop()||'Referencia fotográfica',mime:x.mime}));
+  catalog.brandHints=new Map((sections?.verified===false&&Array.isArray(sections.assignments)?sections.assignments:[]).filter(x=>x.fileId&&x.brand&&x.verifiedBrand===false).map(x=>[x.fileId,x.brand]));
+  const brands=[...new Set([...catalog.brandHints.values()])].sort((a,b)=>a.localeCompare(b,'es'));
+  $cat('catalog-brand').replaceChildren(new Option('Todas',''),...brands.map(x=>new Option(x,x))); 
+  catalog.items=media.filter(x=>/^image\//.test(x.mime||'')&&safeURL(x)).map(x=>({fileId:x.fileId,url:safeURL(x),createdAt:x.createdAt||'',category:catalog.categories.get(x.fileId)||'',name:catalog.labels.get(x.fileId)||x.filePath?.split('/').pop()||'Referencia fotográfica',brandHint:catalog.brandHints.get(x.fileId)||'',mime:x.mime}));
   catalog.loaded=true;
+  $cat('catalog-copy').disabled=!catalog.selected.size; $cat('catalog-copy').textContent='Copiar referencias seleccionadas ('+catalog.selected.size+')';
   let unique=new Set(catalog.items.map(x=>x.category).filter(Boolean));
   $cat('catalog-category').replaceChildren(new Option('Todas',''),...[...unique].sort().map(c=>new Option(c,c)));
   const count=Number(summary?.photoCount)||catalog.items.length;
@@ -194,14 +239,14 @@ async function loadCatalog(){
   $cat('live-total').textContent=media.length.toLocaleString('es-MX');
   $cat('live-videos').textContent=media.filter(x=>/^video\//.test(x.mime||'')).length.toLocaleString('es-MX');
   const assigned=Number(summary?.autoAssignedPhotos)||0;
-  $cat('catalog-status').textContent=`${catalog.items.length.toLocaleString('es-MX')} fotografías publicadas en el archivo · ${assigned.toLocaleString('es-MX')} categorías sugeridas automáticamente. Fotografías no equivalen a artículos comprobados.`;
+  $cat('catalog-status').textContent=`${catalog.items.length.toLocaleString('es-MX')} fotografías del archivo · ${assigned.toLocaleString('es-MX')} categorías sugeridas por IA. La marca es provisional y no certifica autenticidad.`;
   catalogFilter();
  })().catch(e=>{console.warn('Catálogo',e);previewFallback()}).finally(()=>{catalog.loading=null});
  return catalog.loading;
 }
 function catalogFilter(){
  const q=catalog.search.trim().toLocaleLowerCase('es-MX');
- catalog.filtered=catalog.items.filter(x=>(!catalog.category||x.category===catalog.category)&&(!q||[x.name,x.fileId,x.category].join(' ').toLocaleLowerCase('es-MX').includes(q)));
+ catalog.filtered=catalog.items.filter(x=>(!catalog.category||x.category===catalog.category)&&(!catalog.brand||x.brandHint.toLocaleLowerCase('es-MX')===catalog.brand.toLocaleLowerCase('es-MX'))&&(!q||[x.name,x.fileId,x.category,x.brandHint].join(' ').toLocaleLowerCase('es-MX').includes(q)));
  catalog.filtered.sort((a,b)=>catalog.sort==='old'?String(a.createdAt).localeCompare(String(b.createdAt)):String(b.createdAt).localeCompare(String(a.createdAt)));
  const pages=Math.max(1,Math.ceil(catalog.filtered.length/catalog.shown));catalog.page=Math.max(0,Math.min(catalog.page,pages-1));
  const grid=$cat('catalog-results');grid.replaceChildren();
@@ -211,34 +256,36 @@ function catalogFilter(){
   const img=document.createElement('img');img.src=x.url;img.loading='lazy';img.alt=clean(x.name);img.decoding='async';
   const main=document.createElement('div');main.className='catalog-item-main';
   const name=document.createElement('strong');name.textContent=clean(x.name);
-  const cat=document.createElement('span');cat.className='category';cat.textContent=x.category||'Pendiente de clasificar';
+  const cat=document.createElement('span');cat.className='category';cat.textContent=(x.category||'Pendiente de clasificar')+(x.brandHint?' · '+x.brandHint+' (marca sugerida, no verificada)':'');
   const id=document.createElement('small');id.textContent='Referencia: '+x.fileId.slice(-12);
   const btn=document.createElement('button');btn.type='button';btn.dataset.ref=x.fileId;const selected=catalog.selected.has(x.fileId);btn.textContent=selected?'✓ En consultas':'＋ Añadir a consultas';btn.setAttribute('aria-pressed',String(selected));
-  btn.onclick=()=>{catalog.selected.has(x.fileId)?catalog.selected.delete(x.fileId):catalog.selected.add(x.fileId);btn.textContent=catalog.selected.has(x.fileId)?'✓ En consultas':'＋ Añadir a consultas';btn.setAttribute('aria-pressed',String(catalog.selected.has(x.fileId)));$cat('catalog-copy').disabled=!catalog.selected.size;$cat('catalog-copy').textContent='Copiar referencias seleccionadas ('+catalog.selected.size+')';};
+  btn.onclick=()=>{if(!catalog.selected.has(x.fileId)&&catalog.selected.size>=150){toast('Límite: 150 referencias por consulta.');return;}catalog.selected.has(x.fileId)?catalog.selected.delete(x.fileId):catalog.selected.add(x.fileId);persistRefs();btn.textContent=catalog.selected.has(x.fileId)?'✓ En consultas':'＋ Añadir a consultas';btn.setAttribute('aria-pressed',String(catalog.selected.has(x.fileId)));$cat('catalog-copy').disabled=!catalog.selected.size;$cat('catalog-copy').textContent='Copiar referencias seleccionadas ('+catalog.selected.size+')';};
   main.append(name,cat,id,btn);article.append(img,main);grid.append(article);
  });
  $cat('catalog-page').textContent=`${catalog.filtered.length.toLocaleString('es-MX')} fotos · página ${catalog.page+1} de ${pages}`;
  $cat('catalog-prev').disabled=catalog.page===0;$cat('catalog-next').disabled=catalog.page>=pages-1;
 }
-async function showCatalog(category='',query=''){
+async function showCatalog(category='',query='',brand=''){
   const dialog=$cat('catalog-drawer');if(!dialog.open)dialog.showModal();
   if(category){catalog.category=category;$cat('catalog-category').value=category}
+  catalog.brand=brand;$cat('catalog-brand').value=brand;
   if(query){catalog.search=query;$cat('catalog-search').value=query}
   await loadCatalog();
-  if(catalog.loaded){$cat('catalog-category').value=catalog.category;catalog.page=0;catalogFilter();}
+  if(catalog.loaded){$cat('catalog-category').value=catalog.category;$cat('catalog-brand').value=catalog.brand;catalog.page=0;catalogFilter();}
 }
 $cat('catalog-close').onclick=()=>$cat('catalog-drawer').close();
 $cat('catalog-search').oninput=e=>{catalog.search=e.target.value;catalog.page=0;if(catalog.loaded)catalogFilter()};
 $cat('catalog-category').onchange=e=>{catalog.category=e.target.value;catalog.page=0;if(catalog.loaded)catalogFilter()};
+$cat('catalog-brand').onchange=e=>{catalog.brand=e.target.value;catalog.page=0;if(catalog.loaded)catalogFilter()};
 $cat('catalog-sort').onchange=e=>{catalog.sort=e.target.value;catalog.page=0;if(catalog.loaded)catalogFilter()};
-$cat('catalog-clear').onclick=()=>{catalog.search='';catalog.category='';catalog.sort='new';catalog.page=0;$cat('catalog-search').value='';$cat('catalog-category').value='';$cat('catalog-sort').value='new';if(catalog.loaded)catalogFilter()};
+$cat('catalog-clear').onclick=()=>{catalog.search='';catalog.category='';catalog.brand='';catalog.sort='new';catalog.page=0;$cat('catalog-search').value='';$cat('catalog-category').value='';$cat('catalog-brand').value='';$cat('catalog-sort').value='new';if(catalog.loaded)catalogFilter()};
 $cat('catalog-prev').onclick=()=>{if(catalog.page>0){catalog.page--;catalogFilter();$cat('catalog-body')?.scrollIntoView({block:'start'})}};
 $cat('catalog-next').onclick=()=>{catalog.page++;catalogFilter();$cat('catalog-body')?.scrollIntoView({block:'start'})};
 $cat('catalog-copy').onclick=async()=>{const text=['Consulta de referencias · elegance',...catalog.selected].join('\n');try{await navigator.clipboard.writeText(text);toast('Referencias copiadas al portapapeles.')}catch{toast('No se pudo copiar; usa el navegador con HTTPS.')}};
 // Capturing click listeners route real categories and collections without running the old placeholder pane.
-const catalogSections=new Set(['Catálogo','Productos','Categorías','Marcas','Multimedia','Pedidos']);
-document.querySelectorAll('.nav button').forEach(b=>b.addEventListener('click',e=>{const k=b.dataset.panel;if(!catalogSections.has(k))return;e.stopImmediatePropagation();if(k==='Productos')window.open(REAL+'?administrador=1','_blank','noopener,noreferrer');else if(k==='Pedidos')window.open(REAL,'_blank','noopener,noreferrer');else if(k==='Multimedia')window.open(REAL+'archivo.html#recovery-videos','_blank','noopener,noreferrer');else showCatalog();},true));
-document.querySelectorAll('[data-brand]').forEach(b=>b.addEventListener('click',e=>{e.stopImmediatePropagation();showCatalog('',b.dataset.brand)},true));
+const catalogSections=new Set(['Catálogo','Productos','Categorías','Marcas','Multimedia','Pedidos','Dashboard','Ajustes']);
+document.querySelectorAll('.nav button').forEach(b=>b.addEventListener('click',e=>{const k=b.dataset.panel;if(!catalogSections.has(k))return;e.stopImmediatePropagation();if(k==='Productos')window.open(REAL+'?administrador=1','_blank','noopener,noreferrer');else if(k==='Pedidos'){showCatalog();$cat('catalog-status').textContent='Tus referencias para consulta se marcan con el botón Añadir a consultas y pueden copiarse para pedir disponibilidad.';}else if(k==='Multimedia')window.open(REAL+'archivo.html#recovery-videos','_blank','noopener,noreferrer');else if(k==='Ajustes'){$('.settings').scrollIntoView({behavior:'smooth',block:'center'});$('#bright').focus();toast('Ajusta la iluminación, la animación y las vistas desde estos controles.')}else if(k==='Dashboard'){showPane('Dashboard');$('#pane-title').textContent='Estado real del archivo';$('#pane-body').textContent=`${$('#live-total').textContent} referencias · ${$('#live-photos').textContent} fotografías · ${$('#live-videos').textContent} videos. La cantidad de productos comerciales confirmados sigue siendo cero hasta que haya validación del administrador.`;const action=document.createElement('button');action.type='button';action.className='btn3d';action.textContent='Examinar fotografías';action.onclick=()=>{hidePane();showCatalog()};$('#pane-actions').replaceChildren(action);}else showCatalog();},true));
+document.querySelectorAll('[data-brand]').forEach(b=>b.addEventListener('click',e=>{e.stopImmediatePropagation();showCatalog('','',b.dataset.brand)},true));
 $cat('search').addEventListener('keydown',e=>{if(e.key==='Enter'){e.stopImmediatePropagation();e.preventDefault();showCatalog('',e.target.value.trim())}},true);
 // Filter category query is always a visual suggestion, not proof of product availability.
 window.addEventListener('offline',()=>toast('Sin conexión. Los ajustes visuales funcionan, pero el archivo remoto requiere internet.'));
