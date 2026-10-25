@@ -63,12 +63,12 @@ main{min-width:0;padding:18px 22px 34px}.topbar{display:flex;align-items:center;
 </nav><div class="sidebar-bottom"><a href="https://elegancemx-14c.pages.dev/?administrador=1" target="_blank" rel="noopener noreferrer">↗ Administrador real</a><a href="https://elegancemx-14c.pages.dev/" target="_blank" rel="noopener noreferrer">↗ Ver tienda</a><small>Vista de diseño aislada · no modifica la tienda</small></div></aside>
 <main>
 <header class="topbar"><label class="search"><span aria-hidden="true">⌕</span><input type="search" id="search" placeholder="Buscar en el panel y las colecciones…" aria-label="Buscar secciones y colecciones"></label><div class="account"><span class="avatar">♜</span><span><b>elegance</b><small>Vista conectada · versión de prueba</small></span></div></header>
-<section class="stats" aria-label="Estado del catálogo documentado"><div class="stat"><i>▤</i><div><strong><span id="live-total">3,929</span></strong><small>Referencias del archivo</small></div></div><div class="stat"><i>◇</i><div><strong><span id="live-photos">3,909</span></strong><small>Fotografías históricas</small></div></div><div class="stat"><i>▷</i><div><strong><span id="live-videos">20</span></strong><small>Videos históricos</small></div></div><div class="stat"><i>✓</i><div><strong><span id="live-verified">0</span></strong><small>Artículos verificados</small></div></div></section>
+<section class="stats" aria-label="Estado del catálogo documentado"><div class="stat"><i>▤</i><div><strong><span id="live-total">3,929</span></strong><small>Referencias del archivo</small></div></div><div class="stat"><i>◇</i><div><strong><span id="live-photos">3,909</span></strong><small>Fotografías del archivo</small></div></div><div class="stat"><i>▷</i><div><strong><span id="live-videos">20</span></strong><small>Videos históricos</small></div></div><div class="stat"><i>✓</i><div><strong><span id="live-verified">0</span></strong><small>Artículos verificados</small></div></div></section>
 <div class="workspace"><section class="glass stagecard" aria-label="Escena interactiva">
 <div class="sectionbar"><div><h2>Showroom interactivo</h2><p>Composición aprobada · controles reconstruidos</p></div><div class="stagemenu"><select id="scene-preset" aria-label="Escoger ambiente"><option value="ice">Azul hielo</option><option value="night">Nocturno</option><option value="sunset">Atardecer</option><option value="pearl">Blanco perla</option></select><button id="play" class="btn3d" aria-pressed="true">❚❚ Pausar</button></div></div>
-<div class="scene-viewport" id="view" aria-label="Pantera fotográfica con animación 2.5D y cámara interactiva; usa arrastre o botones para cambiar vista" role="img">
+<div class="scene-viewport" id="view" aria-label="Pantera fotográfica con animación 2.5D y cámara interactiva; usa arrastre o botones para cambiar vista" role="group">
 <div class="scene-layer" id="scene-layer"><canvas id="scene" width="900" height="390"></canvas></div>
-<div class="stage-overlay"><div class="overlay-top"><span class="hint"><span class="led"></span> <b>ESCENA ICE</b> · LIVE DEMO</span><span class="hint" id="camera-state">Vista frontal</span></div><div class="overlay-bottom"><div class="group" role="group" aria-label="Ángulos de cámara"><span>Cámara</span><button data-view="front" class="btn3d secondary" aria-pressed="true">Frontal</button><button data-view="left" class="btn3d secondary" aria-pressed="false">Lateral</button><button data-view="high" class="btn3d secondary" aria-pressed="false">Superior</button><button data-view="reset" class="btn3d secondary">⟲</button></div><div class="pulse-label"><span class="led"></span> Arrastra para mover cámara</div></div></div>
+<div class="stage-overlay"><div class="overlay-top"><span class="hint"><span class="led"></span> <b>ESCENA ICE</b> · ANIMACIÓN 2.5D</span><span class="hint" id="camera-state">Vista frontal</span></div><div class="overlay-bottom"><div class="group" role="group" aria-label="Ángulos de cámara"><span>Cámara</span><button data-view="front" class="btn3d secondary" aria-pressed="true">Frontal</button><button data-view="left" class="btn3d secondary" aria-pressed="false">Lateral</button><button data-view="high" class="btn3d secondary" aria-pressed="false">Superior</button><button data-view="reset" class="btn3d secondary">⟲</button></div><div class="pulse-label"><span class="led"></span> Arrastra para mover cámara</div></div></div>
 <div id="statepane" class="statepane" aria-live="polite"><button class="btn3d secondary pane-close" id="pane-close">✕ Volver</button><span class="badge">NAVEGACIÓN FUNCIONAL</span><h3 id="pane-title"></h3><p id="pane-body"></p><div class="pane-tabs" id="pane-actions"></div></div>
 </div>
 <div class="stage-footer"><small id="scene-status">WebGL activo al cargar · composición conservada</small><div class="actions"><button class="btn3d secondary" id="reset">Restablecer</button><button class="btn3d secondary" id="export">Exportar ajustes</button><button class="btn3d" id="admin">↗ Gestionar mercancía</button></div></div>
@@ -79,7 +79,7 @@ main{min-width:0;padding:18px 22px 34px}.topbar{display:flex;align-items:center;
 <section class="lower"><article class="glass upload"><h3>Añadir fotografías a esta vista</h3><label class="dropzone" id="dropzone" for="files"><span class="cloud">☁</span><b>Seleccionar o arrastrar imágenes</b><small>Vista previa local · no se suben a la tienda</small></label><input id="files" type="file" accept="image/*" multiple><div style="margin-top:7px"><a href="https://elegancemx-14c.pages.dev/?administrador=1" target="_blank" rel="noopener noreferrer" style="font-size:11px">Subir mercancía al administrador real ↗</a></div></article>
 <article class="glass"><h3>Archivos seleccionados <small id="file-count" style="color:#89bfdf;font-weight:400">(0)</small></h3><div class="photos" id="photos"><p class="tiny-note">Aquí aparecerán las imágenes que agregues a la vista previa. Ningún archivo sale de tu dispositivo.</p></div></article>
 <article class="glass"><h3>Colecciones destacadas</h3><div class="collections"><div class="collection"><b>NIKE</b><small>COLECCIÓN</small><button class="btn3d secondary" data-brand="Nike">Explorar →</button></div><div class="collection"><b>adidas</b><small>COLECCIÓN</small><button class="btn3d secondary" data-brand="Adidas">Explorar →</button></div><div class="collection"><b>JORDAN</b><small>COLECCIÓN</small><button class="btn3d secondary" data-brand="Jordan">Explorar →</button></div></div></article></section>
-<p class="lower-footer">ELEGANCE SHOWROOM v3 · Los conteos del archivo son referencias documentadas al 20/10/2026, no estadísticas en tiempo real. Imagen de la pantera: composición Elegance aprobada. No se atribuye inventario comercial a fotografías sin verificar.</p>
+<p class="lower-footer">ELEGANCE SHOWROOM v3 · Los conteos se actualizan desde los datos públicos del catálogo cuando hay conexión; no son métricas de ventas. Imagen de la pantera: composición Elegance aprobada. No se atribuye inventario comercial a fotografías sin verificar.</p>
 </main></div>
 <dialog class="catalog-drawer" id="catalog-drawer" aria-labelledby="catalog-title">
   <div class="catalog-top"><div><small>ARCHIVO FOTOGRÁFICO REAL · ELEGANCE</small><h2 id="catalog-title">elegance · catálogo</h2></div><button type="button" id="catalog-close" aria-label="Cerrar catálogo">✕ Cerrar</button></div>
@@ -242,6 +242,21 @@ document.querySelectorAll('[data-brand]').forEach(b=>b.addEventListener('click',
 $cat('search').addEventListener('keydown',e=>{if(e.key==='Enter'){e.stopImmediatePropagation();e.preventDefault();showCatalog('',e.target.value.trim())}},true);
 // Filter category query is always a visual suggestion, not proof of product availability.
 window.addEventListener('offline',()=>toast('Sin conexión. Los ajustes visuales funcionan, pero el archivo remoto requiere internet.'));
+// Refresh public archive counters on entry; never invent sales or verified products.
+async function refreshPublicArchiveCounters(){
+ try{
+  const base=location.protocol==='file:'?'https://elegancemx-14c.pages.dev/':'./';
+  const r=await fetch(base+'data/auto-categories-summary.json',{cache:'no-store'});
+  if(!r.ok)return;
+  const q=await r.json();
+  const count=Number(q?.photoCount);
+  if(Number.isInteger(count)&&count>0){
+    $cat('live-photos').textContent=count.toLocaleString('es-MX');
+    $cat('live-total').textContent=(count+20).toLocaleString('es-MX');
+  }
+ }catch(err){console.info('Contadores históricos: resumen no disponible');}
+}
+refreshPublicArchiveCounters();
 
 })();
 </script></body></html>
