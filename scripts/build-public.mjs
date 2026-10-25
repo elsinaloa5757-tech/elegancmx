@@ -85,7 +85,7 @@ if(!await fs.stat('assets/elegance-panther.png').then(x=>x.size>100000).catch(()
 await fs.rm(dir,{recursive:true,force:true});
 await fs.mkdir(path.join(dir,'assets'),{recursive:true});
 await fs.mkdir(path.join(dir,'data'),{recursive:true});
-for(const name of ['index.html','panel.js','panel.css','admin.js','admin.css','archivo.html',
+for(const name of ['index.html','showroom.html','panel.js','panel.css','admin.js','admin.css','archivo.html',
  'styles.css','app.js','catalog-recovery.js','social-clover.js','social-clover.css','premium-motion.css','premium-motion.js','products.json',
  'laboratorio-ia.html','lab.js','lab.css']){
  await fs.copyFile(name,path.join(dir,name));
@@ -93,6 +93,11 @@ for(const name of ['index.html','panel.js','panel.css','admin.js','admin.css','a
 // Preserve historical links, but redirect to the integrated login — no separate Studio admin.
 await fs.writeFile(path.join(dir,'studio.html'), '<!doctype html><html lang="es"><meta charset="utf-8"><meta name="robots" content="noindex"><meta http-equiv="refresh" content="0;url=/?administrador=1"><script>location.replace("/?administrador=1")</script><title>Elegance MX · Administrador</title><a href="/?administrador=1">Ir al administrador de Elegance MX</a></html>');
 await fs.copyFile('assets/elegance-panther.png',path.join(dir,'assets/elegance-panther.png'));
+for (const name of ['panther-stage-desktop.jpg','panther-stage-mobile.jpg']) {
+ const src=path.join('assets',name);const data=await fs.readFile(src);
+ if(data.length<20000||data[0]!==0xff||data[1]!==0xd8) throw Error('Showroom approved image missing: '+name);
+ await fs.copyFile(src,path.join(dir,'assets',name));
+}
 const cloverAsset=await fs.readFile('assets/elegance-social-clover.webp');
 if(cloverAsset.byteLength<6000||cloverAsset.toString('ascii',0,4)!=='RIFF'||cloverAsset.toString('ascii',8,12)!=='WEBP')
   throw Error('Approved gemstone clover image missing or invalid');
