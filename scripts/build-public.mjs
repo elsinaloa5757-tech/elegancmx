@@ -5,6 +5,7 @@
  * The recovered photo archive is public, but unverified media are not products.
  */
 import fs from 'node:fs/promises';
+import {execFileSync} from 'node:child_process';
 import path from 'node:path';
 const root=process.cwd(),dir=path.join(root,'dist');
 const read=async file=>JSON.parse(await fs.readFile(file,'utf8'));
@@ -85,7 +86,7 @@ if(!await fs.stat('assets/elegance-panther.png').then(x=>x.size>100000).catch(()
 await fs.rm(dir,{recursive:true,force:true});
 await fs.mkdir(path.join(dir,'assets'),{recursive:true});
 await fs.mkdir(path.join(dir,'data'),{recursive:true});
-for(const name of ['index.html','showroom.html','panel.js','panel.css','admin.js','admin.css','archivo.html',
+for(const name of ['index.html','showroom.html','pantera-3d.html','panel.js','panel.css','admin.js','admin.css','archivo.html',
  'styles.css','app.js','catalog-recovery.js','social-clover.js','social-clover.css','premium-motion.css','premium-motion.js','products.json',
  'laboratorio-ia.html','lab.js','lab.css']){
  await fs.copyFile(name,path.join(dir,name));
@@ -108,4 +109,6 @@ for(const name of ['imagekit-media.json','auto-categories.json','auto-categories
 await fs.writeFile(path.join(dir,'_headers'),
  ['/data/*','  Cache-Control: public, max-age=300','/*.html','  Cache-Control: public, max-age=300',
  '/assets/*','  Cache-Control: public, max-age=86400',''].join('\n'));
+// Reconstruct the original rigged GLB from checked-in checksummed segments. Stdlib only.
+execFileSync('python3',['scripts/decode-panther.py'],{stdio:'inherit'});
 console.log('Ready for deployment:',imgs.length,'photographs,',videos.length,'videos,',route.filter(x=>x.category).length,'category suggestions,',products.length,'sellable listings');
