@@ -5,6 +5,9 @@ on:
     paths:
       - 'index.html'
       - 'showroom.html'
+      - 'pantera-3d.html'
+      - 'assets/panther/**'
+      - 'scripts/decode-panther.py'
       - 'assets/panther-stage-desktop.jpg'
       - 'assets/panther-stage-mobile.jpg'
       - 'panel.js'

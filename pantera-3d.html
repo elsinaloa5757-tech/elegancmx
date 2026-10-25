@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#07182b"><meta name="description" content="Pantera Elegance con esqueleto GLB y animaciones tridimensionales. Estudio 3D complementario a la portada aprobada.">
+<title>elegance · Pantera 3D interactiva</title>
+<script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer@4.0.0/dist/model-viewer.min.js"></script>
+<style>
+:root{color-scheme:dark;--silver:#dbf2ff;--border:rgba(126,213,255,.43);--muted:#b1d4e7}*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 58% 20%,#15517a 0,#071c32 45%,#030a14 100%);color:#e8f9ff;font:14px/1.45 system-ui,-apple-system,Segoe UI,sans-serif;min-height:100vh}
+.scene{width:min(1440px,100%);margin:0 auto;padding:18px}.head{display:flex;align-items:center;justify-content:space-between;gap:15px;flex-wrap:wrap;margin-bottom:12px}.wordmark{font:italic 52px/1 'Brush Script MT','Snell Roundhand',cursive;text-shadow:0 0 16px #58beff88;color:white}.eyebrow{font-size:10px;letter-spacing:.25em;color:#a8d4ee;margin:8px 0}.back{color:#d9f3ff;border:1px solid #8bcffa88;padding:11px 16px;text-decoration:none;border-radius:12px;background:#0b2d49}.back:hover{box-shadow:0 0 14px #49afff88}
+.layout{display:grid;grid-template-columns:minmax(0,1fr) 270px;gap:16px}.viewport{height:min(68vw,660px);min-height:360px;position:relative;overflow:hidden;border-radius:24px;border:1px solid #7bd0ff7d;box-shadow:0 28px 65px #0008,inset 0 2px 25px #d7f8ff14;background:radial-gradient(ellipse at 50% 53%,#1b4762,#091d32 48%,#030b16 90%)}
+.crown-glow{position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle at 50% 41%,#70d2ff13,transparent 45%),linear-gradient(to bottom,transparent 70%,#041423 100%)}
+.ground{position:absolute;width:64%;height:32%;left:18%;bottom:5%;border-radius:50%;background:radial-gradient(ellipse,#39aeef72,transparent 65%);filter:blur(20px);pointer-events:none}
+model-viewer{display:block;position:absolute;inset:0;width:100%;height:100%;background:transparent;--poster-color:transparent;outline:0;z-index:1}
+label,button{font:inherit}.controls{padding:16px;border:1px solid var(--border);border-radius:22px;background:linear-gradient(155deg,#102e48db,#041223eb);box-shadow:0 12px 45px #0005;display:flex;flex-direction:column;gap:9px}.controls h2{font-size:17px;margin:0 0 3px}.controls p{font-size:11px;color:var(--muted);margin:0 0 8px}.controls button{display:flex;align-items:center;justify-content:space-between;padding:13px 14px;border:1px solid #79c3f365;border-radius:12px;color:#e7f8ff;background:linear-gradient(160deg,#185179,#0c253e);box-shadow:inset 0 1px 0 #d2faff4d,0 5px 0 #031221;cursor:pointer;transition:transform .15s,box-shadow .15s,background .15s}
+.controls button:hover{background:linear-gradient(160deg,#247ab6,#102d48)}.controls button:active,.controls button[aria-pressed=true]{transform:translateY(3px);box-shadow:inset 0 4px 6px #030d20,inset 0 0 13px #71d3ff5c}.controls button:focus-visible,.back:focus-visible{outline:2px solid #d0f6ff;outline-offset:3px}.foot{margin-top:13px;padding:14px 18px;border:1px solid #67bffc4b;background:#09243ba9;border-radius:14px;color:#b9d8e9;font-size:12px}.status{position:absolute;z-index:3;bottom:14px;left:14px;right:14px;display:flex;gap:8px;justify-content:space-between;align-items:center;pointer-events:none;flex-wrap:wrap}.pill{padding:8px 11px;background:#061b2ec9;border:1px solid #8dd7ff62;border-radius:999px;backdrop-filter:blur(12px);font-size:11px}.loading{font-size:16px;color:white;text-shadow:0 2px 10px #000;position:absolute;z-index:4;left:50%;top:48%;transform:translate(-50%,-50%);text-align:center}.loading[hidden]{display:none}
+@media(max-width:820px){.layout{grid-template-columns:1fr}.viewport{height:58vh;min-height:325px}.controls{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.controls h2,.controls p{grid-column:1/-1}.controls button{padding:12px 9px;font-size:12px}.wordmark{font-size:46px}}
+@media(prefers-reduced-motion:reduce){.controls button{transition:none}}
+</style></head><body><main class="scene">
+<div class="head"><div><div class="wordmark">elegance</div><div class="eyebrow">PANTERA ARTICULADA · ESTUDIO 3D</div></div><a class="back" href="./showroom.html">← Volver al showroom original</a></div>
+<div class="layout"><section class="viewport" aria-label="Vista tridimensional articulada de la pantera Elegance">
+<div class="ground"></div><div class="crown-glow"></div>
+<model-viewer id="panther" src="./assets/panther/elegance-panther.glb" loading="eager" reveal="auto" camera-controls autoplay disable-pan shadow-intensity="1.1" shadow-softness="0.85" exposure="1.55" environment-image="neutral" camera-orbit="45deg 73deg 6.4m" camera-target="-.15m 1.0m 0m" min-camera-orbit="auto 38deg 3.4m" max-camera-orbit="auto 100deg 8.4m" interaction-prompt="none" animation-name="idle_breathe" alt="Pantera negra modelada en 3D con esqueleto y animaciones independientes."></model-viewer>
+<div id="loading" class="loading">Cargando pantera GLB…</div>
+<div class="status"><span id="status" class="pill">Esperando archivo GLB</span><span id="details" class="pill">Modelo 3D original · 25 huesos · 5 clips</span></div>
+</section>
+<aside class="controls" aria-label="Animaciones del modelo"><h2>Movimiento en tres dimensiones</h2><p>Elige la acción. Puedes girar la cámara arrastrando la pantera y acercarte con dos dedos.</p>
+<button type="button" data-clip="idle_breathe" aria-pressed="true">Respirar <span>◉</span></button>
+<button type="button" data-clip="roar_short" aria-pressed="false">Rugir <span>◈</span></button>
+<button type="button" data-clip="look_left" aria-pressed="false">Mirar izquierda <span>↶</span></button>
+<button type="button" data-clip="look_right" aria-pressed="false">Mirar derecha <span>↷</span></button>
+<button type="button" data-clip="stance_shift" aria-pressed="false">Cambiar apoyo <span>◇</span></button>
+<button type="button" id="reset-view">Restablecer cámara <span>⟲</span></button>
+<button type="button" id="pause">Pausar animación <span>❚❚</span></button>
+<button type="button" id="sound">Sonido de rugido <span>♫</span></button>
+<audio id="roar-audio" preload="none" src="https://sfxmint.com/dl/short-tiger-roar-01.mp3"></audio></aside></div>
+<div class="foot">Modelo original elaborado para Elegance. <strong>Este es un estudio tridimensional articulado</strong>, distinto de la imagen fotorrealista de la portada aprobada; no la sustituye. El archivo GLB contiene articulaciones reales y cinco clips independientes. El efecto sonoro es de tigre (recurso libre CC0 de SFXMint), no una grabación de esta pantera. El audio solo se activa al pulsar su control. No se modificaron la tienda ni el catálogo.</div>
+</main><script>
+const model=document.getElementById('panther'),status=document.getElementById('status'),loading=document.getElementById('loading');
+const buttons=[...document.querySelectorAll('[data-clip]')];let playing=true;
+function selectClip(clip){if(!model.loaded){status.textContent='Cargando modelo…';return;} if(!(model.availableAnimations||[]).includes(clip)){status.textContent='Clip no disponible: '+clip;return;}
+ model.pause();model.animationName=clip;model.currentTime=0;model.play();playing=true;buttons.forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.clip===clip)));status.textContent='Reproduciendo: '+clip;document.querySelector('#pause').innerHTML='Pausar animación <span>❚❚</span>';
+}
+model.addEventListener('load',()=>{loading.hidden=true;status.textContent='GLB cargado · girar con el dedo';let clips=model.availableAnimations||[];document.getElementById('details').textContent='Clips: '+clips.length+' · modelo articulado';selectClip('idle_breathe')});
+model.addEventListener('error',()=>{loading.hidden=false;loading.textContent='El archivo GLB no está disponible. Comprueba tu conexión.';status.textContent='Error de carga — portada original intacta'});
+buttons.forEach(b=>b.addEventListener('click',()=>selectClip(b.dataset.clip)));
+document.getElementById('reset-view').onclick=()=>{model.cameraOrbit='45deg 73deg 6.4m';model.cameraTarget='-.15m 1.0m 0m'};
+document.getElementById('pause').onclick=()=>{if(!model.loaded)return;if(playing){model.pause();playing=false;status.textContent='Animación en pausa'}else{model.play();playing=true;status.textContent='Animación activa'}document.querySelector('#pause').innerHTML=playing?'Pausar animación <span>❚❚</span>':'Reanudar animación <span>▶</span>'};
+document.getElementById('sound').onclick=()=>{const audio=document.getElementById('roar-audio');selectClip('roar_short');audio.currentTime=0;audio.play().catch(()=>{status.textContent='El audio fue bloqueado por el navegador';});};
+</script></body></html>

@@ -1,0 +1,30 @@
+{
+  "source": "Original geometric panther sculpt for Elegance",
+  "license": "Original model, commercial rights held by user",
+  "chunks": [
+    "part_00.txt",
+    "part_01.txt",
+    "part_02.txt",
+    "part_03.txt",
+    "part_04.txt",
+    "part_05.txt",
+    "part_06.txt",
+    "part_07.txt",
+    "part_08.txt",
+    "part_09.txt",
+    "part_10.txt"
+  ],
+  "compression": "zlib+base85",
+  "glbBytes": 2006160,
+  "glbSHA256": "af1aadf7c47ef40cd589c34f124f433d14773c73eccd18034772a8eceb8642f9",
+  "compressedSHA256": "1f62fab9805bf4057c8d1e1223e0f79371a4318445fb2f1564342301c3257616",
+  "clips": [
+    "idle_breathe",
+    "roar_short",
+    "look_left",
+    "look_right",
+    "stance_shift"
+  ],
+  "bones": 25,
+  "geometryVertices": null
+}
