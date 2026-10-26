@@ -13,3 +13,8 @@ let primitives=d.meshes?.flatMap(m=>m.primitives||[])||[];
 let tris=0;for(const p of primitives){const a=d.accessors?.[p.indices];if(a)tris+=Math.floor(a.count/3)}
 const info={size:b.length,sha256:crypto.createHash('sha256').update(b).digest('hex'),meshes:d.meshes?.length,primitives:primitives.length,triangles:tris,materials:d.materials?.length,images:d.images?.length,skins:d.skins?.length||0,animations:d.animations?.map(a=>a.name)||[],extensionsRequired:d.extensionsRequired||[],license:'CC0 stated by Innerscene; provenance requires separate visual QA'};
 console.log('LEOPARD_GLB_AUDIT:',JSON.stringify(info));
+const scenes=(d.scenes||[]).map(q=>q.nodes);
+const sampleNodes=(d.nodes||[]).map((n,i)=>({i,name:n.name,mesh:n.mesh,translation:n.translation,rotation:n.rotation,scale:n.scale,children:n.children,hasMatrix:Boolean(n.matrix)}));
+const meshes=(d.meshes||[]).map((m,i)=>({i,name:m.name,primitives:m.primitives?.length,positions:m.primitives?.map(p=>{const a=d.accessors[p.attributes.POSITION];return {count:a.count,min:a.min,max:a.max}})}));
+console.log('LEOPARD_DETAIL:',JSON.stringify({scenes,nodes:sampleNodes.slice(0,65),meshes:meshes.slice(0,33)}));
+
