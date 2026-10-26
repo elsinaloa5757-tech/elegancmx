@@ -7,6 +7,7 @@ on:
       - 'showroom.html'
       - 'pantera-3d.html'
       - 'pantera-licensed.html'
+      - 'pantera-realista.html'
       - 'assets/panther/licensed-v6-parts/**'
       - 'scripts/decode-elegance-panther.py'
       - 'pantera-lab.html'
