@@ -35,7 +35,7 @@ jobs:
       - run: node scripts/build-auto-categories.mjs
       - run: node scripts/build-visual-relations.mjs
       - run: python3 -m json.tool data/ai-classifications.json > /dev/null
-      - run: npx playwright install --with-deps chromium
+      - run: npx playwright install chromium
       - run: npm test
       - name: Save verified mobile screenshot
         if: always()
