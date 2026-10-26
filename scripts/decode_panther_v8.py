@@ -29,7 +29,20 @@ scene=doc['scenes'][doc.get('scene',0)]
 scene['nodes']=[n for n in scene['nodes'] if n not in REMOVE]
 assert len(scene['nodes'])==30 and scene['nodes'][0]==0
 # Bring base up toward paws: no visual floating above the pedestal.
-for i in [66,76,77]:doc['nodes'][i]['translation']=[0,.085,0]
+# Anatomical support audit (source bind pose): the four paws touch y≈0 and span
+# z=-0.62..0.385m. The original ring center was z=+0.34m, leaving hind paws
+# off its rear edge. Recenter the STAGE, not the licensed panther skeleton.
+# Platform top stays 5mm below paw soles to avoid clipping (y≈-0.005m).
+STAGE_Z=-.42
+doc['nodes'][66]['translation']=[0,.085,STAGE_Z]  # top obsidian ring
+for i in [76,77]:
+    doc['nodes'][i]['scale']=[1,1,1.20]  # widen illuminated support in depth
+    # scale about original platform center z=0.34m; then translate back
+    doc['nodes'][i]['translation']=[0,.085,STAGE_Z-.20*.34]
+# Crystal details move with the stage so their spacing remains coherent.
+for i in range(67,76):
+    doc['nodes'][i]['translation']=[0,0,STAGE_Z]
+assert doc['nodes'][66]['translation'][2]==STAGE_Z
 # Improve roar: activate source model's facial morph while the mandible/neck move.
 # Existing channel output for a morph target is SCALAR with target_count values / frame.
 def append_data(bytes_):
