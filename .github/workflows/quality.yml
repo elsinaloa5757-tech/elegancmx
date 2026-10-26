@@ -42,6 +42,10 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: elegance-mobile-visual-audit
-          path: test-results/elegance-mobile-reference.png
+          path: |
+            test-results/elegance-mobile-reference.png
+            test-results/v10-*.png
+            dist/assets/panther/elegance-panther-ice-gallery-v8.glb
+            dist/assets/panther/elegance-panther-obsidian-v8.glb
           if-no-files-found: ignore
           retention-days: 7
