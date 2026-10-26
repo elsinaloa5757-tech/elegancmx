@@ -1,0 +1,30 @@
+const {test,expect}=require('@playwright/test');
+const path=require('node:path');
+const fs=require('node:fs');
+const asset=path.join(process.cwd(),'dist/assets/panther/elegance-panther-ice-gallery-v8.glb');
+const ready=async(page)=>{
+ await page.route('**/assets/panther/elegance-panther-ice-gallery-v8.glb',r=>r.fulfill({path:asset,contentType:'model/gltf-binary'}));
+ await page.goto('/showroom.html');
+ await page.locator('#real3d-toggle').click();
+ await expect.poll(()=>page.frameLocator('#scene-3d-frame').locator('#panther').evaluate(el=>el.loaded),{timeout:60000}).toBeTruthy();
+ await page.waitForTimeout(1200);
+};
+test('V10 capture real GLB from front, side, desktop and mobile for QA',async({page})=>{
+ test.setTimeout(120000);
+ fs.mkdirSync('test-results',{recursive:true});
+ await page.setViewportSize({width:1440,height:1000});
+ await ready(page);
+ await page.screenshot({path:'test-results/v10-desktop-hero.png',fullPage:true});
+ await page.locator('[data-view="front"]').first().click();
+ await page.waitForTimeout(1100);
+ await page.locator('#view').screenshot({path:'test-results/v10-front.png'});
+ await page.locator('[data-view="side"]').first().click();
+ await page.waitForTimeout(1100);
+ await page.locator('#view').screenshot({path:'test-results/v10-side.png'});
+ await page.locator('#roar').click();
+ await page.waitForTimeout(750);
+ await page.locator('#view').screenshot({path:'test-results/v10-roar.png'});
+ await page.setViewportSize({width:390,height:844});
+ await page.waitForTimeout(1100);
+ await page.screenshot({path:'test-results/v10-mobile.png',fullPage:true});
+});
