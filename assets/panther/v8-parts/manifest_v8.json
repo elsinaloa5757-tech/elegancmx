@@ -1,0 +1,18 @@
+{
+  "source": "User-supplied black_panther.zip by kenchoo, CC BY 4.0",
+  "filename": "elegance-panther-ice-gallery-v8.glb",
+  "cat_filename": "elegance-panther-obsidian-v8.glb",
+  "size": 4380792,
+  "sha256": "244a74b2d6ce79851c905e1fc320c380abd2405b1593bbd9672bcbf994022f57",
+  "compressed_sha256": "9292a7c72427405fb9fb5f7fbd4a14243a488b6a1d58b7ae8242319758c474a0",
+  "parts": 30,
+  "source_format": "base85(zlib(GLB))",
+  "clip_names": [
+    "walk_original",
+    "idle_breathe",
+    "roar_short",
+    "look_left",
+    "look_right",
+    "stance_shift"
+  ]
+}
