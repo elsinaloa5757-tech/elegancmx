@@ -21,7 +21,7 @@ body.night{--ice:#071427;--halo:#174467}body.sunset{--ice:#3a2942;--halo:#86667f
  alt="Pantera negra tridimensional con 47 huesos y arquitectura de showroom azul hielo. Puedes mover la cámara."
  camera-controls disable-pan loading="eager" reveal="auto" autoplay interaction-prompt="none"
  shadow-intensity="0.9" shadow-softness="0.8" exposure="1.25" environment-image="neutral"
- camera-orbit="-58deg 71deg 2.5m" camera-target="0m .45m .20m"
+ camera-orbit="40deg 71deg 2.5m" camera-target="0m .45m .20m"
  min-camera-orbit="auto 40deg auto" max-camera-orbit="auto 100deg auto"
  animation-name="idle_breathe"></model-viewer>
 <div id="loading" role="status">Preparando pantera y escenario 3D real…</div>
@@ -32,7 +32,7 @@ body.night{--ice:#071427;--halo:#174467}body.sunset{--ice:#3a2942;--halo:#86667f
 const el=document.querySelector('#panther'),loading=document.querySelector('#loading');
 const allowed=['idle_breathe','roar_short','look_left','look_right','stance_shift','walk_original'];
 const origin=location.origin;
-const camera={hero:'-58deg 71deg 2.5m',front:'5deg 75deg 2.6m',side:'-88deg 76deg 2.65m',top:'-55deg 44deg 2.9m'};
+const camera={hero:'40deg 71deg 2.5m',front:'90deg 75deg 2.6m',side:'5deg 76deg 2.65m',top:'35deg 44deg 2.9m'};
 let ready=false,shouldPlay=!matchMedia('(prefers-reduced-motion: reduce)').matches,active='idle_breathe',preset='ice';
 function reply(event,data={}){if(window.parent!==window)window.parent.postMessage({type:'ELEGANCE_3D',event,...data},origin)}
 function play(name){
