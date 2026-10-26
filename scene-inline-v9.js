@@ -60,7 +60,6 @@ window.addEventListener('message',e=>{
   const clips=e.data.clips||[];
   status.textContent='3D real activo · 47 huesos · '+clips.length+' animaciones';
   sync();
-  post({command:'camera',view:'hero'});
  }
  if(e.data.event==='error'){
   status.textContent='La escena 3D no cargó; restaurando la vista original';
@@ -72,7 +71,13 @@ window.addEventListener('message',e=>{
 function mirror(selector,event,fn){
  document.querySelectorAll(selector).forEach(el=>el.addEventListener(event,e=>{if(enabled)queueMicrotask(()=>fn(el,e))}));
 }
-mirror('[data-view]','click',el=>post({command:'camera',view:el.dataset.view}));
+mirror('[data-view]','click',el=>{
+ const floatButton=$('#float');
+ // A deliberately chosen camera angle must remain stationary until the user
+ // explicitly re-enables the floating camera; mirror the original control.
+ if(floatButton?.getAttribute('aria-pressed')==='true')floatButton.click();
+ post({command:'camera',view:el.dataset.view});
+});
 mirror('[data-preset]','click',()=>sync());
 mirror('#scene-preset','change',()=>sync());
 mirror('#bright','input',()=>post({command:'exposure',value:stateValue('#bright')/70}));
