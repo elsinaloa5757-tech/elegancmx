@@ -39,3 +39,18 @@ test('V9 embeds mobile GLB without horizontal overflow and can revert to origina
  await expect(page.locator('#scene-layer')).toBeVisible();
  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth)).toBeTruthy();
 });
+
+
+test('V10 recovers approved photograph automatically if the embedded GLB reports an error',async({page})=>{
+ await page.goto('/showroom.html');
+ await page.locator('#real3d-toggle').click();
+ await expect(page.locator('#view')).toHaveClass(/real-3d/);
+ await page.evaluate(()=>{
+   const iframe=document.querySelector('#scene-3d-frame');
+   window.dispatchEvent(new MessageEvent('message',{origin:location.origin,source:iframe.contentWindow,data:{type:'ELEGANCE_3D',event:'error',message:'simulated loading failure'}}));
+ });
+ await expect(page.locator('#view')).not.toHaveClass(/real-3d/);
+ await expect(page.locator('#scene-layer')).toBeVisible();
+ await expect(page.locator('#scene-3d-frame')).not.toHaveAttribute('src',/.+/);
+ await expect(page.locator('#real3d-toggle')).toHaveAttribute('aria-pressed','false');
+});
