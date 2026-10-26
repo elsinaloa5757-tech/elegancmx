@@ -11,6 +11,10 @@ const oldStatus=status.textContent;
 const breatheLabel=$('#breathe')?.closest('.controlrow')?.querySelector('span');
 const initialBreatheLabel=breatheLabel?.textContent||'Respiración 2.5D';
 const audio=$('#roar-audio');
+const footer=$('#scene-status')?.closest('.stage-footer');
+const credit=document.createElement('small');credit.className='credit3d';credit.hidden=true;
+credit.innerHTML='Modelo 3D: <a href="https://sketchfab.com/3d-models/black-panther-7fca11c89cca4362a525c891a8345112" target="_blank" rel="noopener noreferrer">kenchoo</a> · <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0</a>';
+footer?.insertBefore(credit,footer.querySelector('.actions'));
 let enabled=false,ready=false;
 const post=payload=>{if(enabled&&frame.contentWindow&&frame.getAttribute('src'))frame.contentWindow.postMessage({type:'ELEGANCE_3D_COMMAND',...payload},location.origin)};
 const stateValue=id=>Number($(id)?.value||0);
@@ -27,6 +31,7 @@ function show(mode){
  btn.setAttribute('aria-pressed',String(mode));
  btn.textContent=mode?'▧ Vista original':'◈ Modo 3D real';
  view.classList.toggle('real-3d',mode);
+ credit.hidden=!mode;
  if(breatheLabel)breatheLabel.textContent=mode?'Respiración 3D articulada':initialBreatheLabel;
  if(mode){
   ready=false;
@@ -80,6 +85,7 @@ $('#roar')?.addEventListener('click',e=>{
  if(!enabled)return;
  e.stopImmediatePropagation(); // do not simultaneously deform the hidden photograph
  post({command:'play',clip:'roar_short'});
+ $('#roar').setAttribute('aria-pressed','true');setTimeout(()=>$('#roar').setAttribute('aria-pressed','false'),2200);
  if(audio){audio.currentTime=0;audio.play().catch(()=>{status.textContent='Rugido 3D activo · sonido no autorizado por navegador'})}
 },true);
 window.addEventListener('pagehide',()=>{if(enabled)post({command:'pause'})});
