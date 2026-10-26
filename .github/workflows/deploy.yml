@@ -6,6 +6,7 @@ on:
       - 'index.html'
       - 'showroom.html'
       - 'pantera-3d.html'
+      - 'pantera-lab.html'
       - 'assets/panther/**'
       - 'scripts/decode-panther.py'
       - 'assets/panther-stage-desktop.jpg'
