@@ -32,7 +32,7 @@ body.night{--ice:#071427;--halo:#174467}body.sunset{--ice:#3a2942;--halo:#86667f
 const el=document.querySelector('#panther'),loading=document.querySelector('#loading');
 const allowed=['idle_breathe','roar_short','look_left','look_right','stance_shift','walk_original'];
 const origin=location.origin;
-const camera={hero:'40deg 71deg 2.5m',front:'90deg 75deg 2.6m',side:'5deg 76deg 2.65m',top:'35deg 44deg 2.9m'};
+const camera={hero:'40deg 71deg 2.5m',front:'5deg 75deg 2.6m',side:'90deg 76deg 2.65m',top:'35deg 44deg 2.9m'};
 let ready=false,shouldPlay=!matchMedia('(prefers-reduced-motion: reduce)').matches,active='idle_breathe',preset='ice';
 function reply(event,data={}){if(window.parent!==window)window.parent.postMessage({type:'ELEGANCE_3D',event,...data},origin)}
 function play(name){
