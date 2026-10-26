@@ -51,6 +51,23 @@ def append_data(bytes_):
  idx=len(doc['bufferViews']);doc['bufferViews'].append({'buffer':0,'byteOffset':pos,'byteLength':len(bytes_)})
  return idx
 clip=next(c for c in doc['animations'] if c['name']=='roar_short')
+# The licensed source's mandible rig responds too subtly at presentation scale.
+# Exaggerate ONLY the pre-existing jaw bone rotation in the roar clip (not skin,
+# topology, locomotion, or other animations). Quaternion nlerp about the
+# animation's starting rest pose maintains unit length and closed end poses.
+jaw=next(ch for ch in clip['channels'] if ch['target']['node']==47 and ch['target']['path']=='rotation')
+jaw_acc=doc['accessors'][clip['samplers'][jaw['sampler']]['output']]
+assert jaw_acc['type']=='VEC4' and jaw_acc['componentType']==5126
+jaw_view=doc['bufferViews'][jaw_acc['bufferView']]
+jaw_offset=jaw_view.get('byteOffset',0)+jaw_acc.get('byteOffset',0)
+jaw_stride=jaw_view.get('byteStride',16)
+jaw_keys=[struct.unpack_from('<4f',data,jaw_offset+i*jaw_stride) for i in range(jaw_acc['count'])]
+rest=jaw_keys[0]
+for i,q in enumerate(jaw_keys):
+    if sum(rest[k]*q[k] for k in range(4))<0:q=tuple(-x for x in q)
+    enhanced=[rest[k]+1.8*(q[k]-rest[k]) for k in range(4)]
+    mag=math.sqrt(sum(v*v for v in enhanced))
+    struct.pack_into('<4f',data,jaw_offset+i*jaw_stride,*(v/mag for v in enhanced))
 input_accessor=clip['samplers'][0]['input'];ac=doc['accessors'][input_accessor]
 assert ac['type']=='SCALAR' and ac['count']>30
 v=doc['bufferViews'][ac['bufferView']];t0=v.get('byteOffset',0)+ac.get('byteOffset',0)
@@ -59,7 +76,7 @@ weights=[]
 for t in times:
  peak=math.exp(-.5*((t-1.45)/.38)**2)
  # Morph target0 = lower muzzle / jaw on body-head. Target1 is eyelid, left neutral.
- weights.extend([.92*peak,0.,0.])
+ weights.extend([1.0*peak,0.,0.])
 view=append_data(struct.pack('<%sf'%len(weights),*weights))
 ai=len(doc['accessors']);doc['accessors'].append({'bufferView':view,'componentType':5126,'count':len(weights),'type':'SCALAR'})
 for node in (10,11,13):
