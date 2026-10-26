@@ -5,9 +5,9 @@ const $=s=>document.querySelector(s);
 const view=$('#view'),frame=$('#scene-3d-frame'),btn=$('#real3d-toggle');
 if(!view||!frame||!btn)return;
 const hint=view.querySelector('.overlay-top .hint');
-const initialHint=hint.innerHTML;
+const initialHint=hint?.innerHTML||'';
 const status=$('#scene-status');
-const oldStatus=status.textContent;
+const oldStatus=status?.textContent||'';
 const breatheLabel=$('#breathe')?.closest('.controlrow')?.querySelector('span');
 const initialBreatheLabel=breatheLabel?.textContent||'Respiración 2.5D';
 const audio=$('#roar-audio');
@@ -62,9 +62,12 @@ window.addEventListener('message',e=>{
   sync();
   post({command:'camera',view:'hero'});
  }
- if(e.data.event==='error')status.textContent='No se pudo cargar la escena 3D; selecciona «Vista original»';
+ if(e.data.event==='error'){
+  status.textContent='La escena 3D no cargó; restaurando la vista original';
+  show(false); // GPU/network errors must never leave the approved panel blank
+ }
  if(e.data.event==='clip-missing')status.textContent='Animación no disponible en este modelo';
- if(e.data.event==='clip'&&ready)status.textContent='3D real activo · 47 huesos · '+e.data.name.replace(/_/g,' ');
+ if(e.data.event==='clip'&&ready)status.textContent='3D real activo · 47 huesos · '+String(e.data.name||'').replace(/_/g,' ');
 });
 function mirror(selector,event,fn){
  document.querySelectorAll(selector).forEach(el=>el.addEventListener(event,e=>{if(enabled)queueMicrotask(()=>fn(el,e))}));
