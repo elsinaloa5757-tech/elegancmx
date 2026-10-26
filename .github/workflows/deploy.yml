@@ -5,6 +5,9 @@ on:
     paths:
       - 'index.html'
       - 'showroom.html'
+      - 'scene-ice-embed.html'
+      - 'scene-inline-v9.css'
+      - 'scene-inline-v9.js'
       - 'pantera-3d.html'
       - 'pantera-licensed.html'
       - 'pantera-realista.html'
