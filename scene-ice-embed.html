@@ -48,6 +48,7 @@ function play(name){
 function setCamera(view){
  const a=view==='left'?'side':view==='high'?'top':view==='reset'?'hero':view;
  if(!camera[a])return;
+ el.removeAttribute('auto-rotate');
  el.cameraOrbit=camera[a];el.jumpCameraToGoal();
  reply('camera',{view:a});
 }
