@@ -13,7 +13,8 @@ test('Panther V7 renders genuine GLB and buttons play distinct clips',async({pag
  await expect(page.locator('#model-state')).toContainText('47 huesos');
  await page.locator('[data-clip="roar_short"]').click();
  await expect.poll(()=>page.locator('#panther').evaluate(el=>el.animationName)).toBe('roar_short');
- await page.waitForTimeout(1400);
+ await page.locator('#panther').evaluate(el=>{el.pause();el.currentTime=1.35;});
+ await page.waitForTimeout(300);
  const visual=await page.locator('.showroom').screenshot({type:'jpeg',quality:45});
  console.log('ELEGANCE_V7_HERO_ROAR_JPG_BASE64:',visual.toString('base64'));
  await page.locator('[data-clip="look_left"]').click();
