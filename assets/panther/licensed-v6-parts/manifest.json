@@ -1,0 +1,9 @@
+{
+  "filename": "elegance-panther-kenchoo-mobile-v1.glb",
+  "source": "user-provided black_panther.zip by kenchoo, CC BY 4.0",
+  "sha256": "74e339e4c2d694dda47f4a8748dd0f226ac3510ef04264755e7b64e9f5230077",
+  "size": 3609220,
+  "chunks": 27,
+  "archive_sha256": "3d1a4bab8e5a800768aa264e0cc06ee6f42f7b30fee369478ff9474a8a73627c",
+  "notes": "Converted baseColor PNG textures to JPEG Q94; original 47-joint skeleton and original source clip retained; 5 new clips authored for Elegance."
+}
