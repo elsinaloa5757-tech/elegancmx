@@ -33,7 +33,7 @@ const el=document.querySelector('#panther'),loading=document.querySelector('#loa
 const allowed=['idle_breathe','roar_short','look_left','look_right','stance_shift','walk_original'];
 const origin=location.origin;
 const camera={hero:'-58deg 71deg 2.5m',front:'5deg 75deg 2.6m',side:'-88deg 76deg 2.65m',top:'-55deg 44deg 2.9m'};
-let ready=false,shouldPlay=true,active='idle_breathe',preset='ice';
+let ready=false,shouldPlay=!matchMedia('(prefers-reduced-motion: reduce)').matches,active='idle_breathe',preset='ice';
 function reply(event,data={}){if(window.parent!==window)window.parent.postMessage({type:'ELEGANCE_3D',event,...data},origin)}
 function play(name){
  if(!allowed.includes(name))return;
@@ -55,8 +55,8 @@ function apply(msg){
  const cmd=msg.command;
  if(cmd==='camera')setCamera(msg.view);
  if(cmd==='play')play(msg.clip);
- if(cmd==='pause'){shouldPlay=false;el.pause();reply('pause')}
- if(cmd==='resume'){shouldPlay=true;el.play();reply('resume')}
+ if(cmd==='pause'){shouldPlay=false;if(ready)el.pause();reply('pause')}
+ if(cmd==='resume'){shouldPlay=true;if(ready)el.play();reply('resume')}
  if(cmd==='exposure'){let v=Number(msg.value);if(Number.isFinite(v))el.exposure=Math.max(.5,Math.min(2.1,v))}
  if(cmd==='glow'){let v=Number(msg.value);if(Number.isFinite(v))el.shadowIntensity=Math.max(.15,Math.min(1.3,v))}
  if(cmd==='preset'){preset=['ice','night','sunset','pearl'].includes(msg.value)?msg.value:'ice';document.body.className=preset}
@@ -65,9 +65,10 @@ function apply(msg){
  if(cmd==='identify')reply('ready',{ready,clips:[...el.availableAnimations||[]]})
 }
 window.addEventListener('message',e=>{if(e.origin!==origin||e.source!==window.parent||e.data?.type!=='ELEGANCE_3D_COMMAND')return;apply(e.data)});
-el.addEventListener('load',()=>{ready=true;loading.hidden=true;reply('ready',{ready,clips:[...el.availableAnimations]});play(active);if(!shouldPlay)el.pause()});
+el.addEventListener('load',()=>{ready=true;loading.hidden=true;const clips=[...el.availableAnimations];if(!clips.includes('idle_breathe')){reply('error',{message:'GLB sin animación de respiración'});return}reply('ready',{ready,clips});const startPlaying=shouldPlay;play(active);shouldPlay=startPlaying;if(!shouldPlay)el.pause()});
 el.addEventListener('error',()=>{ready=false;loading.textContent='No fue posible cargar el GLB; vuelve a la vista fotográfica';loading.hidden=false;reply('error',{message:'Error al cargar el GLB'})});
 document.addEventListener('visibilitychange',()=>{if(document.hidden)el.pause();else if(shouldPlay&&ready)el.play()});
+window.addEventListener('pagehide',()=>{if(ready)el.pause()});
 reply('iframe-ready');
 })();
 </script>
