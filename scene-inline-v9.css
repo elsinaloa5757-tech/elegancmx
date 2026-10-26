@@ -14,3 +14,5 @@
 .scene-viewport.real-3d + .stage-3d-help{display:block}
 @media(max-width:600px){.stagemenu{flex-wrap:wrap;justify-content:flex-end}.stagemenu #real3d-toggle{font-size:11px;padding:8px 9px}.scene-viewport.real-3d .overlay-bottom .group{max-width:100%}}
 @media(prefers-reduced-motion:reduce){#real3d-toggle{transition:none}}
+
+.credit3d{display:inline-flex;align-items:center;gap:3px;font-size:10px;color:#b7d9e9;flex-wrap:wrap}.credit3d[hidden]{display:none!important}.credit3d a{color:#9ddfff;text-decoration:underline;text-underline-offset:2px}
