@@ -23,7 +23,7 @@ test('the approved existing showroom remains unchanged and links to the real art
  await expect(page.locator('a[href="./pantera-realista.html"]')).toBeVisible();
  const link=page.locator('a[href="./pantera-realista.html"]');
  await link.click();
- await expect(page).toHaveURL(/pantera-3d\.html$/);
+ await expect(page).toHaveURL(/pantera-realista\.html$/);
  await expect(page.locator('model-viewer[src="./assets/panther/elegance-panther-kenchoo-mobile-v1.glb"]')).toHaveCount(1);
  await expect(page.locator('[data-clip]')).toHaveCount(6);
  await expect(page.locator('.wordmark')).toHaveText('elegance');
