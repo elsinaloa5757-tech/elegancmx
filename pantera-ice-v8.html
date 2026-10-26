@@ -53,9 +53,9 @@ model-viewer{position:absolute;inset:0;width:100%;height:100%;--poster-color:tra
 <div class="layout">
 <section>
  <div class="glass scene" aria-label="Escenario tridimensional de pantera Elegance">
-   <div class="labeltop"><span class="chip">GLB REAL · 47 HUESOS</span><span class="chip">PELAGE OBSIDIANA · OJOS HIELO</span><span class="chip" id="stage-label">GALERÍA 3D REAL</span></div>
+   <div class="labeltop"><span class="chip">GLB REAL · 47 HUESOS</span><span class="chip">PELAJE OBSIDIANA · OJOS HIELO</span><span class="chip" id="stage-label">GALERÍA 3D REAL</span></div>
    <div class="brandstamp">elegance</div>
-   <model-viewer id="panther" src="./assets/panther/elegance-panther-ice-gallery-v8.glb" camera-controls disable-pan loading="eager" reveal="auto" autoplay camera-orbit="-58deg 71deg 3.05m" camera-target="0m .45m .20m" min-camera-orbit="auto 40deg auto" max-camera-orbit="auto 100deg auto" min-field-of-view="22deg" max-field-of-view="44deg" field-of-view="32deg" shadow-intensity="0.95" shadow-softness="0.8" exposure="1.25" environment-image="neutral" animation-name="idle_breathe" interaction-prompt="none" alt="Pantera negra tridimensional con mirada azul hielo y respiración articulada, de pie sobre un pedestal de roca con arcos de cristal y mármol. Se puede girar con el mouse o el dedo."></model-viewer>
+   <model-viewer id="panther" src="./assets/panther/elegance-panther-ice-gallery-v8.glb" camera-controls disable-pan loading="eager" reveal="auto" autoplay camera-orbit="-58deg 71deg 2.5m" camera-target="0m .45m .20m" min-camera-orbit="auto 40deg auto" max-camera-orbit="auto 100deg auto" min-field-of-view="22deg" max-field-of-view="44deg" field-of-view="32deg" shadow-intensity="0.95" shadow-softness="0.8" exposure="1.25" environment-image="neutral" animation-name="idle_breathe" interaction-prompt="none" alt="Pantera negra tridimensional con mirada azul hielo y respiración articulada, de pie sobre un pedestal de roca con arcos de cristal y mármol. Se puede girar con el mouse o el dedo."></model-viewer>
    <div class="loading" id="loading" role="status">Preparando escenario 3D y texturas…</div>
    <div class="bottom"><div class="status" id="model-state" aria-live="polite">Cargando · GLB original derivado de kenchoo</div><div class="status" id="animation-state">Animación: respiración</div></div>
  </div>
@@ -80,7 +80,7 @@ model-viewer{position:absolute;inset:0;width:100%;height:100%;--poster-color:tra
 const el=document.getElementById('panther'),loading=document.getElementById('loading'),state=document.getElementById('model-state'),anim=document.getElementById('animation-state');
 const clipButtons=[...document.querySelectorAll('[data-clip]')];const sceneButtons=[...document.querySelectorAll('[data-scene]')];
 const FILES={gallery:'./assets/panther/elegance-panther-ice-gallery-v8.glb',solo:'./assets/panther/elegance-panther-obsidian-v8.glb'};
-const views={hero:'-58deg 71deg 3.05m',side:'-88deg 77deg 2.85m',front:'5deg 75deg 2.7m',top:'-56deg 41deg 3.25m'};
+const views={hero:'-58deg 71deg 2.5m',side:'-88deg 77deg 2.55m',front:'5deg 75deg 2.52m',top:'-56deg 41deg 2.75m'};
 let mode='gallery',current='idle_breathe',playing=true,loaded=false;
 let recTimeout=null;
 function status(msg){state.textContent=msg}
