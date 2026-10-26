@@ -1,7 +1,7 @@
 name: Elegance MX Quality
 on:
   push:
-    branches: [main]
+    branches: [main, 'feature/pantera-panel-ready-v10-20261026']
   pull_request:
     branches: [main]
 permissions:
