@@ -20,12 +20,12 @@ test('the shipped GLB is a real rigged glTF 2.0 asset with 25 bones and five ind
 test('the approved existing showroom remains unchanged and links to the real articulated panther',async({page})=>{
  await page.goto('/showroom.html');
  await expect(page.locator('.brand')).toHaveText('elegance');
- await expect(page.locator('a[href="./pantera-3d.html"]')).toBeVisible();
- const link=page.locator('a[href="./pantera-3d.html"]');
+ await expect(page.locator('a[href="./pantera-realista.html"]')).toBeVisible();
+ const link=page.locator('a[href="./pantera-realista.html"]');
  await link.click();
  await expect(page).toHaveURL(/pantera-3d\.html$/);
- await expect(page.locator('model-viewer[src="./assets/panther/elegance-panther.glb"]')).toHaveCount(1);
- await expect(page.locator('[data-clip]')).toHaveCount(5);
+ await expect(page.locator('model-viewer[src="./assets/panther/elegance-panther-kenchoo-mobile-v1.glb"]')).toHaveCount(1);
+ await expect(page.locator('[data-clip]')).toHaveCount(6);
  await expect(page.locator('.wordmark')).toHaveText('elegance');
 });
 
