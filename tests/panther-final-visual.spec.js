@@ -18,7 +18,7 @@ test('V10 capture real GLB from front, side, desktop and mobile for QA',async({p
  await page.locator('[data-view="front"]').first().click();
  await page.waitForTimeout(1100);
  await page.locator('#view').screenshot({path:'test-results/v10-front.png'});
- await page.locator('[data-view="side"]').first().click();
+ await page.locator('[data-view="left"]').first().click();
  await page.waitForTimeout(1100);
  await page.locator('#view').screenshot({path:'test-results/v10-side.png'});
  await page.locator('#roar').click();
