@@ -21,7 +21,7 @@ body.night{--ice:#071427;--halo:#174467}body.sunset{--ice:#3a2942;--halo:#86667f
  alt="Pantera negra tridimensional con 47 huesos y arquitectura de showroom azul hielo. Puedes mover la cámara."
  camera-controls disable-pan loading="eager" reveal="auto" autoplay interaction-prompt="none"
  shadow-intensity="0.9" shadow-softness="0.8" exposure="1.25" environment-image="neutral"
- camera-orbit="-58deg 71deg 2.5m" camera-target="0m .45m .20m"
+ camera-orbit="40deg 71deg 2.5m" camera-target="0m .45m .20m"
  min-camera-orbit="auto 40deg auto" max-camera-orbit="auto 100deg auto"
  animation-name="idle_breathe"></model-viewer>
 <div id="loading" role="status">Preparando pantera y escenario 3D real…</div>
@@ -32,8 +32,8 @@ body.night{--ice:#071427;--halo:#174467}body.sunset{--ice:#3a2942;--halo:#86667f
 const el=document.querySelector('#panther'),loading=document.querySelector('#loading');
 const allowed=['idle_breathe','roar_short','look_left','look_right','stance_shift','walk_original'];
 const origin=location.origin;
-const camera={hero:'-58deg 71deg 2.5m',front:'5deg 75deg 2.6m',side:'-88deg 76deg 2.65m',top:'-55deg 44deg 2.9m'};
-let ready=false,shouldPlay=true,active='idle_breathe',preset='ice';
+const camera={hero:'40deg 71deg 2.5m',front:'90deg 75deg 2.6m',side:'5deg 76deg 2.65m',top:'35deg 44deg 2.9m'};
+let ready=false,shouldPlay=!matchMedia('(prefers-reduced-motion: reduce)').matches,active='idle_breathe',preset='ice';
 function reply(event,data={}){if(window.parent!==window)window.parent.postMessage({type:'ELEGANCE_3D',event,...data},origin)}
 function play(name){
  if(!allowed.includes(name))return;
@@ -55,8 +55,8 @@ function apply(msg){
  const cmd=msg.command;
  if(cmd==='camera')setCamera(msg.view);
  if(cmd==='play')play(msg.clip);
- if(cmd==='pause'){shouldPlay=false;el.pause();reply('pause')}
- if(cmd==='resume'){shouldPlay=true;el.play();reply('resume')}
+ if(cmd==='pause'){shouldPlay=false;if(ready)el.pause();reply('pause')}
+ if(cmd==='resume'){shouldPlay=true;if(ready)el.play();reply('resume')}
  if(cmd==='exposure'){let v=Number(msg.value);if(Number.isFinite(v))el.exposure=Math.max(.5,Math.min(2.1,v))}
  if(cmd==='glow'){let v=Number(msg.value);if(Number.isFinite(v))el.shadowIntensity=Math.max(.15,Math.min(1.3,v))}
  if(cmd==='preset'){preset=['ice','night','sunset','pearl'].includes(msg.value)?msg.value:'ice';document.body.className=preset}
@@ -65,9 +65,10 @@ function apply(msg){
  if(cmd==='identify')reply('ready',{ready,clips:[...el.availableAnimations||[]]})
 }
 window.addEventListener('message',e=>{if(e.origin!==origin||e.source!==window.parent||e.data?.type!=='ELEGANCE_3D_COMMAND')return;apply(e.data)});
-el.addEventListener('load',()=>{ready=true;loading.hidden=true;reply('ready',{ready,clips:[...el.availableAnimations]});play(active);if(!shouldPlay)el.pause()});
+el.addEventListener('load',()=>{ready=true;loading.hidden=true;const clips=[...el.availableAnimations];if(!clips.includes('idle_breathe')){reply('error',{message:'GLB sin animación de respiración'});return}reply('ready',{ready,clips});const startPlaying=shouldPlay;play(active);shouldPlay=startPlaying;if(!shouldPlay)el.pause()});
 el.addEventListener('error',()=>{ready=false;loading.textContent='No fue posible cargar el GLB; vuelve a la vista fotográfica';loading.hidden=false;reply('error',{message:'Error al cargar el GLB'})});
 document.addEventListener('visibilitychange',()=>{if(document.hidden)el.pause();else if(shouldPlay&&ready)el.play()});
+window.addEventListener('pagehide',()=>{if(ready)el.pause()});
 reply('iframe-ready');
 })();
 </script>
