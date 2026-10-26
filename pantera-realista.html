@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#07182b">
+<meta name="description" content="Estudio 3D de pantera articulada Elegance: respiración, rugido, mirada y controles de cámara.">
+<title>elegance · Pantera 3D V7</title>
+<script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer@4.0.0/dist/model-viewer.min.js"></script>
+<style>
+:root{--ice:#8fd9ff;--cyan:#49b9ff;--ink:#f1faff;--muted:#bad5e8;--navy:#061529;--line:rgba(152,218,255,.3);color-scheme:dark;font-family:Inter,'Segoe UI',system-ui,sans-serif}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);min-height:100vh;background:radial-gradient(ellipse at 56% 18%,#31719a 0%,#123451 24%,#071a30 52%,#040e1a 100%)}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;background:repeating-linear-gradient(105deg,transparent 0,transparent 76px,#ffffff03 77px),linear-gradient(165deg,transparent 38%,#60bdff08 38.5%,transparent 39%);opacity:.7}
+button,a{font:inherit}button{cursor:pointer}button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid #c4edff;outline-offset:4px}
+.shell{max-width:1620px;margin:auto;min-height:100vh;padding:24px;display:grid;gap:16px;grid-template-columns:minmax(260px,310px) minmax(0,1fr)}
+.glass{background:linear-gradient(150deg,#17334aeb,#071c2de6 60%,#0a1422f2);border:1px solid var(--line);border-radius:22px;box-shadow:0 19px 50px #0007,inset 0 1px 0 #dbf5ff22;backdrop-filter:blur(15px)}
+.aside{padding:25px 20px;display:flex;flex-direction:column;gap:16px}
+.brand{font-family:'Snell Roundhand','Brush Script MT','Segoe Script',cursive;font-weight:400;font-size:50px;font-style:italic;line-height:1.05;letter-spacing:-2px;text-align:center;text-shadow:0 0 18px #a5e7ff7a}
+.eyebrow{color:#bfe7ff;letter-spacing:.24em;text-align:center;font-size:10px;margin-top:-12px}
+.eyebrow:after{content:"";height:1px;display:block;margin:17px auto 0;width:74%;background:linear-gradient(90deg,transparent,var(--ice),transparent)}
+h1{font-size:21px;line-height:1.25;margin:4px 0 0}p{margin:0}.muted{color:var(--muted);font-size:12px;line-height:1.55}
+.sectionname{font-size:10px;letter-spacing:.18em;color:#9cd4f5;font-weight:800;margin-top:3px}
+.controls{display:grid;gap:10px}.btn{border:1px solid #74bdfb6e;border-radius:13px;min-height:42px;padding:10px 13px;color:#e7f8ff;text-align:left;font-size:13px;font-weight:650;display:flex;align-items:center;gap:12px;background:linear-gradient(180deg,#1f466c,#0b2645);box-shadow:0 5px 0 #041221,inset 0 1px 1px #dbf5ff48,0 10px 20px #0004;transition:transform .14s ease,box-shadow .14s ease,background .14s ease}
+.btn:hover{transform:translateY(-2px);box-shadow:0 7px 0 #041221,inset 0 1px 1px #dbf5ff66,0 13px 25px #0008;background:linear-gradient(180deg,#28618f,#113558)}
+.btn:active,.btn[aria-pressed="true"]{transform:translateY(3px);background:linear-gradient(180deg,#0d2d4d,#18527c);box-shadow:0 2px 0 #041221,inset 0 2px 8px #0009}
+.btn svg{width:18px;height:18px;flex:none}.btn.secondary{background:linear-gradient(180deg,#102c48,#081c30)}
+.row{display:flex;gap:8px}.row .btn{flex:1;justify-content:center;font-size:11px;min-height:40px;text-align:center;padding:8px}
+.tip{padding:11px 12px;background:#071629b8;border:1px solid #7bd2ff30;border-radius:12px;font-size:11px;color:#b6d8ec;line-height:1.5}
+.aside a{color:#c3efff;text-decoration:none}.aside a:hover{text-decoration:underline}.credit{margin-top:auto;padding-top:10px;border-top:1px solid #93cafa30;font-size:10px;color:#9cc0d4;line-height:1.6}
+.main{min-width:0;display:flex;flex-direction:column;gap:13px}.top{padding:16px 19px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.top strong{font-size:12px;letter-spacing:.1em}.top span{color:#a9ddf4;font-size:12px}.top a{color:#eaf8ff;border:1px solid #86c9f566;border-radius:11px;padding:8px 13px;text-decoration:none;font-size:12px;background:#244766ab}.top a:hover{background:#32688b}
+.showroom{position:relative;min-height:510px;flex:1;overflow:hidden;border-radius:24px;border:1px solid #b8ebff50;background:radial-gradient(ellipse at 55% 72%,#72c4eb45 0%,#376b9460 20%,transparent 55%),radial-gradient(ellipse at 50% 0%,#effbff35 0%,#66c1ee15 39%,transparent 65%),linear-gradient(165deg,#081b2b,#143751 45%,#061522 100%);box-shadow:inset 0 0 60px #52b8ff2c,0 22px 55px #0008}
+.showroom::before{content:"";position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(90deg,transparent 0,transparent 95px,#a9eaff0b 96px,transparent 97px),linear-gradient(to bottom,transparent 60%,#133a598a 92%,#07101d 100%);z-index:0}
+.showroom::after{content:"";pointer-events:none;position:absolute;left:12%;right:12%;bottom:9%;height:6%;background:radial-gradient(ellipse,#80d5ff70,transparent 70%);filter:blur(18px)}
+.wordmark{position:absolute;z-index:1;top:6%;left:50%;transform:translateX(-50%);font-family:'Snell Roundhand','Brush Script MT','Segoe Script',cursive;font-size:clamp(34px,5vw,70px);line-height:1.2;font-weight:400;font-style:italic;text-shadow:0 0 20px #b5e7ff88;color:#f1fcff;pointer-events:none}
+model-viewer{display:block;position:relative;z-index:2;width:100%;height:100%;min-height:510px;--poster-color:transparent;--progress-bar-color:#82d5ff;--progress-bar-height:3px;outline:none}
+model-viewer::part(default-progress-bar){background:#93dbff}
+.status{position:absolute;z-index:3;left:20px;bottom:20px;right:20px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;pointer-events:none}
+.pill{display:inline-flex;align-items:center;gap:8px;font-size:11px;color:#e7faff;background:#031325bd;border:1px solid #88cefb75;border-radius:999px;padding:7px 11px;backdrop-filter:blur(10px)}
+.led{width:7px;height:7px;display:inline-block;border-radius:100%;background:#8df0ce;box-shadow:0 0 10px #46fecb}
+.bottom{padding:12px 18px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:11px;color:#bcd6e9}
+.bottom a{color:#dbf2ff}
+.under{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.metric{padding:13px 14px;background:#10314cbb;border-radius:14px;border:1px solid #8dcaf34d}.metric b{display:block;font-size:15px;color:#e9faff}.metric small{display:block;color:#bbd6e9;font-size:10px;margin-top:3px}
+@media(max-width:960px){.shell{grid-template-columns:1fr;padding:12px}.aside{order:2;padding:17px}.main{order:1}.controls{grid-template-columns:repeat(2,minmax(0,1fr))}.showroom{min-height:420px}model-viewer{height:420px;min-height:420px}.brand{text-align:left}.eyebrow{text-align:left;margin:0}.eyebrow:after{display:none}}
+@media(max-width:600px){.controls{grid-template-columns:1fr}.showroom{min-height:350px}model-viewer{height:350px;min-height:350px}.wordmark{top:3%;font-size:40px}.under{grid-template-columns:1fr}.top{padding:12px}.row .btn{font-size:10px}.pill{font-size:10px}.status{left:8px;right:8px;bottom:10px}}
+@media(prefers-reduced-motion:reduce){.btn{transition:none}}
+</style>
+</head>
+<body>
+<div class="shell">
+<aside class="glass aside">
+  <div class="brand">elegance</div><div class="eyebrow">ESTUDIO DE PANTERA · V7</div>
+  <h1>La pantera cobra vida</h1>
+  <p class="muted">Modelo anatómico articulado con animaciones independientes. El diseño original de tu tienda no se sustituye.</p>
+  <div class="sectionname">ANIMACIONES</div>
+  <div class="controls" id="clip-controls">
+    <button type="button" class="btn" data-clip="idle_breathe" aria-pressed="true">◉ Respiración natural</button>
+    <button type="button" class="btn" data-clip="roar_short" aria-pressed="false">◈ Rugido corto</button>
+    <button type="button" class="btn" data-clip="look_left" aria-pressed="false">↶ Mirar a la izquierda</button>
+    <button type="button" class="btn" data-clip="look_right" aria-pressed="false">↷ Mirar a la derecha</button>
+    <button type="button" class="btn" data-clip="stance_shift" aria-pressed="false">◇ Cambio de apoyo</button>
+    <button type="button" class="btn secondary" data-clip="panther_original_16s" aria-pressed="false">▷ Animación original (16 s)</button>
+  </div>
+  <div class="sectionname">CONTROLES DE ESCENA</div>
+  <div class="row"><button class="btn secondary" id="toggle-play" type="button" aria-pressed="true">❚❚ Pausar</button><button class="btn secondary" id="reset-view" type="button">⟲ Reiniciar vista</button></div>
+  <div class="row"><button class="btn secondary" data-view="front" type="button">Frontal</button><button class="btn secondary" data-view="side" type="button">Lateral</button><button class="btn secondary" data-view="hero" type="button">Heroica</button></div>
+  <div class="tip">Arrastra sobre la pantera para girarla. Usa la rueda del mouse o dos dedos para acercar y alejar. El rugido sonoro se activa únicamente con tu clic.</div>
+  <div class="credit">Modelo original: <a href="https://sketchfab.com/3d-models/black-panther-7fca11c89cca4362a525c891a8345112" target="_blank" rel="noopener">“black panther” por kenchoo</a> · <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a>. Adaptación de materiales y clips para Elegance. Audio opcional de tigre (SFXMint CC0), no una grabación de jaguar.</div>
+</aside>
+<main class="main">
+  <div class="glass top"><div><strong>SHOWROOM 3D · ELEGANCE</strong><br><span>Azul hielo · Pantalla de prueba articulada</span></div><a href="./showroom.html">← Volver al panel original</a></div>
+  <div class="showroom" id="stage">
+    <div class="wordmark">elegance</div>
+    <model-viewer id="panther" alt="Pantera negra articulada de Elegance" src="./assets/panther/elegance-panther-kenchoo-mobile-v1.glb" loading="eager" camera-controls autoplay animation-name="idle_breathe" animation-crossfade-duration="350" interaction-prompt="none" camera-orbit="-38deg 76deg 3.25m" camera-target="auto auto auto" min-camera-orbit="auto 30deg auto" max-camera-orbit="auto 125deg auto" min-field-of-view="18deg" max-field-of-view="65deg" field-of-view="33deg" shadow-intensity="1.1" shadow-softness="1.2" exposure="1.1" tone-mapping="aces" environment-image="neutral"></model-viewer>
+    <div class="status"><span class="pill" id="model-state"><span class="led"></span>Cargando pantera...</span><span class="pill" id="clip-label">Animación: respiración</span></div>
+  </div>
+  <div class="glass bottom"><span>Esta es una vista de validación real del GLB. La pantera de la portada no fue reemplazada.</span><a href="./assets/panther/elegance-panther-kenchoo-mobile-v1.glb" download>Descargar GLB · 3.61 MB</a></div>
+  <div class="under"><div class="metric"><b>47 huesos</b><small>Esqueleto original del modelo</small></div><div class="metric"><b>6 clips</b><small>Una animación original + cinco nuevas</small></div><div class="metric"><b>3.61 MB</b><small>Texturas incluidas y comprimidas para web</small></div></div>
+</main>
+</div>
+<audio id="roar-audio" preload="none" src="https://sfxmint.com/dl/short-tiger-roar-01.mp3" aria-hidden="true"></audio>
+<script>
+(() => {
+ const model=document.querySelector('#panther');
+ const state=document.querySelector('#model-state');
+ const label=document.querySelector('#clip-label');
+ const audio=document.querySelector('#roar-audio');
+ const playBtn=document.querySelector('#toggle-play');
+ const clips={idle_breathe:'respiración',roar_short:'rugido',look_left:'mirada izquierda',look_right:'mirada derecha',stance_shift:'cambio de apoyo',panther_original_16s:'animación original'};
+ const loops=new Set(['idle_breathe','stance_shift','panther_original_16s']);
+ let ready=false,paused=false,timeout=0,requested='idle_breathe';
+ const setStatus=(message)=>{state.innerHTML='<span class="led"></span>'+message;};
+ function choose(clip){
+   if(!ready){setStatus('Modelo aún cargando');return;}
+   if(!model.availableAnimations.includes(clip)){setStatus('Clip no disponible: '+clip);return;}
+   clearTimeout(timeout);
+   requested=clip;
+   model.animationName=clip;
+   model.currentTime=0;
+   model.play(); paused=false; playBtn.textContent='❚❚ Pausar';playBtn.setAttribute('aria-pressed','true');
+   document.querySelectorAll('[data-clip]').forEach(el=>el.setAttribute('aria-pressed',String(el.dataset.clip===clip)));
+   label.textContent='Animación: '+clips[clip];
+   setStatus('Modelo 3D activo');
+   if(clip==='roar_short'){
+     audio.currentTime=0;
+     audio.play().catch(()=>setStatus('Animación activa · audio bloqueado por el navegador'));
+   }
+   if(!loops.has(clip)){
+     const delay=clip==='roar_short'?2800:2400;
+     timeout=setTimeout(()=>{if(requested===clip)choose('idle_breathe')},delay);
+   }
+ }
+ model.addEventListener('load',()=>{ready=true;setStatus('47 huesos · 6 animaciones');choose('idle_breathe')});
+ model.addEventListener('error',()=>{ready=false;setStatus('No se pudo abrir el GLB. Revisa la conexión.')});
+ document.querySelectorAll('[data-clip]').forEach(b=>b.addEventListener('click',()=>choose(b.dataset.clip)));
+ playBtn.addEventListener('click',()=>{
+   if(!ready)return;
+   paused=!paused;
+   paused?model.pause():model.play();
+   playBtn.textContent=paused?'▶ Reanudar':'❚❚ Pausar';playBtn.setAttribute('aria-pressed',String(!paused));
+ });
+ document.querySelector('#reset-view').addEventListener('click',()=>{model.cameraOrbit='-38deg 76deg 3.25m';model.fieldOfView='33deg';choose('idle_breathe')});
+ const views={front:'-10deg 80deg 3.35m',side:'-75deg 80deg 3.45m',hero:'-42deg 77deg 3.0m'};
+ document.querySelectorAll('[data-view]').forEach(b=>b.addEventListener('click',()=>{model.cameraOrbit=views[b.dataset.view];model.jumpCameraToGoal?.()}));
+})();
+</script>
+</body></html>
