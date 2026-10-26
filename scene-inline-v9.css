@@ -1,0 +1,16 @@
+/* In-place optional 3D GLB mode. The approved image remains the untouched default. */
+#real3d-toggle{min-width:112px;background:linear-gradient(150deg,#103854,#082b4a);border-color:#b4ebff}
+#real3d-toggle[aria-pressed=true]{background:linear-gradient(145deg,#247fb0,#07456c);box-shadow:inset 0 2px 8px #021527,0 2px 0 #032a44,0 0 24px #3fbeff94}
+.scene-3d-frame{position:absolute;inset:0;width:100%;height:100%;border:0;background:#061728;z-index:1;display:none}
+.scene-viewport.real-3d{touch-action:auto}
+.scene-viewport.real-3d .scene-layer{visibility:hidden;pointer-events:none}
+.scene-viewport.real-3d .scene-3d-frame{display:block}
+.scene-viewport.real-3d .statepane{display:none!important}
+.scene-viewport.real-3d .overlay-top{pointer-events:none}
+.scene-viewport.real-3d .pulse-label{display:none}
+.scene-viewport.real-3d .group{pointer-events:auto}
+.stage-overlay .group .btn3d[aria-pressed=true]{box-shadow:inset 0 2px 5px #001428,0 2px 0 #03243b,0 0 10px #39beff55}
+.stage-3d-help{color:#bce8ff;font-size:10px;display:none}
+.scene-viewport.real-3d + .stage-3d-help{display:block}
+@media(max-width:600px){.stagemenu{flex-wrap:wrap;justify-content:flex-end}.stagemenu #real3d-toggle{font-size:11px;padding:8px 9px}.scene-viewport.real-3d .overlay-bottom .group{max-width:100%}}
+@media(prefers-reduced-motion:reduce){#real3d-toggle{transition:none}}
