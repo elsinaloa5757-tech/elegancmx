@@ -8,6 +8,8 @@ on:
       - 'pantera-3d.html'
       - 'pantera-licensed.html'
       - 'pantera-realista.html'
+      - 'pantera-ice-v8.html'
+      - 'scripts/decode_panther_v8.py'
       - 'assets/panther/licensed-v6-parts/**'
       - 'scripts/decode-elegance-panther.py'
       - 'pantera-lab.html'

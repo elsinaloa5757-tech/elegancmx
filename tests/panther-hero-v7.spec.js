@@ -34,6 +34,6 @@ test('V7 is responsive and original showroom identity remains intact',async({pag
  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth)).toBeTruthy();
  await expect(page.locator('a[href*="sketchfab.com/3d-models/black-panther"]')).toHaveCount(1);
  await page.goto('/showroom.html');
- await expect(page.locator('a[href="./pantera-realista.html"]')).toBeVisible();
+ await expect(page.locator('a[href="./pantera-ice-v8.html"]')).toBeVisible();
  await expect(page.locator('.brand')).toHaveText('elegance');
 });
