@@ -63,7 +63,8 @@ main{min-width:0;padding:18px 22px 34px}.topbar{display:flex;align-items:center;
 .scene-viewport.is-fallback #scene{animation:fallbackLook 4.3s ease-in-out infinite alternate;transform-origin:52% 48%;background-size:105% 105%!important;background-repeat:no-repeat;filter:brightness(1.04) saturate(1.04)}
 @keyframes fallbackLook{0%{transform:scale(1.00) translate(-.25%,.25%);background-position:49% 49%}100%{transform:scale(var(--breath-scale,1.025)) translate(.3%,-.3%);background-position:51% 51%}}
 @media(prefers-reduced-motion:reduce){.scene-viewport.is-fallback #scene,#roar[aria-pressed="true"]{animation:none!important}.btn3d,.nav button,.preset{transition:none!important}}
-</style></head><body>
+</style>
+<link rel="stylesheet" href="./scene-inline-v9.css"></head><body>
 <div class="shell">
 <aside class="sidebar"><div class="brand" aria-label="elegance">elegance</div><div class="subbrand">SHOWROOM · ICE EDITION</div>
 <nav class="nav" aria-label="Menú de Elegance">
@@ -81,9 +82,9 @@ main{min-width:0;padding:18px 22px 34px}.topbar{display:flex;align-items:center;
 <header class="topbar"><label class="search"><span aria-hidden="true">⌕</span><input type="search" id="search" placeholder="Buscar en el panel y las colecciones…" aria-label="Buscar secciones y colecciones"></label><div class="account"><span class="avatar">♜</span><span><b>elegance</b><small>Escena visual · archivo público</small></span></div></header>
 <section class="stats" aria-label="Estado del catálogo documentado"><div class="stat"><i>▤</i><div><strong><span id="live-total">3,929</span></strong><small>Referencias del archivo</small></div></div><div class="stat"><i>◇</i><div><strong><span id="live-photos">3,909</span></strong><small>Fotografías del archivo</small></div></div><div class="stat"><i>▷</i><div><strong><span id="live-videos">20</span></strong><small>Videos históricos</small></div></div><div class="stat"><i>✓</i><div><strong><span id="live-verified">0</span></strong><small>Artículos verificados</small></div></div></section>
 <div class="workspace"><section class="glass stagecard" aria-label="Escena interactiva">
-<div class="sectionbar"><div><h2>Showroom interactivo</h2><p>Composición aprobada · controles reconstruidos</p></div><div class="stagemenu"><select id="scene-preset" aria-label="Escoger ambiente"><option value="ice">Azul hielo</option><option value="night">Nocturno</option><option value="sunset">Atardecer</option><option value="pearl">Blanco perla</option></select><button id="play" class="btn3d" aria-pressed="true">❚❚ Pausar</button></div></div>
+<div class="sectionbar"><div><h2>Showroom interactivo</h2><p>Composición aprobada · controles reconstruidos</p></div><div class="stagemenu"><select id="scene-preset" aria-label="Escoger ambiente"><option value="ice">Azul hielo</option><option value="night">Nocturno</option><option value="sunset">Atardecer</option><option value="pearl">Blanco perla</option></select><button id="real3d-toggle" class="btn3d secondary" aria-pressed="false" type="button" aria-label="Alternar entre portada original y escenario tridimensional real">◈ Modo 3D real</button><button id="play" class="btn3d" aria-pressed="true">❚❚ Pausar</button></div></div>
 <div class="scene-viewport" id="view" aria-label="Pantera fotográfica original con deformación animada 2.5D; usa arrastre o botones para variar la perspectiva aproximada" role="group">
-<div class="scene-layer" id="scene-layer"><canvas id="scene" width="900" height="390"></canvas></div>
+<div class="scene-layer" id="scene-layer"><canvas id="scene" width="900" height="390"></canvas></div><iframe id="scene-3d-frame" class="scene-3d-frame" loading="lazy" referrerpolicy="same-origin" allow="autoplay" title="Pantera y showroom tridimensional real"></iframe>
 <div class="stage-overlay"><div class="overlay-top"><span class="hint"><span class="led"></span> <b>ESCENA ICE</b> · PANORAMA ANIMADO 2.5D</span><span class="hint" id="camera-state">Vista frontal</span></div><div class="overlay-bottom"><div class="group" role="group" aria-label="Ángulos de cámara"><span>Cámara</span><button data-view="front" class="btn3d secondary" aria-pressed="true">Frontal</button><button data-view="left" class="btn3d secondary" aria-pressed="false">Lateral</button><button data-view="high" class="btn3d secondary" aria-pressed="false">Superior</button><button data-view="reset" class="btn3d secondary">⟲</button></div><div class="pulse-label"><span class="led"></span> Arrastra para mover cámara</div></div></div>
 <div id="statepane" class="statepane" aria-live="polite"><button class="btn3d secondary pane-close" id="pane-close">✕ Volver</button><span class="badge">NAVEGACIÓN FUNCIONAL</span><h3 id="pane-title"></h3><p id="pane-body"></p><div class="pane-tabs" id="pane-actions"></div></div>
 </div>
@@ -159,7 +160,7 @@ renderGL=(t,roar)=>{gl.viewport(0,0,canvas.width,canvas.height);gl.uniform1f(uni
 $('#scene-status').textContent='WebGL activo · animación 2.5D · controles interactivos';
 }catch(e){console.warn('WebGL fallback',e);gl=null;canvas.style.backgroundImage=`url(${mobileView?MOBILE:IMAGE})`;$('#view').classList.add('is-fallback');$('#scene-status').textContent='Modo compatible · animación de cámara disponible';sync();}
 }
-let nowT=0,roarUntil=0,last=0;function tick(ms){let dt=Math.min(.05,(ms-last)/1000||0);last=ms;if(state.playing&&!reduced)nowT+=dt;let roarRemain=roarUntil-performance.now();let roaring=roarRemain>0? Math.sin(Math.PI*Math.min(1,Math.max(0,(3200-roarRemain)/3200)))*(.85+.10*Math.sin(nowT*12)):0;if(gl)renderGL(nowT,roaring);let floatY=state.float&&state.playing&&!reduced?Math.sin(nowT*.7)*1.3:0;
+let nowT=0,roarUntil=0,last=0;function tick(ms){let dt=Math.min(.05,(ms-last)/1000||0);last=ms;if(state.playing&&!reduced)nowT+=dt;let roarRemain=roarUntil-performance.now();let roaring=roarRemain>0? Math.sin(Math.PI*Math.min(1,Math.max(0,(3200-roarRemain)/3200)))*(.85+.10*Math.sin(nowT*12)):0;if(gl && !$('#view').classList.contains('real-3d'))renderGL(nowT,roaring);let floatY=state.float&&state.playing&&!reduced?Math.sin(nowT*.7)*1.3:0;
 $('#scene-layer').style.transform=`perspective(1200px) rotateX(${state.rotX+floatY}deg) rotateY(${state.rotY}deg) scale(${state.zoom})`;requestAnimationFrame(tick)}
 if(im.complete)createScene();else im.onload=createScene;requestAnimationFrame(tick);
 function setPressed(sel,value){$$(sel).forEach(b=>b.setAttribute('aria-pressed',String(value(b))))}
@@ -306,4 +307,4 @@ async function refreshPublicArchiveCounters(){
 refreshPublicArchiveCounters();
 
 })();
-</script></body></html>
+</script><script defer src="./scene-inline-v9.js"></script></body></html>

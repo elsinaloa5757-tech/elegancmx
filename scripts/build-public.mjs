@@ -86,7 +86,7 @@ if(!await fs.stat('assets/elegance-panther.png').then(x=>x.size>100000).catch(()
 await fs.rm(dir,{recursive:true,force:true});
 await fs.mkdir(path.join(dir,'assets'),{recursive:true});
 await fs.mkdir(path.join(dir,'data'),{recursive:true});
-for(const name of ['index.html','showroom.html','pantera-3d.html','pantera-lab.html','pantera-licensed.html','pantera-realista.html','pantera-ice-v8.html','panel.js','panel.css','admin.js','admin.css','archivo.html',
+for(const name of ['index.html','showroom.html','scene-ice-embed.html','scene-inline-v9.css','scene-inline-v9.js','pantera-3d.html','pantera-lab.html','pantera-licensed.html','pantera-realista.html','pantera-ice-v8.html','panel.js','panel.css','admin.js','admin.css','archivo.html',
  'styles.css','app.js','catalog-recovery.js','social-clover.js','social-clover.css','premium-motion.css','premium-motion.js','products.json',
  'laboratorio-ia.html','lab.js','lab.css']){
  await fs.copyFile(name,path.join(dir,name));
