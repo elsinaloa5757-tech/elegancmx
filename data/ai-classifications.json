@@ -66330,7 +66330,15 @@
     "visualHash": "b6cac9c9fbfbf8c0",
     "duplicateCandidates": [],
     "status": "pending_review",
-    "model": "Xenova/clip-vit-base-patch32"
+    "model": "Xenova/clip-vit-base-patch32",
+    "rescueReview": {
+      "version": 1,
+      "status": "fetch_error",
+      "categorySuggestion": null,
+      "attempts": 1,
+      "verified": false,
+      "error": "Image HTTP 429"
+    }
   },
   {
     "fileId": "6ace1d82ead997d09a124b78",
@@ -66362,7 +66370,15 @@
     "visualHash": "828dcd8fe6c56636",
     "duplicateCandidates": [],
     "status": "pending_review",
-    "model": "Xenova/clip-vit-base-patch32"
+    "model": "Xenova/clip-vit-base-patch32",
+    "rescueReview": {
+      "version": 1,
+      "status": "fetch_error",
+      "categorySuggestion": null,
+      "attempts": 1,
+      "verified": false,
+      "error": "Image HTTP 429"
+    }
   },
   {
     "fileId": "6ace1d82ead997d09a124b64",
@@ -66628,7 +66644,15 @@
     "visualHash": "e3edf3d9c7c1f88d",
     "duplicateCandidates": [],
     "status": "pending_review",
-    "model": "Xenova/clip-vit-base-patch32"
+    "model": "Xenova/clip-vit-base-patch32",
+    "rescueReview": {
+      "version": 1,
+      "status": "fetch_error",
+      "categorySuggestion": null,
+      "attempts": 1,
+      "verified": false,
+      "error": "Image HTTP 429"
+    }
   },
   {
     "fileId": "6ace1d80ead997d09a123f68",
@@ -66724,7 +66748,15 @@
     "visualHash": "6c6ce3a0a1e44eae",
     "duplicateCandidates": [],
     "status": "pending_review",
-    "model": "Xenova/clip-vit-base-patch32"
+    "model": "Xenova/clip-vit-base-patch32",
+    "rescueReview": {
+      "version": 1,
+      "status": "fetch_error",
+      "categorySuggestion": null,
+      "attempts": 1,
+      "verified": false,
+      "error": "Image HTTP 429"
+    }
   },
   {
     "fileId": "6ace1d7fead997d09a12393e",
@@ -66788,7 +66820,15 @@
     "visualHash": "cfa6666edcf5e67f",
     "duplicateCandidates": [],
     "status": "pending_review",
-    "model": "Xenova/clip-vit-base-patch32"
+    "model": "Xenova/clip-vit-base-patch32",
+    "rescueReview": {
+      "version": 1,
+      "status": "fetch_error",
+      "categorySuggestion": null,
+      "attempts": 1,
+      "verified": false,
+      "error": "Image HTTP 429"
+    }
   },
   {
     "fileId": "6ace1d7eead997d09a1231b2",
@@ -66820,7 +66860,15 @@
     "visualHash": "d2d2d2d4d24c0c58",
     "duplicateCandidates": [],
     "status": "pending_review",
-    "model": "Xenova/clip-vit-base-patch32"
+    "model": "Xenova/clip-vit-base-patch32",
+    "rescueReview": {
+      "version": 1,
+      "status": "fetch_error",
+      "categorySuggestion": null,
+      "attempts": 1,
+      "verified": false,
+      "error": "Image HTTP 429"
+    }
   },
   {
     "fileId": "6ace1d7eead997d09a123161",
@@ -67324,7 +67372,15 @@
       }
     ],
     "status": "pending_review",
-    "model": "Xenova/clip-vit-base-patch32"
+    "model": "Xenova/clip-vit-base-patch32",
+    "rescueReview": {
+      "version": 1,
+      "status": "fetch_error",
+      "categorySuggestion": null,
+      "attempts": 1,
+      "verified": false,
+      "error": "Image HTTP 429"
+    }
   },
   {
     "fileId": "6ace1d7aead997d09a1225b6",
@@ -67878,7 +67934,15 @@
     "visualHash": "232f3e72f4ecf8e1",
     "duplicateCandidates": [],
     "status": "pending_review",
-    "model": "Xenova/clip-vit-base-patch32"
+    "model": "Xenova/clip-vit-base-patch32",
+    "rescueReview": {
+      "version": 1,
+      "status": "fetch_error",
+      "categorySuggestion": null,
+      "attempts": 1,
+      "verified": false,
+      "error": "Image HTTP 429"
+    }
   },
   {
     "fileId": "6acaffbcead997d09a791fcf",
@@ -67947,7 +68011,15 @@
     "visualHash": "060706a1a838d1a0",
     "duplicateCandidates": [],
     "status": "pending_review",
-    "model": "Xenova/clip-vit-base-patch32"
+    "model": "Xenova/clip-vit-base-patch32",
+    "rescueReview": {
+      "version": 1,
+      "status": "fetch_error",
+      "categorySuggestion": null,
+      "attempts": 1,
+      "verified": false,
+      "error": "Image HTTP 429"
+    }
   },
   {
     "fileId": "6acaffbbead997d09a791f16",
@@ -67979,7 +68051,15 @@
     "visualHash": "40cc8c0992240b1e",
     "duplicateCandidates": [],
     "status": "pending_review",
-    "model": "Xenova/clip-vit-base-patch32"
+    "model": "Xenova/clip-vit-base-patch32",
+    "rescueReview": {
+      "version": 1,
+      "status": "fetch_error",
+      "categorySuggestion": null,
+      "attempts": 1,
+      "verified": false,
+      "error": "Image HTTP 429"
+    }
   },
   {
     "fileId": "6acaffbbead997d09a791e6a",
@@ -68011,7 +68091,15 @@
     "visualHash": "0c46c36b2915130f",
     "duplicateCandidates": [],
     "status": "pending_review",
-    "model": "Xenova/clip-vit-base-patch32"
+    "model": "Xenova/clip-vit-base-patch32",
+    "rescueReview": {
+      "version": 1,
+      "status": "fetch_error",
+      "categorySuggestion": null,
+      "attempts": 1,
+      "verified": false,
+      "error": "Image HTTP 429"
+    }
   },
   {
     "fileId": "6acaffbbead997d09a791e2e",
@@ -68432,7 +68520,15 @@
     "visualHash": "143e35646c2c8ca0",
     "duplicateCandidates": [],
     "status": "pending_review",
-    "model": "Xenova/clip-vit-base-patch32"
+    "model": "Xenova/clip-vit-base-patch32",
+    "rescueReview": {
+      "version": 1,
+      "status": "fetch_error",
+      "categorySuggestion": null,
+      "attempts": 1,
+      "verified": false,
+      "error": "Image HTTP 429"
+    }
   },
   {
     "fileId": "6acaff99ead997d09a78d1ac",
@@ -68528,7 +68624,15 @@
     "visualHash": "01021a580c070f9c",
     "duplicateCandidates": [],
     "status": "pending_review",
-    "model": "Xenova/clip-vit-base-patch32"
+    "model": "Xenova/clip-vit-base-patch32",
+    "rescueReview": {
+      "version": 1,
+      "status": "fetch_error",
+      "categorySuggestion": null,
+      "attempts": 1,
+      "verified": false,
+      "error": "Image HTTP 429"
+    }
   },
   {
     "fileId": "6acaff7cead997d09a7889ad",
@@ -68560,7 +68664,15 @@
     "visualHash": "ccf2b2c8cc96b6f2",
     "duplicateCandidates": [],
     "status": "pending_review",
-    "model": "Xenova/clip-vit-base-patch32"
+    "model": "Xenova/clip-vit-base-patch32",
+    "rescueReview": {
+      "version": 1,
+      "status": "fetch_error",
+      "categorySuggestion": null,
+      "attempts": 1,
+      "verified": false,
+      "error": "Image HTTP 429"
+    }
   },
   {
     "fileId": "6acaff74ead997d09a787c98",
@@ -68592,7 +68704,15 @@
     "visualHash": "f0fcdcdcdce4e4d0",
     "duplicateCandidates": [],
     "status": "pending_review",
-    "model": "Xenova/clip-vit-base-patch32"
+    "model": "Xenova/clip-vit-base-patch32",
+    "rescueReview": {
+      "version": 1,
+      "status": "fetch_error",
+      "categorySuggestion": null,
+      "attempts": 1,
+      "verified": false,
+      "error": "Image HTTP 429"
+    }
   },
   {
     "fileId": "6acaff6bead997d09a7861e8",
@@ -68624,7 +68744,15 @@
     "visualHash": "d8dcccccc4f0f0d8",
     "duplicateCandidates": [],
     "status": "pending_review",
-    "model": "Xenova/clip-vit-base-patch32"
+    "model": "Xenova/clip-vit-base-patch32",
+    "rescueReview": {
+      "version": 1,
+      "status": "fetch_error",
+      "categorySuggestion": null,
+      "attempts": 1,
+      "verified": false,
+      "error": "Image HTTP 429"
+    }
   },
   {
     "fileId": "6acaff68ead997d09a785c32",
@@ -69232,7 +69360,15 @@
     "visualHash": "ad3918505c604d0d",
     "duplicateCandidates": [],
     "status": "pending_review",
-    "model": "Xenova/clip-vit-base-patch32"
+    "model": "Xenova/clip-vit-base-patch32",
+    "rescueReview": {
+      "version": 1,
+      "status": "fetch_error",
+      "categorySuggestion": null,
+      "attempts": 1,
+      "verified": false,
+      "error": "Image HTTP 429"
+    }
   },
   {
     "fileId": "6acafe61ead997d09a7433a6",
@@ -69264,7 +69400,15 @@
     "visualHash": "853858597040491c",
     "duplicateCandidates": [],
     "status": "pending_review",
-    "model": "Xenova/clip-vit-base-patch32"
+    "model": "Xenova/clip-vit-base-patch32",
+    "rescueReview": {
+      "version": 1,
+      "status": "fetch_error",
+      "categorySuggestion": null,
+      "attempts": 1,
+      "verified": false,
+      "error": "Image HTTP 429"
+    }
   },
   {
     "fileId": "6acafe61ead997d09a7432e4",
@@ -69456,7 +69600,15 @@
     "visualHash": "b53c5e5158424d0c",
     "duplicateCandidates": [],
     "status": "pending_review",
-    "model": "Xenova/clip-vit-base-patch32"
+    "model": "Xenova/clip-vit-base-patch32",
+    "rescueReview": {
+      "version": 1,
+      "status": "fetch_error",
+      "categorySuggestion": null,
+      "attempts": 1,
+      "verified": false,
+      "error": "Image HTTP 429"
+    }
   },
   {
     "fileId": "6acafe60ead997d09a742d5f",
@@ -69872,7 +70024,15 @@
     "visualHash": "95b897b49c88c90c",
     "duplicateCandidates": [],
     "status": "pending_review",
-    "model": "Xenova/clip-vit-base-patch32"
+    "model": "Xenova/clip-vit-base-patch32",
+    "rescueReview": {
+      "version": 1,
+      "status": "fetch_error",
+      "categorySuggestion": null,
+      "attempts": 1,
+      "verified": false,
+      "error": "Image HTTP 429"
+    }
   },
   {
     "fileId": "6acafe5eead997d09a7425e0",
@@ -70096,7 +70256,15 @@
     "visualHash": "663c5fdcf2c66c04",
     "duplicateCandidates": [],
     "status": "pending_review",
-    "model": "Xenova/clip-vit-base-patch32"
+    "model": "Xenova/clip-vit-base-patch32",
+    "rescueReview": {
+      "version": 1,
+      "status": "fetch_error",
+      "categorySuggestion": null,
+      "attempts": 1,
+      "verified": false,
+      "error": "Image HTTP 429"
+    }
   },
   {
     "fileId": "6acafe5dead997d09a74234c",
@@ -70256,7 +70424,15 @@
     "visualHash": "9f395e53d31e094d",
     "duplicateCandidates": [],
     "status": "pending_review",
-    "model": "Xenova/clip-vit-base-patch32"
+    "model": "Xenova/clip-vit-base-patch32",
+    "rescueReview": {
+      "version": 1,
+      "status": "fetch_error",
+      "categorySuggestion": null,
+      "attempts": 1,
+      "verified": false,
+      "error": "Image HTTP 429"
+    }
   },
   {
     "fileId": "6acafe5cead997d09a742147",
@@ -70490,7 +70666,15 @@
     "visualHash": "a5395e557840494c",
     "duplicateCandidates": [],
     "status": "pending_review",
-    "model": "Xenova/clip-vit-base-patch32"
+    "model": "Xenova/clip-vit-base-patch32",
+    "rescueReview": {
+      "version": 1,
+      "status": "fetch_error",
+      "categorySuggestion": null,
+      "attempts": 1,
+      "verified": false,
+      "error": "Image HTTP 429"
+    }
   },
   {
     "fileId": "6acafe5bead997d09a741fe3",
@@ -71706,7 +71890,15 @@
     "visualHash": "e4b0b282c1f23c7a",
     "duplicateCandidates": [],
     "status": "pending_review",
-    "model": "Xenova/clip-vit-base-patch32"
+    "model": "Xenova/clip-vit-base-patch32",
+    "rescueReview": {
+      "version": 1,
+      "status": "fetch_error",
+      "categorySuggestion": null,
+      "attempts": 1,
+      "verified": false,
+      "error": "Image HTTP 429"
+    }
   },
   {
     "fileId": "6acafe55ead997d09a7402c5",
