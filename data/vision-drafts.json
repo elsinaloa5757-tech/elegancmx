@@ -12327,7 +12327,7 @@
     "verified": false,
     "source": "smolvlm_open_cpu",
     "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
-    "attempts": 1
+    "attempts": 2
   },
   {
     "fileId": "6acfcb99ead997d09a605615",
@@ -12340,7 +12340,7 @@
     "verified": false,
     "source": "smolvlm_open_cpu",
     "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
-    "attempts": 1
+    "attempts": 2
   },
   {
     "fileId": "6acfcb97ead997d09a605178",
@@ -12366,7 +12366,7 @@
     "verified": false,
     "source": "smolvlm_open_cpu",
     "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
-    "attempts": 1
+    "attempts": 2
   },
   {
     "fileId": "6acfcb95ead997d09a6049c3",
@@ -12379,7 +12379,7 @@
     "verified": false,
     "source": "smolvlm_open_cpu",
     "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
-    "attempts": 1
+    "attempts": 2
   },
   {
     "fileId": "6acfcb93ead997d09a6045fe",
@@ -12392,12 +12392,12 @@
     "verified": false,
     "source": "smolvlm_open_cpu",
     "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
-    "attempts": 1
+    "attempts": 2
   },
   {
     "fileId": "6acfcb92ead997d09a604192",
     "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-aebbf10a-e9a3-422f-a4c9-f4616aac39b4_yu42fSsQI.webp?updatedAt=1792002962563",
-    "visualDescriptionUnverified": "The product in the image is a Rolex Oyster Perpetual Day-Date Oyster Watch.",
+    "visualDescriptionUnverified": "The product in the image is a Rolex Oyster Perpetual Day-Date watch.",
     "categorySuggestion": null,
     "nameSuggestion": null,
     "colorsSuggestion": [],
@@ -12405,7 +12405,7 @@
     "verified": false,
     "source": "smolvlm_open_cpu",
     "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
-    "attempts": 1
+    "attempts": 2
   },
   {
     "fileId": "6acfcb8fead997d09a60324e",
@@ -12418,7 +12418,7 @@
     "verified": false,
     "source": "smolvlm_open_cpu",
     "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
-    "attempts": 1
+    "attempts": 2
   },
   {
     "fileId": "6acfcb8dead997d09a602bdf",
@@ -12431,12 +12431,12 @@
     "verified": false,
     "source": "smolvlm_open_cpu",
     "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
-    "attempts": 1
+    "attempts": 2
   },
   {
     "fileId": "6acfcb8cead997d09a602754",
     "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-f1082052-a17e-457e-aed5-a7082600f82c_F14RsSqBE.webp?updatedAt=1792002956511",
-    "visualDescriptionUnverified": "The product is a Rolex watch.",
+    "visualDescriptionUnverified": "The product in the rolex box is a gold watch with a gold band.",
     "categorySuggestion": null,
     "nameSuggestion": null,
     "colorsSuggestion": [],
@@ -12444,7 +12444,7 @@
     "verified": false,
     "source": "smolvlm_open_cpu",
     "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
-    "attempts": 1
+    "attempts": 2
   },
   {
     "fileId": "6acfcb8aead997d09a602291",
@@ -12457,7 +12457,7 @@
     "verified": false,
     "source": "smolvlm_open_cpu",
     "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
-    "attempts": 1
+    "attempts": 2
   },
   {
     "fileId": "6acfcb8aead997d09a6021cc",
@@ -12470,7 +12470,7 @@
     "verified": false,
     "source": "smolvlm_open_cpu",
     "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
-    "attempts": 1
+    "attempts": 2
   },
   {
     "fileId": "6acfcb89ead997d09a602036",
@@ -12483,7 +12483,7 @@
     "verified": false,
     "source": "smolvlm_open_cpu",
     "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
-    "attempts": 1
+    "attempts": 2
   },
   {
     "fileId": "6acfcb89ead997d09a601fda",
@@ -12496,7 +12496,7 @@
     "verified": false,
     "source": "smolvlm_open_cpu",
     "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
-    "attempts": 1
+    "attempts": 2
   },
   {
     "fileId": "6acfcb88ead997d09a601c83",
@@ -12509,7 +12509,7 @@
     "verified": false,
     "source": "smolvlm_open_cpu",
     "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
-    "attempts": 1
+    "attempts": 2
   },
   {
     "fileId": "6acfcb86ead997d09a6018bb",
@@ -12522,12 +12522,324 @@
     "verified": false,
     "source": "smolvlm_open_cpu",
     "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
-    "attempts": 1
+    "attempts": 2
   },
   {
     "fileId": "6acfcb86ead997d09a60180e",
     "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-3ea35b42-c974-4dd3-acd8-04781bf17007__ACJm8cbo.webp?updatedAt=1792002950293",
     "visualDescriptionUnverified": "The product is a Rolex watch.",
+    "categorySuggestion": null,
+    "nameSuggestion": null,
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 2
+  },
+  {
+    "fileId": "6acfcb85ead997d09a60168c",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-c213f1c5-ca24-453c-8282-7b6e74ac16c9_mvCIGcFib.webp?updatedAt=1792002950003",
+    "visualDescriptionUnverified": "Rolex watch.",
+    "categorySuggestion": null,
+    "nameSuggestion": null,
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acfcb83ead997d09a601134",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-1ccbee4e-dab5-4a55-a633-218bf1972d32_YEFZqDLkxN.webp?updatedAt=1792002948054",
+    "visualDescriptionUnverified": "Rolex.",
+    "categorySuggestion": null,
+    "nameSuggestion": null,
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acfcb81ead997d09a600998",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-2f74a141-6642-4596-8a21-212f88517b02_b3KS-tsyn.webp?updatedAt=1792002946000",
+    "visualDescriptionUnverified": "The product is a gold watch.",
+    "categorySuggestion": null,
+    "nameSuggestion": null,
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acfcb81ead997d09a600821",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-282eb445-af49-4809-a9dc-6fa855347645_3S4s-CLi7.webp?updatedAt=1792002945839",
+    "visualDescriptionUnverified": "Gold Rolex watch.",
+    "categorySuggestion": null,
+    "nameSuggestion": null,
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acfcb7fead997d09a5fff56",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-e4c7448c-42a0-4385-ae25-3b2bfc05af50_lHihMuMDz.webp?updatedAt=1792002944218",
+    "visualDescriptionUnverified": "The product is a Rolex Oyster.",
+    "categorySuggestion": null,
+    "nameSuggestion": null,
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acfcb7dead997d09a5ff966",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-63da8de1-81e5-41f5-a734-0cbe3a106f44_PZH5hWIeK.webp?updatedAt=1792002941539",
+    "visualDescriptionUnverified": "The gold watch is a Casio.",
+    "categorySuggestion": null,
+    "nameSuggestion": null,
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acfcb7bead997d09a5ff0f0",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-01ac8d75-ee46-4aaa-8922-a16e63e419f7_W9_cNwG1v.webp?updatedAt=1792002939936",
+    "visualDescriptionUnverified": "GMT-Master II.",
+    "categorySuggestion": null,
+    "nameSuggestion": null,
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acfcb78ead997d09a5fe4bf",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-4fc63def-0e3f-4214-afba-f42ec393e7fd__0ddD6-M7.webp?updatedAt=1792002936903",
+    "visualDescriptionUnverified": "Rolex.",
+    "categorySuggestion": null,
+    "nameSuggestion": null,
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acfcb78ead997d09a5fdeed",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-6b2016a4-0c0c-4001-b5f5-16065d0ec938_A475Gum4l.webp?updatedAt=1792002936420",
+    "visualDescriptionUnverified": "A gold Rolex watch with black gloves.",
+    "categorySuggestion": null,
+    "nameSuggestion": null,
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acfcb77ead997d09a5fd33d",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-81d2e760-1751-4159-9276-9421680dd963_RiWMAe4Uj6.webp?updatedAt=1792002935833",
+    "visualDescriptionUnverified": "The rolex is displayed in a white box.",
+    "categorySuggestion": null,
+    "nameSuggestion": null,
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acfcb77ead997d09a5fd2c7",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-4b28ea93-ac37-485c-b055-ac77c69b91f2_qOwX7NSMF.webp?updatedAt=1792002935788",
+    "visualDescriptionUnverified": "Rolex.",
+    "categorySuggestion": null,
+    "nameSuggestion": null,
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acfcb75ead997d09a5fc8a9",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-409c97e0-1d59-417b-abd5-4d09f090eb60_TCLLLXQKa.webp?updatedAt=1792002933372",
+    "visualDescriptionUnverified": "Rolex.",
+    "categorySuggestion": null,
+    "nameSuggestion": null,
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acfcb72ead997d09a5fc35b",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-8b9acde3-ddb5-4ec8-aaa4-a3fd9c1ee6bd_1JxVSXpOL.webp?updatedAt=1792002931458",
+    "visualDescriptionUnverified": "The brand or exact model is Rolex.",
+    "categorySuggestion": null,
+    "nameSuggestion": null,
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acfcb72ead997d09a5fc20c",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-968b3cdb-ba3b-4f35-a5e4-680c91d7d3f3_5ss91XArj.webp?updatedAt=1792002930889",
+    "visualDescriptionUnverified": "The product is a ROLEX OFFICIAL PERSONAL DATE.",
+    "categorySuggestion": null,
+    "nameSuggestion": null,
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acfcb6fead997d09a5fb270",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-6da51570-b345-41c7-aadd-d998749b1828_Hudf5Zoif.webp?updatedAt=1792002928190",
+    "visualDescriptionUnverified": "The product is a watch. The watch is made of metal and has gold and silver accents. The watch is displayed in a metallic frame.",
+    "categorySuggestion": null,
+    "nameSuggestion": null,
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acfcb6fead997d09a5fb1cd",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-fb554400-c5f2-4065-a18c-f2b421ac00d4_yj-acppzv.webp?updatedAt=1792002927899",
+    "visualDescriptionUnverified": "The main fashion product in this image is a sneaker.",
+    "categorySuggestion": "Tenis",
+    "nameSuggestion": "Tenis",
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acfcb6eead997d09a5faeb1",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-d8a76add-6219-4492-9e36-ea781230a8ed_J7qB_IP1g.webp?updatedAt=1792002926656",
+    "visualDescriptionUnverified": "The product in the image is a Rolex watch.",
+    "categorySuggestion": null,
+    "nameSuggestion": null,
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acfcb6eead997d09a5fadde",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-bf6c64ac-b5ad-4762-9ab0-2787f460dd58_tszw6_wmO.webp?updatedAt=1792002926388",
+    "visualDescriptionUnverified": "The Rolex is the fashion product in this image.",
+    "categorySuggestion": null,
+    "nameSuggestion": null,
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acfcb6aead997d09a5fa4fa",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-943e003b-b58a-4a7d-a194-ab2dc3799734_MKVmZ_36_.webp?updatedAt=1792002923049",
+    "visualDescriptionUnverified": "The brand or exact model is not identifiable from the image.",
+    "categorySuggestion": null,
+    "nameSuggestion": null,
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acfcb67ead997d09a5f9e10",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-90ce0fb8-b9a8-40a6-9e91-8545394645a6_Tkb8P3Ux2.webp?updatedAt=1792002920056",
+    "visualDescriptionUnverified": "The brand or model is the Rolex Oyster Perpetual Dinner Dish.",
+    "categorySuggestion": null,
+    "nameSuggestion": null,
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acfcb66ead997d09a5f9928",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-ff99f535-0ac7-414b-977a-a471ea2300f6_fn811BvQi.webp?updatedAt=1792002918250",
+    "visualDescriptionUnverified": "The product is a Rolex watch.",
+    "categorySuggestion": null,
+    "nameSuggestion": null,
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acfcb65ead997d09a5f96c3",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-6cb565e2-fe13-49f5-a086-4fab77aeaefc_n3vsoOY4A.webp?updatedAt=1792002917432",
+    "visualDescriptionUnverified": "The product is a Rolex watch.",
+    "categorySuggestion": null,
+    "nameSuggestion": null,
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acfcb64ead997d09a5f9672",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-a8147975-6474-40af-856e-7628e4168c56_4EGaxKbW0d.webp?updatedAt=1792002917177",
+    "visualDescriptionUnverified": "The product is a Sneaker.",
+    "categorySuggestion": "Tenis",
+    "nameSuggestion": "Tenis",
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acfcb62ead997d09a5f8ec0",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-acf097d2-b452-4732-a974-17cb4397398a_JjENr3Rsm.webp?updatedAt=1792002914236",
+    "visualDescriptionUnverified": "The watch is a Rolex.",
     "categorySuggestion": null,
     "nameSuggestion": null,
     "colorsSuggestion": [],
