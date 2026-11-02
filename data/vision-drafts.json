@@ -12548,7 +12548,7 @@
     "verified": false,
     "source": "smolvlm_open_cpu",
     "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
-    "attempts": 1
+    "attempts": 2
   },
   {
     "fileId": "6acfcb83ead997d09a601134",
@@ -12561,7 +12561,7 @@
     "verified": false,
     "source": "smolvlm_open_cpu",
     "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
-    "attempts": 1
+    "attempts": 2
   },
   {
     "fileId": "6acfcb81ead997d09a600998",
@@ -12574,12 +12574,12 @@
     "verified": false,
     "source": "smolvlm_open_cpu",
     "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
-    "attempts": 1
+    "attempts": 2
   },
   {
     "fileId": "6acfcb81ead997d09a600821",
     "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-282eb445-af49-4809-a9dc-6fa855347645_3S4s-CLi7.webp?updatedAt=1792002945839",
-    "visualDescriptionUnverified": "Gold Rolex watch.",
+    "visualDescriptionUnverified": "The gold watch is a Rolex.",
     "categorySuggestion": null,
     "nameSuggestion": null,
     "colorsSuggestion": [],
@@ -12587,7 +12587,7 @@
     "verified": false,
     "source": "smolvlm_open_cpu",
     "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
-    "attempts": 1
+    "attempts": 2
   },
   {
     "fileId": "6acfcb7fead997d09a5fff56",
@@ -12600,7 +12600,7 @@
     "verified": false,
     "source": "smolvlm_open_cpu",
     "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
-    "attempts": 1
+    "attempts": 2
   },
   {
     "fileId": "6acfcb7dead997d09a5ff966",
@@ -12613,7 +12613,7 @@
     "verified": false,
     "source": "smolvlm_open_cpu",
     "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
-    "attempts": 1
+    "attempts": 2
   },
   {
     "fileId": "6acfcb7bead997d09a5ff0f0",
@@ -12626,7 +12626,7 @@
     "verified": false,
     "source": "smolvlm_open_cpu",
     "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
-    "attempts": 1
+    "attempts": 2
   },
   {
     "fileId": "6acfcb78ead997d09a5fe4bf",
@@ -12639,7 +12639,7 @@
     "verified": false,
     "source": "smolvlm_open_cpu",
     "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
-    "attempts": 1
+    "attempts": 2
   },
   {
     "fileId": "6acfcb78ead997d09a5fdeed",
@@ -12652,7 +12652,7 @@
     "verified": false,
     "source": "smolvlm_open_cpu",
     "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
-    "attempts": 1
+    "attempts": 2
   },
   {
     "fileId": "6acfcb77ead997d09a5fd33d",
@@ -12665,7 +12665,7 @@
     "verified": false,
     "source": "smolvlm_open_cpu",
     "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
-    "attempts": 1
+    "attempts": 2
   },
   {
     "fileId": "6acfcb77ead997d09a5fd2c7",
@@ -12678,7 +12678,7 @@
     "verified": false,
     "source": "smolvlm_open_cpu",
     "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
-    "attempts": 1
+    "attempts": 2
   },
   {
     "fileId": "6acfcb75ead997d09a5fc8a9",
@@ -12691,12 +12691,12 @@
     "verified": false,
     "source": "smolvlm_open_cpu",
     "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
-    "attempts": 1
+    "attempts": 2
   },
   {
     "fileId": "6acfcb72ead997d09a5fc35b",
     "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-8b9acde3-ddb5-4ec8-aaa4-a3fd9c1ee6bd_1JxVSXpOL.webp?updatedAt=1792002931458",
-    "visualDescriptionUnverified": "The brand or exact model is Rolex.",
+    "visualDescriptionUnverified": "The watch in the rolex box is a chronograph watch.",
     "categorySuggestion": null,
     "nameSuggestion": null,
     "colorsSuggestion": [],
@@ -12704,7 +12704,7 @@
     "verified": false,
     "source": "smolvlm_open_cpu",
     "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
-    "attempts": 1
+    "attempts": 2
   },
   {
     "fileId": "6acfcb72ead997d09a5fc20c",
@@ -12717,12 +12717,12 @@
     "verified": false,
     "source": "smolvlm_open_cpu",
     "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
-    "attempts": 1
+    "attempts": 2
   },
   {
     "fileId": "6acfcb6fead997d09a5fb270",
     "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-6da51570-b345-41c7-aadd-d998749b1828_Hudf5Zoif.webp?updatedAt=1792002928190",
-    "visualDescriptionUnverified": "The product is a watch. The watch is made of metal and has gold and silver accents. The watch is displayed in a metallic frame.",
+    "visualDescriptionUnverified": "The product is a watch. The watch is made of metal and has gold and silver accents. The watch is displayed in a metallic frame that has a green screen on the back.",
     "categorySuggestion": null,
     "nameSuggestion": null,
     "colorsSuggestion": [],
@@ -12730,7 +12730,7 @@
     "verified": false,
     "source": "smolvlm_open_cpu",
     "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
-    "attempts": 1
+    "attempts": 2
   },
   {
     "fileId": "6acfcb6fead997d09a5fb1cd",
@@ -12756,7 +12756,7 @@
     "verified": false,
     "source": "smolvlm_open_cpu",
     "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
-    "attempts": 1
+    "attempts": 2
   },
   {
     "fileId": "6acfcb6eead997d09a5fadde",
@@ -12769,12 +12769,12 @@
     "verified": false,
     "source": "smolvlm_open_cpu",
     "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
-    "attempts": 1
+    "attempts": 2
   },
   {
     "fileId": "6acfcb6aead997d09a5fa4fa",
     "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-943e003b-b58a-4a7d-a194-ab2dc3799734_MKVmZ_36_.webp?updatedAt=1792002923049",
-    "visualDescriptionUnverified": "The brand or exact model is not identifiable from the image.",
+    "visualDescriptionUnverified": "The brand or exact model is not specified in the image.",
     "categorySuggestion": null,
     "nameSuggestion": null,
     "colorsSuggestion": [],
@@ -12782,7 +12782,7 @@
     "verified": false,
     "source": "smolvlm_open_cpu",
     "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
-    "attempts": 1
+    "attempts": 2
   },
   {
     "fileId": "6acfcb67ead997d09a5f9e10",
@@ -12795,7 +12795,7 @@
     "verified": false,
     "source": "smolvlm_open_cpu",
     "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
-    "attempts": 1
+    "attempts": 2
   },
   {
     "fileId": "6acfcb66ead997d09a5f9928",
@@ -12808,7 +12808,7 @@
     "verified": false,
     "source": "smolvlm_open_cpu",
     "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
-    "attempts": 1
+    "attempts": 2
   },
   {
     "fileId": "6acfcb65ead997d09a5f96c3",
@@ -12821,7 +12821,7 @@
     "verified": false,
     "source": "smolvlm_open_cpu",
     "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
-    "attempts": 1
+    "attempts": 2
   },
   {
     "fileId": "6acfcb64ead997d09a5f9672",
@@ -12842,6 +12842,245 @@
     "visualDescriptionUnverified": "The watch is a Rolex.",
     "categorySuggestion": null,
     "nameSuggestion": null,
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 2
+  },
+  {
+    "fileId": "6acfcb60ead997d09a5f8249",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-1c75b7a7-5155-4077-91a7-dade11cd6221_83O-KKewe.webp?updatedAt=1792002912836",
+    "visualDescriptionUnverified": "The watch in the image is a Rolex.",
+    "categorySuggestion": null,
+    "nameSuggestion": null,
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acfcb60ead997d09a5f813a",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-eaa3910d-44ef-45c0-9094-96b11a1c5bc7_adwI-ON4h.webp?updatedAt=1792002912275",
+    "visualDescriptionUnverified": "The brand or exact model is not clear.",
+    "categorySuggestion": null,
+    "nameSuggestion": null,
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acfcb5eead997d09a5f7dda",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-99aa1496-1ce4-4299-a0cc-162ede8a3e3c_K9k-0dn_P.webp?updatedAt=1792002910956",
+    "visualDescriptionUnverified": "The product is a Rolex watch.",
+    "categorySuggestion": null,
+    "nameSuggestion": null,
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acfcb5eead997d09a5f7c1c",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-d8cb9c7e-3485-499f-97fe-c47ddba38ac6_FPJRBFPT2t.webp?updatedAt=1792002910388",
+    "visualDescriptionUnverified": "The product is a Rolex watch.",
+    "categorySuggestion": null,
+    "nameSuggestion": null,
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acfcb5bead997d09a5f73b6",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-cd2e4fe1-deeb-48d6-80e2-1154fb925ea4_ifoUvCuFMt.webp?updatedAt=1792002907279",
+    "visualDescriptionUnverified": "The full set Rolex is the sneaker.",
+    "categorySuggestion": "Tenis",
+    "nameSuggestion": "Tenis",
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acfcb58ead997d09a5f6bbf",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-984c5882-bf57-4c88-a90e-26a10c9f18ce_iSAH6XBRQ.webp?updatedAt=1792002904958",
+    "visualDescriptionUnverified": "The shoe is a Balenciaga sneaker.",
+    "categorySuggestion": "Tenis",
+    "nameSuggestion": "Tenis",
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acfcb56ead997d09a5f5fa1",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-ac7679c2-0ea0-43ee-9d90-a2406019fcd7_tjIYf7jX_.webp?updatedAt=1792002902931",
+    "visualDescriptionUnverified": "The main fashion product in this image is a Balenciaga sneaker.",
+    "categorySuggestion": "Tenis",
+    "nameSuggestion": "Tenis",
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acfcb4fead997d09a5f3e03",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-3bcb889c-c724-4e08-a679-a6dd7d0e88dc_8v8qQKccI.webp?updatedAt=1792002895660",
+    "visualDescriptionUnverified": "The shoe is a Balenciaga sneaker.",
+    "categorySuggestion": "Tenis",
+    "nameSuggestion": "Tenis",
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acfcb4bead997d09a5f34a2",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-df45e560-24a6-490d-86d5-38d2e399ebb2_G2NmYWiwP.webp?updatedAt=1792002891612",
+    "visualDescriptionUnverified": "The Balenciaga sock is a popular footwear item.",
+    "categorySuggestion": null,
+    "nameSuggestion": null,
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acfcb41ead997d09a5f174e",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-dc2c292c-d0b2-4f63-b411-3ad66da2e1da_nqAbCD1oK.webp?updatedAt=1792002881610",
+    "visualDescriptionUnverified": "The main fashion product in this image is a pair of Balenciaga shoes.",
+    "categorySuggestion": null,
+    "nameSuggestion": null,
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acfcb40ead997d09a5f0cfc",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-3c222b89-0465-4f6b-a1db-604ee4f8ad90_tAMMXlSLk.webp?updatedAt=1792002880457",
+    "visualDescriptionUnverified": "The sneaker shown is a bright pink and black sneaker with a lace-up design.",
+    "categorySuggestion": "Tenis",
+    "nameSuggestion": "Tenis negros",
+    "colorsSuggestion": [
+      "negro",
+      "rosa"
+    ],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acfcb40ead997d09a5f0c6f",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-f1362269-aa90-4c6c-9607-8d47224bfa4e_Wwkiv1T80i.webp?updatedAt=1792002880324",
+    "visualDescriptionUnverified": "The product in the image is a pair of shoes by Terre X.",
+    "categorySuggestion": null,
+    "nameSuggestion": null,
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acfcb40ead997d09a5f0c49",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-ba5e7097-c69d-46a3-82e0-eb71f95b0acf_fRQKcS9P2.webp?updatedAt=1792002880212",
+    "visualDescriptionUnverified": "The main fashion product in this image is a casual, foot-length shoe with a flat sole and a high-heeled design.",
+    "categorySuggestion": "Calzado",
+    "nameSuggestion": "Calzado",
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acfcb3dead997d09a5f047b",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-675bb652-8ce9-4af6-a60a-788a2cdd11ec_q1bPwUnNX.webp?updatedAt=1792002877687",
+    "visualDescriptionUnverified": "The product in this image is a pair of black and orange high-top sneakers.",
+    "categorySuggestion": "Tenis",
+    "nameSuggestion": "Tenis negros",
+    "colorsSuggestion": [
+      "negro"
+    ],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acfcb3dead997d09a5f03a9",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-acaa41fb-5216-47c7-9c1f-2512b6fe5553_kQ3doVlUy.webp?updatedAt=1792002877526",
+    "visualDescriptionUnverified": "The main fashion product in this image is a pair of \"Nike Air\" sneakers.",
+    "categorySuggestion": "Tenis",
+    "nameSuggestion": "Tenis",
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acfcb3bead997d09a5efd62",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-034bfbb1-bf82-48c1-bed9-ea368ce02911_keJraH7gA.webp?updatedAt=1792002875464",
+    "visualDescriptionUnverified": "The shoe shown in the image is a Nike sneaker.",
+    "categorySuggestion": "Tenis",
+    "nameSuggestion": "Tenis",
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acfcb3aead997d09a5efa71",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-8e3020ed-2b93-4a84-848a-dbdb90e543a6_G4o8o8v74.webp?updatedAt=1792002874610",
+    "visualDescriptionUnverified": "The main fashion product in this image is a pair of \"Air Jordan\" sneakers.",
+    "categorySuggestion": "Tenis",
+    "nameSuggestion": "Tenis",
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acfcb3aead997d09a5efa08",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-5fd42388-2153-47ad-9c91-fe6617af8f89_7BQUE3SNa.webp?updatedAt=1792002874484",
+    "visualDescriptionUnverified": "The product is a blue and white high-top sneaker with a white sole and red and black accents.",
+    "categorySuggestion": "Tenis",
+    "nameSuggestion": "Tenis",
     "colorsSuggestion": [],
     "status": "requires_review",
     "verified": false,
