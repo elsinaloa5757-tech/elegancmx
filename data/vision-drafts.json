@@ -12015,7 +12015,7 @@
     "verified": false,
     "source": "smolvlm_open_cpu",
     "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
-    "attempts": 1
+    "attempts": 2
   },
   {
     "fileId": "6acfcbd1ead997d09a611fbe",
@@ -12028,7 +12028,7 @@
     "verified": false,
     "source": "smolvlm_open_cpu",
     "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
-    "attempts": 1
+    "attempts": 2
   },
   {
     "fileId": "6acfcbd0ead997d09a611e16",
@@ -12041,7 +12041,7 @@
     "verified": false,
     "source": "smolvlm_open_cpu",
     "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
-    "attempts": 1
+    "attempts": 2
   },
   {
     "fileId": "6acfcbd0ead997d09a611cdc",
@@ -12054,7 +12054,7 @@
     "verified": false,
     "source": "smolvlm_open_cpu",
     "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
-    "attempts": 1
+    "attempts": 2
   },
   {
     "fileId": "6acfcbccead997d09a61140b",
@@ -12067,7 +12067,7 @@
     "verified": false,
     "source": "smolvlm_open_cpu",
     "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
-    "attempts": 1
+    "attempts": 2
   },
   {
     "fileId": "6acfcbc5ead997d09a6103ff",
@@ -12080,7 +12080,7 @@
     "verified": false,
     "source": "smolvlm_open_cpu",
     "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
-    "attempts": 1
+    "attempts": 2
   },
   {
     "fileId": "6acfcbc4ead997d09a61007b",
@@ -12093,7 +12093,7 @@
     "verified": false,
     "source": "smolvlm_open_cpu",
     "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
-    "attempts": 1
+    "attempts": 2
   },
   {
     "fileId": "6acfcbc4ead997d09a610052",
@@ -12106,7 +12106,7 @@
     "verified": false,
     "source": "smolvlm_open_cpu",
     "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
-    "attempts": 1
+    "attempts": 2
   },
   {
     "fileId": "6acfcbc1ead997d09a60efa6",
@@ -12119,7 +12119,7 @@
     "verified": false,
     "source": "smolvlm_open_cpu",
     "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
-    "attempts": 1
+    "attempts": 2
   },
   {
     "fileId": "6acfcbbaead997d09a60d6c6",
@@ -12132,7 +12132,7 @@
     "verified": false,
     "source": "smolvlm_open_cpu",
     "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
-    "attempts": 1
+    "attempts": 2
   },
   {
     "fileId": "6acfcbb8ead997d09a60d25c",
@@ -12145,7 +12145,7 @@
     "verified": false,
     "source": "smolvlm_open_cpu",
     "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
-    "attempts": 1
+    "attempts": 2
   },
   {
     "fileId": "6acfcbb7ead997d09a60cdcd",
@@ -12158,7 +12158,7 @@
     "verified": false,
     "source": "smolvlm_open_cpu",
     "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
-    "attempts": 1
+    "attempts": 2
   },
   {
     "fileId": "6acfcbb7ead997d09a60cda2",
@@ -12184,7 +12184,7 @@
     "verified": false,
     "source": "smolvlm_open_cpu",
     "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
-    "attempts": 1
+    "attempts": 2
   },
   {
     "fileId": "6acfcbabead997d09a609b54",
@@ -12197,7 +12197,7 @@
     "verified": false,
     "source": "smolvlm_open_cpu",
     "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
-    "attempts": 1
+    "attempts": 2
   },
   {
     "fileId": "6acfcbaaead997d09a60979f",
@@ -12210,7 +12210,7 @@
     "verified": false,
     "source": "smolvlm_open_cpu",
     "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
-    "attempts": 1
+    "attempts": 2
   },
   {
     "fileId": "6acfcbaaead997d09a6096a6",
@@ -12223,7 +12223,7 @@
     "verified": false,
     "source": "smolvlm_open_cpu",
     "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
-    "attempts": 1
+    "attempts": 2
   },
   {
     "fileId": "6acfcba9ead997d09a60953d",
@@ -12236,7 +12236,7 @@
     "verified": false,
     "source": "smolvlm_open_cpu",
     "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
-    "attempts": 1
+    "attempts": 2
   },
   {
     "fileId": "6acfcba8ead997d09a6091fa",
@@ -12249,7 +12249,7 @@
     "verified": false,
     "source": "smolvlm_open_cpu",
     "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
-    "attempts": 1
+    "attempts": 2
   },
   {
     "fileId": "6acfcba2ead997d09a608147",
@@ -12262,7 +12262,7 @@
     "verified": false,
     "source": "smolvlm_open_cpu",
     "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
-    "attempts": 1
+    "attempts": 2
   },
   {
     "fileId": "6acfcba1ead997d09a6078fc",
@@ -12275,7 +12275,7 @@
     "verified": false,
     "source": "smolvlm_open_cpu",
     "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
-    "attempts": 1
+    "attempts": 2
   },
   {
     "fileId": "6acfcba1ead997d09a6074b8",
@@ -12288,7 +12288,7 @@
     "verified": false,
     "source": "smolvlm_open_cpu",
     "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
-    "attempts": 1
+    "attempts": 2
   },
   {
     "fileId": "6acfcba1ead997d09a60749a",
@@ -12301,11 +12301,232 @@
     "verified": false,
     "source": "smolvlm_open_cpu",
     "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
-    "attempts": 1
+    "attempts": 2
   },
   {
     "fileId": "6acfcb9dead997d09a606339",
     "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-7a433551-0a5c-4622-853c-eca604940d51_Mk2ySJ6vM.webp?updatedAt=1792002974129",
+    "visualDescriptionUnverified": "The product is a Rolex watch.",
+    "categorySuggestion": null,
+    "nameSuggestion": null,
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 2
+  },
+  {
+    "fileId": "6acfcb9bead997d09a605cab",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-ec528216-6dc9-4fc5-90ae-9266c027530a_NC1FYFsnu.webp?updatedAt=1792002971790",
+    "visualDescriptionUnverified": "The product in the image is a Rolex watch.",
+    "categorySuggestion": null,
+    "nameSuggestion": null,
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acfcb99ead997d09a605615",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-967e7d10-c488-4412-9480-85949d84a4a5_JdvSXnyrj.webp?updatedAt=1792002969697",
+    "visualDescriptionUnverified": "Rolex.",
+    "categorySuggestion": null,
+    "nameSuggestion": null,
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acfcb97ead997d09a605178",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-930223a1-e845-49d7-b93e-364d43ffc163_jRez5LT6L.webp?updatedAt=1792002968378",
+    "visualDescriptionUnverified": "The product in the image is a pair of sneakers.",
+    "categorySuggestion": "Tenis",
+    "nameSuggestion": "Tenis",
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acfcb96ead997d09a604e59",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-f9e00e9d-9713-46e9-9b73-f47ada4d1424_UOq0fM0qc.webp?updatedAt=1792002966973",
+    "visualDescriptionUnverified": "Rolex Oyster Perpetual Date.",
+    "categorySuggestion": null,
+    "nameSuggestion": null,
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acfcb95ead997d09a6049c3",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-647939fe-7245-4c28-a7fa-b9c239736ca0_sfGpsSm0r.webp?updatedAt=1792002965676",
+    "visualDescriptionUnverified": "The product is a Rolex watch.",
+    "categorySuggestion": null,
+    "nameSuggestion": null,
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acfcb93ead997d09a6045fe",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-5386801d-e9c0-4fca-95f2-d5482482141b_SQ6eQr1Vn.webp?updatedAt=1792002964208",
+    "visualDescriptionUnverified": "A Rolex Oyster Perpetual Day-Date watch.",
+    "categorySuggestion": null,
+    "nameSuggestion": null,
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acfcb92ead997d09a604192",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-aebbf10a-e9a3-422f-a4c9-f4616aac39b4_yu42fSsQI.webp?updatedAt=1792002962563",
+    "visualDescriptionUnverified": "The product in the image is a Rolex Oyster Perpetual Day-Date Oyster Watch.",
+    "categorySuggestion": null,
+    "nameSuggestion": null,
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acfcb8fead997d09a60324e",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-95e4c32b-9f19-4123-9bd7-4a2ee6e3b2a6_eaxH1uLZS.webp?updatedAt=1792002960128",
+    "visualDescriptionUnverified": "The product is a Rolex watch.",
+    "categorySuggestion": null,
+    "nameSuggestion": null,
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acfcb8dead997d09a602bdf",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-f4adb434-ca06-4d76-a4a9-aee87330fbce_JAd4bMk48.webp?updatedAt=1792002957795",
+    "visualDescriptionUnverified": "The product is a Rolex watch.",
+    "categorySuggestion": null,
+    "nameSuggestion": null,
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acfcb8cead997d09a602754",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-f1082052-a17e-457e-aed5-a7082600f82c_F14RsSqBE.webp?updatedAt=1792002956511",
+    "visualDescriptionUnverified": "The product is a Rolex watch.",
+    "categorySuggestion": null,
+    "nameSuggestion": null,
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acfcb8aead997d09a602291",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-2cf67d0b-9c98-4e3a-bb33-dc70fdd31f3e_5bgvhrPTj.webp?updatedAt=1792002955081",
+    "visualDescriptionUnverified": "The product is a Rolex watch.",
+    "categorySuggestion": null,
+    "nameSuggestion": null,
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acfcb8aead997d09a6021cc",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-5c95e2ca-11e0-43f3-8d20-bd43267c6366_x8zS8TAbh.webp?updatedAt=1792002954659",
+    "visualDescriptionUnverified": "The product is a Rolex Oyster.",
+    "categorySuggestion": null,
+    "nameSuggestion": null,
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acfcb89ead997d09a602036",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-2bee4ed3-f4e4-44a7-a7a2-0cdfada2c856_hLfDSmLC9.webp?updatedAt=1792002954138",
+    "visualDescriptionUnverified": "In this image, there is a gold Rolex watch.",
+    "categorySuggestion": null,
+    "nameSuggestion": null,
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acfcb89ead997d09a601fda",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-8a15742c-6efa-4b54-9047-57b86575aec2_XEUHtcmVk.webp?updatedAt=1792002953851",
+    "visualDescriptionUnverified": "The product is a watch.",
+    "categorySuggestion": null,
+    "nameSuggestion": null,
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acfcb88ead997d09a601c83",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-b83f2ef5-ef95-463e-93e1-02315387014f_p_73-GP0n.webp?updatedAt=1792002952372",
+    "visualDescriptionUnverified": "The product is a 2013 Rolex Oyster Day Date.",
+    "categorySuggestion": null,
+    "nameSuggestion": null,
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acfcb86ead997d09a6018bb",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-834a22c8-c322-43ba-82b3-0a098d4c6930_SToUtyJYh.webp?updatedAt=1792002950608",
+    "visualDescriptionUnverified": "The product is a Rolex watch.",
+    "categorySuggestion": null,
+    "nameSuggestion": null,
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acfcb86ead997d09a60180e",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-3ea35b42-c974-4dd3-acd8-04781bf17007__ACJm8cbo.webp?updatedAt=1792002950293",
     "visualDescriptionUnverified": "The product is a Rolex watch.",
     "categorySuggestion": null,
     "nameSuggestion": null,
