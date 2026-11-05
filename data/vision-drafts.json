@@ -14166,7 +14166,7 @@
     "verified": false,
     "source": "smolvlm_open_cpu",
     "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
-    "attempts": 1
+    "attempts": 2
   },
   {
     "fileId": "6acebd64ead997d09a6089f0",
@@ -14296,7 +14296,7 @@
     "verified": false,
     "source": "smolvlm_open_cpu",
     "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
-    "attempts": 1
+    "attempts": 2
   },
   {
     "fileId": "6acebd5fead997d09a607661",
@@ -14429,7 +14429,7 @@
   {
     "fileId": "6acebd5cead997d09a606f70",
     "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-67393e44-6fcb-4d28-95dc-9d9038468a45_7F0AM7QC6.webp?updatedAt=1791933788328",
-    "visualDescriptionUnverified": "The product in the image is a TOM FORD SHOE.",
+    "visualDescriptionUnverified": "The product in the image is a TOM FORD SHOES.",
     "categorySuggestion": null,
     "nameSuggestion": null,
     "colorsSuggestion": [],
@@ -14437,7 +14437,7 @@
     "verified": false,
     "source": "smolvlm_open_cpu",
     "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
-    "attempts": 1
+    "attempts": 2
   },
   {
     "fileId": "6acebd5cead997d09a606f49",
@@ -14462,6 +14462,515 @@
       "plateado",
       "negro"
     ],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acebd5bead997d09a606e12",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-7212c1fb-ca3a-4001-9bbb-6eb9f15a8a3c_fYVnY9rzcZ.webp?updatedAt=1791933787777",
+    "visualDescriptionUnverified": "The product in the image is a pair of Fendi sneakers.",
+    "categorySuggestion": "Tenis",
+    "nameSuggestion": "Tenis",
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acebd5bead997d09a606d3b",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-1b4d5a6c-171a-426d-9bd1-0b1b116990a9_egTFSqXKw.webp?updatedAt=1791933787284",
+    "visualDescriptionUnverified": "The product is a pair of sunglasses.",
+    "categorySuggestion": "Lentes",
+    "nameSuggestion": "Lentes",
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acebd5aead997d09a606cf0",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-b525ffbe-70f1-458e-ba99-fbefbabfb61f_k9mYoEOcP.webp?updatedAt=1791933787171",
+    "visualDescriptionUnverified": "The main fashion product in this image is a pair of Fendi sunglasses.",
+    "categorySuggestion": "Lentes",
+    "nameSuggestion": "Lentes",
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acebd5aead997d09a606c13",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-b8a7a903-2101-4f88-b84b-dd7d23e59ffe_PamcA9rDn.webp?updatedAt=1791933786655",
+    "visualDescriptionUnverified": "The main fashion product in this image is a pair of black sunglasses.",
+    "categorySuggestion": "Lentes",
+    "nameSuggestion": "Lentes negros",
+    "colorsSuggestion": [
+      "negro"
+    ],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acebd5aead997d09a606bd1",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-bfe84e72-59f4-4221-aa24-dd6d9ad898f2_bZyFSqR9B.webp?updatedAt=1791933786515",
+    "visualDescriptionUnverified": "The product in the image is sunglasses. The visible colors are black, red, and purple. The brand or model is Ray-Ban.",
+    "categorySuggestion": "Lentes",
+    "nameSuggestion": "Lentes",
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acebd59ead997d09a606a6d",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-aca7db41-fe71-417b-b59e-980cda7a10e6_OACcWmcWIa.webp?updatedAt=1791933786026",
+    "visualDescriptionUnverified": "The product in the image is a pair of Fendi sunglasses.",
+    "categorySuggestion": "Lentes",
+    "nameSuggestion": "Lentes",
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acebd59ead997d09a606945",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-53558076-4d08-4f4f-bbb4-911736bbba40_jXTYjeDod.webp?updatedAt=1791933785849",
+    "visualDescriptionUnverified": "The main fashion product in this image is a pair of black Prada sunglasses.",
+    "categorySuggestion": "Lentes",
+    "nameSuggestion": "Lentes negros",
+    "colorsSuggestion": [
+      "negro"
+    ],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acebd59ead997d09a606946",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-10a53505-a5bc-4d95-8489-ed281c809d7a_wfVY836IR.webp?updatedAt=1791933785613",
+    "visualDescriptionUnverified": "The main fashion product in this image is a Gucci sneaker.",
+    "categorySuggestion": "Tenis",
+    "nameSuggestion": "Tenis",
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acebd58ead997d09a606879",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-723a1045-10d9-4865-bb1e-05cf62beb049_V6CNuQvnWK.webp?updatedAt=1791933785102",
+    "visualDescriptionUnverified": "The product is a VENETA SHOE.",
+    "categorySuggestion": null,
+    "nameSuggestion": null,
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acebd58ead997d09a606809",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-82ca8ad1-ae1f-49ec-b68f-e13c5731ac70_sEVpOg_fj.webp?updatedAt=1791933784851",
+    "visualDescriptionUnverified": "The main fashion product in this image is a black Rayban sunglasses.",
+    "categorySuggestion": "Lentes",
+    "nameSuggestion": "Lentes negros",
+    "colorsSuggestion": [
+      "negro"
+    ],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acebd58ead997d09a6066c0",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-fa13935b-a25e-413a-84f6-497af706b682_hFYk4iZp8.webp?updatedAt=1791933784383",
+    "visualDescriptionUnverified": "The main fashion product in this image is a pair of Glasses.",
+    "categorySuggestion": "Lentes",
+    "nameSuggestion": "Lentes",
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acebd57ead997d09a6065db",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-63a0482b-8146-4d63-bb6b-96034eda31c2_1wlGZPZQM.webp?updatedAt=1791933783984",
+    "visualDescriptionUnverified": "The product in the image is a Tom Ford sneaker.",
+    "categorySuggestion": "Tenis",
+    "nameSuggestion": "Tenis",
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acebd57ead997d09a60652d",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-cdf23872-5baa-45a1-a818-b92c68210b3e_FbynFoKFJ.webp?updatedAt=1791933783639",
+    "visualDescriptionUnverified": "The product in this image is a pair of black Rayban sunglasses.",
+    "categorySuggestion": "Lentes",
+    "nameSuggestion": "Lentes negros",
+    "colorsSuggestion": [
+      "negro"
+    ],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acebd57ead997d09a6064b1",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-f22cbc77-5de5-4296-9548-03ada7461ea2_EUX7zRWKp.webp?updatedAt=1791933783409",
+    "visualDescriptionUnverified": "The product is sunglasses.",
+    "categorySuggestion": "Lentes",
+    "nameSuggestion": "Lentes",
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acebd56ead997d09a606414",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-bcae6e8d-742b-4b0d-bd85-b053b37b2abb_fTm4Ruoc3M.webp?updatedAt=1791933783117",
+    "visualDescriptionUnverified": "The main fashion product in this image is a pair of black sunglasses.",
+    "categorySuggestion": "Lentes",
+    "nameSuggestion": "Lentes negros",
+    "colorsSuggestion": [
+      "negro"
+    ],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acebd56ead997d09a606324",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-922e2b66-d11d-49ed-8d5c-d6897d761a3b_36MTssdbf.webp?updatedAt=1791933782692",
+    "visualDescriptionUnverified": "The main fashion product in this image is a pair of GUCCI sunglasses.",
+    "categorySuggestion": "Lentes",
+    "nameSuggestion": "Lentes",
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acebd55ead997d09a6061ce",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-60742b58-7031-440a-bac2-1ea431474a05_vSwOvaoGLX.webp?updatedAt=1791933782118",
+    "visualDescriptionUnverified": "Bottega Veneita.",
+    "categorySuggestion": null,
+    "nameSuggestion": null,
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acebd55ead997d09a6061c8",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-7c49d9e9-e76e-414a-96d8-3e397055b6ae_19BHWctKt.webp?updatedAt=1791933782172",
+    "visualDescriptionUnverified": "The product in the image is a pair of goggles.",
+    "categorySuggestion": null,
+    "nameSuggestion": null,
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acebd55ead997d09a606181",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-2b026d60-2d56-4b06-98dd-77abdcee24f7_4klixxCjz.webp?updatedAt=1791933781955",
+    "visualDescriptionUnverified": "The product in the image is a sunglasses. Its visible colors are brown, orange, and black. The logo on the sunglasses is a tortoise, which is a traditional Italian design.",
+    "categorySuggestion": "Lentes",
+    "nameSuggestion": "Lentes negros",
+    "colorsSuggestion": [
+      "negro",
+      "marrón"
+    ],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acebd54ead997d09a605fbc",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-c8c9f48d-282b-4c61-8538-f62ef470c1e8_bJKlep_Vn.webp?updatedAt=1791933781089",
+    "visualDescriptionUnverified": "The main fashion product in this image is a pair of Dior sunglasses.",
+    "categorySuggestion": "Lentes",
+    "nameSuggestion": "Lentes",
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acebd54ead997d09a605ece",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-f49a4678-46bf-462a-b246-211743213250_KHeg_T7vJM.webp?updatedAt=1791933780712",
+    "visualDescriptionUnverified": "The main fashion product in this image is sunglasses. The visible colors are black, brown, and gold. The brand or exact model is Bottega Veneta.",
+    "categorySuggestion": "Lentes",
+    "nameSuggestion": "Lentes",
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acebd54ead997d09a605e6d",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-acbed15f-56ba-438f-8ff2-3844a9be051e_OKxogC7p4.webp?updatedAt=1791933780501",
+    "visualDescriptionUnverified": "The product in the image is a pair of sunglasses. The visible colors are brown and black. The brand or exact model is not specified.",
+    "categorySuggestion": "Lentes",
+    "nameSuggestion": "Lentes negros",
+    "colorsSuggestion": [
+      "negro",
+      "marrón"
+    ],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acebd53ead997d09a605d9f",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-71825e4d-67c4-4acc-9ea2-46c46fa3615b_K-uXBaMwj.webp?updatedAt=1791933780061",
+    "visualDescriptionUnverified": "The product is sunglasses.",
+    "categorySuggestion": "Lentes",
+    "nameSuggestion": "Lentes",
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acebd53ead997d09a605b16",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-b9dc4b5c-3486-4c23-a116-8a4e6ea7694c_v6A-1w353.webp?updatedAt=1791933779249",
+    "visualDescriptionUnverified": "The product in this image is a stylish sunglasses.",
+    "categorySuggestion": "Lentes",
+    "nameSuggestion": "Lentes",
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acebd52ead997d09a605acb",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-5d9d3628-9dbc-472c-96ff-7ffca3f2bcca_WqnPWr5_X.webp?updatedAt=1791933779186",
+    "visualDescriptionUnverified": "The main fashion product in this image is a pair of black Tiffany & Co sunglasses.",
+    "categorySuggestion": "Lentes",
+    "nameSuggestion": "Lentes negros",
+    "colorsSuggestion": [
+      "negro"
+    ],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acebd52ead997d09a605a3b",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-7b699301-8ec9-4ed7-85ae-8df68ea2e475_Ukne83_B-.webp?updatedAt=1791933779101",
+    "visualDescriptionUnverified": "The main fashion product in this image is a pair of sunglasses.",
+    "categorySuggestion": "Lentes",
+    "nameSuggestion": "Lentes",
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acebd52ead997d09a6055ff",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-d85e789b-269b-40b6-a197-ba878dff0462_btjYD16iE.webp?updatedAt=1791933778754",
+    "visualDescriptionUnverified": "The sneaker shown in the image is a Nike brand sneaker.",
+    "categorySuggestion": "Tenis",
+    "nameSuggestion": "Tenis",
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acebd51ead997d09a605125",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-9c442827-3f24-49d8-93fd-eb65bead7979_yXKdRxIDL.webp?updatedAt=1791933777966",
+    "visualDescriptionUnverified": "The product in this image is a pair of Nike shoes.",
+    "categorySuggestion": null,
+    "nameSuggestion": null,
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acebd51ead997d09a6050d7",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-ece1b228-408d-4961-b6f2-54942e381030_WNp6XAK1ET.webp?updatedAt=1791933777773",
+    "visualDescriptionUnverified": "The product in the image is a pair of Nike sneakers. The sneakers are black with a mesh upper part and a boost sole. The laces are black and the shoe has a black shoe laces. The shoe is on a white box.",
+    "categorySuggestion": "Tenis",
+    "nameSuggestion": "Tenis negros",
+    "colorsSuggestion": [
+      "negro",
+      "blanco"
+    ],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acebd51ead997d09a60504b",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-987b5f4f-83b4-4f3c-90e5-2ff1ca1a61c3_3XqvXAHLD.webp?updatedAt=1791933777533",
+    "visualDescriptionUnverified": "The shoe is a Nike brand sneaker.",
+    "categorySuggestion": "Tenis",
+    "nameSuggestion": "Tenis",
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acebd51ead997d09a60502f",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-618b2eb2-98f6-4105-aea6-509c64975dcb_qoUepNal5.webp?updatedAt=1791933777377",
+    "visualDescriptionUnverified": "The sneaker in the image is a Nike sneaker. The sneaker is bright red with orange and black accents.",
+    "categorySuggestion": "Tenis",
+    "nameSuggestion": "Tenis negros",
+    "colorsSuggestion": [
+      "negro",
+      "rojo"
+    ],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acebd50ead997d09a604ee0",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-75bd7efb-9e04-4059-bdda-ae970c3443da_1XHZxv-dM.webp?updatedAt=1791933776513",
+    "visualDescriptionUnverified": "The main fashion product in this image is a pair of Nike sneakers.",
+    "categorySuggestion": "Tenis",
+    "nameSuggestion": "Tenis",
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acebd4fead997d09a604ddb",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-e618c441-5107-486d-950a-07a61a20b00d_Tu5IQ8MQtH.webp?updatedAt=1791933776212",
+    "visualDescriptionUnverified": "The shoe is a light grey Nike sneaker.",
+    "categorySuggestion": "Tenis",
+    "nameSuggestion": "Tenis grises",
+    "colorsSuggestion": [
+      "gris"
+    ],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acebd4fead997d09a604d27",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-661e4a0b-9fef-401e-9bbc-3292bd320c31_9uwezyi8g0.webp?updatedAt=1791933775880",
+    "visualDescriptionUnverified": "The product in the image is a pair of black sneakers.",
+    "categorySuggestion": "Tenis",
+    "nameSuggestion": "Tenis negros",
+    "colorsSuggestion": [
+      "negro"
+    ],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acebd4eead997d09a604ae6",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-8d1554b0-1e66-43d1-8a11-9ee71c9d7073_AldABKnab.webp?updatedAt=1791933774711",
+    "visualDescriptionUnverified": "The product in the image is a sneaker.",
+    "categorySuggestion": "Tenis",
+    "nameSuggestion": "Tenis",
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acebd4dead997d09a604991",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-af5641c7-bb51-4113-bbc4-d60b0604c1b5_4LcrTeHvi.webp?updatedAt=1791933774216",
+    "visualDescriptionUnverified": "The product in the image is a yellow sneaker.",
+    "categorySuggestion": "Tenis",
+    "nameSuggestion": "Tenis",
+    "colorsSuggestion": [],
+    "status": "requires_review",
+    "verified": false,
+    "source": "smolvlm_open_cpu",
+    "model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+    "attempts": 1
+  },
+  {
+    "fileId": "6acebd4dead997d09a6048e1",
+    "imageUrl": "https://ik.imagekit.io/elegancemx/elegance/products/product-f2c6cffb-8c38-43f6-80cd-a9144d313563_gtUdxzqix.webp?updatedAt=1791933773851",
+    "visualDescriptionUnverified": "The main fashion product in this image is a pair of Sneakers.",
+    "categorySuggestion": "Tenis",
+    "nameSuggestion": "Tenis",
+    "colorsSuggestion": [],
     "status": "requires_review",
     "verified": false,
     "source": "smolvlm_open_cpu",
